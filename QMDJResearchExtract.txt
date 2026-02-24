@@ -1,0 +1,1609 @@
+至
+
+巳
+
+至
+
+巳
+
+气
+
+生
+
+一
+
+酉
+
+至
+
+酉
+
+子
+
+生
+
+一
+
+至
+
+fi
+
+生
+
+子
+
+己
+
+一
+
+至
+
+至
+
+己
+
+生
+
+门
+
+至
+
+一
+
+至
+
+己
+
+2) Yuan (上元/中元/下元) Determination
+Rule (verbatim): “甲 为符头，四仲— 、午、卯、 为上元，四孟—寅、申、 、亥
+为中元，四季— 、戌、丑、未为下元[3].” This means use days with Stem Jia or Ji
+as the start (Fu Tou) of each Yuan; if that Fu Tou day’s Earthly Branch is Zi, Wu,
+Mao, or You (the four “仲” branches), it marks the Upper Yuan; if it is Yin, Shen,
+Si, or Hai (four “孟” branches), it marks the Middle Yuan; if it is Chen, Xu, Chou, or
+Wei (four “季” branches), it marks the Lower Yuan[3][4].
+Decision logic (short): For a given date, nd the nearest previous day whose
+Heavenly Stem is Jia (甲) or Ji ( ) – this day is the Fu Tou (符头) start of a 5-day cycle
+(one “Yuan”). Determine that Fu Tou day’s Earthly Branch: if it belongs to Zi/ Wu/ Mao/
+You, then the current date lies in the Upper Yuan; if Yin/ Shen/ Si/ Hai, then Middle
+Yuan; if Chen/ Xu/ Chou/ Wei, then Lower Yuan[3][5]. (Each 15-day solar term is thus
+divided into three 5-day Yuan periods: upper, middle, lower.)
+Source quote: “…按照奇 遁甲中甲 为符头…遇 午卯 为上元，寅申 亥为中元，
+戌丑未为下元…[6]” (Translation: “…according to Qi Men Dun Jia, take Jia or Ji as
+the Fu Tou. When encountering Zi, Wu, Mao, or You it is Upper Yuan; Yin, Shen, Si,
+or Hai is Middle Yuan; Chen, Xu, Chou, or Wei is Lower Yuan…”)
+URL: [6]
+
+辰
+
+辰
+
+1) Yin/Yang Dun Boundary Rule
+Rule (verbatim): “冬
+阳 ，夏
+阴 ” (At the Winter Solstice, one Yang is born;
+at the Summer Solstice, one Yin is born.)[1]. In other words, from Winter Solstice up
+to (but not including) Summer Solstice, use Yang Dun; from Summer Solstice up
+to (but not including) the next Winter Solstice, use Yin Dun[1][2].
+Decision logic (short): Determine the current 24-Term node (节 ). If it falls in the halfyear from Winter Solstice through mid-year, select a Yang Dun chart; if it falls in the halfyear from Summer Solstice through year-end, select a Yin Dun chart[1][2]. This follows
+the classical maxim that “at Winter Solstice, yang energy begins to grow; at Summer
+Solstice, yin energy begins to grow.”
+Source quote: “关于阴遁局和阳遁局…冬
+阳 ，夏
+阴 ，就是冬 到夏 前这
+段时间全部起阳遁局，夏 到冬 前这段全部起阴遁局。[1]” (Translation: “Regarding
+Yin Dun and Yang Dun: ‘At Winter Solstice one Yang is born, at Summer Solstice one
+Yin is born,’ meaning from Winter Solstice up to before Summer Solstice all charts use
+Yang Dun, and from Summer Solstice up to before Winter Solstice all use Yin Dun.”)
+URL: [1]
+
+3) Zhi Run Intercalary Rule (置润 / 接 / 超神)
+Exact rule set (step-by-step, numbered):
+
+大
+
+气
+
+气
+
+fi
+
+fi
+
+fi
+
+1. Determine “Fu Tou” vs Solar Term: For each new solar term period, identify
+the rst day of the Upper Yuan (the Fu Tou day). If this Fu Tou day arrives
+before the actual solar term’s start time, it’s called “Chāo Shén” 超神
+(Transcending Spirit) – the cyclical start leads the term. If the Fu Tou day falls
+after the term has begun (i.e. the term starts but the appropriate Jia/Ji day hasn’t
+occurred yet), it’s called “Jiē Qì” 接 (Connecting Qi) – the cycle lags behind
+the term. If the Fu Tou coincides exactly with the term start day, it’s a “Zhèng
+Shòu” 正授 (Direct Alignment)[7][8].
+2. Chart assignment in Chāo Shén or Jiē Qì: In a Chāo Shén scenario, the new
+Dun’s chart is taken to start early (before the nominal Jieqi); in a Jiē Qì scenario,
+the previous term’s last Yuan extends until the Fu Tou day arrives. In practice,
+one continues using the prior chart until the Fu Tou day of the new term occurs[8]
+[9]. (For example, if a new term begins at 11:13 AM, any query at 11:10 AM still
+uses the previous term’s chart, switching over precisely at 11:13[10].)
+3. Intercalation (置润) trigger: Over the year, repeated Chāo Shén leads the Fu
+Tou day drifting earlier each term. When the Fu Tou leads the solar term by 9
+or more days, an intercalary adjustment (“Zhi Run”) is made[9]. This occurs
+only at two speci c terms: Mángzhòng (芒种) and Dàxuě ( 雪), the last
+terms before the Yang→Yin and Yin→Yang transitions (summer and winter
+solstices). At those terms, the entire Upper/Middle/Lower Yuan sequence is
+repeated (an “intercalary Ju”) to realign the cycle with the next solstice[9].
+4. Intercalation implementation: During intercalation, the outgoing term’s Lower
+Yuan is immediately followed by an extra set of Upper/Middle/Lower cycles
+(using the same Dun and Ju numbers again) before proceeding to the next
+term’s chart[9]. For example, “置润于芒种节” means after normal Mangzhong
+Lower Yuan (which might be Yang Dun 9局), one inserts another Mangzhong
+Upper/Middle/Lower (repeating 阳遁6、3、9局) before starting the Xiàzhì
+(Summer Solstice) Yin Dun charts[9].
+5. Edge-case handling: Intercalation is not applied at any other solar terms
+even if the lead exceeds nine days[11]. Likewise, if Fu Tou lags behind (Jiē Qì)
+signi cantly, no “negative” intercalation is done; the misalignment is resolved
+naturally at the next solstice transition when a Zhi Run (if needed) adjusts the
+schedule. The solar term boundary moment (交节时刻) is strictly observed –
+charts change at the exact calculated time of the Jieqi. If a query spans a term
+
+Edge-case: In rare cases where a solar term’s actual length isn’t exactly 15 days (due
+to astronomical variation), the above Fu Tou method inherently accounts for it by using
+the Jia/Ji day cycle. The insertion of a “Leap Ju” (润局) ensures the calendar’s 1080
+hourly charts align correctly with the 24 Jieqi each year[9].
+Source quote(s):
+“节 上元的头 天跑到节 的前边…这叫‘超神’。节 上元的头 天落到节 的后
+边…这叫‘接 ’。符头与节 同 ，这叫‘正授’。”[7] (De nes Chao Shen, Jie Qi,
+Zheng Shou as above.)
+“超 九 及 余 ，则当置闰…置闰必在芒种、 雪之后，
+之前…阳遁从冬
+开始，阴遁从夏 开始，在
+之前的节 置闰，就是在阳遁阴遁开始之前把符
+头调好…。”[13] (Intercalation occurs once Fu Tou leads by ~10 days, speci cally
+after Mangzhong or Daxue, to realign before the solstice; this ensures the cycle
+resets so the Dun change at the solstice isn’t off by too many days.)
+“例如…交清明节，那么此 11时10分仍属春分局内…到11时13分则过了清明节，
+就是清明的局元了…”[12] (Example of chart switching exactly at the Jieqi time on
+April 5, with Spring Equinox chart used until 11:12, then Qingming chart from
+11:13 onward.)
+URL(s): [14][13]
+
+•
+
+•
+
+•
+
+fi
+
+Source
+
+气
+
+一
+
+至
+
+二
+
+fi
+
+气
+
+大
+
+气
+
+至
+
+至
+
+4 (Yang 4局) [15][16]
+
+二
+
+7 (Yang 7局)
+
+气
+
+1 (Yang 1局)
+
+气
+
+Winter
+Solstice 冬
+/ Jingzhe 惊
+蛰 (Yang)
+
+气
+
+Lower Yuan
+Ju
+
+日
+
+Middle Yuan
+Ju
+
+至
+
+Upper Yuan
+Ju
+
+日
+
+JieQi Group
+
+一
+
+气
+
+十
+
+至
+
+日
+
+气
+
+4) Yin-Dun & Yang-Dun Ju Tables
+Below is the complete mapping of Ju (局) numbers for Yang Dun and Yin Dun charts,
+indexed by solar term (节 ) and Yuan. Each row shows one solar term or term-pair
+(“JieQi group”) and the Ju numbers used for its Upper, Middle, and Lower Yuan. (Yangperiod terms are marked (Yang); Yin-period terms marked (Yin).)
+
+至
+
+至
+
+transition, determine which side of the boundary the time falls on, and use the
+appropriate chart accordingly[12].
+
+至
+
+立
+
+小
+
+水
+
+雨
+
+雨
+
+大
+
+小
+
+立
+
+谷
+
+小
+
+白
+
+JieQi Group
+
+Upper Yuan
+Ju
+
+Middle Yuan
+Ju
+
+Lower Yuan
+Ju
+
+Source
+
+Minor Cold
+寒 (Yang)
+
+2
+
+8
+
+5
+
+[15]
+
+Major Cold
+寒 / Spring
+Equinox 春分
+(Yang)
+
+3
+
+9
+
+6
+
+[15]
+
+Rain Water
+(Yang)
+
+9
+
+6
+
+3
+
+[15]
+
+Clear Bright
+清明 / Start
+of Summer
+夏 (Yang)
+
+4
+
+1
+
+7
+
+[15]
+
+Start of
+Spring 春
+(Yang)
+
+8
+
+5
+
+2
+
+[15]
+
+Grain Rain
+/ Grain
+Full 满
+(Yang)
+
+5
+
+2
+
+8
+
+[15]
+
+Grain in Ear
+芒种 (Yang)
+
+6
+
+3
+
+9
+
+[15]
+
+Summer
+Solstice 夏
+/ White Dew
+露 (Yin)
+
+9 (Yin 9局)
+
+3 (Yin 3局)
+
+6 (Yin 6局)
+
+Minor Heat
+暑 (Yin)
+
+8
+
+2
+
+5
+
+[17][18]
+
+[17]
+
+Upper Yuan
+Ju
+
+Middle Yuan
+Ju
+
+Lower Yuan
+Ju
+
+Source
+
+Major Heat
+暑/
+Autumn
+Equinox 秋分
+(Yin)
+
+7
+
+1
+
+4
+
+[17]
+
+Start of
+Autumn
+(Yin)
+
+2
+
+5
+
+8
+
+[17]
+
+End of Heat
+处暑 (Yin)
+
+1
+
+4
+
+7
+
+[17]
+
+Cold Dew 寒
+露 / Start of
+Winter 冬
+(Yin)
+
+6
+
+9
+
+3
+
+[17]
+
+Frost
+Descent 霜
+降 / Minor
+Snow 雪
+(Yin)
+
+5
+
+8
+
+2
+
+[17]
+
+Major Snow
+雪 (Yin)
+
+4
+
+7
+
+1
+
+[19]
+
+秋
+
+Source quote(s):
+
+一
+
+立
+
+立
+
+八
+
+二
+
+二
+
+八
+
+小
+
+小
+
+一
+
+至
+
+白
+
+至
+
+至
+
+立
+
+立
+
+•
+
+“阳遁九局：冬 惊蛰 七四， 寒
+五…清明 夏四 七，芒种六三九为宜。
+[15]” – (Yang Dun example: Winter Solstice or Jingzhe Upper=1, Middle=7,
+Lower=4; Minor Cold 2/8/5; … Qingming or Lixia 4/1/7; Mangzhong 6/3/9.)
+“阴遁九局：夏
+露九三六， 暑
+五… 冬寒露六九三…[17]” – (Yin Dun
+example: Summer Solstice or White Dew 9/3/6; Minor Heat 8/2/5; … Start of
+Winter or Cold Dew 6/9/3, etc.)
+(These verses enumerate the Upper/Middle/Lower Ju numbers for each term.
+For instance, “冬 惊蛰 七四” means Winter Solstice or Jingzhe Upper Yuan
+
+一
+
+•
+
+小
+
+大
+
+大
+
+JieQi Group
+
+5) Fu Tou (符头) / Xun Shou (旬 ) Determination
+Rule (verbatim): “每局头 天的
+就必须是甲或 [21].” – The rst day of each 5day Ju must have a Heavenly Stem Jia (甲) or Ji ( )[21]. These Jia/Ji starting days
+are called Fu Tou (“talisman head”) and correspond to the Xun Shou (旬 , 10-day
+cycle head) in the sexagenary cycle. The classical mnemonic is “以甲 为符头”[4].
+Practically, Jia and Ji days mark the boundaries between Yuan periods.
+Decision logic (short): To determine the chart for a given date/time, identify the
+current 5-day block’s Fu Tou day. Count backward (or forward) to nd the nearest
+date whose Heavenly Stem is Jia or Ji – that date is the Fu Tou start of the current
+Yuan[22]. Once found, use the Earthly Branch of that Fu Tou day to determine Upper/
+Middle/Lower Yuan as per Rule 2 above. For example, if the current date is a Ren Xu
+day (壬戌), one counts backward day by day through the stems until reaching Ji;
+suppose the nearest Ji-day is Ji Wei ( 未) – that is the Fu Tou. Since Wei is one of the
+four “seasonal” branches, the chart is in the Lower Yuan[23].
+Source quote: “每个节 上中下三元头 天的
+规律是：每个节 上元头 天的
+不是甲 或甲午，就是 卯或
+；中元头 天的
+不是甲申或甲寅，就是
+或
+亥；下元头 天的
+不是甲戌或甲 ，就是 丑或 未。”[22] (This enumerates all
+possible Fu Tou day stem-branch combinations: Upper Yuan must start on either Jia-Zi,
+Jia-Wu, Ji-Mao or Ji-You; Middle on Jia-Shen, Jia-Yin, Ji-Si or Ji-Hai; Lower on Jia-Xu,
+Jia-Chen, Ji-Chou or Ji-Wei.)
+URL: [22]
+6) Sequence Orders
+(Canonical sequences of the fundamental elements in QMDJ, with Chinese names and
+brief English labels).
+•
+
+支
+
+己
+
+干
+
+巳
+
+己
+
+一
+
+首
+
+己
+
+fi
+
+气
+
+fi
+
+辛
+
+己
+
+支
+
+己
+
+心
+
+己
+
+干
+
+支
+
+己
+
+干
+
+己
+
+一
+
+一
+
+己
+
+辰
+
+干
+
+fi
+
+首
+
+日
+
+酉
+
+己
+
+一
+
+气
+
+己
+
+干
+
+一
+
+支
+
+Three Qi / Six Yi order (三奇六仪): The nine active Heavenly Stems (excluding
+hidden Jia). In QMDJ these are ordered as 戊→ →庚→ →壬→癸→丁→丙→
+, which comprises the Six “Yi” (仪): Wu, Ji, Geng, Xin, Ren, Gui (the six
+common stems), followed by the Three “Qi” (奇): Ding, Bing, Yi (the three
+auspicious stems)[24]. This is the xed Earth-plate stem order: e.g. in Yang Dun
+Ju 1, they occupy Lo Shu palaces 1–9 in this sequence[25]. (Jia is absent –
+“hidden” – in the chart[26].)
+Nine Stars order (九星): The nine celestial stars used in Qimen, traditionally
+named: 天蓬, 天任, 天冲, 天辅, 天英, 天芮, 天柱, 天 , 天禽[27]. In English they
+
+•
+
+子
+
+乙
+
+uses Ju 1, Middle 7, Lower 4[16].)
+URL(s): [15][20]
+
+•
+
+•
+
+Source quote + URL for each:
+
+门
+
+门
+
+fl
+
+八
+
+门
+
+生
+
+心
+
+门
+
+生
+
+门
+
+fi
+
+fi
+
+八
+
+门
+
+八
+
+fi
+
+虎
+
+白
+
+生
+
+门
+
+己
+
+门
+
+门
+
+•
+
+玄
+
+•
+
+辛
+
+“六仪：戊、 、庚、 、壬、癸为六仪。”[36] (De nes the six Yi stems; the
+remaining three of the ten are the San Qi).
+“九星就是天蓬、天任、天冲、天辅、天英、天芮、天柱、天 、天禽九颗星。”
+[29] (Lists the nine stars by name).
+“
+包括休、 、伤、杜、景、死、惊、开，遵循特定顺序，并在 卦宫位中循
+环排列。”[37] (“Eight Doors comprise Xiu, Sheng, Shang, Du, Jing, Si, Jing, Kai,
+following a set order and cycling through the trigram palaces.”)
+
+•
+
+八
+
+门
+
+are often rendered as Tian Peng, Tian Ren, Tian Chong, Tian Fu, Tian Ying,
+Tian Rui, Tian Zhu, Tian Xin, Tian Qin – representing various cosmic energies.
+These stars have a xed Lo Shu assignment: e.g. Tian Peng resides in Kan (1),
+Tian Ren in Gen (8), … Tian Xin in Qian (6), Tian Qin in center (5)[28]. The usual
+listing follows the Later Heaven Bagua order (north to center): Tian Peng → Tian
+Ren → Tian Chong → Tian Fu → Tian Ying → Tian Rui → Tian Zhu → Tian Xin
+→ Tian Qin[29]. (Among these, Tian Peng, Tian Rui, Tian Zhu are considered
+inauspicious stars; Tian Xin, Tian Ren, Tian Fu are auspicious, and Tian Qin,
+Tian Ying, Tian Chong neutral[27].)
+Eight Doors order (
+): The eight portals are 休 ,
+,伤 ,杜 ,景 ,死
+, 惊 , 开 – known in English as the Rest, Life, Injury (Harm), Delusion
+(Obstacle), Scenery (View), Death, Alarm (Fear), and Open doors,
+respectively[30][31]. A common mnemonic arrangement is “休 伤杜，景死惊开,”
+which maps each door to a Lo Shu palace (e.g. Kan 1: Rest, Gen 8: Life, Zhen 3:
+Injury, Xun 4: Delusion, Li 9: Scenery, Kun 2: Death, Dui 7: Alarm, Qian 6: Open)
+[32]. These doors cycle through the palaces as the chart changes, in uencing
+outcome tendencies (three are generally auspicious – Open, Rest, Life; three are
+inauspicious – Death, Alarm, Injury; and two neutral – Delusion, Scenery[33]).
+Eight Spirits (Gods) order ( 神): The eight deities commonly used are 值符, 螣
+蛇, 太阴, 六合,
+, 武, 九地, 九天[34] – namely Chief (Zhi Fu), Flying
+Serpent, Great Yin, Six Harmony, White Tiger, Black Tortoise, Nine Earth,
+Nine Heaven. They are arranged in a xed sequence around the palaces.
+Typically, the Chief Deity (Value Marker) occupies the palace of the day/hour’s
+stem (as leader), and the rest follow in the order above. For a Yang Dun chart,
+the gods are assigned forward (clockwise); for a Yin Dun chart, they are
+assigned in reverse (counter-clockwise) around the lo shu sequence[35]. (In
+some texts, alternative names like Gou Chen for White Tiger and Zhu Que for
+Black Tortoise appear – see Variant rules in section 9.)
+
+“ 神即值符、腾蛇、太阴、六合、
+eight spirits as above).
+
+•
+
+、
+
+武、九地、九天。”[38] (Lists the
+
+7) Rotating Palace Placement Rules
+Qi Men Dun Jia charts are constructed on a 3×3 Lo Shu grid (Nine Palaces). Setting up
+a chart (排盘) involves placing the Earth Plate (stems), Heaven Plate (stars), Human
+Plate (doors), and Spirit Plate (gods) in their appropriate palaces, following Yin or Yang
+Dun rules for rotation. Key rules include:
+•
+
+门
+
+fi
+
+玄
+
+fl
+
+艮
+
+fi
+
+八
+
+•
+
+虎
+
+•
+
+白
+
+Earth plate stems (三奇六仪布宫): For Yang Dun, “順布六仪，逆布三奇”[25] –
+place the six Yi stems in forward order and the three Qi in reverse order around
+the palaces. Speci cally, the Ju’s starting palace is determined by the Ju number
+(1–9 corresponds to Lo Shu palace 1–9). From that start palace, assign
+Wu→Ji→Geng→Xin→Ren→Gui sequentially into palaces (clockwise), then
+place Ding→Bing→Yi into the remaining palaces in the opposite direction[25]
+[39]. (In Ju 1 Yang Dun, for example, Wu goes to palace 1坎, … Gui to palace 6
+乾, then Ding to palace 7兑, Bing to 8 , Yi to 9离[40].) For Yin Dun, the rule
+inverts: “逆布六仪，顺布三奇” – place the six Yi in reverse (counter-clockwise)
+order and the three Qi in forward order[39]. (Thus, Yin Dun Ju 1 would start Gui
+at Li 9 and go backwards.) These rules ensure Jia (甲) – considered the “hidden
+stem” – is not placed on the board (it is concealed under the Earth plate and
+never appears in a palace[26]).
+Heaven plate stars: The nine stars have xed “home” palaces in the Luo Shu
+(e.g. Tian Peng at 1坎, … Tian Xin at 6乾, Tian Qin usually “lodged” in 5 center
+but effectively placed in a certain palace)[28]. To deploy them for the current
+chart, identify the star tied to the day’s Stem (the “Value Symbol” star, 值符
+星) and place it in the palace of the current hour’s heavenly stem on the
+Earth plate[24]. The remaining stars are then distributed to the other palaces in
+numeric order (for Yang Dun charts usually clockwise increasing, for Yin possibly
+counterclockwise – though some lineages keep star order always forward)[28].
+This rotation means the Heaven plate “ oats” over the Earth plate each hour.
+(Example: if the hour’s Earthly Stem palace should host the chief star Tian Peng,
+put Tian Peng there, then next stars in sequence in subsequent palaces.) In
+practice, after placing the stars, the Zhi Fu (chief spirit) will reside in the palace
+where Tian Peng star is (for Yang Dun initial chart) or where appropriate based
+on the rotating cycle[28][41].
+Eight Doors (Human plate): The eight doors likewise rotate each time unit.
+Typically, one determines the Zhi Shi door (值使 ) – the door that is “on duty”
+
+•
+
+for the current chart (often associated with the hour’s earthly branch or the
+position of the chief star)[24]. Place that door in the palace of the hour’s
+branch, then arrange the other doors in their standard order around the board. In
+a Yang Dun hour, doors are usually advanced forward (clockwise) from their
+previous positions; in Yin Dun, they advance backward[35][24]. (This aligns with
+the rule “时盘顺转时为阳，逆转时为阴” – if the hour plates rotate forward, it’s a
+Yang chart; if they rotate backward, it’s a Yin chart[42].) For example, if in one
+chart the Rest Door (休 ) was in palace 1 and it’s a Yang Dun, the next chart will
+move it to palace 2; if it’s a Yin Dun, Rest Door would move to palace 9 instead.
+The doors thus cycle through palaces in a repeating pattern as time progresses.
+Eight Spirits (Spirit plate): The eight gods are anchored by the Chief Deity (值
+符), which always starts in the palace holding the day’s Stem Jia (or in many
+methods, the palace of the hourly Zhi Fu star)[43]. After xing the Chief, the
+remaining seven spirits are placed in a xed sequence. For Yang Dun charts,
+the gods are assigned in descending palace order (around the grid
+clockwise); for Yin Dun, assign them in ascending order (counterclockwise)[35]. In other words, in Yang Dun the sequence Zhi Fu → Teng She
+→ Tai Yin → Liu He → Bai Hu → Xuan Wu → Jiu Di → Jiu Tian is placed
+going forward through palace numbers, whereas in Yin Dun the same sequence
+is placed going in reverse numerical order[35]. This yields the so-called “forward
+rotating” vs “reverse rotating” spirit plate, matching the Dun type. (Some sources
+alternatively swap White Tiger/Black Tortoise in Yin charts with Gou Chen/
+Zhu Que in Yang – see section 9.) The net effect: Yang Dun charts have the
+auxiliary plates (doors, gods) moving shùn (with the natural order), while Yin
+Dun charts move nì (against the order)[35].
+
+Source quote(s):
+•
+
+•
+
+•
+
+“阳遁九局，顺布六仪逆布三奇… 局则甲 戊起坤 宫，三局…馀仿此。阴遁九
+局，逆布六仪顺布三奇…”[40] (Yang Dun: place six Yi forward, three Qi reverse;
+Yin Dun opposite.)
+“
+…在 盘 随天盘时 宫转…阳顺阴逆…。”[35][24] (Eight Doors and Eight
+Gods follow the rotation of the Heaven plate: “the arrangement is yangclockwise, yin-counterclockwise.”)
+“值符每逐时乾转，值使常随天 奔。”[44] (“The chief star/god rotates to Qian
+palace each hour, the duty door follows the celestial Yi (Jia) swiftly” – poetic
+description of chief deity and door movement aligning with time.)
+
+fi
+
+二
+
+子
+
+fi
+
+二
+
+乙
+
+干
+
+门
+
+里
+
+人
+
+门
+
+八
+
+URL(s): [40][35]
+
+比
+
+门
+
+fi
+
+乙
+
+fi
+
+门
+
+黄
+
+fi
+
+黑
+
+日
+
+fi
+
+fi
+
+龙
+
+青
+
+乙
+
+•
+
+fi
+
+•
+
+日
+
+•
+
+门
+
+•
+
+Chart count & cycle: Hour Qimen has 1080 charts (Yang & Yin nine Ju cycles
+repeating every 5 days, aligned to 24 terms)[45]. Day Qimen has only 120 charts
+for the year (typically 60 Yang Ju for the rst half-year, 60 Yin Ju for the second,
+aligned to days)[49]. Day Qimen’s cycle resets each year, whereas Hour Qimen
+completes a full 4320-hour cycle each year (with repeats)[45].
+Ju arrangement method: The method to determine the Ju number is different.
+Hour Qimen follows the complex 24-term, 72-Yuan system described above. Day
+Qimen uses a simpler rule: it often divides days by the 12 Jian/Shen (建/守) days
+or solar months. For instance, Day Qimen might x the Rest Door on the day’s
+branch and rotate it every 3 days, and apply Yang or Yin Dun based on Winter/
+Summer solstice and the day’s stem parity[42]. In short, Day Qimen charts
+change more coarsely (one Ju can last several days)[42].
+Nine Stars set: The two systems employ different star sets. Hour Qimen uses
+the classical nine stars Tian Peng, Tian Ren, … Tian Qin as given above. Day
+Qimen uses an alternate set of nine stars (often borrowed from the Taiyi
+system): e.g. 太 , 摄提, 轩辕, 招摇, 天符,
+, 咸池, 太阴, 天 [50]. These
+correspond to another cosmological model and have different meanings. Thus,
+the star in the center of a Day Qimen chart is Taiyi rather than Tian Qin, etc. Hour
+Qimen does not use the Taiyi star set[50].
+Structures & auguries: Hour Qimen recognizes many speci c auspicious/
+inauspicious formations (格) based on the interaction of stars/doors/gods (e.g.
+Flying Bird Falling Nest, Dragons Turning Gate, etc.). Day Qimen omits dozens
+of these special formations – it is generally less granular in interpretive
+nuance[51][48]. Instead, Day Qimen incorporates traditional daily astrology
+elements: for example, it observes the 12 Day Of cer (
+道) classi cation for
+each day and the auspicious deity directions like Happy God (喜神), which Hour
+Qimen typically does not use[48].
+Precision vs. simplicity: Hour Qimen is considered more precise (“时家奇
+较实 ，按具体时间来布局” – it charts the exact hour for ne-grained divination)
+[52]. Day Qimen is broader (“ 家奇 以 为主…预测判断也很准确，但精确到时
+
+日
+
+•
+
+用
+
+门
+
+8) Day-School vs Hour-School Differences
+Qi Men Dun Jia can be applied at different time scales. “Hour-School” Qimen (时家奇
+) – the most common – computes a new chart every 2-hour shi chen, yielding 1080
+unique charts per year[45]. “Day-School” Qimen ( 家奇 ) uses one chart per day
+(120 unique charts in a year)[46]. They share the same fundamentals (nine palaces, yin/
+yang dun, eight doors, etc.[47]) but have notable differences[48]:
+
+Source quote(s):
+“ 家奇 与时家奇 的4个相同点： 是都以九宫 卦为排盘… 是都分阴遁和阳
+遁…三是都
+…四是都忌五不遇时。 家奇 与时家奇 的5个不同点： 是
+排局 法不同； 是九星不同；三是 家奇 没有时家奇 的
+个吉凶格；四是
+家奇 分
+道，时家奇 不分；五是 家奇 论喜神 位，时家奇 则没
+有。”[54] (Lists the 4 similarities and 5 differences between Day and Hour Qimen
+as summarized above.)
+“‘ 家奇 ’以 为主来布局…‘时家奇 ’ 较实 ，按具体时间来布局。”[52] (“Day
+Qimen uses the day as the basis for the layout… Hour Qimen is more practical,
+laying out according to the exact hour.”)
+URL(s): [48][52]
+
+•
+
+•
+
+9) Con icts / Variants
+Because Qi Men Dun Jia was transmitted through various schools (San Yuan vs San
+He, “Flying Palace” vs “Rotating Palace” methods, etc.), historical texts and modern
+practitioners present variant rules. Notable con icts and variations include:
+•
+•
+
+一
+
+门
+
+玄
+
+十
+
+二
+
+几
+
+方
+
+门
+
+门
+
+门
+
+八
+
+门
+
+fl
+
+日
+
+用
+
+虎
+
+门
+
+白
+
+日
+
+比
+
+日
+
+一
+
+门
+
+门
+
+门
+
+黄
+
+门
+
+二
+
+黑
+
+八
+
+二
+
+日
+
+fi
+
+足
+
+用
+
+十
+
+门
+
+门
+
+门
+
+fl
+
+方
+
+又
+
+fi
+
+Eight Gods Set (Yang vs Yin):
+Rule A: Most sources use a xed set of Eight Deities for all charts: Chief (值符),
+Teng She, Tai Yin, Liu He, White Tiger (
+), Black Tortoise ( 武), Nine
+Earth, Nine Heaven[55]. These correspond to the classical Eight Gods
+(sometimes called Eight Generals) and remain the same in Yin or Yang Dun.
+Rule B: Some lineages (often associated with San He/”Flying” Qimen) swap
+two gods in Yang vs. Yin. In Yang Dun, the deity Gou Chen (勾陈) is used in
+place of White Tiger, and Zhu Que (朱雀) in place of Black Tortoise; in Yin Dun,
+White Tiger and Black Tortoise are used (Gou Chen and Zhu Que effectively
+
+•
+
+日
+
+辰
+
+In summary, Hour-School Qimen is the mainstream method for divination and event
+timing in modern practice (due to its higher resolution and the fact that “year better <
+month < day < hour” for auspice)[53]. Day-School Qimen survives in some traditions
+(and was noted to have a total of 120局, versus 1080局 for hour Qimen)[46], but it lacks
+some of the ne detail and special structures of Hour Qimen. Both share the same
+fundamental yin/yang dun switching at solstices and the same eight doors, etc., so a
+Day Qimen chart can be seen as a “frozen” Qimen chart for the entire day[47].
+
+日
+
+日
+
+略显不 ” – it uses the day as unit; accurate for daily trends, but not as
+detailed to the hour)[52]. In exchange, Day Qimen is simpler to calculate and was
+historically used when hour data or rapid calculation was inconvenient[49].
+
+•
+
+•
+
+Heaven Center Star (Tian Qin) Placement:
+
+•
+
+Rule A: Many sources place the Tian Qin (Heavenly Bird) star (the nominal
+center, Lo Shu 5 star) in the Kun (SW, palace 2) for chart calculation in both Yin
+and Yang Dun. This is implied by saying “天禽星寄坤宫” – Tian Qin is lodged in
+Kun palace (since the center palace is not used)[28]. Thus the Lo Shu 5 is
+effectively mapped to Kun for both Dun types in those systems.
+Rule B: Some texts specify a different lodging in Yin vs Yang: e.g. “天禽阳遁寄坤
+宫，阴遁寄 宫”[28] – meaning in Yang Dun charts, Tian Qin sits in Kun 2palace, but in Yin Dun charts, Tian Qin is placed in Gen 8-palace. This
+variant ensures the central star’s polarity aligns with the Dun (since Kun is an
+Earth/Yin palace and Gen is Earth/Yang in Later Heaven Bagua).
+Notes: The Qimen Dun Jia Mi Ji (秘笈 全) attributes Rule A as the standard,
+mentioning Rule B as coming from “one version” ( 本) of transmission[28].
+Modern Qimen software typically follows Rule A (Tian Qin always in Kun),
+whereas some traditionalists follow Rule B for Yin Dun adjustments. The
+difference slightly alters which star is considered “center” in Yin charts (Tian Qin
+vs an alternate star).
+
+•
+
+•
+
+Rule A (Zhuan Pan 排宫法): The mainstream method (used above) is Rotating
+Palace Qimen, where the Earth plate is static and the Heaven, Door, and Spirit
+plates rotate through the 8 directions. The center palace is not actively used (Lo
+Shu 5 is assigned into another palace as noted), and we always have exactly
+eight doors and eight gods in play[60][56]. This is the system taught by most
+modern Qimen schools.
+
+一
+
+•
+
+龙
+
+Flying Palace vs Rotating Palace (Fei Gong vs Zhuan Pan):
+
+大
+
+•
+
+青
+
+艮
+
+“hide” under them)[56][57]. In other words, the Yang chart’s spirit sequence might
+be “Chief, Teng She, Tai Yin, Liu He, Gou Chen, Zhu Que, Jiu Di, Jiu Tian,”
+whereas the Yin chart’s sequence is “Chief… White Tiger, Black Tortoise,
+Jiu Di, Jiu Tian.” This approach aligns with certain military Qimen traditions that
+include the Five Heavenly Animals (
+Azure Dragon appears as Chief or as
+a hidden ninth spirit in some versions)[58].
+Notes: The “Rule A” set is commonly used in modern Zhuan Pan (rotating)
+Qimen, while “Rule B” appears in older texts like the Qimen TONG Zong and is
+sometimes called the “Nine Gods” approach (counting the interchangeable
+gods)[59][56]. Both methods yield functionally eight positions on the spirit plate,
+but the labels differ.
+
+•
+
+•
+
+Lineage differences in setting reference time: Another practical variant: some
+masters set the chart for the moment a question is asked, while others use the
+moment of chart-casting. This is a methodological choice – e.g. one might cast
+for 9 AM when the client actually inquired, even if the chart is generated at
+9 PM[64]. Both approaches are used (“奇
+真” again), so modern practice may
+vary on this point. The key is consistency within a given lineage or application.
+
+门
+
+门
+
+玄
+
+生
+
+门
+
+龙
+
+虎
+
+青
+
+白
+
+艮
+
+门
+
+八
+
+无
+
+无
+
+门
+
+门
+
+一
+
+门
+
+一
+
+飞
+
+门
+
+一
+
+门
+
+大
+
+fl
+
+玄
+
+生
+
+生
+
+门
+
+飞
+
+比
+
+里
+
+门
+
+门
+
+自
+
+用
+
+无
+
+门
+
+门
+
+八
+
+Variant sources:
+- “ 神就是直符、螣蛇、太阴、六合、勾陈(阴遁为
+)、朱雀(阴遁为 武)、九地、九
+天。”[56] (Eight gods with Gou Chen/Zhu Que in Yang, White Tiger/Black Tortoise in Yin
+– a variant rule).
+- “天禽阳遁阴遁俱寄坤宫， 本阳遁寄坤宫阴遁寄 宫。”[28] (Standard says Tian Qin
+star stays in Kun for both; one version says Kun for Yang, Gen for Yin).
+- “ 盘奇 …这
+转盘奇 多了 个中五宫…
+排列顺序是休 、死 、伤 、杜
+、中五、开 、惊 、
+、景 。”[65] (Describing a Flying Palace layout including
+the center as an extra “gate”, versus the Rotating method with 8 doors).
+- “奇
+发展以来，就有很 争议，叫‘奇
+真’…”[62] (“Since Qimen’s development
+there has been great controversy, known as ‘Qimen has no single truth’.” –
+acknowledging the coexistence of different methods).
+- “现在 的最多的还是转盘… 盘尚有 盘九神之说。”[66] (“Nowadays the most used
+is the rotating plate… The ying plate even has a saying of a nine-god layout.”) This
+
+飞
+
+门
+
+Rule B (Fei Gong 宫法): A less common variant, Flying Palace Qimen, treats
+the center as a valid position and in some interpretations uses 9 gates and 9
+gods. For example, one description of Fei Gong’s door order is “休、 、伤、
+杜、中(空)、开、惊、 、景,” effectively inserting a “null” door in the center and
+producing a different cycling order[61]. Similarly, some Fei Gong methods
+consider a “Ninth God” ( 武+朱雀 combined or
+) to account for the
+center. These differences lead to slightly altered charts and were used in certain
+lineages.
+Notes: Fei Gong vs Zhuan Pan has been a subject of debate – practitioners say
+“奇
+真” (“There is no single Truth in Qimen”)[62], acknowledging multiple valid
+methods. In general, Zhuan Pan (Rotating) Qimen is far more widely used
+today[53][63], and Fei Pan/Flying Palace methods are esoteric. Some authors
+(like in Smoke Wave Fisherman’s Song 烟波钓叟赋) present hybrid approaches –
+e.g. using Zhuan Pan for eight-god arrangement even when describing a Fei Pan
+chart[58]. It’s important to stick to one method consistently.
+
+•
+
+URL(s): [56][28][61][62]
+
+[1] [3] [16] [18] [20] [23] 奇
+
+如何起局？（
+
+）-确定阴阳 遁局
+
+https://www.douban.com/note/827562239/
+[2] [4] [6] [10] [12] [24] m.sohu.com
+https://m.sohu.com/n/456131975/?wscrid=32576_9
+[5] [7] [8] [9] [11] [14] [21] [22] 奇
+
+遁甲 第
+
+讲 超神接
+
+和置闰 | 起点社区
+
+https://www.qidianclub.com/threads/1049/
+[13] 易學象數論/超神接氣直指 - 维基
+
+库，
+
+由的图书馆
+
+https://zh.wikisource.org/wiki/
+%E6%98%93%E5%AD%B8%E8%B1%A1%E6%95%B8%E8%AB%96/%E8%B6%85%
+E7%A5%9E%E6%8E%A5%E6%B0%A3%E7%9B%B4%E6%8C%87
+[15] [17] [19] 奇
+
+遁甲秘笈 全 : 卷
+
+九 - Chinese Text Project
+
+https://ctext.org/wiki.pl?if=en&chapter=91342&remap=gb
+[25] [28] [32] [36] [39] [40] [44] 奇
+Project
+
+遁甲統宗 : 奇
+
+遁甲統宗卷之
+
+- Chinese Text
+
+https://ctext.org/wiki.pl?if=en&chapter=491157&remap=gb
+[26] 奇
+
+遁甲 - 維基百科，
+
+由的百科全書
+
+https://zh.wikipedia.org/zh-hant/%E5%A5%87%E9%96%80%E9%81%81%E7%94%B2
+[27] [29] [30] [33] [56] 奇
+
+遁甲，
+
+神、
+
+、九星及其
+
+诀介绍
+
+https://www.meipian.cn/45mj2kgd
+
+二
+
+门
+
+几
+
+口
+
+气
+
+門
+
+自
+
+二
+
+门
+
+二
+
+八
+
+十
+
+文
+
+二
+
+八
+
+門
+
+门
+
+门
+
+大
+
+自
+
+门
+
+門
+
+[31] Qi Men Dun Jia the Doors (Eight Gates) Explained (奇
+Divinations & Qi Men Destiny Reading, aka Bazi Reading |
+
+門
+
+fl
+
+highlights the divergence, with rotating method dominating current practice and the
+ying method having a different god setup.
+
+遁甲) for Qi Men Dun Jia
+
+[34] [35] [41] [43] [55] [57] [58] [59] [60] [66] 奇 遁甲知识| 奇
+神奇之处！ - 搜狐
+
+“
+
+神”源于星象，必有的
+
+https://www.sohu.com/a/363150769_324894
+[37] 奇
+
+遁甲——关于
+
+的详细解析 - 知乎专栏
+
+https://zhuanlan.zhihu.com/p/684879022
+[38] 奇
+
+遁甲基础之 神象意及 神的
+
+法及作
+
+- 知乎专栏
+
+https://zhuanlan.zhihu.com/p/575608909
+[42] [45] [46] [47] [48] [50] [53] [54] [62] [63] [64] 奇
+式选择，是有讲究的_时家_预测_转盘
+
+遁甲根据什么时间起盘，以及起盘
+
+https://www.sohu.com/a/818192180_479097
+[49] 奇
+
+遁甲|年家、
+
+家、
+
+家、时家奇
+
+的区别
+
+https://www.dadifengshuitang.com/index.php/contents/contents/id/118/cid/8959.html
+[51] 年
+
+时家奇
+
+- 知乎专栏
+
+https://zhuanlan.zhihu.com/p/645251595
+分钟带你了解奇 遁甲（建议收藏）
+
+[52]
+
+https://zhuanlan.zhihu.com/p/585430931
+[61] 【攻略】
+
+葆攻略~
+
+卦奇陣規律!! - 哈啦區- 巴哈姆特
+
+https://forum.gamer.com.tw/C.php?bsn=27433&snA=272
+[65] 彖
+
+社祁全友：奇 遁甲之“
+
+” - 知乎专栏
+
+八
+
+门
+
+门
+
+用
+
+门
+
+门
+
+用
+
+门
+
+八
+
+八
+
+日
+
+门
+
+八
+
+八
+
+门
+
+门
+
+月
+
+八
+
+门
+
+米
+
+日
+
+门
+
+门
+
+门
+
+月
+
+玄
+
+https://zhuanlan.zhihu.com/p/612389403
+
+一
+
+方
+
+https://dougleschan.com/qi-men-dun-jia/qi-men-dun-jia-the-doors/
+
+
