@@ -99,8 +99,11 @@ const PALACE_GRID: PalaceId[][] = [
   [8, 1, 6],
 ];
 
+/** Luo Shu order (1→2→3→4→5→6→7→8→9 spatial layout) for 9 Stars "Flying". */
 const PALACE_ORDER: PalaceId[] = [4, 9, 2, 3, 5, 7, 8, 1, 6];
-const PALACE_RING: PalaceId[] = PALACE_ORDER.filter((p) => p !== 5) as PalaceId[];
+
+/** Peripheral Ba Gua rotation for 8 Gates and 8 Spirits: 1→8→3→4→9→2→7→6. */
+const GATE_ROTATION_ORDER: PalaceId[] = [1, 8, 3, 4, 9, 2, 7, 6];
 
 const PALACE_INFO: Record<PalaceId, Omit<PalaceInfo, "id">> = {
   1: { name: "Kan", direction: "N", element: "Water" },
@@ -376,8 +379,7 @@ function buildChartBase(date: Date, scope: "hour" | "day"): {
   const currentTerm = getCurrentJieQiSolar(date);
   const termStart = currentTerm.solar;
   const termName = currentTerm.name;
-  const { solar: fuTouForTerm, status, leadDays } = findNearestJiaJiToTerm(termStart);
-  const zhiRunIntercalary = (termName === "芒种" || termName === "大雪") && status === "chao_shen" && leadDays >= 9;
+  const { solar: fuTouForTerm, status } = findNearestJiaJiToTerm(termStart);
 
   let effectiveTermName = termName;
   if (status === "jie_qi" && date < solarToDate(fuTouForTerm)) {
@@ -403,7 +405,7 @@ function buildChartBase(date: Date, scope: "hour" | "day"): {
       fuTouGanZhi: getDayGanzhi(fuTouSolar).gz,
       termStart: termStart.toYmdHms(),
       termStatus: status,
-      intercalary: zhiRunIntercalary,
+      intercalary: false,
     },
   };
 }
@@ -455,8 +457,9 @@ export function buildQimenChart(date: Date, scope: "hour" | "day" = "hour"): Qim
     stars = rotateAssignments(PALACE_ORDER, starsSeq, hourStemPalace, dun);
   }
 
-  const doors = rotateAssignments(PALACE_RING, DOORS, effectiveJu as PalaceId, dun);
-  const spirits = rotateAssignments(PALACE_RING, dun === "Yang" ? SPIRITS_YANG : SPIRITS_YIN, effectiveJu as PalaceId, dun);
+  const gateStartPalace = (effectiveJu === 5 ? 2 : effectiveJu) as PalaceId;
+  const doors = rotateAssignments(GATE_ROTATION_ORDER, DOORS, gateStartPalace, dun);
+  const spirits = rotateAssignments(GATE_ROTATION_ORDER, dun === "Yang" ? SPIRITS_YANG : SPIRITS_YIN, gateStartPalace, dun);
 
   const palaces: Record<PalaceId, QimenPalace> = {} as Record<PalaceId, QimenPalace>;
   (PALACE_ORDER as PalaceId[]).forEach((id) => {
