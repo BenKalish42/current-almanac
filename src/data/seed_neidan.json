@@ -1,0 +1,263 @@
+[
+    {
+        "id": "neidan_001",
+        "name": "The Liver Healing Sound (Xv / Shh)",
+        "type": "Sound Alchemy",
+        "target_pattern": [
+            "Liver Qi Stagnation",
+            "Liver Fire Rising",
+            "Wood Imbalance"
+        ],
+        "instructions": [
+            "Sit comfortably with your hands resting on your knees.",
+            "Inhale deeply, imagining a vibrant green light filling your Liver (right side, under the ribs).",
+            "Exhale slowly while making the sound 'Shhhhh' (like telling someone to be quiet).",
+            "As you exhale, imagine expelling dark, cloudy, stagnant anger and frustration.",
+            "Repeat 6 to 9 times."
+        ],
+        "safety_note": "Do not force the exhale; let it be a smooth, continuous release."
+    },
+    {
+        "id": "neidan_002",
+        "name": "The Heart Healing Sound (He / Haaa)",
+        "type": "Sound Alchemy",
+        "target_pattern": [
+            "Heart Shen Disturbance",
+            "Heart Fire",
+            "Fire Imbalance"
+        ],
+        "instructions": [
+            "Sit tall and bring your awareness to your chest.",
+            "Inhale deeply, visualizing a warm red light filling your Heart.",
+            "Exhale with the mouth wide open, making the sound 'Haaaa' (like breathing fog onto a mirror).",
+            "Imagine releasing impatience, arrogance, and manic heat.",
+            "Repeat 6 to 9 times."
+        ],
+        "safety_note": "Keep the throat relaxed to avoid straining the vocal cords."
+    },
+    {
+        "id": "neidan_003",
+        "name": "The Spleen Healing Sound (Hu / Whoo)",
+        "type": "Sound Alchemy",
+        "target_pattern": [
+            "Spleen Qi Deficiency",
+            "Dampness",
+            "Earth Imbalance"
+        ],
+        "instructions": [
+            "Place your hands gently over your stomach.",
+            "Inhale, drawing golden-yellow light into your Spleen and Stomach center.",
+            "Exhale through rounded lips, making the sound 'Huuuu' or 'Whooo'.",
+            "Visualize overthinking, worry, and brain fog dissolving into the earth.",
+            "Repeat 6 to 9 times."
+        ],
+        "safety_note": "Excellent to practice right after eating to aid digestion."
+    },
+    {
+        "id": "neidan_004",
+        "name": "The Lung Healing Sound (Si / Ssss)",
+        "type": "Sound Alchemy",
+        "target_pattern": [
+            "Lung Qi Deficiency",
+            "Phlegm",
+            "Metal Imbalance"
+        ],
+        "instructions": [
+            "Sit with an open chest, resting hands on your thighs.",
+            "Inhale, visualizing a pure white light filling your Lungs.",
+            "Exhale through your teeth, making a hissing 'Sssss' sound.",
+            "Release grief, sadness, and clinging with the breath.",
+            "Repeat 6 to 9 times."
+        ],
+        "safety_note": "Breathe gently; do not hyperventilate."
+    },
+    {
+        "id": "neidan_005",
+        "name": "The Kidney Healing Sound (Chui / Chooo)",
+        "type": "Sound Alchemy",
+        "target_pattern": [
+            "Kidney Yin Deficiency",
+            "Kidney Yang Deficiency",
+            "Water Imbalance"
+        ],
+        "instructions": [
+            "Place your hands on your lower back (Mingmen area).",
+            "Inhale, drawing deep blue or black light into the Kidneys.",
+            "Exhale, forming your lips into an 'O' and making the sound 'Chooo' (like blowing out a candle).",
+            "Release deep-seated fear and shock, replacing it with deep stillness.",
+            "Repeat 6 to 9 times."
+        ],
+        "safety_note": "Keep the lower back warm during this practice."
+    },
+    {
+        "id": "neidan_006",
+        "name": "Microcosmic Orbit (Xiao Zhou Tian)",
+        "type": "Meditation",
+        "target_pattern": [
+            "General Qi Deficiency",
+            "Yin/Yang Imbalance"
+        ],
+        "instructions": [
+            "Sit with your spine straight and touch the tip of your tongue to the roof of your mouth.",
+            "Inhale and draw energy up the spine (Du Mai), from the tailbone to the crown of the head.",
+            "Exhale and guide the energy down the front centerline of your body (Ren Mai), back to the lower abdomen (Dan Tian).",
+            "Let the breath be natural, focusing only on the continuous circular loop of light.",
+            "Continue for 5 to 10 minutes."
+        ],
+        "safety_note": "Do not force the energy. If you get a headache, bring your focus purely to your lower belly."
+    },
+    {
+        "id": "neidan_007",
+        "name": "Pulling Down the Heavens",
+        "type": "Qigong",
+        "target_pattern": [
+            "Liver Yang Rising",
+            "Cognitive Noise",
+            "Insomnia"
+        ],
+        "instructions": [
+            "Stand with feet shoulder-width apart.",
+            "Inhale, sweeping your arms out to the sides and up above your head, gathering the pure Qi of the sky.",
+            "Exhale, turning your palms to face down, and slowly press them down the front of your body.",
+            "Visualize drawing calm, cooling energy down from the head, washing through the organs, and grounding into the earth.",
+            "Repeat 9 times."
+        ],
+        "safety_note": "A perfect practice before bed to lower cognitive load."
+    },
+    {
+        "id": "neidan_008",
+        "name": "Yongquan (KD-1) Grounding Press",
+        "type": "Acupressure",
+        "target_pattern": [
+            "Liver Yang Rising",
+            "Kidney Deficiency",
+            "Anxiety"
+        ],
+        "instructions": [
+            "Sit and cross one ankle over your opposite knee.",
+            "Locate KD-1 (Yongquan / Gushing Spring) on the sole of the foot, in the depression at the upper third of the sole when toes are curled.",
+            "Use your thumb to apply firm, circular pressure to the point.",
+            "Breathe deeply into your lower belly while massaging for 2-3 minutes per foot."
+        ],
+        "safety_note": "Can be tender; adjust pressure to your comfort level."
+    },
+    {
+        "id": "neidan_009",
+        "name": "Shenmen (HT-7) Spirit Gate Press",
+        "type": "Acupressure",
+        "target_pattern": [
+            "Heart Shen Disturbance",
+            "Insomnia",
+            "Palpitations"
+        ],
+        "instructions": [
+            "Look at your inner wrist. Locate HT-7 on the ulnar (pinky) side of the wrist crease, just inside the tendon.",
+            "Use your opposite thumb to gently press and massage the point in small circles.",
+            "Close your eyes and focus on slowing your heartbeat.",
+            "Massage for 1-2 minutes on each wrist."
+        ],
+        "safety_note": "Use a gentle touch; the Heart meridian prefers soft persuasion."
+    },
+    {
+        "id": "neidan_010",
+        "name": "Zusanli (ST-36) Vitality Tap",
+        "type": "Acupressure",
+        "target_pattern": [
+            "Spleen Qi Deficiency",
+            "Fatigue",
+            "Digestive Issues"
+        ],
+        "instructions": [
+            "Sit with knees bent. Locate ST-36 about four finger-widths below the kneecap, one finger-width to the outside of the shinbone.",
+            "Using a loose fist, gently tap this point on both legs simultaneously.",
+            "Tap rhythmically for 1 to 2 minutes.",
+            "Feel the warmth and energy waking up your digestive center."
+        ],
+        "safety_note": "Excellent for morning fatigue. Avoid tapping too hard."
+    },
+    {
+        "id": "neidan_011",
+        "name": "Mo Fu (Abdominal Rubbing)",
+        "type": "Qigong",
+        "target_pattern": [
+            "Spleen Qi Deficiency",
+            "Food Stagnation"
+        ],
+        "instructions": [
+            "Lie on your back or sit comfortably.",
+            "Place your palms flat over your navel (one over the other).",
+            "Rub in slow, continuous circles, starting small and expanding outward.",
+            "Rub clockwise 36 times (to aid digestion and elimination).",
+            "Reverse and rub counter-clockwise 36 times (to gather and store Qi)."
+        ],
+        "safety_note": "Do not practice immediately after a very heavy meal; wait 30 minutes."
+    },
+    {
+        "id": "neidan_012",
+        "name": "The Inner Smile",
+        "type": "Meditation",
+        "target_pattern": [
+            "Emotional Load",
+            "Heart Shen Disturbance",
+            "Stress"
+        ],
+        "instructions": [
+            "Close your eyes and generate a feeling of genuine gratitude or amusement, feeling a smile start behind your eyes.",
+            "Direct this smiling energy inward, letting it flow down like a waterfall.",
+            "Smile into your Heart, your Lungs, your Liver, your Kidneys, and your Spleen.",
+            "Acknowledge the hard work of your internal organs without judgment."
+        ],
+        "safety_note": "If you cannot feel the smile, just fake the physical muscular smile; the body will follow."
+    },
+    {
+        "id": "neidan_013",
+        "name": "Beating the Heavenly Drum (Ming Tian Gu)",
+        "type": "Qigong",
+        "target_pattern": [
+            "Cognitive Noise",
+            "Kidney Deficiency",
+            "Tinnitus"
+        ],
+        "instructions": [
+            "Cover your ears firmly with your palms, with your fingers resting on the back of your head (base of the skull).",
+            "Place your index fingers over your middle fingers.",
+            "Snap the index fingers down forcefully onto the base of the skull.",
+            "You will hear a loud, resounding 'drum' sound in your head. Repeat 24 to 36 times."
+        ],
+        "safety_note": "Do not practice if you have an active ear infection."
+    },
+    {
+        "id": "neidan_014",
+        "name": "Water Up, Fire Down (Kan and Li)",
+        "type": "Meditation",
+        "target_pattern": [
+            "Heart Fire",
+            "Kidney Yin Deficiency",
+            "Anxiety"
+        ],
+        "instructions": [
+            "Sit quietly. Visualize the hot, restless Fire of the Heart in your chest.",
+            "Visualize the cool, calm Water of the Kidneys in your lower back/abdomen.",
+            "With your breath, imagine drawing the cool Water up the spine to cool the Heart.",
+            "Imagine the warmth of the Heart Fire dropping down into the belly to warm the cold Water.",
+            "Continue breathing to circulate and balance these two poles."
+        ],
+        "safety_note": "Keep your primary anchor of awareness in the lower belly (Dan Tian)."
+    },
+    {
+        "id": "neidan_015",
+        "name": "Hegu (LI-4) Release",
+        "type": "Acupressure",
+        "target_pattern": [
+            "Wind-Heat",
+            "Headaches",
+            "Stagnation"
+        ],
+        "instructions": [
+            "Locate LI-4 on the back of the hand, at the highest point of the muscle when the thumb and index finger are brought together.",
+            "Use your opposite thumb to apply strong pressure angled slightly toward the bone of the index finger.",
+            "Massage in deep circles for 1-2 minutes per hand to release tension in the head and face."
+        ],
+        "safety_note": "CONTRAINDICATED IN PREGNANCY. Do not use this point if pregnant."
+    }
+]

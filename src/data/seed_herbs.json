@@ -1,0 +1,590 @@
+[
+    {
+        "id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "common_name": "Ginseng Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Slightly Warm",
+            "flavor": [
+                "Sweet",
+                "Slightly Bitter"
+            ],
+            "meridians": [
+                "Heart",
+                "Lung",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Powerfully tonifies Primal Qi (Yuan Qi)",
+            "Strengthens Spleen and tonifies Stomach",
+            "Tonifies Lungs and augments Qi",
+            "Generates fluids and stops thirst",
+            "Calms the Spirit (Shen) and improves mental function"
+        ],
+        "contraindications": "Incompatible with Li Lu. Antagonizes Wu Ling Zhi. Avoid in Excess Heat, Yin deficiency with Heat, or early stages of external pathogens."
+    },
+    {
+        "id": "herb_002",
+        "pinyin_name": "Huang Qi",
+        "common_name": "Astragalus Root",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Slightly Warm",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Lung",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Tonifies Qi and raises Yang",
+            "Augments the Protective Qi (Wei Qi) and stabilizes the exterior",
+            "Promotes urination and reduces edema",
+            "Promotes the discharge of pus and generates flesh"
+        ],
+        "contraindications": "Avoid in Yin deficiency with Yang rising, early stages of sores, or Excess Heat."
+    },
+    {
+        "id": "herb_003",
+        "pinyin_name": "Zhi Gan Cao",
+        "common_name": "Honey-Fried Licorice Root",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "All 12 Meridians, principally Heart, Lung, Spleen, Stomach"
+            ]
+        },
+        "actions": [
+            "Tonifies Spleen and augments Qi",
+            "Moistens Lungs and stops cough",
+            "Moderates spasms and alleviates pain",
+            "Harmonizes the characteristics of other herbs (Envoy)"
+        ],
+        "contraindications": "Incompatible with Gan Sui, Da Ji, Hai Zhao, and Yuan Hua (18 Incompatibilities). Avoid with Dampness or edema."
+    },
+    {
+        "id": "herb_004",
+        "pinyin_name": "Dang Gui",
+        "common_name": "Chinese Angelica Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Sweet",
+                "Acrid",
+                "Bitter"
+            ],
+            "meridians": [
+                "Heart",
+                "Liver",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Tonifies Blood and regulates menstruation",
+            "Invigorates Blood and disperses cold",
+            "Moistens the Intestines and unblocks the bowels"
+        ],
+        "contraindications": "Avoid in cases of diarrhea or abdominal fullness due to Dampness."
+    },
+    {
+        "id": "herb_005",
+        "pinyin_name": "Shu Di Huang",
+        "common_name": "Prepared Rehmannia Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Slightly Warm",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Heart",
+                "Liver",
+                "Kidney"
+            ]
+        },
+        "actions": [
+            "Nourishes Blood",
+            "Nourishes Kidney Yin",
+            "Boosts Jing (Essence) and fills the Marrow"
+        ],
+        "contraindications": "Highly cloying. Contraindicated in Qi stagnation, profuse phlegm, or poor digestion."
+    },
+    {
+        "id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "common_name": "White Peony Root",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Slightly Cold",
+            "flavor": [
+                "Bitter",
+                "Sour"
+            ],
+            "meridians": [
+                "Liver",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Nourishes Blood and regulates menses",
+            "Calms Liver Yang and alleviates pain",
+            "Preserves Yin and adjusts the Ying and Wei levels"
+        ],
+        "contraindications": "Incompatible with Li Lu. Use caution with Cold/Deficiency diarrhea."
+    },
+    {
+        "id": "herb_007",
+        "pinyin_name": "Chuan Xiong",
+        "common_name": "Szechuan Lovage Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Acrid"
+            ],
+            "meridians": [
+                "Gallbladder",
+                "Liver",
+                "Pericardium"
+            ]
+        },
+        "actions": [
+            "Invigorates Blood and promotes the movement of Qi",
+            "Expels Wind and alleviates pain (especially headaches)"
+        ],
+        "contraindications": "Avoid in Yin deficiency with Fire, or excessive menstrual bleeding."
+    },
+    {
+        "id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "common_name": "Bupleurum Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Cool",
+            "flavor": [
+                "Bitter",
+                "Acrid"
+            ],
+            "meridians": [
+                "Gallbladder",
+                "Liver",
+                "Pericardium",
+                "Triple Burner"
+            ]
+        },
+        "actions": [
+            "Resolves Lesser Yang (Shao Yang) disorders",
+            "Spreads Liver Qi and relieves constraint",
+            "Raises Yang Qi in Spleen and Stomach deficiency"
+        ],
+        "contraindications": "Avoid in severe Yin deficiency with Liver Yang rising."
+    },
+    {
+        "id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "common_name": "Poria / Indian Bread",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Neutral",
+            "flavor": [
+                "Sweet",
+                "Bland"
+            ],
+            "meridians": [
+                "Heart",
+                "Spleen",
+                "Kidney",
+                "Lung"
+            ]
+        },
+        "actions": [
+            "Promotes urination and leaches out Dampness",
+            "Strengthens the Spleen",
+            "Quiets the Heart and calms the Spirit (Shen)"
+        ],
+        "contraindications": "Avoid in copious, frequent urination due to Deficiency Cold."
+    },
+    {
+        "id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "common_name": "White Atractylodes Rhizome",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Bitter",
+                "Sweet"
+            ],
+            "meridians": [
+                "Spleen",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Tonifies Spleen and augments Qi",
+            "Dries Dampness and promotes water metabolism",
+            "Stabilizes the exterior and stops sweating",
+            "Calms the fetus"
+        ],
+        "contraindications": "Avoid in Yin deficiency with Heat, or severe fluid depletion."
+    },
+    {
+        "id": "herb_011",
+        "pinyin_name": "Chen Pi",
+        "common_name": "Aged Tangerine Peel",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Acrid",
+                "Bitter"
+            ],
+            "meridians": [
+                "Lung",
+                "Spleen",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Regulates Qi and adjusts the Middle",
+            "Dries Dampness and transforms Phlegm",
+            "Helps prevent stagnation from cloying tonic herbs"
+        ],
+        "contraindications": "Use caution with dry cough from Qi or Yin deficiency."
+    },
+    {
+        "id": "herb_012",
+        "pinyin_name": "Zhi Ban Xia",
+        "common_name": "Prepared Pinellia Rhizome",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Acrid",
+                "Toxic (when raw, neutralized by Zhi prep)"
+            ],
+            "meridians": [
+                "Spleen",
+                "Stomach",
+                "Lung"
+            ]
+        },
+        "actions": [
+            "Dries Dampness and transforms Phlegm",
+            "Descends rebellious Qi and stops vomiting",
+            "Dissolves nodules and dissipates clumps"
+        ],
+        "contraindications": "Incompatible with Wu Tou. Avoid in dry cough from Yin deficiency or bleeding disorders."
+    },
+    {
+        "id": "herb_013",
+        "pinyin_name": "Mai Men Dong",
+        "common_name": "Ophiopogon Tuber",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Slightly Cold",
+            "flavor": [
+                "Sweet",
+                "Slightly Bitter"
+            ],
+            "meridians": [
+                "Heart",
+                "Lung",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Moistens the Lungs and nourishes Yin",
+            "Augments Stomach Yin and generates fluids",
+            "Clears Heart Heat and eliminates irritability"
+        ],
+        "contraindications": "Avoid in Spleen deficiency with loose stools or Damp-Phlegm."
+    },
+    {
+        "id": "herb_014",
+        "pinyin_name": "Gou Qi Zi",
+        "common_name": "Goji Berry / Lycium Fruit",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Neutral",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Liver",
+                "Lung",
+                "Kidney"
+            ]
+        },
+        "actions": [
+            "Nourishes and tonifies Liver and Kidney Yin",
+            "Benefits Jing (Essence) and brightens the eyes",
+            "Moistens the Lungs"
+        ],
+        "contraindications": "Avoid with external pathogenic heat or Spleen dampness with diarrhea."
+    },
+    {
+        "id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "common_name": "Fresh Ginger",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Slightly Warm",
+            "flavor": [
+                "Acrid"
+            ],
+            "meridians": [
+                "Lung",
+                "Spleen",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Releases the Exterior and disperses Cold",
+            "Warms the Middle and stops vomiting",
+            "Warms the Lungs and stops cough",
+            "Reduces the toxicity of other herbs"
+        ],
+        "contraindications": "Contraindicated in spontaneous sweating from Qi deficiency and Heat signs."
+    },
+    {
+        "id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "common_name": "Jujube / Chinese Date",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Spleen",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Tonifies Spleen and Stomach Qi",
+            "Nourishes the Blood and calms the Spirit",
+            "Moderates and harmonizes the harsh properties of other herbs"
+        ],
+        "contraindications": "Avoid in cases of Damp-Phlegm, food stagnation, or excessive Heat."
+    },
+    {
+        "id": "herb_017",
+        "pinyin_name": "He Shou Wu (Zhi)",
+        "common_name": "Prepared Fo-Ti Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Slightly Warm",
+            "flavor": [
+                "Bitter",
+                "Sweet",
+                "Astringent"
+            ],
+            "meridians": [
+                "Liver",
+                "Kidney"
+            ]
+        },
+        "actions": [
+            "Tonifies Liver and Kidney, nourishes Blood, and boosts Jing",
+            "Secures Essence and stops leakage",
+            "Moistens Intestines and unblocks bowels"
+        ],
+        "contraindications": "Monitor liver enzymes in susceptible individuals. Avoid in Spleen deficiency with dampness."
+    },
+    {
+        "id": "herb_018",
+        "pinyin_name": "Jin Yin Hua",
+        "common_name": "Honeysuckle Flower",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Cold",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Heart",
+                "Lung",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Clears Heat and resolves toxicity",
+            "Vents and disperses externally contracted Wind-Heat",
+            "Clears Damp-Heat from the lower burner"
+        ],
+        "contraindications": "Avoid in cases of Deficiency Cold of the Spleen and Stomach."
+    },
+    {
+        "id": "herb_019",
+        "pinyin_name": "Dan Shen",
+        "common_name": "Salvia Root",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Slightly Cold",
+            "flavor": [
+                "Bitter"
+            ],
+            "meridians": [
+                "Heart",
+                "Liver",
+                "Pericardium"
+            ]
+        },
+        "actions": [
+            "Invigorates Blood and dispels stasis",
+            "Clears Heat and soothes irritability",
+            "Nourishes the Blood and calms the Spirit"
+        ],
+        "contraindications": "Incompatible with Li Lu. Exercise caution for patients on blood-thinning medications."
+    },
+    {
+        "id": "herb_020",
+        "pinyin_name": "Shan Yao",
+        "common_name": "Chinese Yam",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Neutral",
+            "flavor": [
+                "Sweet"
+            ],
+            "meridians": [
+                "Kidney",
+                "Lung",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Tonifies Qi and Yin of the Spleen and Stomach",
+            "Tonifies Lung Qi and augments Lung Yin",
+            "Tonifies the Kidneys and stabilizes Essence (Jing)"
+        ],
+        "contraindications": "Use caution in cases of Excess Heat or accumulation of Dampness."
+    },
+    {
+        "id": "herb_021",
+        "pinyin_name": "Jie Geng",
+        "common_name": "Platycodon Root",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Neutral",
+            "flavor": [
+                "Bitter",
+                "Acrid"
+            ],
+            "meridians": [
+                "Lung"
+            ]
+        },
+        "actions": [
+            "Opens up and disseminates Lung Qi, dispels Phlegm",
+            "Benefits the throat",
+            "Directs the effects of other herbs to the upper body (Envoy)"
+        ],
+        "contraindications": "Avoid in chronic cough from Yin deficiency or in cases of hemoptysis."
+    },
+    {
+        "id": "herb_022",
+        "pinyin_name": "Rou Gui",
+        "common_name": "Cinnamon Bark",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Hot",
+            "flavor": [
+                "Acrid",
+                "Sweet"
+            ],
+            "meridians": [
+                "Heart",
+                "Kidney",
+                "Liver",
+                "Spleen"
+            ]
+        },
+        "actions": [
+            "Fortifies Kidney Yang and warms the Ming Men Fire",
+            "Disperses deep Cold and warms the channels",
+            "Leads the Fire back to its source"
+        ],
+        "contraindications": "Incompatible with Chi Shi Zhi. Avoid during pregnancy, or in Yin deficiency with Fire."
+    },
+    {
+        "id": "herb_023",
+        "pinyin_name": "Bo He",
+        "common_name": "Field Mint",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Cool",
+            "flavor": [
+                "Acrid"
+            ],
+            "meridians": [
+                "Liver",
+                "Lung"
+            ]
+        },
+        "actions": [
+            "Disperses Wind-Heat, clears and benefits the head and eyes",
+            "Vents rashes",
+            "Allows constrained Liver Qi to flow freely"
+        ],
+        "contraindications": "Avoid in cases of Yin deficiency with Yang rising, or nursing mothers (can decrease lactation)."
+    },
+    {
+        "id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "common_name": "Gypsum",
+        "safety_tier": 2,
+        "properties": {
+            "temperature": "Very Cold",
+            "flavor": [
+                "Sweet",
+                "Acrid"
+            ],
+            "meridians": [
+                "Lung",
+                "Stomach"
+            ]
+        },
+        "actions": [
+            "Clears Heat and drains Fire (especially in the Qi level)",
+            "Clears Heat from the Lungs and Stomach",
+            "Quenches thirst and relieves irritability"
+        ],
+        "contraindications": "Avoid in cases of Cold from deficiency of Spleen/Stomach, or Yang deficiency."
+    },
+    {
+        "id": "herb_025",
+        "pinyin_name": "Wu Wei Zi",
+        "common_name": "Schisandra Berry",
+        "safety_tier": 1,
+        "properties": {
+            "temperature": "Warm",
+            "flavor": [
+                "Sour",
+                "Sweet"
+            ],
+            "meridians": [
+                "Heart",
+                "Kidney",
+                "Lung"
+            ]
+        },
+        "actions": [
+            "Contains the leakage of Lung Qi and stops cough",
+            "Tonifies the Kidneys and binds Essence (Jing)",
+            "Generates fluids and quiets the Spirit"
+        ],
+        "contraindications": "Avoid in cases of exterior conditions not fully cleared, or early stages of cough/rash."
+    }
+]

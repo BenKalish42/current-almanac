@@ -1,79 +1,115 @@
+@import "tailwindcss";
+
+/* -----------------------------------------------------------------------------
+   Daoist Dark-Mode Theme (Tailwind v4 @theme)
+   Deep midnight blues/charcoals, subtle jade & gold accents
+   ----------------------------------------------------------------------------- */
+@theme {
+  /* Backgrounds */
+  --color-daoist-bg: #0d1520;
+  --color-daoist-surface: #141c2b;
+  --color-daoist-elevated: #1a2435;
+  --color-daoist-charcoal: #0f1824;
+
+  /* Accents */
+  --color-daoist-jade: #4a9b7a;
+  --color-daoist-jade-muted: #3d8266;
+  --color-daoist-gold: #c9a227;
+  --color-daoist-gold-muted: #a68520;
+
+  /* Text */
+  --color-daoist-text: #e8eef4;
+  --color-daoist-muted: #8b9aab;
+  --color-daoist-subtle: #5c6b7a;
+}
+
+/* -----------------------------------------------------------------------------
+   Global: Daoist dark mode (forced)
+   ----------------------------------------------------------------------------- */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Daoist palette (available globally) */
+  --color-daoist-bg: #0d1520;
+  --color-daoist-surface: #141c2b;
+  --color-daoist-elevated: #1a2435;
+  --color-daoist-jade: #4a9b7a;
+  --color-daoist-jade-muted: #3d8266;
+  --color-daoist-gold: #c9a227;
+  --color-daoist-gold-muted: #a68520;
+  --color-daoist-text: #e8eef4;
+  --color-daoist-muted: #8b9aab;
+
+  /* Legacy vars (Daoist-themed) */
+  --b: rgba(255, 255, 255, 0.08);
+  --b2: rgba(255, 255, 255, 0.12);
+  --bg: rgba(255, 255, 255, 0.04);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+
+  font-family: ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* -----------------------------------------------------------------------------
+   Mobile safe areas (notch, home indicator)
+   ----------------------------------------------------------------------------- */
+#app {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
+/* -----------------------------------------------------------------------------
+   Base element overrides
+   ----------------------------------------------------------------------------- */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-daoist-bg);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  font-weight: 500;
+  color: var(--color-daoist-jade);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-daoist-gold);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-daoist-surface);
+  color: var(--color-daoist-text);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.2s, background-color 0.2s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-daoist-jade-muted);
+  background-color: var(--color-daoist-elevated);
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  outline: 2px solid var(--color-daoist-jade);
+  outline-offset: 2px;
 }

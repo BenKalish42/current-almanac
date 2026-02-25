@@ -1,0 +1,113 @@
+[
+    {
+        "id": "formula_001",
+        "pinyin_name": "Si Jun Zi Tang",
+        "common_name": "Four Gentlemen Decoction",
+        "primary_pattern": "Spleen Qi Deficiency",
+        "actions": [
+            "Tonifies Qi",
+            "Strengthens the Spleen"
+        ],
+        "architecture": [
+            {
+                "role": "King (Jun)",
+                "herb_id": "herb_001",
+                "pinyin_name": "Ren Shen",
+                "dosage_percentage": 30,
+                "purpose": "Powerfully tonifies Primal Qi and strengthens Spleen."
+            },
+            {
+                "role": "Minister (Chen)",
+                "herb_id": "herb_010",
+                "pinyin_name": "Bai Zhu",
+                "dosage_percentage": 30,
+                "purpose": "Strengthens the Spleen and dries Dampness."
+            },
+            {
+                "role": "Assistant (Zuo)",
+                "herb_id": "herb_009",
+                "pinyin_name": "Fu Ling",
+                "dosage_percentage": 25,
+                "purpose": "Leaches out Dampness, assisting Bai Zhu."
+            },
+            {
+                "role": "Envoy (Shi)",
+                "herb_id": "herb_003",
+                "pinyin_name": "Zhi Gan Cao",
+                "dosage_percentage": 15,
+                "purpose": "Harmonizes the formula and warms the middle."
+            }
+        ],
+        "safety_note": "A very safe, foundational Qi tonic. May be too warm/cloying for those with severe Yin deficiency or high exterior Heat."
+    },
+    {
+        "id": "formula_002",
+        "pinyin_name": "Xiao Yao San",
+        "common_name": "Free and Easy Wanderer",
+        "primary_pattern": "Liver Qi Stagnation with Blood Deficiency",
+        "actions": [
+            "Pacifies the Liver and spreads Liver Qi",
+            "Strengthens the Spleen",
+            "Nourishes the Blood"
+        ],
+        "architecture": [
+            {
+                "role": "King (Jun)",
+                "herb_id": "herb_008",
+                "pinyin_name": "Chai Hu",
+                "dosage_percentage": 15,
+                "purpose": "Relieves Liver constraint and spreads Qi."
+            },
+            {
+                "role": "Minister (Chen)",
+                "herb_id": "herb_004",
+                "pinyin_name": "Dang Gui",
+                "dosage_percentage": 15,
+                "purpose": "Nourishes Blood and invigorates circulation."
+            },
+            {
+                "role": "Minister (Chen)",
+                "herb_id": "herb_006",
+                "pinyin_name": "Bai Shao",
+                "dosage_percentage": 15,
+                "purpose": "Nourishes Blood and softens the Liver."
+            },
+            {
+                "role": "Assistant (Zuo)",
+                "herb_id": "herb_010",
+                "pinyin_name": "Bai Zhu",
+                "dosage_percentage": 15,
+                "purpose": "Strengthens the Spleen to prevent Wood overacting on Earth."
+            },
+            {
+                "role": "Assistant (Zuo)",
+                "herb_id": "herb_009",
+                "pinyin_name": "Fu Ling",
+                "dosage_percentage": 15,
+                "purpose": "Strengthens the Spleen and calms the Spirit."
+            },
+            {
+                "role": "Envoy (Shi)",
+                "herb_id": "herb_003",
+                "pinyin_name": "Zhi Gan Cao",
+                "dosage_percentage": 10,
+                "purpose": "Harmonizes the herbs and benefits the Spleen."
+            },
+            {
+                "role": "Envoy (Shi)",
+                "herb_id": "herb_015",
+                "pinyin_name": "Sheng Jiang",
+                "dosage_percentage": 10,
+                "purpose": "Warms the middle and harmonizes the Stomach."
+            },
+            {
+                "role": "Envoy (Shi)",
+                "herb_id": "herb_023",
+                "pinyin_name": "Bo He",
+                "dosage_percentage": 5,
+                "purpose": "Aids Chai Hu in venting Liver constraint."
+            }
+        ],
+        "safety_note": "Extremely common and safe. Reduces stress and harmonizes digestion. Monitor for signs of excessive Heat (use Jia Wei Xiao Yao San instead)."
+    }
+]
