@@ -2,27 +2,54 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
-import QimenChart from "@/components/QimenChart.vue";
+import CosmicBoard from "@/components/CosmicBoard.vue";
 import { parseGanZhi } from "@/core/ganzhi";
 import { useAppStore } from "@/stores/appStore";
-import hexagramSummaries from "@/data/hexagramSummaries.json";
+import seedHexagrams from "@/data/seed_hexagrams.json";
 
 type HexagramSummary = {
   daoist: string;
   buddhist: string;
   confucian: string;
+  psychological: string;
   humanDesign: string;
   geneKeys: string;
 };
 type HexagramSummaryMap = Record<string, HexagramSummary>;
 
-const store = useAppStore();
-const hexSummaryMap = hexagramSummaries as HexagramSummaryMap;
+type SeedHexagram = {
+  id: number;
+  pinyin_name: string;
+  english_name: string;
+  perspectives: {
+    daoist: string;
+    confucian: string;
+    buddhist: string;
+    psychological: string;
+    human_design: string;
+    gene_keys: string;
+  };
+};
 
-const qimenScope = ref<"hour" | "day">("hour");
-const qimenChart = computed(() =>
-  qimenScope.value === "hour" ? store.qimenChartHour : store.qimenChartDay
-);
+function buildHexSummaryMap(seed: SeedHexagram[]): HexagramSummaryMap {
+  const map: HexagramSummaryMap = {};
+  for (const h of seed) {
+    map[String(h.id)] = {
+      daoist: h.perspectives.daoist ?? "",
+      confucian: h.perspectives.confucian ?? "",
+      buddhist: h.perspectives.buddhist ?? "",
+      psychological: h.perspectives.psychological ?? "",
+      humanDesign: h.perspectives.human_design ?? "",
+      geneKeys: h.perspectives.gene_keys ?? "",
+    };
+  }
+  return map;
+}
+
+const store = useAppStore();
+const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
+
+const advancedExpanded = ref(false);
 
 const isHexModalOpen = ref(false);
 const selectedHexNum = ref<number | null>(null);
@@ -411,12 +438,25 @@ onUnmounted(() => {
                 Enter birth datetime, then use Past or Present to interpret.
               </div>
             </div>
-            <div class="secBody" style="margin-top: 10px;">
-              <div class="qimenScope">
-                <button class="btn small" :class="{ primary: qimenScope === 'hour' }" @click="qimenScope = 'hour'">Hour Chart</button>
-                <button class="btn small" :class="{ primary: qimenScope === 'day' }" @click="qimenScope = 'day'">Day Chart</button>
-              </div>
-              <QimenChart :chart="qimenChart" />
+            <div class="advanced-wrapper" style="margin-top: 10px;">
+              <button
+                type="button"
+                class="advanced-toggle"
+                :aria-expanded="advancedExpanded"
+                @click="advancedExpanded = !advancedExpanded"
+              >
+                <span class="advanced-toggle-label">Advanced</span>
+                <span class="advanced-toggle-icon" :class="{ expanded: advancedExpanded }">▼</span>
+              </button>
+              <Transition name="advanced-slide">
+                <div v-if="advancedExpanded" class="advanced-content">
+                  <CosmicBoard
+                    :qimen-chart-hour="store.qimenChartHour"
+                    :qimen-chart-day="store.qimenChartDay"
+                    :selected-date="store.selectedDate"
+                  />
+                </div>
+              </Transition>
             </div>
           </div>
 
@@ -439,4 +479,56 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.advanced-wrapper {
+  border-top: 1px solid var(--b2);
+  padding-top: 10px;
+}
+
+.advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.advanced-toggle:hover {
+  color: var(--txt);
+}
+
+.advanced-toggle-icon {
+  display: inline-block;
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.advanced-toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.advanced-content {
+  margin-top: 8px;
+}
+
+.advanced-slide-enter-active,
+.advanced-slide-leave-active {
+  transition: opacity 0.2s ease, margin 0.2s ease;
+}
+
+.advanced-slide-enter-from,
+.advanced-slide-leave-to {
+  opacity: 0;
+  margin-top: -8px;
+}
+</style>
 

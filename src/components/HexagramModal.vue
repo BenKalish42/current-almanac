@@ -5,6 +5,7 @@ type HexagramSummary = {
   daoist: string;
   buddhist: string;
   confucian: string;
+  psychological: string;
   humanDesign: string;
   geneKeys: string;
 };
@@ -20,8 +21,9 @@ const emit = defineEmits<{ (e: "close"): void }>();
 
 const sections = computed(() => [
   { key: "daoist", label: "Daoist (Liu Yiming / Wang Bi)", text: props.summaries?.daoist ?? "" },
-  { key: "buddhist", label: "Buddhist (Chih-hsui Ou-i)", text: props.summaries?.buddhist ?? "" },
   { key: "confucian", label: "Confucian (Ten Wings)", text: props.summaries?.confucian ?? "" },
+  { key: "buddhist", label: "Buddhist (Chih-hsui Ou-i)", text: props.summaries?.buddhist ?? "" },
+  { key: "psychological", label: "Psychological", text: props.summaries?.psychological ?? "" },
   { key: "humanDesign", label: "Human Design", text: props.summaries?.humanDesign ?? "" },
   { key: "geneKeys", label: "Gene Keys", text: props.summaries?.geneKeys ?? "" },
 ]);
