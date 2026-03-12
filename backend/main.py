@@ -6,6 +6,7 @@ Phase 7: AI Chat + Interpret via DeepSeek.
 """
 
 import json
+import traceback
 import os
 from pathlib import Path
 
@@ -19,6 +20,7 @@ if _env_path.exists():
             val = val.strip().strip('"').strip("'")
             os.environ.setdefault(key.strip(), val)
 
+import random
 import uuid
 from typing import Any, AsyncGenerator
 
@@ -43,6 +45,13 @@ from .schemas import (
 )
 from .services.alchemy_math import build_prescription, match_neidan_for_pattern, merge_formulas as he_fang_merge
 from .services.llm_service import chat_stream, has_deepseek_key, interpret_with_llm
+
+try:
+    from openai import APIError, APIStatusError, APIConnectionError
+except ImportError:
+    APIError = type("APIError", (Exception,), {})
+    APIStatusError = type("APIStatusError", (Exception,), {})
+    APIConnectionError = type("APIConnectionError", (Exception,), {})
 
 app = FastAPI(
     title="Current API",
@@ -114,7 +123,29 @@ async def interpret(request: InterpretationRequest) -> InterpretationResponse:
         )
     except ValueError as e:
         raise HTTPException(status_code=503, detail=str(e)) from e
+    except APIStatusError as e:
+        status = getattr(e, "status_code", 503)
+        msg = str(e) or "DeepSeek API error"
+        if status == 401:
+            msg = "Invalid DeepSeek API key. Check DEEPSEEK_API_KEY at platform.deepseek.com/api_keys"
+        elif status == 429:
+            msg = "DeepSeek rate limit exceeded. Try again shortly."
+        elif status == 404:
+            msg = "DeepSeek API endpoint not found. Try DEEPSEEK_BASE_URL=https://api.deepseek.com/v1"
+        raise HTTPException(status_code=min(status, 503), detail=msg) from e
+    except APIConnectionError as e:
+        raise HTTPException(
+            status_code=503,
+            detail="Cannot reach DeepSeek API. Check network or DEEPSEEK_BASE_URL.",
+        ) from e
+    except APIError as e:
+        traceback.print_exc()
+        raise HTTPException(
+            status_code=503,
+            detail=f"DeepSeek API error: {e}. Check API key and try again.",
+        ) from e
     except Exception as e:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Interpretation error: {e}") from e
 
 
@@ -124,13 +155,17 @@ def fetch_formula(request: FormulaRequest) -> Prescription:
     Return a Prescription (Dual Cultivation) based on astro + user state.
     Wei Dan: herbal formula architecture.
     Nei Dan: matched internal practice by primary_pattern.
+    Uses seed data only (no DeepSeek). Picks a formula at random for variety.
     """
     try:
         supabase = get_supabase()
         formulas = get_all_formulas(supabase)
         if not formulas:
-            raise HTTPException(status_code=404, detail="No formulas available.")
-        formula = formulas[0]
+            raise HTTPException(
+                status_code=404,
+                detail="No formulas available. Ensure src/data/seed_formulas.json exists.",
+            )
+        formula = random.choice(formulas)
         architecture = formula.get("architecture", [])
 
         practices = get_all_neidan_practices(supabase)
@@ -195,9 +230,22 @@ async def chat_stream_endpoint(request: Request) -> StreamingResponse:
                     delta = chunk.get("delta", "")
                     if delta:
                         yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': delta})}\n\n"
-            except ValueError as e:
+            except (ValueError, APIStatusError, APIConnectionError) as e:
                 err = str(e)
+                if isinstance(e, APIStatusError):
+                    sc = getattr(e, "status_code", None)
+                    if sc == 401:
+                        err = "Invalid DeepSeek API key. Check DEEPSEEK_API_KEY."
+                    elif sc == 429:
+                        err = "DeepSeek rate limit exceeded. Try again shortly."
+                    elif sc == 404:
+                        err = "DeepSeek API endpoint not found. Try DEEPSEEK_BASE_URL=https://api.deepseek.com/v1"
+                elif isinstance(e, APIConnectionError):
+                    err = "Cannot reach DeepSeek API. Check network."
                 for ch in err:
+                    yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': ch})}\n\n"
+            except Exception as e:
+                for ch in "AI service error. Try again or check backend logs.":
                     yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': ch})}\n\n"
 
         yield f"data: {json.dumps({'type': 'text-end', 'id': text_id})}\n\n"

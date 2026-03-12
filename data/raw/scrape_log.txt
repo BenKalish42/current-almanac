@@ -1,0 +1,112 @@
+11:16:14  INFO      ============================================================
+11:16:14  INFO      Daoist Medical Canon Scrape — START
+11:16:14  INFO      ============================================================
+11:16:14  INFO      
+>>> BOOK 1/4: 黃帝內經 (Huangdi Neijing)
+11:16:14  INFO      [HDNJ] Existing file has 105 chapter sections
+11:16:14  INFO      [HDNJ] 89 clean, 16 dirty/CAPTCHA
+11:16:14  INFO      [HDNJ] 89 already clean, 73 to fetch
+11:16:14  INFO      [HDNJ] 1/73 [素問]: 解精微論
+11:16:14  INFO        ✓ API 754 chars
+11:16:14  INFO        zzz 11.1s [HDNJ]
+11:16:25  INFO      [HDNJ] 2/73 [靈樞]: 九鍼十二原
+11:16:26  INFO        ✓ API 1961 chars
+11:16:26  INFO        zzz 8.2s [HDNJ]
+11:16:34  INFO      [HDNJ] 3/73 [靈樞]: 本輸
+11:16:34  INFO        ✓ API 2275 chars
+11:16:34  INFO        zzz 9.0s [HDNJ]
+11:16:43  INFO      [HDNJ] 4/73 [靈樞]: 小鍼解
+11:16:43  INFO        ✓ API 1185 chars
+11:16:43  INFO        zzz 10.5s [HDNJ]
+11:16:54  INFO      [HDNJ] 5/73 [靈樞]: 邪氣藏府病形
+11:16:54  INFO        ✓ API 2906 chars
+11:16:54  INFO        zzz 13.1s [HDNJ]
+11:17:07  INFO      [HDNJ] 6/73 [靈樞]: 根結
+11:17:07  INFO        ✓ API 1449 chars
+11:17:07  INFO        zzz 7.6s [HDNJ]
+11:17:15  INFO      [HDNJ] 7/73 [靈樞]: 官鍼
+11:17:15  INFO        ✓ API 1270 chars
+11:17:15  INFO        zzz 8.3s [HDNJ]
+11:17:23  INFO      [HDNJ] 8/73 [靈樞]: 終始
+11:17:23  INFO        ✓ API 2446 chars
+11:17:23  INFO        zzz 8.3s [HDNJ]
+11:17:32  INFO      [HDNJ] 9/73 [靈樞]: 經脈
+11:17:32  INFO        ✓ API 5504 chars
+11:17:32  INFO        zzz 9.9s [HDNJ]
+11:17:42  INFO      [HDNJ] 10/73 [靈樞]: 經水
+11:17:42  INFO        ✓ API 1055 chars
+11:17:42  INFO        zzz 13.9s [HDNJ]
+11:17:56  INFO      [HDNJ] 11/73 [靈樞]: 經筋
+11:17:56  INFO        ✓ API 2250 chars
+11:17:56  INFO        zzz 8.8s [HDNJ]
+11:18:05  INFO      [HDNJ] 12/73 [靈樞]: 五十營
+11:18:05  INFO        ✓ API 301 chars
+11:18:05  INFO        zzz 7.7s [HDNJ]
+11:18:13  INFO      [HDNJ] 13/73 [靈樞]: 營衛生會
+11:18:13  INFO        ✓ API 986 chars
+11:18:13  INFO        zzz 11.7s [HDNJ]
+11:18:25  INFO      [HDNJ] 14/73 [靈樞]: 癩狂病
+11:18:25  INFO        ✓ API 929 chars
+11:18:25  INFO        zzz 8.2s [HDNJ]
+11:18:33  INFO      [HDNJ] 15/73 [靈樞]: 熱病
+11:18:33  INFO        ✓ API 1399 chars
+11:18:33  INFO        zzz 9.7s [HDNJ]
+11:18:43  INFO      [HDNJ] 16/73 [靈樞]: 厥病
+11:18:43  INFO        ✓ API 795 chars
+11:18:43  INFO        zzz 10.5s [HDNJ]
+11:18:54  INFO      [HDNJ] 17/73 [靈樞]: 病本
+11:18:54  INFO        ✓ API 230 chars
+11:18:54  INFO        zzz 7.0s [HDNJ]
+11:19:01  INFO      [HDNJ] 18/73 [靈樞]: 雜病
+11:19:01  INFO        ✓ API 789 chars
+11:19:01  INFO        zzz 9.2s [HDNJ]
+11:19:10  INFO      [HDNJ] 19/73 [靈樞]: 周痺
+11:19:10  INFO        ✓ API 542 chars
+11:19:10  INFO        zzz 12.6s [HDNJ]
+11:19:23  INFO      [HDNJ] 20/73 [靈樞]: 口問
+11:19:23  INFO        ✓ API 1376 chars
+11:19:23  INFO        zzz 12.9s [HDNJ]
+11:19:36  INFO      [HDNJ] 21/73 [靈樞]: 師傳
+11:19:36  INFO        ✓ API 947 chars
+11:19:36  INFO        zzz 12.1s [HDNJ]
+11:19:48  INFO      [HDNJ] 22/73 [靈樞]: 決氣
+11:19:49  INFO        ✓ API 376 chars
+11:19:49  INFO        zzz 9.5s [HDNJ]
+11:19:58  INFO      [HDNJ] 23/73 [靈樞]: 腸胃
+11:19:58  INFO        ✓ API 305 chars
+11:19:58  INFO        zzz 10.8s [HDNJ]
+11:20:09  INFO      [HDNJ] 24/73 [靈樞]: 平人絕穀
+11:20:09  INFO        ✓ API 374 chars
+11:20:09  INFO        zzz 9.6s [HDNJ]
+11:20:19  INFO      [HDNJ] 25/73 [靈樞]: 海論
+11:20:19  INFO        ✓ API 554 chars
+11:20:19  INFO        zzz 12.4s [HDNJ]
+11:20:32  INFO      [HDNJ] 26/73 [靈樞]: 五亂
+11:20:32  INFO        ✓ API 482 chars
+11:20:32  INFO        zzz 10.7s [HDNJ]
+11:20:42  INFO      [HDNJ] 27/73 [靈樞]: 脹論
+11:20:43  WARNING     HTTP 403 [1/5]: https://ctext.org/huangdi-neijing/zhang-lun/zh
+11:20:43  WARNING     *** BACKOFF 15 min ***
+11:35:43  WARNING     HTTP 403 [2/5]: https://ctext.org/huangdi-neijing/zhang-lun/zh
+11:35:43  WARNING     *** BACKOFF 30 min ***
+12:05:43  WARNING     HTTP 403 [3/5]: https://ctext.org/huangdi-neijing/zhang-lun/zh
+12:05:43  WARNING     *** BACKOFF 60 min ***
+13:05:44  WARNING     HTTP 403 [4/5]: https://ctext.org/huangdi-neijing/zhang-lun/zh
+13:05:44  WARNING     *** BACKOFF 60 min ***
+14:05:44  WARNING     HTTP 403 [5/5]: https://ctext.org/huangdi-neijing/zhang-lun/zh
+14:05:44  WARNING     *** BACKOFF 60 min ***
+15:05:44  ERROR       All retries exhausted: https://ctext.org/huangdi-neijing/zhang-lun/zh
+15:05:44  WARNING     HTTP 403 [1/5]: https://ctext.org/huangdi-neijing/zhang-lun
+15:05:44  WARNING     *** BACKOFF 15 min ***
+15:20:44  WARNING     HTTP 403 [2/5]: https://ctext.org/huangdi-neijing/zhang-lun
+15:20:44  WARNING     *** BACKOFF 30 min ***
+15:50:44  WARNING     HTTP 403 [3/5]: https://ctext.org/huangdi-neijing/zhang-lun
+15:50:44  WARNING     *** BACKOFF 60 min ***
+16:03:45  INFO      ============================================================
+16:03:45  INFO      Daoist Medical Canon Scrape — START (v2, no-stuck)
+16:03:45  INFO      ============================================================
+16:03:45  INFO      
+>>> BOOK 1/4: 黃帝內經
+16:03:45  INFO      [HDNJ] 115 already clean, 47 to fetch
+16:03:45  INFO      [HDNJ] 1/47: 脹論
+16:03:45  WARNING     API rate-limited. Waiting 30 min then retrying...

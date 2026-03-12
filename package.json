@@ -8,7 +8,7 @@
     "build": "vue-tsc -b && vite build",
     "build:mobile": "vue-tsc -b && vite build --base ./ && npx cap sync",
     "preview": "vite preview",
-    "backend": "uvicorn backend.main:app --reload --port 8000",
+    "backend": "python3.12 -m uvicorn backend.main:app --reload --port 8000",
     "cap:sync": "npx cap sync",
     "cap:ios": "npx cap open ios",
     "cap:android": "npx cap open android"

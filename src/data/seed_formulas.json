@@ -1,113 +1,4786 @@
 [
-    {
-        "id": "formula_001",
-        "pinyin_name": "Si Jun Zi Tang",
-        "common_name": "Four Gentlemen Decoction",
-        "primary_pattern": "Spleen Qi Deficiency",
-        "actions": [
-            "Tonifies Qi",
-            "Strengthens the Spleen"
-        ],
-        "architecture": [
-            {
-                "role": "King (Jun)",
-                "herb_id": "herb_001",
-                "pinyin_name": "Ren Shen",
-                "dosage_percentage": 30,
-                "purpose": "Powerfully tonifies Primal Qi and strengthens Spleen."
-            },
-            {
-                "role": "Minister (Chen)",
-                "herb_id": "herb_010",
-                "pinyin_name": "Bai Zhu",
-                "dosage_percentage": 30,
-                "purpose": "Strengthens the Spleen and dries Dampness."
-            },
-            {
-                "role": "Assistant (Zuo)",
-                "herb_id": "herb_009",
-                "pinyin_name": "Fu Ling",
-                "dosage_percentage": 25,
-                "purpose": "Leaches out Dampness, assisting Bai Zhu."
-            },
-            {
-                "role": "Envoy (Shi)",
-                "herb_id": "herb_003",
-                "pinyin_name": "Zhi Gan Cao",
-                "dosage_percentage": 15,
-                "purpose": "Harmonizes the formula and warms the middle."
-            }
-        ],
-        "safety_note": "A very safe, foundational Qi tonic. May be too warm/cloying for those with severe Yin deficiency or high exterior Heat."
-    },
-    {
-        "id": "formula_002",
-        "pinyin_name": "Xiao Yao San",
-        "common_name": "Free and Easy Wanderer",
-        "primary_pattern": "Liver Qi Stagnation with Blood Deficiency",
-        "actions": [
-            "Pacifies the Liver and spreads Liver Qi",
-            "Strengthens the Spleen",
-            "Nourishes the Blood"
-        ],
-        "architecture": [
-            {
-                "role": "King (Jun)",
-                "herb_id": "herb_008",
-                "pinyin_name": "Chai Hu",
-                "dosage_percentage": 15,
-                "purpose": "Relieves Liver constraint and spreads Qi."
-            },
-            {
-                "role": "Minister (Chen)",
-                "herb_id": "herb_004",
-                "pinyin_name": "Dang Gui",
-                "dosage_percentage": 15,
-                "purpose": "Nourishes Blood and invigorates circulation."
-            },
-            {
-                "role": "Minister (Chen)",
-                "herb_id": "herb_006",
-                "pinyin_name": "Bai Shao",
-                "dosage_percentage": 15,
-                "purpose": "Nourishes Blood and softens the Liver."
-            },
-            {
-                "role": "Assistant (Zuo)",
-                "herb_id": "herb_010",
-                "pinyin_name": "Bai Zhu",
-                "dosage_percentage": 15,
-                "purpose": "Strengthens the Spleen to prevent Wood overacting on Earth."
-            },
-            {
-                "role": "Assistant (Zuo)",
-                "herb_id": "herb_009",
-                "pinyin_name": "Fu Ling",
-                "dosage_percentage": 15,
-                "purpose": "Strengthens the Spleen and calms the Spirit."
-            },
-            {
-                "role": "Envoy (Shi)",
-                "herb_id": "herb_003",
-                "pinyin_name": "Zhi Gan Cao",
-                "dosage_percentage": 10,
-                "purpose": "Harmonizes the herbs and benefits the Spleen."
-            },
-            {
-                "role": "Envoy (Shi)",
-                "herb_id": "herb_015",
-                "pinyin_name": "Sheng Jiang",
-                "dosage_percentage": 10,
-                "purpose": "Warms the middle and harmonizes the Stomach."
-            },
-            {
-                "role": "Envoy (Shi)",
-                "herb_id": "herb_023",
-                "pinyin_name": "Bo He",
-                "dosage_percentage": 5,
-                "purpose": "Aids Chai Hu in venting Liver constraint."
-            }
-        ],
-        "safety_note": "Extremely common and safe. Reduces stress and harmonizes digestion. Monitor for signs of excessive Heat (use Jia Wei Xiao Yao San instead)."
-    }
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Tang",
+    "common_name": "Cinnamon Twig Decoction",
+    "primary_pattern": "Taiyang Wind-Strike (Deficiency)",
+    "actions": [
+      "Releases the exterior",
+      "Harmonizes Ying and Wei"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 26.98
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 26.98
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 17.99
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 26.98
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 1.08
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ma Huang Tang",
+    "common_name": "Ephedra Decoction",
+    "primary_pattern": "Taiyang Cold-Strike (Excess)",
+    "actions": [
+      "Releases the exterior",
+      "Disperses cold",
+      "Relieves wheezing"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 44.78
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 29.85
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 10.45
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 14.93
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Jian Zhong Tang",
+    "common_name": "Minor Construct the Middle Decoction",
+    "primary_pattern": "Taiyang-Shaoyang with Spleen Deficiency",
+    "actions": [
+      "Warms the middle",
+      "Harmonizes the liver and spleen",
+      "Relieves pain"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 35.05
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 0.7
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_jiao_yi",
+        "pinyin_name": "Jiao Yi",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 11.68
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Bai Hu Tang",
+    "common_name": "White Tiger Decoction",
+    "primary_pattern": "Yangming Qi-level Heat",
+    "actions": [
+      "Clears heat",
+      "Generates fluids"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 65.04
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_zhi_mu",
+        "pinyin_name": "Zhi Mu",
+        "purpose": "Clears heat",
+        "dosage_percentage": 24.39
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 8.13
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_jing_mi",
+        "pinyin_name": "Jing Mi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 2.44
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Da Cheng Qi Tang",
+    "common_name": "Major Order the Qi Decoction",
+    "primary_pattern": "Yangming Fu-organ Excess",
+    "actions": [
+      "Purging heat",
+      "Unblocking the bowels"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Purging heat",
+        "dosage_percentage": 74.77
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Purging heat",
+        "dosage_percentage": 18.69
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Purging heat",
+        "dosage_percentage": 0.93
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Purging heat",
+        "dosage_percentage": 5.61
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_006",
+    "pinyin_name": "Xiao Chai Hu Tang",
+    "common_name": "Minor Bupleurum Decoction",
+    "primary_pattern": "Shaoyang Disease",
+    "actions": [
+      "Harmonizes Shaoyang",
+      "Regulates Qi",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 7.08
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 21.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 21.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 7.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 21.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 21.23
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes Shaoyang",
+        "dosage_percentage": 0.92
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_007",
+    "pinyin_name": "Si Ni Tang",
+    "common_name": "Frigid Extremities Decoction",
+    "primary_pattern": "Shaoyin Cold-Excess with Yang Collapse",
+    "actions": [
+      "Restores yang",
+      "Rescues from collapse"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Restores yang",
+        "dosage_percentage": 0.28
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Restores yang",
+        "dosage_percentage": 42.74
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Restores yang",
+        "dosage_percentage": 56.98
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_008",
+    "pinyin_name": "Wu Ling San",
+    "common_name": "Five-Ingredient Powder with Poria",
+    "primary_pattern": "Taiyang Bladder Damp-Heat with Water Retention",
+    "actions": [
+      "Promotes urination",
+      "Resolves dampness",
+      "Warms yang"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhu_ling",
+        "pinyin_name": "Zhu Ling",
+        "purpose": "Promotes urination",
+        "dosage_percentage": 32.14
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Promotes urination",
+        "dosage_percentage": 32.14
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Promotes urination",
+        "dosage_percentage": 32.14
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ze_xie",
+        "pinyin_name": "Ze Xie",
+        "purpose": "Promotes urination",
+        "dosage_percentage": 1.79
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Promotes urination",
+        "dosage_percentage": 1.79
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_009",
+    "pinyin_name": "Zhen Wu Tang",
+    "common_name": "True Warrior Decoction",
+    "primary_pattern": "Shaoyin Water Overflow",
+    "actions": [
+      "Warms yang",
+      "Promotes urination",
+      "Resolves dampness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang",
+        "dosage_percentage": 0.09
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Warms yang",
+        "dosage_percentage": 18.17
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Warms yang",
+        "dosage_percentage": 27.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Warms yang",
+        "dosage_percentage": 27.25
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warms yang",
+        "dosage_percentage": 27.25
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_010",
+    "pinyin_name": "Li Zhong Wan",
+    "common_name": "Regulate the Middle Pill",
+    "primary_pattern": "Taiyin Spleen-Stomach Deficiency Cold",
+    "actions": [
+      "Warms the middle",
+      "Strengthens the spleen",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Ge Gen Tang",
+    "common_name": "Kudzu Decoction",
+    "primary_pattern": "Taiyang with Stiff Neck",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the middle"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ge_gen",
+        "pinyin_name": "Ge Gen",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 24.81
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.74
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Da Qing Long Tang",
+    "common_name": "Major Bluegreen Dragon Decoction",
+    "primary_pattern": "Taiyang with External Cold and Internal Heat",
+    "actions": [
+      "Release the exterior",
+      "Clear internal heat"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 41.32
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 13.77
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 13.77
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 2.75
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 20.66
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.83
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 6.89
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Qing Long Tang",
+    "common_name": "Minor Bluegreen Dragon Decoction",
+    "primary_pattern": "Taiyang with Water Qi",
+    "actions": [
+      "Release the exterior",
+      "Transform water qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_025",
+        "pinyin_name": "Wu Wei Zi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 5.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 5.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_xi_xin",
+        "pinyin_name": "Xi Xin",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 15.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Tao He Cheng Qi Tang",
+    "common_name": "Peach Kernel Qi-Coordinating Decoction",
+    "primary_pattern": "Taiyang with Blood Stasis",
+    "actions": [
+      "Break blood stasis",
+      "Purge heat"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_tao_ren",
+        "pinyin_name": "Tao Ren",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 4.76
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 19.05
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 38.1
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 19.05
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 19.05
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Chai Hu Jia Long Gu Mu Li Tang",
+    "common_name": "Bupleurum plus Dragon Bone and Oyster Shell Decoction",
+    "primary_pattern": "Shaoyang with Phlegm and Disturbance",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Calm the spirit"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 21.55
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 10.78
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 0.32
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_long_gu",
+        "pinyin_name": "Long Gu",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_qian_dan",
+        "pinyin_name": "Qian Dan",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 10.78
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_mu_li",
+        "pinyin_name": "Mu Li",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 8.08
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Xie Xin Tang",
+    "common_name": "Heart-Draining Decoction",
+    "primary_pattern": "Heart and Chest Fullness with Heat",
+    "actions": [
+      "Drains heat from the chest",
+      "Relieves fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Drains heat from the chest",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Drains heat from the chest",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ban Xia Xie Xin Tang",
+    "common_name": "Pinellia Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Nausea",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Relieves fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 7.08
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 7.08
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 0.85
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 21.25
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Sheng Jiang Xie Xin Tang",
+    "common_name": "Fresh Ginger Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Water Retention",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Resolves water retention"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 24.81
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 6.2
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 6.2
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 6.2
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 0.74
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gan Cao Xie Xin Tang",
+    "common_name": "Licorice Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Deficiency",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Tonifies deficiency"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 33.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 24.75
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 24.75
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 8.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 8.25
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 0.99
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Huang Lian Tang",
+    "common_name": "Coptis Decoction",
+    "primary_pattern": "Chest and Epigastric Heat with Pain",
+    "actions": [
+      "Clears heat",
+      "Relieves pain",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 19.84
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 19.84
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Clears heat",
+        "dosage_percentage": 19.84
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 19.84
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Clears heat",
+        "dosage_percentage": 13.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Clears heat",
+        "dosage_percentage": 6.61
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 0.79
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Zhu Ling Tang",
+    "common_name": "Polyporus Decoction",
+    "primary_pattern": "Yangming with Water Retention",
+    "actions": [
+      "Nourish yin",
+      "Clear heat",
+      "Promote urination"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhu_ling",
+        "pinyin_name": "Zhu Ling",
+        "purpose": "Nourish yin",
+        "dosage_percentage": 20.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Nourish yin",
+        "dosage_percentage": 20.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ze_xie",
+        "pinyin_name": "Ze Xie",
+        "purpose": "Nourish yin",
+        "dosage_percentage": 20.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_hua_shi",
+        "pinyin_name": "Hua Shi",
+        "purpose": "Nourish yin",
+        "dosage_percentage": 20.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_e_jiao",
+        "pinyin_name": "E Jiao",
+        "purpose": "Nourish yin",
+        "dosage_percentage": 20.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Si Ni San",
+    "common_name": "Frigid Extremities Powder",
+    "primary_pattern": "Shaoyin with Qi Stagnation",
+    "actions": [
+      "Dredge liver qi",
+      "Harmonize the interior",
+      "Relieve stagnation"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Dredge liver qi",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Dredge liver qi",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Dredge liver qi",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Dredge liver qi",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Shi Qi Tang",
+    "common_name": "Gardenia and Fermented Soybean Decoction",
+    "primary_pattern": "Heat Harassing the Chest Diaphragm",
+    "actions": [
+      "Clears heat",
+      "Relieves restlessness",
+      "Resolves depression"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.93
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_xiang_chi",
+        "pinyin_name": "Xiang Chi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 74.07
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Tiao Wei Cheng Qi Tang",
+    "common_name": "Stomach-Regulating Qi-Coordinating Decoction",
+    "primary_pattern": "Yangming Heat Accumulation with Stomach Disharmony",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Moistens dryness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 28.57
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 57.14
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 14.29
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Xiao Cheng Qi Tang",
+    "common_name": "Minor Purgative Decoction",
+    "primary_pattern": "Yangming Heat Accumulation with Mild Excess",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Resolves stagnation"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 63.49
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 31.75
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Harmonizes the stomach",
+        "dosage_percentage": 4.76
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Jia Ge Gen Tang",
+    "common_name": "Cinnamon Twig Decoction with Kudzu",
+    "primary_pattern": "Taiyang with Stiff Neck",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve stiffness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ge_gen",
+        "pinyin_name": "Ge Gen",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 24.81
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.74
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 12.41
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gui Zhi Jia Fu Zi Tang",
+    "common_name": "Cinnamon Twig Decoction with Aconite",
+    "primary_pattern": "Taiyang with Yang Deficiency",
+    "actions": [
+      "Release the exterior",
+      "Warm yang",
+      "Stop sweating"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.09
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 1.08
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 17.97
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Tang",
+    "common_name": "Cinnamon Twig Decoction minus Peony",
+    "primary_pattern": "Taiyang with Chest Fullness",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve chest fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 36.95
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 36.95
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 1.48
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 24.63
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Jia Fu Zi Tang",
+    "common_name": "Cinnamon Twig Decoction minus Peony plus Aconite",
+    "primary_pattern": "Taiyang with Chest Fullness and Mild Chills",
+    "actions": [
+      "Release the exterior",
+      "Warm yang",
+      "Relieve chest fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 36.9
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.12
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 36.9
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 1.48
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 24.6
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gui Zhi Jia Hou Pu Xing Ren Tang",
+    "common_name": "Cinnamon Twig Decoction with Magnolia Bark and Apricot Kernel",
+    "primary_pattern": "Taiyang with Wheezing",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve wheezing"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 22.03
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 22.03
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 14.68
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 3.67
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 22.03
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 0.88
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Release the exterior",
+        "dosage_percentage": 14.68
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Gui Zhi Jia Shao Yao Sheng Jiang Ren Shen Xin Jia Tang",
+    "common_name": "Cinnamon Twig Decoction with Added Peony, Ginger, and Ginseng New Supplement Decoction",
+    "primary_pattern": "Taiyang with Deficiency after Sweating",
+    "actions": [
+      "Harmonizes the exterior",
+      "Nourishes the blood and qi",
+      "Relieves pain"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 24.81
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 24.81
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.61
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.74
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 12.41
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Gui Zhi Qu Gui Jia Fu Ling Bai Zhu Tang",
+    "common_name": "Cinnamon Twig Decoction without Cinnamon Twig plus Poria and Atractylodes Macrocephala Decoction",
+    "primary_pattern": "Taiyang with Water Retention",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes urination",
+      "Strengthens the spleen"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 21.25
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.85
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 14.16
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Gui Zhi Er Yue Bi Yi Tang",
+    "common_name": "Cinnamon Twig Two Yuebi One Decoction",
+    "primary_pattern": "Taiyang with Mild Exterior and Interior Heat",
+    "actions": [
+      "Harmonizes the exterior",
+      "Clears heat",
+      "Promotes sweating"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.55
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.55
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.55
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 24.73
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 1.03
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.04
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.55
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Gui Zhi Ma Huang Ge Ban Tang",
+    "common_name": "Cinnamon Twig and Ephedra Half and Half Decoction",
+    "primary_pattern": "Taiyang with Mild Exterior Syndrome",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes mild sweating"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.94
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.94
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.94
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 4.55
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.94
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.76
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 18.94
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gui Zhi Er Ma Huang Yi Tang",
+    "common_name": "Cinnamon Twig Two Ephedra One Decoction",
+    "primary_pattern": "Taiyang with Residual Exterior Syndrome after Sweating",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes mild sweating"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 4.95
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 4.95
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 79.17
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.79
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 4.95
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 0.25
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior",
+        "dosage_percentage": 4.95
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Jia Gui Tang",
+    "common_name": "Cinnamon Twig Decoction with Additional Cinnamon",
+    "primary_pattern": "Taiyang with Qi Rushing Upward",
+    "actions": [
+      "Warm and tonify yang",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warm and tonify yang",
+        "dosage_percentage": 38.11
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Warm and tonify yang",
+        "dosage_percentage": 22.87
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warm and tonify yang",
+        "dosage_percentage": 15.24
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warm and tonify yang",
+        "dosage_percentage": 22.87
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warm and tonify yang",
+        "dosage_percentage": 0.91
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gui Zhi Gan Cao Tang",
+    "common_name": "Cinnamon Twig and Licorice Decoction",
+    "primary_pattern": "Taiyang with Palpitations",
+    "actions": [
+      "Supplement heart yang",
+      "Relieve palpitations"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Supplement heart yang",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Supplement heart yang",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Gui Zhi Gan Cao Long Gu Mu Li Tang",
+    "common_name": "Cinnamon Twig, Licorice, Dragon Bone, and Oyster Shell Decoction",
+    "primary_pattern": "Taiyang with Restlessness from Fire Inversion",
+    "actions": [
+      "Nourish heart yang",
+      "Calm the spirit",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Nourish heart yang",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Nourish heart yang",
+        "dosage_percentage": 28.57
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_long_gu",
+        "pinyin_name": "Long Gu",
+        "purpose": "Nourish heart yang",
+        "dosage_percentage": 28.57
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_mu_li",
+        "pinyin_name": "Mu Li",
+        "purpose": "Nourish heart yang",
+        "dosage_percentage": 28.57
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Jia Shu Qi Long Gu Mu Li Jiu Ni Tang",
+    "common_name": "Cinnamon Twig Decoction without Peony plus Shu Qi, Dragon Bone, and Oyster Shell Rescue Counterflow Decoction",
+    "primary_pattern": "Taiyang with Fright and Mania from Fire Moxibustion",
+    "actions": [
+      "Restore yang",
+      "Calm the spirit",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Restore yang",
+        "dosage_percentage": 14.91
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Restore yang",
+        "dosage_percentage": 9.94
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Restore yang",
+        "dosage_percentage": 14.91
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Restore yang",
+        "dosage_percentage": 0.6
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_shu_qi",
+        "pinyin_name": "Shu Qi",
+        "purpose": "Restore yang",
+        "dosage_percentage": 14.91
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_long_gu",
+        "pinyin_name": "Long Gu",
+        "purpose": "Restore yang",
+        "dosage_percentage": 19.88
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_mu_li",
+        "pinyin_name": "Mu Li",
+        "purpose": "Restore yang",
+        "dosage_percentage": 24.85
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gan Cao Gan Jiang Tang",
+    "common_name": "Licorice and Dried Ginger Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Cold Limbs",
+    "actions": [
+      "Warm and restore yang",
+      "Relieve cold limbs"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warm and restore yang",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Warm and restore yang",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Shao Yao Gan Cao Tang",
+    "common_name": "Peony and Licorice Decoction",
+    "primary_pattern": "Taiyang with Cramping or Spasms",
+    "actions": [
+      "Harmonizes the liver and spleen",
+      "Relaxes cramping",
+      "Nourishes yin and blood"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Harmonizes the liver and spleen",
+        "dosage_percentage": 50.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the liver and spleen",
+        "dosage_percentage": 50.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Ge Gen Jia Ban Xia Tang",
+    "common_name": "Kudzu Decoction with Pinellia",
+    "primary_pattern": "Taiyang with Stiff Neck and Vomiting",
+    "actions": [
+      "Releases the exterior",
+      "Harmonizes the stomach",
+      "Stops vomiting"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ge_gen",
+        "pinyin_name": "Ge Gen",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 23.36
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 11.68
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 11.68
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 11.68
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 0.7
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.84
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Ge Gen Huang Qin Huang Lian Tang",
+    "common_name": "Kudzu, Scutellaria, and Coptis Decoction",
+    "primary_pattern": "Taiyang with Heat and Diarrhea",
+    "actions": [
+      "Clears heat",
+      "Resolves dampness",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ge_gen",
+        "pinyin_name": "Ge Gen",
+        "purpose": "Clears heat",
+        "dosage_percentage": 12.5
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 37.5
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Ma Huang Xing Ren Gan Cao Shi Gao Tang",
+    "common_name": "Ephedra, Apricot Kernel, Licorice, and Gypsum Decoction",
+    "primary_pattern": "Taiyang with Heat and Cough",
+    "actions": [
+      "Clears heat",
+      "Relieves cough and asthma",
+      "Harmonizes the lungs"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Clears heat",
+        "dosage_percentage": 53.33
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Clears heat",
+        "dosage_percentage": 6.67
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 26.67
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 13.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gan Jiang Fu Zi Tang",
+    "common_name": "Dried Ginger and Aconite Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Cold",
+    "actions": [
+      "Warms yang",
+      "Disperses cold",
+      "Restores yang"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Warms yang",
+        "dosage_percentage": 99.01
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang",
+        "dosage_percentage": 0.99
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_067",
+    "pinyin_name": "Fu Ling Gui Zhi Gan Cao Da Zao Tang",
+    "common_name": "Poria, Cinnamon Twig, Licorice, and Jujube Decoction",
+    "primary_pattern": "Taiyang with Water Accumulation and Palpitations",
+    "actions": [
+      "Warm and transform water-dampness",
+      "Strengthen the spleen and calm the heart"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Warm and transform water-dampness",
+        "dosage_percentage": 13.99
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warm and transform water-dampness",
+        "dosage_percentage": 55.94
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warm and transform water-dampness",
+        "dosage_percentage": 27.97
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warm and transform water-dampness",
+        "dosage_percentage": 2.1
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_066",
+    "pinyin_name": "Hou Po Sheng Jiang Gan Cao Ban Xia Ren Shen Tang",
+    "common_name": "Magnolia Bark, Fresh Ginger, Licorice, Pinellia, and Ginseng Decoction",
+    "primary_pattern": "Taiyang with Spleen Deficiency and Abdominal Distention",
+    "actions": [
+      "Warm the middle and transform dampness",
+      "Regulate qi and relieve distention"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Warm the middle and transform dampness",
+        "dosage_percentage": 16.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warm the middle and transform dampness",
+        "dosage_percentage": 16.67
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Warm the middle and transform dampness",
+        "dosage_percentage": 16.67
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Warm the middle and transform dampness",
+        "dosage_percentage": 16.67
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warm the middle and transform dampness",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_074",
+    "pinyin_name": "Fu Ling Gui Zhi Bai Zhu Gan Cao Tang",
+    "common_name": "Poria, Cinnamon Twig, Atractylodes, and Licorice Decoction",
+    "primary_pattern": "Taiyang with Water Retention and Dizziness",
+    "actions": [
+      "Warm yang and transform water",
+      "Strengthen the spleen and drain dampness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Warm yang and transform water",
+        "dosage_percentage": 36.36
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warm yang and transform water",
+        "dosage_percentage": 27.27
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Warm yang and transform water",
+        "dosage_percentage": 18.18
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warm yang and transform water",
+        "dosage_percentage": 18.18
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_068",
+    "pinyin_name": "Shao Yao Gan Cao Fu Zi Tang",
+    "common_name": "Peony, Licorice, and Aconite Decoction",
+    "primary_pattern": "Taiyang with Deficiency and Cold",
+    "actions": [
+      "Nourish yin and warm yang",
+      "Relieve spasm and pain"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Nourish yin and warm yang",
+        "dosage_percentage": 49.92
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Nourish yin and warm yang",
+        "dosage_percentage": 49.92
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Nourish yin and warm yang",
+        "dosage_percentage": 0.17
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_069",
+    "pinyin_name": "Fu Ling Si Ni Tang",
+    "common_name": "Poria Counterflow Cold Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Irritability",
+    "actions": [
+      "Restore yang and rescue from collapse",
+      "Calm the spirit and transform water"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Restore yang and rescue from collapse",
+        "dosage_percentage": 57.09
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Restore yang and rescue from collapse",
+        "dosage_percentage": 9.51
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Restore yang and rescue from collapse",
+        "dosage_percentage": 19.03
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Restore yang and rescue from collapse",
+        "dosage_percentage": 14.27
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Restore yang and rescue from collapse",
+        "dosage_percentage": 0.1
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Fu Ling Gan Cao Tang",
+    "common_name": "Poria and Licorice Decoction",
+    "primary_pattern": "Taiyang with Water Qi",
+    "actions": [
+      "Harmonizes the middle",
+      "Drains water"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Harmonizes the middle",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the middle",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Chi Tang",
+    "common_name": "Gardenia and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat in the Chest",
+    "actions": [
+      "Clears heat",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.93
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_xiang_chi",
+        "pinyin_name": "Xiang Chi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 74.07
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Zhi Zi Gan Cao Chi Tang",
+    "common_name": "Gardenia, Licorice, and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat and Qi Deficiency",
+    "actions": [
+      "Clears heat",
+      "Tonifies qi",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 5.51
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 78.74
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xiang_chi",
+        "pinyin_name": "Xiang Chi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 15.75
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Zhi Zi Sheng Jiang Chi Tang",
+    "common_name": "Gardenia, Fresh Ginger, and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat and Vomiting",
+    "actions": [
+      "Clears heat",
+      "Harmonizes the stomach",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 2.53
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Clears heat",
+        "dosage_percentage": 90.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xiang_chi",
+        "pinyin_name": "Xiang Chi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 7.22
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Zhi Zi Hou Pu Tang",
+    "common_name": "Gardenia and Magnolia Bark Decoction",
+    "primary_pattern": "Taiyang with Heat and Abdominal Fullness",
+    "actions": [
+      "Clears heat",
+      "Relieves fullness",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 3.35
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Clears heat",
+        "dosage_percentage": 95.69
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 0.96
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Zhi Zi Gan Jiang Tang",
+    "common_name": "Gardenia and Dried Ginger Decoction",
+    "primary_pattern": "Taiyang disease with residual heat and cold deficiency",
+    "actions": [
+      "Clear heat",
+      "Warm the middle",
+      "Relieve restlessness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clear heat",
+        "dosage_percentage": 6.54
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Clear heat",
+        "dosage_percentage": 93.46
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Da Chai Hu Tang",
+    "common_name": "Major Bupleurum Decoction",
+    "primary_pattern": "Shaoyang-Yangming combined disease with interior excess",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Drain heat",
+      "Promote qi flow"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 36.1
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 13.54
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 13.54
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 4.51
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 22.56
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 0.18
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 0.54
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 9.03
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Chai Hu Jia Mang Xiao Tang",
+    "common_name": "Bupleurum and Mirabilite Decoction",
+    "primary_pattern": "Shaoyang disease with interior heat and constipation",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Drain heat",
+      "Moisten dryness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 33.17
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 12.44
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 12.44
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 4.15
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 12.44
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 0.5
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Harmonize Shaoyang",
+        "dosage_percentage": 24.88
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Di Dang Tang",
+    "common_name": "Resistance Decoction",
+    "primary_pattern": "Taiyang disease with blood stasis in the lower burner",
+    "actions": [
+      "Break blood stasis",
+      "Drain heat"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_shui_zhi",
+        "pinyin_name": "Shui Zhi",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 7.89
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_meng_chong",
+        "pinyin_name": "Meng Chong",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 7.89
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_tao_ren",
+        "pinyin_name": "Tao Ren",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 5.26
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 78.95
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Di Dang Wan",
+    "common_name": "Resistance Pill",
+    "primary_pattern": "Taiyang disease with blood stasis, milder form",
+    "actions": [
+      "Break blood stasis",
+      "Drain heat"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_shui_zhi",
+        "pinyin_name": "Shui Zhi",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 5.48
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_meng_chong",
+        "pinyin_name": "Meng Chong",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 6.85
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_tao_ren",
+        "pinyin_name": "Tao Ren",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 5.48
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Break blood stasis",
+        "dosage_percentage": 82.19
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Da Xian Xiong Wan",
+    "common_name": "Major Chest Bind Pill",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Draining heat",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Draining heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ting_li",
+        "pinyin_name": "Ting Li",
+        "purpose": "Draining heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Draining heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Draining heat",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Da Xian Xiong Tang",
+    "common_name": "Major Chest Bind Decoction",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Draining heat",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Draining heat",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_mang_xiao",
+        "pinyin_name": "Mang Xiao",
+        "purpose": "Draining heat",
+        "dosage_percentage": 22.22
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_sui",
+        "pinyin_name": "Gan Sui",
+        "purpose": "Draining heat",
+        "dosage_percentage": 11.11
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Xian Xiong Tang",
+    "common_name": "Minor Chest Bind Decoction",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Clearing heat",
+      "Resolving phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clearing heat",
+        "dosage_percentage": 49.75
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Clearing heat",
+        "dosage_percentage": 49.75
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gua_lou_shi",
+        "pinyin_name": "Gua Lou Shi",
+        "purpose": "Clearing heat",
+        "dosage_percentage": 0.5
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Wen Ge San",
+    "common_name": "Warm Diaphragm Powder",
+    "primary_pattern": "Cold-Phlegm Chest Bind",
+    "actions": [
+      "Warming the diaphragm",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_021",
+        "pinyin_name": "Jie Geng",
+        "purpose": "Warming the diaphragm",
+        "dosage_percentage": 42.86
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ba_dou",
+        "pinyin_name": "Ba Dou",
+        "purpose": "Warming the diaphragm",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_bei_mu",
+        "pinyin_name": "Bei Mu",
+        "purpose": "Warming the diaphragm",
+        "dosage_percentage": 42.86
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Chai Hu Gui Zhi Gan Jiang Tang",
+    "common_name": "Bupleurum, Cinnamon Twig, and Dried Ginger Decoction",
+    "primary_pattern": "Shaoyang with Cold",
+    "actions": [
+      "Harmonizing Shaoyang",
+      "Warming the middle",
+      "Resolving phlegm"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 5.26
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 15.79
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 15.79
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gua_lou_gen",
+        "pinyin_name": "Gua Lou Gen",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 21.05
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 15.79
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_mu_li",
+        "pinyin_name": "Mu Li",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 15.79
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizing Shaoyang",
+        "dosage_percentage": 10.53
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Shi Zao Tang",
+    "common_name": "Ten Jujube Decoction",
+    "primary_pattern": "Exterior-Interior Excess with Water Retention",
+    "actions": [
+      "Expels water and purges excess",
+      "Relieves chest and hypochondriac fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_yuan_hua",
+        "pinyin_name": "Yuan Hua",
+        "purpose": "Expels water and purges excess",
+        "dosage_percentage": 32.26
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_sui",
+        "pinyin_name": "Gan Sui",
+        "purpose": "Expels water and purges excess",
+        "dosage_percentage": 32.26
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_da_ji",
+        "pinyin_name": "Da Ji",
+        "purpose": "Expels water and purges excess",
+        "dosage_percentage": 32.26
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Expels water and purges excess",
+        "dosage_percentage": 3.23
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Da Huang Huang Lian Xie Xin Tang",
+    "common_name": "Rhubarb and Coptis Decoction to Drain the Epigastrium",
+    "primary_pattern": "Heat Stagnation in the Epigastrium",
+    "actions": [
+      "Clears heat and drains fire",
+      "Relieves epigastric fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Clears heat and drains fire",
+        "dosage_percentage": 66.67
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat and drains fire",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Fu Zi Xie Xin Tang",
+    "common_name": "Aconite Decoction to Drain the Epigastrium",
+    "primary_pattern": "Cold Stagnation in the Epigastrium with Exterior Deficiency",
+    "actions": [
+      "Warms yang and dispels cold",
+      "Relieves epigastric fullness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Warms yang and dispels cold",
+        "dosage_percentage": 49.88
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Warms yang and dispels cold",
+        "dosage_percentage": 24.94
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Warms yang and dispels cold",
+        "dosage_percentage": 24.94
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang and dispels cold",
+        "dosage_percentage": 0.25
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Chi Shi Zhi Yu Yu Liang Tang",
+    "common_name": "Halloysite and Limonite Decoction",
+    "primary_pattern": "Chronic Diarrhea with Spleen-Kidney Deficiency",
+    "actions": [
+      "Astringes intestines and stops diarrhea",
+      "Warms and strengthens spleen and kidney"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_chi_shi_zhi",
+        "pinyin_name": "Chi Shi Zhi",
+        "purpose": "Astringes intestines and stops diarrhea",
+        "dosage_percentage": 50.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_yu_yu_liang",
+        "pinyin_name": "Yu Yu Liang",
+        "purpose": "Astringes intestines and stops diarrhea",
+        "dosage_percentage": 50.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Xuan Fu Dai Zhe Shi Tang",
+    "common_name": "Inula and Hematite Decoction",
+    "primary_pattern": "Phlegm-Damp Stagnation with Rebellious Qi",
+    "actions": [
+      "Descends rebellious qi and transforms phlegm",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_xuan_fu_hua",
+        "pinyin_name": "Xuan Fu Hua",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 19.84
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_dai_zhe_shi",
+        "pinyin_name": "Dai Zhe Shi",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 6.61
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 13.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 33.07
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 6.61
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 0.79
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Descends rebellious qi and transforms phlegm",
+        "dosage_percentage": 19.84
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Ren Shen Tang",
+    "common_name": "Cinnamon Twig and Ginseng Decoction",
+    "primary_pattern": "Taiyang with Qi and Fluid Deficiency",
+    "actions": [
+      "Harmonizes the exterior and interior",
+      "Tonifies qi and generates fluids"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 23.36
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 17.52
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 23.36
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 23.36
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 11.68
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes the exterior and interior",
+        "dosage_percentage": 0.7
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gua Di San",
+    "common_name": "Trichosanthes Root Powder",
+    "primary_pattern": "Chest Bi with Phlegm-Heat",
+    "actions": [
+      "Clears heat and resolves phlegm",
+      "Opens the chest and dissipates masses"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gua_lou",
+        "pinyin_name": "Gua Lou",
+        "purpose": "Clears heat and resolves phlegm",
+        "dosage_percentage": 4.76
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat and resolves phlegm",
+        "dosage_percentage": 47.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Clears heat and resolves phlegm",
+        "dosage_percentage": 47.62
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Huang Qin Tang",
+    "common_name": "Scutellaria Decoction",
+    "primary_pattern": "Shaoyang-Taiyin with Heat and Dampness",
+    "actions": [
+      "Clears heat and stops diarrhea",
+      "Harmonizes the middle jiao"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Clears heat and stops diarrhea",
+        "dosage_percentage": 42.13
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Clears heat and stops diarrhea",
+        "dosage_percentage": 28.09
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat and stops diarrhea",
+        "dosage_percentage": 28.09
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Clears heat and stops diarrhea",
+        "dosage_percentage": 1.69
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Fu Zi Tang",
+    "common_name": "Cinnamon Twig and Aconite Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency",
+    "actions": [
+      "Warms yang and releases the exterior",
+      "Harmonizes nutrient and defense"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 0.09
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 26.95
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 17.97
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warms yang and releases the exterior",
+        "dosage_percentage": 1.08
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gan Cao Fu Zi Tang",
+    "common_name": "Licorice and Aconite Decoction",
+    "primary_pattern": "Shaoyin with Yang Deficiency",
+    "actions": [
+      "Rescues yang and stops diarrhea",
+      "Warms the middle jiao"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Rescues yang and stops diarrhea",
+        "dosage_percentage": 0.28
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Rescues yang and stops diarrhea",
+        "dosage_percentage": 56.98
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Rescues yang and stops diarrhea",
+        "dosage_percentage": 42.74
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Bai Hu Jia Ren Shen Tang",
+    "common_name": "White Tiger Decoction with Ginseng",
+    "primary_pattern": "Yangming with Excessive Heat and Qi Deficiency",
+    "actions": [
+      "Clear heat and promote fluid production",
+      "Tonify qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Clear heat and promote fluid production",
+        "dosage_percentage": 57.97
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_zhi_mu",
+        "pinyin_name": "Zhi Mu",
+        "purpose": "Clear heat and promote fluid production",
+        "dosage_percentage": 21.74
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clear heat and promote fluid production",
+        "dosage_percentage": 7.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_jing_mi",
+        "pinyin_name": "Jing Mi",
+        "purpose": "Clear heat and promote fluid production",
+        "dosage_percentage": 2.17
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Clear heat and promote fluid production",
+        "dosage_percentage": 10.87
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Zhi Gan Cao Tang",
+    "common_name": "Honey-Fried Licorice Decoction",
+    "primary_pattern": "Deficiency of Heart Qi and Blood",
+    "actions": [
+      "Tonify qi and blood",
+      "Nourish yin and moisten dryness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Zhi Gan Cao",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 12.45
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 9.34
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 9.34
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 6.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_sheng_di_huang",
+        "pinyin_name": "Sheng Di Huang",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 49.81
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_e_jiao",
+        "pinyin_name": "E Jiao",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 6.23
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_013",
+        "pinyin_name": "Mai Men Dong",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 3.11
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ma_zi_ren",
+        "pinyin_name": "Ma Zi Ren",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 3.11
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Tonify qi and blood",
+        "dosage_percentage": 0.37
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Yin Chen Hao Tang",
+    "common_name": "Artemisia Scoparia Decoction",
+    "primary_pattern": "Damp-Heat Jaundice",
+    "actions": [
+      "Clear heat and drain dampness",
+      "Resolve jaundice"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_yin_chen_hao",
+        "pinyin_name": "Yin Chen Hao",
+        "purpose": "Clear heat and drain dampness",
+        "dosage_percentage": 73.71
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clear heat and drain dampness",
+        "dosage_percentage": 1.72
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Clear heat and drain dampness",
+        "dosage_percentage": 24.57
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Wu Zhu Yu Tang",
+    "common_name": "Evodia Decoction",
+    "primary_pattern": "Cold Stagnation with Vomiting",
+    "actions": [
+      "Warm the middle jiao and disperse cold",
+      "Descend rebellious qi"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_wu_zhu_yu",
+        "pinyin_name": "Wu Zhu Yu",
+        "purpose": "Warm the middle jiao and disperse cold",
+        "dosage_percentage": 17.99
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Warm the middle jiao and disperse cold",
+        "dosage_percentage": 26.98
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Warm the middle jiao and disperse cold",
+        "dosage_percentage": 53.96
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warm the middle jiao and disperse cold",
+        "dosage_percentage": 1.08
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Ma Ren Wan",
+    "common_name": "Hemp Seed Pill",
+    "primary_pattern": "Spleen Constriction with Dryness",
+    "actions": [
+      "Moistens intestines",
+      "Promotes bowel movement"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_zi_ren",
+        "pinyin_name": "Ma Zi Ren",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 5.88
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 11.76
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 11.76
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_da_huang",
+        "pinyin_name": "Da Huang",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 23.53
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_hou_po",
+        "pinyin_name": "Hou Po",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 23.53
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Moistens intestines",
+        "dosage_percentage": 23.53
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Bai Pi Tang",
+    "common_name": "Gardenia and Phellodendron Decoction",
+    "primary_pattern": "Damp-heat Jaundice with Fever",
+    "actions": [
+      "Clears heat",
+      "Resolves dampness",
+      "Relieves jaundice"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 4.76
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 31.75
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_bai",
+        "pinyin_name": "Huang Bai",
+        "purpose": "Clears heat",
+        "dosage_percentage": 63.49
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ma Huang Lian Qiao Chi Xiao Dou Tang",
+    "common_name": "Ephedra, Forsythia, and Red Bean Decoction",
+    "primary_pattern": "Exterior Cold with Damp-heat and Jaundice",
+    "actions": [
+      "Releases exterior",
+      "Clears heat",
+      "Resolves dampness",
+      "Relieves jaundice"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_lian_qiao",
+        "pinyin_name": "Lian Qiao",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_chi_xiao_dou",
+        "pinyin_name": "Chi Xiao Dou",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xing_ren",
+        "pinyin_name": "Xing Ren",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 3.19
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 0.96
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_sheng_zi_bai_pi",
+        "pinyin_name": "Sheng Zi Bai Pi",
+        "purpose": "Releases exterior",
+        "dosage_percentage": 15.97
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Ma Huang Fu Zi Xi Xin Tang",
+    "common_name": "Ephedra, Aconite, and Asarum Decoction",
+    "primary_pattern": "Shaoyin Disease with Exterior Cold",
+    "actions": [
+      "Warms yang",
+      "Releases exterior"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Warms yang",
+        "dosage_percentage": 49.88
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang",
+        "dosage_percentage": 0.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xi_xin",
+        "pinyin_name": "Xi Xin",
+        "purpose": "Warms yang",
+        "dosage_percentage": 49.88
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Ma Huang Fu Zi Gan Cao Tang",
+    "common_name": "Ephedra, Aconite, and Licorice Decoction",
+    "primary_pattern": "Shaoyin Disease with Mild Exterior Cold",
+    "actions": [
+      "Warms yang",
+      "Releases exterior mildly"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Warms yang",
+        "dosage_percentage": 49.88
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang",
+        "dosage_percentage": 0.25
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms yang",
+        "dosage_percentage": 49.88
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Huang Lian E Jiao Tang",
+    "common_name": "Coptis and Ass Hide Glue Decoction",
+    "primary_pattern": "Shaoyin with Heat and Blood Deficiency",
+    "actions": [
+      "Clears heat",
+      "Nourishes blood",
+      "Stops bleeding"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 39.92
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Clears heat",
+        "dosage_percentage": 9.98
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 19.96
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ji_zi_huang",
+        "pinyin_name": "Ji Zi Huang",
+        "purpose": "Clears heat",
+        "dosage_percentage": 0.2
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_e_jiao",
+        "pinyin_name": "E Jiao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 29.94
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Fu Zi Tang",
+    "common_name": "Aconite Decoction",
+    "primary_pattern": "Shaoyin with Cold and Deficiency",
+    "actions": [
+      "Warms yang",
+      "Disperses cold",
+      "Strengthens the body"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Warms yang",
+        "dosage_percentage": 0.08
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Warms yang",
+        "dosage_percentage": 24.98
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Warms yang",
+        "dosage_percentage": 16.65
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Warms yang",
+        "dosage_percentage": 33.31
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Shao Yao",
+        "purpose": "Warms yang",
+        "dosage_percentage": 24.98
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Tao Hua Tang",
+    "common_name": "Peach Blossom Decoction",
+    "primary_pattern": "Shaoyin with Cold Diarrhea and Bloody Stools",
+    "actions": [
+      "Warms the middle",
+      "Astringes intestines",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_chi_shi_zhi",
+        "pinyin_name": "Chi Shi Zhi",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 84.21
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 5.26
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_jing_mi",
+        "pinyin_name": "Jing Mi",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 10.53
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Zhu Fu Tang",
+    "common_name": "Pig Skin Decoction",
+    "primary_pattern": "Shaoyin with Throat Pain and Deficiency",
+    "actions": [
+      "Nourishes yin",
+      "Moistens dryness",
+      "Relieves throat pain"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhu_fu",
+        "pinyin_name": "Zhu Fu",
+        "purpose": "Nourishes yin",
+        "dosage_percentage": 86.49
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_bai_mi",
+        "pinyin_name": "Bai Mi",
+        "purpose": "Nourishes yin",
+        "dosage_percentage": 10.81
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_bai_fen",
+        "pinyin_name": "Bai Fen",
+        "purpose": "Nourishes yin",
+        "dosage_percentage": 2.7
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gan Cao Tang",
+    "common_name": "Licorice Decoction",
+    "primary_pattern": "Shaoyin with Throat Pain",
+    "actions": [
+      "Clears heat",
+      "Detoxifies",
+      "Relieves throat pain"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 100.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Jie Geng Tang",
+    "common_name": "Platycodon Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": [],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ku Jiu Tang",
+    "common_name": "Bitter Wine Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": [],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ban Xia San Ji Tang",
+    "common_name": "Pinellia Three-Seven Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": [],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Bai Tong Tang",
+    "common_name": "White Penetrating Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": [],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Bai Tong Jia Zhu Dan Zhi Tang",
+    "common_name": "White Penetrating Decoction with Pig's Bile and Asarum",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": [],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Tong Mai Si Ni Tang",
+    "common_name": "Unblock the Pulse and Counterflow Cold Decoction",
+    "primary_pattern": "Shaoyin with Cold Counterflow and Pulse Blockage",
+    "actions": [
+      "Unblocks the pulse",
+      "Warms the interior",
+      "Disperses cold",
+      "Restores yang"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_fu_zi",
+        "pinyin_name": "Fu Zi",
+        "purpose": "Unblocks the pulse",
+        "dosage_percentage": 0.28
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Unblocks the pulse",
+        "dosage_percentage": 42.74
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Unblocks the pulse",
+        "dosage_percentage": 56.98
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Dang Gui Si Ni Tang",
+    "common_name": "Chinese Angelica Decoction for Frigid Extremities",
+    "primary_pattern": "Jueyin with Cold Extremities and Blood Deficiency",
+    "actions": [
+      "Warms the channels",
+      "Disperses cold",
+      "Nourishes blood",
+      "Unblocks the pulse"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_004",
+        "pinyin_name": "Dang Gui",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 18.46
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 18.46
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 18.46
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_xi_xin",
+        "pinyin_name": "Xi Xin",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 18.46
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 12.31
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_tong_cao",
+        "pinyin_name": "Tong Cao",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 12.31
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Warms the channels",
+        "dosage_percentage": 1.54
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ma Huang Sheng Ma Tang",
+    "common_name": "Ephedra and Cimicifuga Decoction",
+    "primary_pattern": "Taiyang with Exterior Cold and Interior Heat",
+    "actions": [
+      "Releases the exterior",
+      "Clears heat",
+      "Promotes sweating",
+      "Resolves toxins"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_ma_huang",
+        "pinyin_name": "Ma Huang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 2.34
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_sheng_ma",
+        "pinyin_name": "Sheng Ma",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 1.03
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_004",
+        "pinyin_name": "Dang Gui",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 1.03
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_zhi_mu",
+        "pinyin_name": "Zhi Mu",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 16.87
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 16.87
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_wei_rui",
+        "pinyin_name": "Wei Rui",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 16.87
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_tian_men_dong",
+        "pinyin_name": "Tian Men Dong",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_009",
+        "pinyin_name": "Fu Ling",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Releases the exterior",
+        "dosage_percentage": 5.62
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gan Jiang Huang Lian Huang Qin Ren Shen Tang",
+    "common_name": "Dried Ginger, Coptis, Scutellaria, and Ginseng Decoction",
+    "primary_pattern": "Jueyin with Cold-Heat Complex and Vomiting",
+    "actions": [
+      "Clears heat",
+      "Warms the middle",
+      "Harmonizes the stomach",
+      "Stops vomiting"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Clears heat",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Bai Tou Weng Tang",
+    "common_name": "Pulsatilla Decoction",
+    "primary_pattern": "Jueyin with Heat Dysentery",
+    "actions": [
+      "Clears heat",
+      "Resolves toxins",
+      "Cools blood",
+      "Stops dysentery"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_bai_tou_weng",
+        "pinyin_name": "Bai Tou Weng",
+        "purpose": "Clears heat",
+        "dosage_percentage": 18.18
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_bai",
+        "pinyin_name": "Huang Bai",
+        "purpose": "Clears heat",
+        "dosage_percentage": 27.27
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 27.27
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_qin_pi",
+        "pinyin_name": "Qin Pi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 27.27
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Li Zhong Tang",
+    "common_name": "Regulate the Middle Decoction",
+    "primary_pattern": "Taiyin Spleen Deficiency with Cold",
+    "actions": [
+      "Warms the middle",
+      "Dispels cold",
+      "Strengthens the spleen",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_010",
+        "pinyin_name": "Bai Zhu",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_gan_jiang",
+        "pinyin_name": "Gan Jiang",
+        "purpose": "Warms the middle",
+        "dosage_percentage": 25.0
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Shao Kun San",
+    "common_name": "Minor Binding Powder",
+    "primary_pattern": "Heat Bind in the Chest with Phlegm",
+    "actions": [
+      "Clears heat",
+      "Resolves phlegm",
+      "Opens the chest",
+      "Dissipates bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_huang_lian",
+        "pinyin_name": "Huang Lian",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gua_lou_shi",
+        "pinyin_name": "Gua Lou Shi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Zhi Shi Zhi Zi Chi Tang",
+    "common_name": "Immature Bitter Orange, Gardenia, and Fermented Soybean Decoction",
+    "primary_pattern": "Heat Bind with Abdominal Fullness and Restlessness",
+    "actions": [
+      "Clears heat",
+      "Relieves fullness",
+      "Calms the mind",
+      "Resolves bind"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhi_zi",
+        "pinyin_name": "Zhi Zi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_zhi_shi",
+        "pinyin_name": "Zhi Shi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_chi",
+        "pinyin_name": "Chi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 33.33
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Mu Li Ze Xie San",
+    "common_name": "Oyster Shell and Alisma Powder",
+    "primary_pattern": "Water Bind with Edema and Fullness",
+    "actions": [
+      "Softens hardness",
+      "Promotes urination",
+      "Resolves water bind",
+      "Drains dampness"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_mu_li",
+        "pinyin_name": "Mu Li",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_ze_xie",
+        "pinyin_name": "Ze Xie",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_gua_lou_gen",
+        "pinyin_name": "Gua Lou Gen",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_shu_qi",
+        "pinyin_name": "Shu Qi",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_ting_li",
+        "pinyin_name": "Ting Li",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_shang_lu_gen",
+        "pinyin_name": "Shang Lu Gen",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_hai_zao",
+        "pinyin_name": "Hai Zao",
+        "purpose": "Softens hardness",
+        "dosage_percentage": 14.29
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_026",
+    "pinyin_name": "Zhu Ye Shi Gao Tang",
+    "common_name": "Bamboo Leaf and Gypsum Decoction",
+    "primary_pattern": "Heat in the Qi and Ying Levels with Qi and Yin Deficiency",
+    "actions": [
+      "Clears heat",
+      "Generates fluids",
+      "Nourishes qi and yin"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_zhu_ye",
+        "pinyin_name": "Zhu Ye",
+        "purpose": "Clears heat",
+        "dosage_percentage": 7.41
+      },
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_024",
+        "pinyin_name": "Shi Gao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 59.26
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Clears heat",
+        "dosage_percentage": 3.7
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Clears heat",
+        "dosage_percentage": 11.11
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Clears heat",
+        "dosage_percentage": 7.41
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_jing_mi",
+        "pinyin_name": "Jing Mi",
+        "purpose": "Clears heat",
+        "dosage_percentage": 3.7
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_013",
+        "pinyin_name": "Mai Men Dong",
+        "purpose": "Clears heat",
+        "dosage_percentage": 7.41
+      }
+    ],
+    "safety_note": ""
+  },
+  {
+    "id": "form_shl_146",
+    "pinyin_name": "Chai Hu Gui Zhi Tang",
+    "common_name": "Bupleurum and Cinnamon Twig Decoction",
+    "primary_pattern": "Shaoyang and Taiyang Combined Disease",
+    "actions": [
+      "Harmonizes shaoyang",
+      "Releases the exterior",
+      "Resolves exterior and interior"
+    ],
+    "architecture": [
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_008",
+        "pinyin_name": "Chai Hu",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 33.17
+      },
+      {
+        "role": "King (Jun)",
+        "herb_id": "herb_gui_zhi",
+        "pinyin_name": "Gui Zhi",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_huang_qin",
+        "pinyin_name": "Huang Qin",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Minister (Chen)",
+        "herb_id": "herb_001",
+        "pinyin_name": "Ren Shen",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_003",
+        "pinyin_name": "Gan Cao",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_012",
+        "pinyin_name": "Ban Xia",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 16.58
+      },
+      {
+        "role": "Assistant (Zuo)",
+        "herb_id": "herb_006",
+        "pinyin_name": "Bai Shao",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_015",
+        "pinyin_name": "Sheng Jiang",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 8.29
+      },
+      {
+        "role": "Envoy (Shi)",
+        "herb_id": "herb_016",
+        "pinyin_name": "Da Zao",
+        "purpose": "Harmonizes shaoyang",
+        "dosage_percentage": 0.5
+      }
+    ],
+    "safety_note": ""
+  }
 ]

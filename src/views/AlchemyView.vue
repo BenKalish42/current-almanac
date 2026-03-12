@@ -21,7 +21,13 @@ type HerbRecord = {
   [key: string]: unknown;
 };
 
-type FormulaOption = { id: string; pinyin_name: string; common_name: string; primary_pattern: string };
+type FormulaOption = {
+  id: string;
+  pinyin_name: string;
+  common_name?: string;
+  english_name?: string;
+  primary_pattern: string;
+};
 
 const store = useAppStore();
 const pantryStore = usePantryStore();
@@ -29,6 +35,7 @@ const herbs = seedHerbs as HerbRecord[];
 const formulaOptions = (seedFormulas as FormulaOption[]).map((f) => ({
   ...f,
   label: `${f.pinyin_name} (${f.primary_pattern})`,
+  common_name: f.common_name ?? f.english_name ?? "",
 }));
 
 const currentPrescription = ref<Prescription | null>(null);

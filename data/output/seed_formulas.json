@@ -1,0 +1,3721 @@
+[
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Tang",
+    "english_name": "Cinnamon Twig Decoction",
+    "primary_pattern": "Taiyang Wind-Strike (Deficiency)",
+    "actions": [
+      "Releases the exterior",
+      "Harmonizes Ying and Wei"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ma Huang Tang",
+    "english_name": "Ephedra Decoction",
+    "primary_pattern": "Taiyang Cold-Strike (Excess)",
+    "actions": [
+      "Releases the exterior",
+      "Disperses cold",
+      "Relieves wheezing"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "70 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "1 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Jian Zhong Tang",
+    "english_name": "Minor Construct the Middle Decoction",
+    "primary_pattern": "Taiyang-Shaoyang with Spleen Deficiency",
+    "actions": [
+      "Warms the middle",
+      "Harmonizes the liver and spleen",
+      "Relieves pain"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Minister",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Jiao Yi",
+        "role": "Envoy",
+        "classical_dosage": "1 sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Bai Hu Tang",
+    "english_name": "White Tiger Decoction",
+    "primary_pattern": "Yangming Qi-level Heat",
+    "actions": [
+      "Clears heat",
+      "Generates fluids"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Zhi Mu",
+        "role": "Minister",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Jing Mi",
+        "role": "Envoy",
+        "classical_dosage": "6 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Da Cheng Qi Tang",
+    "english_name": "Major Order the Qi Decoction",
+    "primary_pattern": "Yangming Fu-organ Excess",
+    "actions": [
+      "Purging heat",
+      "Unblocking the bowels"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "Minister",
+        "classical_dosage": "half jin"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Assistant",
+        "classical_dosage": "5 pieces"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Envoy",
+        "classical_dosage": "3 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_006",
+    "pinyin_name": "Xiao Chai Hu Tang",
+    "english_name": "Minor Bupleurum Decoction",
+    "primary_pattern": "Shaoyang Disease",
+    "actions": [
+      "Harmonizes Shaoyang",
+      "Regulates Qi",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "half jin"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half sheng"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "13 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_007",
+    "pinyin_name": "Si Ni Tang",
+    "english_name": "Frigid Extremities Decoction",
+    "primary_pattern": "Shaoyin Cold-Excess with Yang Collapse",
+    "actions": [
+      "Restores yang",
+      "Rescues from collapse"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "King",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Minister",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_008",
+    "pinyin_name": "Wu Ling San",
+    "english_name": "Five-Ingredient Powder with Poria",
+    "primary_pattern": "Taiyang Bladder Damp-Heat with Water Retention",
+    "actions": [
+      "Promotes urination",
+      "Resolves dampness",
+      "Warms yang"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhu Ling",
+        "role": "King",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Minister",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Assistant",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Ze Xie",
+        "role": "Assistant",
+        "classical_dosage": "1 liang 6 zhu half"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Envoy",
+        "classical_dosage": "half liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_009",
+    "pinyin_name": "Zhen Wu Tang",
+    "english_name": "True Warrior Decoction",
+    "primary_pattern": "Shaoyin Water Overflow",
+    "actions": [
+      "Warms yang",
+      "Promotes urination",
+      "Resolves dampness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "King",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_010",
+    "pinyin_name": "Li Zhong Wan",
+    "english_name": "Regulate the Middle Pill",
+    "primary_pattern": "Taiyin Spleen-Stomach Deficiency Cold",
+    "actions": [
+      "Warms the middle",
+      "Strengthens the spleen",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Ge Gen Tang",
+    "english_name": "Kudzu Decoction",
+    "primary_pattern": "Taiyang with Stiff Neck",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the middle"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ge Gen",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Da Qing Long Tang",
+    "english_name": "Major Bluegreen Dragon Decoction",
+    "primary_pattern": "Taiyang with External Cold and Internal Heat",
+    "actions": [
+      "Release the exterior",
+      "Clear internal heat"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "40 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "Envoy",
+        "classical_dosage": "like chicken egg size"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Qing Long Tang",
+    "english_name": "Minor Bluegreen Dragon Decoction",
+    "primary_pattern": "Taiyang with Water Qi",
+    "actions": [
+      "Release the exterior",
+      "Transform water qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Wu Wei Zi",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Envoy",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Xi Xin",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Tao He Cheng Qi Tang",
+    "english_name": "Peach Kernel Qi-Coordinating Decoction",
+    "primary_pattern": "Taiyang with Blood Stasis",
+    "actions": [
+      "Break blood stasis",
+      "Purge heat"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Tao Ren",
+        "role": "King",
+        "classical_dosage": "50 pieces"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Chai Hu Jia Long Gu Mu Li Tang",
+    "english_name": "Bupleurum plus Dragon Bone and Oyster Shell Decoction",
+    "primary_pattern": "Shaoyang with Phlegm and Disturbance",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Calm the spirit"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Minister",
+        "classical_dosage": "2 he"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "6 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Long Gu",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Qian Dan",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Mu Li",
+        "role": "Envoy",
+        "classical_dosage": "1.5 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Xie Xin Tang",
+    "english_name": "Heart-Draining Decoction",
+    "primary_pattern": "Heart and Chest Fullness with Heat",
+    "actions": [
+      "Drains heat from the chest",
+      "Relieves fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ban Xia Xie Xin Tang",
+    "english_name": "Pinellia Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Nausea",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Relieves fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "King",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Sheng Jiang Xie Xin Tang",
+    "english_name": "Fresh Ginger Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Water Retention",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Resolves water retention"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gan Cao Xie Xin Tang",
+    "english_name": "Licorice Heart-Draining Decoction",
+    "primary_pattern": "Epigastric Fullness with Deficiency",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Tonifies deficiency"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Huang Lian Tang",
+    "english_name": "Coptis Decoction",
+    "primary_pattern": "Chest and Epigastric Heat with Pain",
+    "actions": [
+      "Clears heat",
+      "Relieves pain",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Zhu Ling Tang",
+    "english_name": "Polyporus Decoction",
+    "primary_pattern": "Yangming with Water Retention",
+    "actions": [
+      "Nourish yin",
+      "Clear heat",
+      "Promote urination"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhu Ling",
+        "role": "King",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ze Xie",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Hua Shi",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "E Jiao",
+        "role": "Envoy",
+        "classical_dosage": "1 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Si Ni San",
+    "english_name": "Frigid Extremities Powder",
+    "primary_pattern": "Shaoyin with Qi Stagnation",
+    "actions": [
+      "Dredge liver qi",
+      "Harmonize the interior",
+      "Relieve stagnation"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "10 fen"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Minister",
+        "classical_dosage": "10 fen"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "10 fen"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "10 fen"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Shi Qi Tang",
+    "english_name": "Gardenia and Fermented Soybean Decoction",
+    "primary_pattern": "Heat Harassing the Chest Diaphragm",
+    "actions": [
+      "Clears heat",
+      "Relieves restlessness",
+      "Resolves depression"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Xiang Chi",
+        "role": "Minister",
+        "classical_dosage": "4 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Tiao Wei Cheng Qi Tang",
+    "english_name": "Stomach-Regulating Qi-Coordinating Decoction",
+    "primary_pattern": "Yangming Heat Accumulation with Stomach Disharmony",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Moistens dryness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Minister",
+        "classical_dosage": "0.5 jin"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Xiao Cheng Qi Tang",
+    "english_name": "Minor Purgative Decoction",
+    "primary_pattern": "Yangming Heat Accumulation with Mild Excess",
+    "actions": [
+      "Harmonizes the stomach",
+      "Drains heat",
+      "Resolves stagnation"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Assistant",
+        "classical_dosage": "3 large pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Jia Ge Gen Tang",
+    "english_name": "Cinnamon Twig Decoction with Kudzu",
+    "primary_pattern": "Taiyang with Stiff Neck",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve stiffness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Ge Gen",
+        "role": "Minister",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gui Zhi Jia Fu Zi Tang",
+    "english_name": "Cinnamon Twig Decoction with Aconite",
+    "primary_pattern": "Taiyang with Yang Deficiency",
+    "actions": [
+      "Release the exterior",
+      "Warm yang",
+      "Stop sweating"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Assistant",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Tang",
+    "english_name": "Cinnamon Twig Decoction minus Peony",
+    "primary_pattern": "Taiyang with Chest Fullness",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve chest fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Jia Fu Zi Tang",
+    "english_name": "Cinnamon Twig Decoction minus Peony plus Aconite",
+    "primary_pattern": "Taiyang with Chest Fullness and Mild Chills",
+    "actions": [
+      "Release the exterior",
+      "Warm yang",
+      "Relieve chest fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Minister",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gui Zhi Jia Hou Pu Xing Ren Tang",
+    "english_name": "Cinnamon Twig Decoction with Magnolia Bark and Apricot Kernel",
+    "primary_pattern": "Taiyang with Wheezing",
+    "actions": [
+      "Release the exterior",
+      "Harmonize the nutritive and defensive levels",
+      "Relieve wheezing"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "50 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Gui Zhi Jia Shao Yao Sheng Jiang Ren Shen Xin Jia Tang",
+    "english_name": "Cinnamon Twig Decoction with Added Peony, Ginger, and Ginseng New Supplement Decoction",
+    "primary_pattern": "Taiyang with Deficiency after Sweating",
+    "actions": [
+      "Harmonizes the exterior",
+      "Nourishes the blood and qi",
+      "Relieves pain"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Gui Zhi Qu Gui Jia Fu Ling Bai Zhu Tang",
+    "english_name": "Cinnamon Twig Decoction without Cinnamon Twig plus Poria and Atractylodes Macrocephala Decoction",
+    "primary_pattern": "Taiyang with Water Retention",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes urination",
+      "Strengthens the spleen"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Gui Zhi Er Yue Bi Yi Tang",
+    "english_name": "Cinnamon Twig Two Yuebi One Decoction",
+    "primary_pattern": "Taiyang with Mild Exterior and Interior Heat",
+    "actions": [
+      "Harmonizes the exterior",
+      "Clears heat",
+      "Promotes sweating"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Assistant",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "Assistant",
+        "classical_dosage": "24 zhu"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "1 liang 3 qian"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "4 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "18 zhu"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Gui Zhi Ma Huang Ge Ban Tang",
+    "english_name": "Cinnamon Twig and Ephedra Half and Half Decoction",
+    "primary_pattern": "Taiyang with Mild Exterior Syndrome",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes mild sweating"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "1 liang 16 zhu"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "24 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "4 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "1 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gui Zhi Er Ma Huang Yi Tang",
+    "english_name": "Cinnamon Twig Two Ephedra One Decoction",
+    "primary_pattern": "Taiyang with Residual Exterior Syndrome after Sweating",
+    "actions": [
+      "Harmonizes the exterior",
+      "Promotes mild sweating"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "1 liang 17 zhu"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "1 liang 6 zhu"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Assistant",
+        "classical_dosage": "16 zhu"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "16 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "1 liang 6 zhu"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "5 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "1 liang 2 zhu"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Jia Gui Tang",
+    "english_name": "Cinnamon Twig Decoction with Additional Cinnamon",
+    "primary_pattern": "Taiyang with Qi Rushing Upward",
+    "actions": [
+      "Warm and tonify yang",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "5 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gui Zhi Gan Cao Tang",
+    "english_name": "Cinnamon Twig and Licorice Decoction",
+    "primary_pattern": "Taiyang with Palpitations",
+    "actions": [
+      "Supplement heart yang",
+      "Relieve palpitations"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Gui Zhi Gan Cao Long Gu Mu Li Tang",
+    "english_name": "Cinnamon Twig, Licorice, Dragon Bone, and Oyster Shell Decoction",
+    "primary_pattern": "Taiyang with Restlessness from Fire Inversion",
+    "actions": [
+      "Nourish heart yang",
+      "Calm the spirit",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Long Gu",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Mu Li",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Qu Shao Yao Jia Shu Qi Long Gu Mu Li Jiu Ni Tang",
+    "english_name": "Cinnamon Twig Decoction without Peony plus Shu Qi, Dragon Bone, and Oyster Shell Rescue Counterflow Decoction",
+    "primary_pattern": "Taiyang with Fright and Mania from Fire Moxibustion",
+    "actions": [
+      "Restore yang",
+      "Calm the spirit",
+      "Subdue rebellious qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Shu Qi",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Long Gu",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Mu Li",
+        "role": "Assistant",
+        "classical_dosage": "5 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gan Cao Gan Jiang Tang",
+    "english_name": "Licorice and Dried Ginger Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Cold Limbs",
+    "actions": [
+      "Warm and restore yang",
+      "Relieve cold limbs"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Shao Yao Gan Cao Tang",
+    "english_name": "Peony and Licorice Decoction",
+    "primary_pattern": "Taiyang with Cramping or Spasms",
+    "actions": [
+      "Harmonizes the liver and spleen",
+      "Relaxes cramping",
+      "Nourishes yin and blood"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "4 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Ge Gen Jia Ban Xia Tang",
+    "english_name": "Kudzu Decoction with Pinellia",
+    "primary_pattern": "Taiyang with Stiff Neck and Vomiting",
+    "actions": [
+      "Releases the exterior",
+      "Harmonizes the stomach",
+      "Stops vomiting"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ge Gen",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Envoy",
+        "classical_dosage": "half a sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Ge Gen Huang Qin Huang Lian Tang",
+    "english_name": "Kudzu, Scutellaria, and Coptis Decoction",
+    "primary_pattern": "Taiyang with Heat and Diarrhea",
+    "actions": [
+      "Clears heat",
+      "Resolves dampness",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ge Gen",
+        "role": "King",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Ma Huang Xing Ren Gan Cao Shi Gao Tang",
+    "english_name": "Ephedra, Apricot Kernel, Licorice, and Gypsum Decoction",
+    "primary_pattern": "Taiyang with Heat and Cough",
+    "actions": [
+      "Clears heat",
+      "Relieves cough and asthma",
+      "Harmonizes the lungs"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Minister",
+        "classical_dosage": "50 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "Envoy",
+        "classical_dosage": "half a jin"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gan Jiang Fu Zi Tang",
+    "english_name": "Dried Ginger and Aconite Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Cold",
+    "actions": [
+      "Warms yang",
+      "Disperses cold",
+      "Restores yang"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "King",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Minister",
+        "classical_dosage": "1 piece"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_067",
+    "pinyin_name": "Fu Ling Gui Zhi Gan Cao Da Zao Tang",
+    "english_name": "Poria, Cinnamon Twig, Licorice, and Jujube Decoction",
+    "primary_pattern": "Taiyang with Water Accumulation and Palpitations",
+    "actions": [
+      "Warm and transform water-dampness",
+      "Strengthen the spleen and calm the heart"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "King",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "15 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_066",
+    "pinyin_name": "Hou Po Sheng Jiang Gan Cao Ban Xia Ren Shen Tang",
+    "english_name": "Magnolia Bark, Fresh Ginger, Licorice, Pinellia, and Ginseng Decoction",
+    "primary_pattern": "Taiyang with Spleen Deficiency and Abdominal Distention",
+    "actions": [
+      "Warm the middle and transform dampness",
+      "Regulate qi and relieve distention"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "King",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Minister",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_074",
+    "pinyin_name": "Fu Ling Gui Zhi Bai Zhu Gan Cao Tang",
+    "english_name": "Poria, Cinnamon Twig, Atractylodes, and Licorice Decoction",
+    "primary_pattern": "Taiyang with Water Retention and Dizziness",
+    "actions": [
+      "Warm yang and transform water",
+      "Strengthen the spleen and drain dampness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_068",
+    "pinyin_name": "Shao Yao Gan Cao Fu Zi Tang",
+    "english_name": "Peony, Licorice, and Aconite Decoction",
+    "primary_pattern": "Taiyang with Deficiency and Cold",
+    "actions": [
+      "Nourish yin and warm yang",
+      "Relieve spasm and pain"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Assistant",
+        "classical_dosage": "1 piece"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_069",
+    "pinyin_name": "Fu Ling Si Ni Tang",
+    "english_name": "Poria Counterflow Cold Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency and Irritability",
+    "actions": [
+      "Restore yang and rescue from collapse",
+      "Calm the spirit and transform water"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "King",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Envoy",
+        "classical_dosage": "1 piece"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Fu Ling Gan Cao Tang",
+    "english_name": "Poria and Licorice Decoction",
+    "primary_pattern": "Taiyang with Water Qi",
+    "actions": [
+      "Harmonizes the middle",
+      "Drains water"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Chi Tang",
+    "english_name": "Gardenia and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat in the Chest",
+    "actions": [
+      "Clears heat",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Xiang Chi",
+        "role": "Minister",
+        "classical_dosage": "4 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Zhi Zi Gan Cao Chi Tang",
+    "english_name": "Gardenia, Licorice, and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat and Qi Deficiency",
+    "actions": [
+      "Clears heat",
+      "Tonifies qi",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Xiang Chi",
+        "role": "Assistant",
+        "classical_dosage": "4 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Zhi Zi Sheng Jiang Chi Tang",
+    "english_name": "Gardenia, Fresh Ginger, and Fermented Soybean Decoction",
+    "primary_pattern": "Taiyang with Heat and Vomiting",
+    "actions": [
+      "Clears heat",
+      "Harmonizes the stomach",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Minister",
+        "classical_dosage": "5 liang"
+      },
+      {
+        "herb_pinyin": "Xiang Chi",
+        "role": "Assistant",
+        "classical_dosage": "4 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Zhi Zi Hou Pu Tang",
+    "english_name": "Gardenia and Magnolia Bark Decoction",
+    "primary_pattern": "Taiyang with Heat and Abdominal Fullness",
+    "actions": [
+      "Clears heat",
+      "Relieves fullness",
+      "Relieves restlessness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "Minister",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Assistant",
+        "classical_dosage": "4 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Zhi Zi Gan Jiang Tang",
+    "english_name": "Gardenia and Dried Ginger Decoction",
+    "primary_pattern": "Taiyang disease with residual heat and cold deficiency",
+    "actions": [
+      "Clear heat",
+      "Warm the middle",
+      "Relieve restlessness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Da Chai Hu Tang",
+    "english_name": "Major Bupleurum Decoction",
+    "primary_pattern": "Shaoyang-Yangming combined disease with interior excess",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Drain heat",
+      "Promote qi flow"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "8 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "5 liang"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Assistant",
+        "classical_dosage": "4 pieces"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Chai Hu Jia Mang Xiao Tang",
+    "english_name": "Bupleurum and Mirabilite Decoction",
+    "primary_pattern": "Shaoyang disease with interior heat and constipation",
+    "actions": [
+      "Harmonize Shaoyang",
+      "Drain heat",
+      "Moisten dryness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "8 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Minister",
+        "classical_dosage": "6 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Di Dang Tang",
+    "english_name": "Resistance Decoction",
+    "primary_pattern": "Taiyang disease with blood stasis in the lower burner",
+    "actions": [
+      "Break blood stasis",
+      "Drain heat"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shui Zhi",
+        "role": "King",
+        "classical_dosage": "30 pieces"
+      },
+      {
+        "herb_pinyin": "Meng Chong",
+        "role": "Minister",
+        "classical_dosage": "30 pieces"
+      },
+      {
+        "herb_pinyin": "Tao Ren",
+        "role": "Assistant",
+        "classical_dosage": "20 pieces"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Di Dang Wan",
+    "english_name": "Resistance Pill",
+    "primary_pattern": "Taiyang disease with blood stasis, milder form",
+    "actions": [
+      "Break blood stasis",
+      "Drain heat"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shui Zhi",
+        "role": "King",
+        "classical_dosage": "20 pieces"
+      },
+      {
+        "herb_pinyin": "Meng Chong",
+        "role": "Minister",
+        "classical_dosage": "25 pieces"
+      },
+      {
+        "herb_pinyin": "Tao Ren",
+        "role": "Assistant",
+        "classical_dosage": "20 pieces"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Da Xian Xiong Wan",
+    "english_name": "Major Chest Bind Pill",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Draining heat",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Ting Li",
+        "role": "Minister",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Envoy",
+        "classical_dosage": "half a sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Da Xian Xiong Tang",
+    "english_name": "Major Chest Bind Decoction",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Draining heat",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Mang Xiao",
+        "role": "Minister",
+        "classical_dosage": "1 sheng"
+      },
+      {
+        "herb_pinyin": "Gan Sui",
+        "role": "Assistant",
+        "classical_dosage": "1 qian"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Xiao Xian Xiong Tang",
+    "english_name": "Minor Chest Bind Decoction",
+    "primary_pattern": "Chest Bind with Phlegm-Heat",
+    "actions": [
+      "Clearing heat",
+      "Resolving phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "King",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Minister",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Gua Lou Shi",
+        "role": "Assistant",
+        "classical_dosage": "1 piece"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Wen Ge San",
+    "english_name": "Warm Diaphragm Powder",
+    "primary_pattern": "Cold-Phlegm Chest Bind",
+    "actions": [
+      "Warming the diaphragm",
+      "Expelling phlegm",
+      "Relieving chest bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Jie Geng",
+        "role": "King",
+        "classical_dosage": "3 fen"
+      },
+      {
+        "herb_pinyin": "Ba Dou",
+        "role": "Minister",
+        "classical_dosage": "1 fen"
+      },
+      {
+        "herb_pinyin": "Bei Mu",
+        "role": "Assistant",
+        "classical_dosage": "3 fen"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Chai Hu Gui Zhi Gan Jiang Tang",
+    "english_name": "Bupleurum, Cinnamon Twig, and Dried Ginger Decoction",
+    "primary_pattern": "Shaoyang with Cold",
+    "actions": [
+      "Harmonizing Shaoyang",
+      "Warming the middle",
+      "Resolving phlegm"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "half a jin"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gua Lou Gen",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Mu Li",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Shi Zao Tang",
+    "english_name": "Ten Jujube Decoction",
+    "primary_pattern": "Exterior-Interior Excess with Water Retention",
+    "actions": [
+      "Expels water and purges excess",
+      "Relieves chest and hypochondriac fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Yuan Hua",
+        "role": "King",
+        "classical_dosage": "equal parts, prepared"
+      },
+      {
+        "herb_pinyin": "Gan Sui",
+        "role": "Minister",
+        "classical_dosage": "equal parts"
+      },
+      {
+        "herb_pinyin": "Da Ji",
+        "role": "Assistant",
+        "classical_dosage": "equal parts"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "10 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Da Huang Huang Lian Xie Xin Tang",
+    "english_name": "Rhubarb and Coptis Decoction to Drain the Epigastrium",
+    "primary_pattern": "Heat Stagnation in the Epigastrium",
+    "actions": [
+      "Clears heat and drains fire",
+      "Relieves epigastric fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Fu Zi Xie Xin Tang",
+    "english_name": "Aconite Decoction to Drain the Epigastrium",
+    "primary_pattern": "Cold Stagnation in the Epigastrium with Exterior Deficiency",
+    "actions": [
+      "Warms yang and dispels cold",
+      "Relieves epigastric fullness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Envoy",
+        "classical_dosage": "1 piece, prepared"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Chi Shi Zhi Yu Yu Liang Tang",
+    "english_name": "Halloysite and Limonite Decoction",
+    "primary_pattern": "Chronic Diarrhea with Spleen-Kidney Deficiency",
+    "actions": [
+      "Astringes intestines and stops diarrhea",
+      "Warms and strengthens spleen and kidney"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chi Shi Zhi",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Yu Yu Liang",
+        "role": "Minister",
+        "classical_dosage": "1 jin"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Xuan Fu Dai Zhe Shi Tang",
+    "english_name": "Inula and Hematite Decoction",
+    "primary_pattern": "Phlegm-Damp Stagnation with Rebellious Qi",
+    "actions": [
+      "Descends rebellious qi and transforms phlegm",
+      "Harmonizes the stomach"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Xuan Fu Hua",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Dai Zhe Shi",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "5 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Gui Zhi Ren Shen Tang",
+    "english_name": "Cinnamon Twig and Ginseng Decoction",
+    "primary_pattern": "Taiyang with Qi and Fluid Deficiency",
+    "actions": [
+      "Harmonizes the exterior and interior",
+      "Tonifies qi and generates fluids"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Gua Di San",
+    "english_name": "Trichosanthes Root Powder",
+    "primary_pattern": "Chest Bi with Phlegm-Heat",
+    "actions": [
+      "Clears heat and resolves phlegm",
+      "Opens the chest and dissipates masses"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gua Lou",
+        "role": "King",
+        "classical_dosage": "1 large piece"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Huang Qin Tang",
+    "english_name": "Scutellaria Decoction",
+    "primary_pattern": "Shaoyang-Taiyin with Heat and Dampness",
+    "actions": [
+      "Clears heat and stops diarrhea",
+      "Harmonizes the middle jiao"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gui Zhi Fu Zi Tang",
+    "english_name": "Cinnamon Twig and Aconite Decoction",
+    "primary_pattern": "Taiyang with Yang Deficiency",
+    "actions": [
+      "Warms yang and releases the exterior",
+      "Harmonizes nutrient and defense"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Minister",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Gan Cao Fu Zi Tang",
+    "english_name": "Licorice and Aconite Decoction",
+    "primary_pattern": "Shaoyin with Yang Deficiency",
+    "actions": [
+      "Rescues yang and stops diarrhea",
+      "Warms the middle jiao"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "King",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "1.5 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Bai Hu Jia Ren Shen Tang",
+    "english_name": "White Tiger Decoction with Ginseng",
+    "primary_pattern": "Yangming with Excessive Heat and Qi Deficiency",
+    "actions": [
+      "Clear heat and promote fluid production",
+      "Tonify qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Zhi Mu",
+        "role": "Minister",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Jing Mi",
+        "role": "Assistant",
+        "classical_dosage": "6 ge"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Zhi Gan Cao Tang",
+    "english_name": "Honey-Fried Licorice Decoction",
+    "primary_pattern": "Deficiency of Heart Qi and Blood",
+    "actions": [
+      "Tonify qi and blood",
+      "Nourish yin and moisten dryness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Gan Cao",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Di Huang",
+        "role": "Assistant",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "E Jiao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Mai Men Dong",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Ma Zi Ren",
+        "role": "Assistant",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Yin Chen Hao Tang",
+    "english_name": "Artemisia Scoparia Decoction",
+    "primary_pattern": "Damp-Heat Jaundice",
+    "actions": [
+      "Clear heat and drain dampness",
+      "Resolve jaundice"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Yin Chen Hao",
+        "role": "King",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "Minister",
+        "classical_dosage": "14 pieces"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Wu Zhu Yu Tang",
+    "english_name": "Evodia Decoction",
+    "primary_pattern": "Cold Stagnation with Vomiting",
+    "actions": [
+      "Warm the middle jiao and disperse cold",
+      "Descend rebellious qi"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Wu Zhu Yu",
+        "role": "King",
+        "classical_dosage": "1 sheng"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "6 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "12 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Ma Ren Wan",
+    "english_name": "Hemp Seed Pill",
+    "primary_pattern": "Spleen Constriction with Dryness",
+    "actions": [
+      "Moistens intestines",
+      "Promotes bowel movement"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Zi Ren",
+        "role": "King",
+        "classical_dosage": "2 sheng"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Minister",
+        "classical_dosage": "0.5 jin"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Assistant",
+        "classical_dosage": "0.5 jin"
+      },
+      {
+        "herb_pinyin": "Da Huang",
+        "role": "Assistant",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Hou Po",
+        "role": "Assistant",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Envoy",
+        "classical_dosage": "1 jin"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Zhi Zi Bai Pi Tang",
+    "english_name": "Gardenia and Phellodendron Decoction",
+    "primary_pattern": "Damp-heat Jaundice with Fever",
+    "actions": [
+      "Clears heat",
+      "Resolves dampness",
+      "Relieves jaundice"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "15 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Huang Bai",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ma Huang Lian Qiao Chi Xiao Dou Tang",
+    "english_name": "Ephedra, Forsythia, and Red Bean Decoction",
+    "primary_pattern": "Exterior Cold with Damp-heat and Jaundice",
+    "actions": [
+      "Releases exterior",
+      "Clears heat",
+      "Resolves dampness",
+      "Relieves jaundice"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Lian Qiao",
+        "role": "Minister",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Chi Xiao Dou",
+        "role": "Assistant",
+        "classical_dosage": "1 sheng"
+      },
+      {
+        "herb_pinyin": "Xing Ren",
+        "role": "Assistant",
+        "classical_dosage": "40 pieces"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Assistant",
+        "classical_dosage": "12 pieces"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Sheng Zi Bai Pi",
+        "role": "Envoy",
+        "classical_dosage": "1 sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Ma Huang Fu Zi Xi Xin Tang",
+    "english_name": "Ephedra, Aconite, and Asarum Decoction",
+    "primary_pattern": "Shaoyin Disease with Exterior Cold",
+    "actions": [
+      "Warms yang",
+      "Releases exterior"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Minister",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Xi Xin",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Ma Huang Fu Zi Gan Cao Tang",
+    "english_name": "Ephedra, Aconite, and Licorice Decoction",
+    "primary_pattern": "Shaoyin Disease with Mild Exterior Cold",
+    "actions": [
+      "Warms yang",
+      "Releases exterior mildly"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "Minister",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_011",
+    "pinyin_name": "Huang Lian E Jiao Tang",
+    "english_name": "Coptis and Ass Hide Glue Decoction",
+    "primary_pattern": "Shaoyin with Heat and Blood Deficiency",
+    "actions": [
+      "Clears heat",
+      "Nourishes blood",
+      "Stops bleeding"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Ji Zi Huang",
+        "role": "Assistant",
+        "classical_dosage": "2 pieces"
+      },
+      {
+        "herb_pinyin": "E Jiao",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_012",
+    "pinyin_name": "Fu Zi Tang",
+    "english_name": "Aconite Decoction",
+    "primary_pattern": "Shaoyin with Cold and Deficiency",
+    "actions": [
+      "Warms yang",
+      "Disperses cold",
+      "Strengthens the body"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "King",
+        "classical_dosage": "1 piece"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Assistant",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Shao Yao",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_013",
+    "pinyin_name": "Tao Hua Tang",
+    "english_name": "Peach Blossom Decoction",
+    "primary_pattern": "Shaoyin with Cold Diarrhea and Bloody Stools",
+    "actions": [
+      "Warms the middle",
+      "Astringes intestines",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chi Shi Zhi",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Minister",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Jing Mi",
+        "role": "Envoy",
+        "classical_dosage": "1 sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_014",
+    "pinyin_name": "Zhu Fu Tang",
+    "english_name": "Pig Skin Decoction",
+    "primary_pattern": "Shaoyin with Throat Pain and Deficiency",
+    "actions": [
+      "Nourishes yin",
+      "Moistens dryness",
+      "Relieves throat pain"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhu Fu",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Bai Mi",
+        "role": "Assistant",
+        "classical_dosage": "1 sheng"
+      },
+      {
+        "herb_pinyin": "Bai Fen",
+        "role": "Envoy",
+        "classical_dosage": "5 ge"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_015",
+    "pinyin_name": "Gan Cao Tang",
+    "english_name": "Licorice Decoction",
+    "primary_pattern": "Shaoyin with Throat Pain",
+    "actions": [
+      "Clears heat",
+      "Detoxifies",
+      "Relieves throat pain"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Jie Geng Tang",
+    "english_name": "Platycodon Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": []
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Ku Jiu Tang",
+    "english_name": "Bitter Wine Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": []
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ban Xia San Ji Tang",
+    "english_name": "Pinellia Three-Seven Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": []
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Bai Tong Tang",
+    "english_name": "White Penetrating Decoction",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": []
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Bai Tong Jia Zhu Dan Zhi Tang",
+    "english_name": "White Penetrating Decoction with Pig's Bile and Asarum",
+    "primary_pattern": "Not specified in provided text",
+    "actions": [
+      "Not specified in provided text"
+    ],
+    "architecture": []
+  },
+  {
+    "id": "form_shl_001",
+    "pinyin_name": "Tong Mai Si Ni Tang",
+    "english_name": "Unblock the Pulse and Counterflow Cold Decoction",
+    "primary_pattern": "Shaoyin with Cold Counterflow and Pulse Blockage",
+    "actions": [
+      "Unblocks the pulse",
+      "Warms the interior",
+      "Disperses cold",
+      "Restores yang"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Fu Zi",
+        "role": "King",
+        "classical_dosage": "1 piece, raw, peeled, broken into 8 pieces"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Minister",
+        "classical_dosage": "1.5 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang, roasted"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Dang Gui Si Ni Tang",
+    "english_name": "Chinese Angelica Decoction for Frigid Extremities",
+    "primary_pattern": "Jueyin with Cold Extremities and Blood Deficiency",
+    "actions": [
+      "Warms the channels",
+      "Disperses cold",
+      "Nourishes blood",
+      "Unblocks the pulse"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Dang Gui",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Xi Xin",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang, roasted"
+      },
+      {
+        "herb_pinyin": "Tong Cao",
+        "role": "Envoy",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "25 pieces"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Ma Huang Sheng Ma Tang",
+    "english_name": "Ephedra and Cimicifuga Decoction",
+    "primary_pattern": "Taiyang with Exterior Cold and Interior Heat",
+    "actions": [
+      "Releases the exterior",
+      "Clears heat",
+      "Promotes sweating",
+      "Resolves toxins"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ma Huang",
+        "role": "King",
+        "classical_dosage": "2.5 liang, remove nodes"
+      },
+      {
+        "herb_pinyin": "Sheng Ma",
+        "role": "Minister",
+        "classical_dosage": "1.1 liang"
+      },
+      {
+        "herb_pinyin": "Dang Gui",
+        "role": "Assistant",
+        "classical_dosage": "1.1 liang"
+      },
+      {
+        "herb_pinyin": "Zhi Mu",
+        "role": "Assistant",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Assistant",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Wei Rui",
+        "role": "Assistant",
+        "classical_dosage": "18 zhu"
+      },
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu, crushed, wrapped in silk"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Tian Men Dong",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Fu Ling",
+        "role": "Assistant",
+        "classical_dosage": "6 zhu"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Envoy",
+        "classical_dosage": "6 zhu, roasted"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Gan Jiang Huang Lian Huang Qin Ren Shen Tang",
+    "english_name": "Dried Ginger, Coptis, Scutellaria, and Ginseng Decoction",
+    "primary_pattern": "Jueyin with Cold-Heat Complex and Vomiting",
+    "actions": [
+      "Clears heat",
+      "Warms the middle",
+      "Harmonizes the stomach",
+      "Stops vomiting"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "King",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Bai Tou Weng Tang",
+    "english_name": "Pulsatilla Decoction",
+    "primary_pattern": "Jueyin with Heat Dysentery",
+    "actions": [
+      "Clears heat",
+      "Resolves toxins",
+      "Cools blood",
+      "Stops dysentery"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Bai Tou Weng",
+        "role": "King",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Huang Bai",
+        "role": "Minister",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Qin Pi",
+        "role": "Envoy",
+        "classical_dosage": "3 liang"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_002",
+    "pinyin_name": "Li Zhong Tang",
+    "english_name": "Regulate the Middle Decoction",
+    "primary_pattern": "Taiyin Spleen Deficiency with Cold",
+    "actions": [
+      "Warms the middle",
+      "Dispels cold",
+      "Strengthens the spleen",
+      "Stops diarrhea"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "King",
+        "classical_dosage": "三兩"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Minister",
+        "classical_dosage": "三兩"
+      },
+      {
+        "herb_pinyin": "Bai Zhu",
+        "role": "Assistant",
+        "classical_dosage": "三兩"
+      },
+      {
+        "herb_pinyin": "Gan Jiang",
+        "role": "Envoy",
+        "classical_dosage": "三兩"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_003",
+    "pinyin_name": "Shao Kun San",
+    "english_name": "Minor Binding Powder",
+    "primary_pattern": "Heat Bind in the Chest with Phlegm",
+    "actions": [
+      "Clears heat",
+      "Resolves phlegm",
+      "Opens the chest",
+      "Dissipates bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Huang Lian",
+        "role": "King",
+        "classical_dosage": "一兩"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Minister",
+        "classical_dosage": "半升"
+      },
+      {
+        "herb_pinyin": "Gua Lou Shi",
+        "role": "Assistant",
+        "classical_dosage": "大者一枚"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_004",
+    "pinyin_name": "Zhi Shi Zhi Zi Chi Tang",
+    "english_name": "Immature Bitter Orange, Gardenia, and Fermented Soybean Decoction",
+    "primary_pattern": "Heat Bind with Abdominal Fullness and Restlessness",
+    "actions": [
+      "Clears heat",
+      "Relieves fullness",
+      "Calms the mind",
+      "Resolves bind"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhi Zi",
+        "role": "King",
+        "classical_dosage": "十四枚"
+      },
+      {
+        "herb_pinyin": "Zhi Shi",
+        "role": "Minister",
+        "classical_dosage": "四枚"
+      },
+      {
+        "herb_pinyin": "Chi",
+        "role": "Assistant",
+        "classical_dosage": "四合"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_005",
+    "pinyin_name": "Mu Li Ze Xie San",
+    "english_name": "Oyster Shell and Alisma Powder",
+    "primary_pattern": "Water Bind with Edema and Fullness",
+    "actions": [
+      "Softens hardness",
+      "Promotes urination",
+      "Resolves water bind",
+      "Drains dampness"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Mu Li",
+        "role": "King",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Ze Xie",
+        "role": "Minister",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Gua Lou Gen",
+        "role": "Assistant",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Shu Qi",
+        "role": "Assistant",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Ting Li",
+        "role": "Assistant",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Shang Lu Gen",
+        "role": "Assistant",
+        "classical_dosage": "等分"
+      },
+      {
+        "herb_pinyin": "Hai Zao",
+        "role": "Envoy",
+        "classical_dosage": "等分"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_026",
+    "pinyin_name": "Zhu Ye Shi Gao Tang",
+    "english_name": "Bamboo Leaf and Gypsum Decoction",
+    "primary_pattern": "Heat in the Qi and Ying Levels with Qi and Yin Deficiency",
+    "actions": [
+      "Clears heat",
+      "Generates fluids",
+      "Nourishes qi and yin"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Zhu Ye",
+        "role": "King",
+        "classical_dosage": "2 handfuls"
+      },
+      {
+        "herb_pinyin": "Shi Gao",
+        "role": "King",
+        "classical_dosage": "1 jin"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Minister",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Assistant",
+        "classical_dosage": "3 liang"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "2 liang"
+      },
+      {
+        "herb_pinyin": "Jing Mi",
+        "role": "Envoy",
+        "classical_dosage": "half a sheng"
+      },
+      {
+        "herb_pinyin": "Mai Men Dong",
+        "role": "Envoy",
+        "classical_dosage": "1 sheng"
+      }
+    ]
+  },
+  {
+    "id": "form_shl_146",
+    "pinyin_name": "Chai Hu Gui Zhi Tang",
+    "english_name": "Bupleurum and Cinnamon Twig Decoction",
+    "primary_pattern": "Shaoyang and Taiyang Combined Disease",
+    "actions": [
+      "Harmonizes shaoyang",
+      "Releases the exterior",
+      "Resolves exterior and interior"
+    ],
+    "architecture": [
+      {
+        "herb_pinyin": "Chai Hu",
+        "role": "King",
+        "classical_dosage": "4 liang"
+      },
+      {
+        "herb_pinyin": "Gui Zhi",
+        "role": "King",
+        "classical_dosage": "1 liang half"
+      },
+      {
+        "herb_pinyin": "Huang Qin",
+        "role": "Minister",
+        "classical_dosage": "1 liang half"
+      },
+      {
+        "herb_pinyin": "Ren Shen",
+        "role": "Minister",
+        "classical_dosage": "1 liang half"
+      },
+      {
+        "herb_pinyin": "Gan Cao",
+        "role": "Assistant",
+        "classical_dosage": "1 liang"
+      },
+      {
+        "herb_pinyin": "Ban Xia",
+        "role": "Assistant",
+        "classical_dosage": "2 he half"
+      },
+      {
+        "herb_pinyin": "Bai Shao",
+        "role": "Assistant",
+        "classical_dosage": "1 liang half"
+      },
+      {
+        "herb_pinyin": "Sheng Jiang",
+        "role": "Envoy",
+        "classical_dosage": "1 liang half"
+      },
+      {
+        "herb_pinyin": "Da Zao",
+        "role": "Envoy",
+        "classical_dosage": "6 pieces"
+      }
+    ]
+  }
+]

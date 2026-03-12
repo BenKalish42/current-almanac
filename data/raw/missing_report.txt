@@ -1,0 +1,9 @@
+Missing Chapters Report — Wikisource Scrape
+==================================================
+
+Total missing: 1
+
+  • [BCGM] 主治: Sparse: only 13 CJK chars
+
+These sections were not found on zh.wikisource.org.
+Recommend fetching from ctext.org once rate limits reset.
