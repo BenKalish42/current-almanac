@@ -45,6 +45,7 @@ def get_deepseek_client() -> OpenAI:
     """
     Create an OpenAI-compatible client configured for DeepSeek API.
     Reads DEEPSEEK_API_KEY or OPENAI_API_KEY from environment.
+    Uses https://api.deepseek.com (official endpoint). Override with DEEPSEEK_BASE_URL if needed.
     """
     api_key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("OPENAI_API_KEY")
     base_url = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
