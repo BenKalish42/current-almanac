@@ -1,16 +1,80 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+
+const ALPHA_UNLOCK_KEY = "alpha_unlocked";
+const ALPHA_PASSWORD = "dao2026";
+
+const passwordInput = ref("");
+const unlockError = ref("");
+
+function isUnlockedFromStorage(): boolean {
+  try {
+    return localStorage.getItem(ALPHA_UNLOCK_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+const isUnlocked = ref(isUnlockedFromStorage());
+
+function unlock() {
+  if (passwordInput.value === ALPHA_PASSWORD) {
+    try {
+      localStorage.setItem(ALPHA_UNLOCK_KEY, "true");
+      isUnlocked.value = true;
+      unlockError.value = "";
+    } catch {
+      unlockError.value = "Could not save unlock state.";
+    }
+  } else {
+    unlockError.value = "Incorrect password.";
+  }
+}
+
+onMounted(() => {
+  // Re-check in case of race with other tabs
+  if (!isUnlocked.value) {
+    isUnlocked.value = isUnlockedFromStorage();
+  }
+});
 </script>
 
 <template>
-  <div class="app-shell">
-    <nav class="app-nav">
-      <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
-      <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
-      <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
-    </nav>
-    <RouterView />
+  <!-- Gatekeeper: full-screen overlay when not unlocked -->
+  <div v-if="!isUnlocked" class="gatekeeper-overlay" role="dialog" aria-label="Alpha access gatekeeper">
+    <div class="gatekeeper-card">
+      <h1 class="gatekeeper-title">Current Almanac</h1>
+      <p class="gatekeeper-subtitle">Alpha Prototype</p>
+      <label class="gatekeeper-lbl">
+        Password
+        <input
+          v-model="passwordInput"
+          type="password"
+          class="gatekeeper-input"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          @keydown.enter="unlock"
+        />
+      </label>
+      <p v-if="unlockError" class="gatekeeper-error">{{ unlockError }}</p>
+      <button type="button" class="btn primary gatekeeper-btn" @click="unlock">
+        Unlock
+      </button>
+    </div>
   </div>
+
+  <!-- App content: only mounted when unlocked -->
+  <template v-else>
+    <div class="app-shell">
+      <nav class="app-nav">
+        <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
+        <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
+        <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
+      </nav>
+      <RouterView />
+    </div>
+  </template>
 </template>
 
 <style>
@@ -25,6 +89,38 @@ import { RouterLink, RouterView } from "vue-router";
 #app {
   background-color: var(--color-daoist-bg);
 }
+
+/* Gatekeeper overlay: full-screen, opaque */
+.gatekeeper-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-daoist-bg);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.gatekeeper-card {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  max-width: 320px;
+  width: 100%;
+}
+.gatekeeper-title { font-size: 22px; font-weight: 800; color: var(--txt); margin: 0; }
+.gatekeeper-subtitle { font-size: 14px; color: var(--muted); margin: 0; }
+.gatekeeper-lbl { display: grid; gap: 8px; font-size: 13px; color: var(--muted); }
+.gatekeeper-input {
+  padding: 12px;
+  border: 1px solid var(--b2);
+  border-radius: 10px;
+  background: var(--color-daoist-surface);
+  color: var(--color-daoist-text);
+  font-size: 16px;
+}
+.gatekeeper-error { color: rgb(245 158 11); font-size: 13px; margin: 0; }
+.gatekeeper-btn { margin-top: 8px; }
 
 .app-shell {
   min-height: 100vh;
@@ -73,8 +169,39 @@ import { RouterLink, RouterView } from "vue-router";
 
 .appHeader {
   padding: 18px 18px 0 18px;
-  display: grid;
-  gap: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dialectLbl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.dialectSelect {
+  padding: 6px 10px;
+  border: 1px solid var(--b2);
+  border-radius: 8px;
+  background: var(--color-daoist-surface);
+  color: var(--color-daoist-text);
+  font-size: 13px;
 }
 
 .appHeader .title {
@@ -246,10 +373,10 @@ import { RouterLink, RouterView } from "vue-router";
 }
 
 .pillarHex {
-  display: grid;
-  grid-template-columns: minmax(28px, auto) 1fr minmax(28px, auto);
+  display: flex;
+  flex-direction: column;
   gap: 6px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .pillarHex.clickable {
@@ -261,17 +388,47 @@ import { RouterLink, RouterView } from "vue-router";
   border-radius: 8px;
 }
 
+.hexTop {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--txt);
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.hexRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
 .hexNum {
   font-size: 12px;
   color: var(--muted);
-  min-width: 28px;
+  justify-self: start;
 }
 
 .hexName {
   font-size: 12px;
   color: var(--muted);
   text-align: right;
-  min-width: 28px;
+}
+
+.hexRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+  text-align: right;
+  justify-self: end;
+}
+
+.hexPinyin {
+  font-size: 9px;
+  color: var(--muted);
 }
 
 .cjkText {
@@ -335,10 +492,12 @@ import { RouterLink, RouterView } from "vue-router";
 
   .side {
     width: 100%;
+    order: 2;
   }
 
   .main {
     width: 100%;
+    order: 1;
   }
 
   .card {

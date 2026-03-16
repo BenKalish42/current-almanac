@@ -14,7 +14,32 @@ export const HEX_BINARY_TOP_TO_BOTTOM: Record<number, string> = {
     61: "110011", 62: "001100", 63: "010101", 64: "101010",
 };
 
+const BINARY_TO_HEX: Record<string, number> = Object.fromEntries(
+    Object.entries(HEX_BINARY_TOP_TO_BOTTOM).map(([k, v]) => [v, Number(k)])
+);
+
 export function getHexBinary(hex: number | null | undefined): string | null {
     if (!hex) return null;
     return HEX_BINARY_TOP_TO_BOTTOM[hex] ?? null;
+}
+
+export function getHexFromBinary(binary: string): number | null {
+    if (!binary || binary.length !== 6) return null;
+    return BINARY_TO_HEX[binary] ?? null;
+}
+
+/**
+ * Flip bits at line positions (1–6) and return the relating (transformed) hexagram ID.
+ * Line 1 = bottom (binary index 5), Line 6 = top (binary index 0). Binary is top→bottom.
+ */
+export function getRelatingHexagram(hexId: number | null, movingLines: number[]): number | null {
+    const binary = getHexBinary(hexId);
+    if (!binary || !movingLines.length) return hexId;
+    const arr = [...binary];
+    for (const lineNum of movingLines) {
+        if (lineNum < 1 || lineNum > 6) continue;
+        const idx = 6 - lineNum; // Line 1 → index 5 (bottom), Line 6 → index 0 (top)
+        arr[idx] = arr[idx] === "1" ? "0" : "1";
+    }
+    return getHexFromBinary(arr.join("")) ?? hexId;
 }

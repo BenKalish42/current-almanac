@@ -1,0 +1,198 @@
+{
+  "classical_formulas": [
+    {
+      "id": "classical_liu_wei_di_huang_wan",
+      "name_hanzi": "六味地黄丸",
+      "name_pinyin": "Liu Wei Di Huang Wan",
+      "linguistics": {
+        "cantonese": "luk6 mei6 dei6 wong4 jyun4",
+        "taiwanese": "la̍k-bī tē-hông-oân"
+      },
+      "source_text": "Xiao Er Yao Zheng Zhi Jue",
+      "description": "Foundational Kidney Yin tonic formula that nourishes Liver-Kidney Yin with Shu Di Huang as the core herb."
+    },
+    {
+      "id": "classical_bao_he_wan",
+      "name_hanzi": "保和丸",
+      "name_pinyin": "Bao He Wan",
+      "linguistics": {
+        "cantonese": "bou2 wo4 jyun4",
+        "taiwanese": "pó-hô-oân"
+      },
+      "source_text": "Dan Xi Xin Fa",
+      "description": "Food stagnation resolving formula that reduces clumping, transforms phlegm, and supports middle burner movement."
+    }
+  ],
+  "formula_ingredients": [
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_shu_di_huang",
+      "role": "Jun",
+      "classical_dosage_ratio": 8.0
+    },
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_shan_zhu_yu",
+      "role": "Chen",
+      "classical_dosage_ratio": 4.0
+    },
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_shan_yao",
+      "role": "Chen",
+      "classical_dosage_ratio": 4.0
+    },
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_ze_xie",
+      "role": "Zuo",
+      "classical_dosage_ratio": 3.0
+    },
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_fu_ling",
+      "role": "Zuo",
+      "classical_dosage_ratio": 3.0
+    },
+    {
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "herb_id": "herb_mu_dan_pi",
+      "role": "Shi",
+      "classical_dosage_ratio": 3.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_shan_zha",
+      "role": "Jun",
+      "classical_dosage_ratio": 6.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_shen_qu",
+      "role": "Chen",
+      "classical_dosage_ratio": 2.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_lai_fu_zi",
+      "role": "Chen",
+      "classical_dosage_ratio": 2.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_ban_xia",
+      "role": "Zuo",
+      "classical_dosage_ratio": 3.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_fu_ling",
+      "role": "Zuo",
+      "classical_dosage_ratio": 3.0
+    },
+    {
+      "formula_id": "classical_bao_he_wan",
+      "herb_id": "herb_lian_qiao",
+      "role": "Shi",
+      "classical_dosage_ratio": 1.0
+    }
+  ],
+  "market_variants": [
+    {
+      "id": "market_liu_wei_plum_flower",
+      "brand_name": "Plum Flower",
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "actual_ingredients": [
+        {
+          "herb_id": "herb_shu_di_huang",
+          "exact_dosage_grams": 1.6
+        },
+        {
+          "herb_id": "herb_shan_zhu_yu",
+          "exact_dosage_grams": 0.8
+        },
+        {
+          "herb_id": "herb_shan_yao",
+          "exact_dosage_grams": 0.8
+        },
+        {
+          "herb_id": "herb_ze_xie",
+          "exact_dosage_grams": 0.6
+        },
+        {
+          "herb_id": "herb_fu_ling",
+          "exact_dosage_grams": 0.6
+        },
+        {
+          "herb_id": "herb_mu_dan_pi",
+          "exact_dosage_grams": 0.6
+        }
+      ],
+      "has_shadow_nodes": false
+    },
+    {
+      "id": "market_liu_wei_solstice",
+      "brand_name": "Solstice",
+      "formula_id": "classical_liu_wei_di_huang_wan",
+      "actual_ingredients": [
+        {
+          "herb_id": "herb_shu_di_huang",
+          "exact_dosage_grams": 1.55
+        },
+        {
+          "herb_id": "herb_shan_zhu_yu",
+          "exact_dosage_grams": 0.75
+        },
+        {
+          "herb_id": "herb_shan_yao",
+          "exact_dosage_grams": 0.78
+        },
+        {
+          "herb_id": "herb_ze_xie",
+          "exact_dosage_grams": 0.62
+        },
+        {
+          "herb_id": "herb_fu_ling",
+          "exact_dosage_grams": 0.6
+        },
+        {
+          "herb_id": "herb_mu_dan_pi",
+          "exact_dosage_grams": 0.58
+        }
+      ],
+      "has_shadow_nodes": true
+    },
+    {
+      "id": "market_bao_he_solstice",
+      "brand_name": "Solstice",
+      "formula_id": "classical_bao_he_wan",
+      "actual_ingredients": [
+        {
+          "herb_id": "herb_shan_zha",
+          "exact_dosage_grams": 1.2
+        },
+        {
+          "herb_id": "herb_shen_qu",
+          "exact_dosage_grams": 0.42
+        },
+        {
+          "herb_id": "herb_lai_fu_zi",
+          "exact_dosage_grams": 0.42
+        },
+        {
+          "herb_id": "herb_ban_xia",
+          "exact_dosage_grams": 0.6
+        },
+        {
+          "herb_id": "herb_fu_ling",
+          "exact_dosage_grams": 0.6
+        },
+        {
+          "herb_id": "shadow_herb_lian_qiao",
+          "exact_dosage_grams": 0.2
+        }
+      ],
+      "has_shadow_nodes": true
+    }
+  ]
+}
