@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import CosmicBoard from "@/components/CosmicBoard.vue";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
-import CosmicBoard from "@/components/CosmicBoard.vue";
+import OrganHourCard from "@/components/astrology/OrganHourCard.vue";
+import PronunciationText from "@/components/ui/PronunciationText.vue";
 import { parseGanZhi } from "@/core/ganzhi";
+import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
 import seedHexagrams from "@/data/seed_hexagrams.json";
 
@@ -49,11 +52,38 @@ function buildHexSummaryMap(seed: SeedHexagram[]): HexagramSummaryMap {
 const store = useAppStore();
 const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
 
+/** Hex num → { english_name, pinyin_name, jyutping_name, zhuyin_name, taigi_name } for BaZi hexagram labels (Task 12.3/12.3b) */
+type HexLabel = { english_name: string; pinyin_name: string; jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
+const hexLabelMap: Record<number, HexLabel> = {};
+for (const h of seedHexagrams as SeedHexagram[]) {
+  const sh = h as SeedHexagram & { jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
+  hexLabelMap[h.id] = {
+    english_name: h.english_name ?? "",
+    pinyin_name: h.pinyin_name ?? "",
+    jyutping_name: sh.jyutping_name,
+    zhuyin_name: sh.zhuyin_name,
+    taigi_name: sh.taigi_name,
+  };
+}
+
+function hexLabel(num: number | null) {
+  return num ? hexLabelMap[num] ?? null : null;
+}
+
+/** Show Current Flow block only when we have real analysis — never API key hints. */
 const advancedExpanded = ref(false);
+const displayableCurrentFlow = computed(() => {
+  const t = store.currentFlowAnalysis;
+  if (!t?.trim()) return null;
+  if (t.includes("VITE_DEEPSEEK") || t.includes("VITE_LLM") || t.includes("API_KEY") || t.includes(".env"))
+    return null;
+  return t;
+});
 
 const isHexModalOpen = ref(false);
 const selectedHexNum = ref<number | null>(null);
 const selectedHexNameCn = ref<string | null>(null);
+const selectedMovingLines = ref<number[]>([]);
 const selectedHexSummary = computed(() => {
   const num = selectedHexNum.value;
   if (!num) return null;
@@ -77,11 +107,17 @@ function hexNameShort(num: number | null, fallback: string | null) {
   return HEX_NAME_CN_SHORT[num];
 }
 
-function openHexModal(hex: { num: number | null; nameCn: string | null }) {
+function openHexModal(hex: { num: number | null; nameCn: string | null; movingLines?: number[] }) {
   if (!hex?.num) return;
   selectedHexNum.value = hex.num;
   selectedHexNameCn.value = hex.nameCn ?? null;
+  selectedMovingLines.value = hex.movingLines ?? [];
   isHexModalOpen.value = true;
+}
+
+function onViewHexagram(id: number) {
+  selectedHexNum.value = id;
+  selectedMovingLines.value = []; // Transformed hex has no moving lines in this view
 }
 
 function closeHexModal() {
@@ -101,8 +137,8 @@ function getLocalTimezone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown";
 }
 
-async function copyInterpretation() {
-  const text = store.interpretationPlaceholder;
+async function copyCurrentFlow() {
+  const text = store.currentFlowAnalysis;
   if (!text) return;
   await navigator.clipboard.writeText(text);
 }
@@ -118,94 +154,78 @@ onMounted(() => {
     store.syncLocalTimeNow();
     store.timezoneLabel = getLocalTimezone();
   }, 60_000);
+  // Initial run after load (watchers may have run before loadFromStorage)
+  queueMicrotask(() => {
+    void store.requestPastSummary();
+    void store.requestPresentSummary();
+  });
 });
+
+// Task 12.2: Auto-generate baseline summaries when BaZi changes (debounced)
+let pastDebounce: ReturnType<typeof setTimeout> | null = null;
+let presentDebounce: ReturnType<typeof setTimeout> | null = null;
+const DEBOUNCE_MS = 1200;
+
+// Past: re-run when birth BaZi pillars change (birth datetime edit)
+watch(
+  () => store.pastBaziSignature,
+  () => {
+    if (pastDebounce) clearTimeout(pastDebounce);
+    pastDebounce = setTimeout(() => {
+      void store.requestPastSummary();
+      pastDebounce = null;
+    }, DEBOUNCE_MS);
+  },
+  { immediate: true }
+);
+
+// Present: re-run only when present BaZi pillars change (e.g. new 2h organ block), not every minute
+watch(
+  () => store.presentBaziSignature,
+  () => {
+    if (presentDebounce) clearTimeout(presentDebounce);
+    presentDebounce = setTimeout(() => {
+      void store.requestPresentSummary();
+      presentDebounce = null;
+    }, DEBOUNCE_MS);
+  },
+  { immediate: true }
+);
 
 onUnmounted(() => {
   if (localSyncTimer) window.clearInterval(localSyncTimer);
+  if (pastDebounce) clearTimeout(pastDebounce);
+  if (presentDebounce) clearTimeout(presentDebounce);
 });
 </script>
 
 <template>
   <div class="appRoot">
     <div class="appHeader">
-      <div class="title">Current (v0)</div>
-      <div class="subtitle">You're in the Present... Would you like to get in the Current?</div>
-      <div class="sub">Stored locally. No accounts. Descriptive only.</div>
+      <div class="headerLeft">
+        <div class="title">Current (v0)</div>
+        <div class="subtitle">You're in the Present... Would you like to get in the Current?</div>
+        <div class="sub">Stored locally. No accounts. Descriptive only.</div>
+      </div>
+      <div class="headerRight">
+        <label class="dialectLbl">
+          Preferred Dialect
+          <select class="dialectSelect" v-model="store.preferredDialect">
+            <option value="pinyin">Mandarin (Pinyin)</option>
+            <option value="jyutping">Cantonese (Jyutping)</option>
+            <option value="zhuyin">Taiwanese (Zhuyin)</option>
+            <option value="taigi">Taiwanese (Taigi)</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- Active Meridian: extracted to top for mobile, visible without scrolling -->
+    <div class="activeMeridianSection">
+      <OrganHourCard />
     </div>
 
     <div class="wrap">
-      <aside class="side">
-        <div class="controls">
-          <label class="lbl">
-            Location (auto)
-            <input class="input" type="text" :value="store.location || 'unknown'" readonly />
-          </label>
-          <button class="btn" @click="store.hydrateFromGeolocation">Use current location</button>
-          <label class="lbl">
-            Timezone
-            <input class="input" type="text" :value="store.timezoneLabel" readonly />
-          </label>
-          <button class="btn primary" @click="store.generate">Generate Reading</button>
-          <button class="btn" @click="store.clearLog">Clear Log</button>
-        </div>
-
-        <div class="sectionHdr">User Intent</div>
-        <div class="controls">
-          <label class="lbl">
-            Domain
-            <input class="input" type="text" placeholder="e.g., work, relationships" v-model="store.intentDomain" />
-          </label>
-          <label class="lbl">
-            Goal Constraint
-            <input class="input" type="text" placeholder="One sentence" v-model="store.intentGoalConstraint" />
-          </label>
-        </div>
-
-        <div class="sectionHdr">User State (Optional)</div>
-        <div class="controls">
-          <label class="lbl">
-            Capacity (0-10)
-            <input class="input" type="number" min="0" max="10" step="1" v-model.number="store.userCapacity" />
-          </label>
-          <label class="lbl">
-            Load (0-10)
-            <input class="input" type="number" min="0" max="10" step="1" v-model.number="store.userLoad" />
-          </label>
-          <label class="lbl">
-            Sleep Quality (0-10)
-            <input class="input" type="number" min="0" max="10" step="1" v-model.number="store.userSleepQuality" />
-          </label>
-          <label class="lbl">
-            Cognitive Noise (0-10)
-            <input class="input" type="number" min="0" max="10" step="1" v-model.number="store.userCognitiveNoise" />
-          </label>
-          <label class="lbl">
-            Social Load (0-10)
-            <input class="input" type="number" min="0" max="10" step="1" v-model.number="store.userSocialLoad" />
-          </label>
-          <label class="lbl">
-            Emotional Tone
-            <input class="input" type="text" placeholder="One sentence" v-model="store.userEmotionalTone" />
-          </label>
-        </div>
-
-        <div class="sectionHdr">Recent</div>
-        <div class="recent">
-          <div v-if="store.sortedLog.length === 0" class="empty">No readings yet.</div>
-          <button
-            v-for="r in store.sortedLog"
-            :key="r.id"
-            class="item"
-            :class="{ active: store.activeReading?.id === r.id }"
-            @click="store.setActiveReading(r)"
-          >
-            <div class="itemTitle">{{ r.inputs.dateISO }} {{ r.inputs.timeHHMM }}</div>
-            <div class="itemSub">{{ r.inputs.location || "—" }}</div>
-            <div class="itemMeta">{{ r.meta.silence ? "Silence" : `Signal: ${r.meta.signalStrength}` }}</div>
-          </button>
-        </div>
-      </aside>
-
       <main class="main">
         <div class="card">
           <div class="topSections">
@@ -240,9 +260,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.birthTemporalHex.year.hex)"
                     @keydown.space.prevent="openHexModal(store.birthTemporalHex.year.hex)"
                   >
-                    <div class="hexNum">#{{ store.birthTemporalHex.year.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.birthTemporalHex.year.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.year.hex.num ?? null, store.birthTemporalHex.year.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.birthTemporalHex.year.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.birthTemporalHex.year.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.birthTemporalHex.year.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.year.hex.num ?? null, store.birthTemporalHex.year.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.birthTemporalHex.year.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.birthTemporalHex.year.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.birthTemporalHex.year.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.birthTemporalHex.year.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -258,9 +291,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.birthTemporalHex.month.hex)"
                     @keydown.space.prevent="openHexModal(store.birthTemporalHex.month.hex)"
                   >
-                    <div class="hexNum">#{{ store.birthTemporalHex.month.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.birthTemporalHex.month.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.month.hex.num ?? null, store.birthTemporalHex.month.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.birthTemporalHex.month.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.birthTemporalHex.month.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.birthTemporalHex.month.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.month.hex.num ?? null, store.birthTemporalHex.month.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.birthTemporalHex.month.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.birthTemporalHex.month.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.birthTemporalHex.month.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.birthTemporalHex.month.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -276,9 +322,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.birthTemporalHex.day.hex)"
                     @keydown.space.prevent="openHexModal(store.birthTemporalHex.day.hex)"
                   >
-                    <div class="hexNum">#{{ store.birthTemporalHex.day.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.birthTemporalHex.day.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.day.hex.num ?? null, store.birthTemporalHex.day.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.birthTemporalHex.day.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.birthTemporalHex.day.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.birthTemporalHex.day.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.day.hex.num ?? null, store.birthTemporalHex.day.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.birthTemporalHex.day.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.birthTemporalHex.day.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.birthTemporalHex.day.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.birthTemporalHex.day.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -294,22 +353,35 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.birthTemporalHex.hour.hex)"
                     @keydown.space.prevent="openHexModal(store.birthTemporalHex.hour.hex)"
                   >
-                    <div class="hexNum">#{{ store.birthTemporalHex.hour.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.birthTemporalHex.hour.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.hour.hex.num ?? null, store.birthTemporalHex.hour.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.birthTemporalHex.hour.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.birthTemporalHex.hour.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.birthTemporalHex.hour.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.hour.hex.num ?? null, store.birthTemporalHex.hour.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.birthTemporalHex.hour.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.birthTemporalHex.hour.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.birthTemporalHex.hour.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.birthTemporalHex.hour.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div v-else class="meta">Enter a valid birth datetime.</div>
-              <div v-if="store.birthTemporalHex" class="panelFooter">
-                <button
-                  v-if="store.interpretationNeedsRefresh"
-                  class="btn small"
-                  :disabled="store.interpretationLoading"
-                  @click="store.requestInterpretation()"
-                >
-                  {{ store.interpretationLoading ? "Loading…" : "Past" }}
-                </button>
+              <div v-if="store.pastSummaryLoading" class="baselineSummary baselineSummaryHint">
+                <p class="baselineSummaryText">Generating summary…</p>
+              </div>
+              <div v-else-if="store.pastSummary" class="baselineSummary">
+                <div class="baselineSummaryLabel">Past Summary</div>
+                <p class="baselineSummaryText">{{ store.pastSummary }}</p>
+              </div>
+              <div v-else-if="!hasLlmKey() && store.birthTemporalHex" class="baselineSummary baselineSummaryHint">
+                <p class="baselineSummaryText">Add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env and restart to see summaries.</p>
               </div>
             </section>
 
@@ -340,9 +412,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.temporalHex.year.hex)"
                     @keydown.space.prevent="openHexModal(store.temporalHex.year.hex)"
                   >
-                    <div class="hexNum">#{{ store.temporalHex.year.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.temporalHex.year.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.year.hex.num ?? null, store.temporalHex.year.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.temporalHex.year.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.temporalHex.year.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.temporalHex.year.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.year.hex.num ?? null, store.temporalHex.year.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.temporalHex.year.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.temporalHex.year.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.temporalHex.year.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.temporalHex.year.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -358,9 +443,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.temporalHex.month.hex)"
                     @keydown.space.prevent="openHexModal(store.temporalHex.month.hex)"
                   >
-                    <div class="hexNum">#{{ store.temporalHex.month.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.temporalHex.month.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.month.hex.num ?? null, store.temporalHex.month.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.temporalHex.month.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.temporalHex.month.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.temporalHex.month.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.month.hex.num ?? null, store.temporalHex.month.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.temporalHex.month.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.temporalHex.month.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.temporalHex.month.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.temporalHex.month.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -376,9 +474,22 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.temporalHex.day.hex)"
                     @keydown.space.prevent="openHexModal(store.temporalHex.day.hex)"
                   >
-                    <div class="hexNum">#{{ store.temporalHex.day.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.temporalHex.day.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.day.hex.num ?? null, store.temporalHex.day.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.temporalHex.day.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.temporalHex.day.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.temporalHex.day.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.day.hex.num ?? null, store.temporalHex.day.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.temporalHex.day.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.temporalHex.day.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.temporalHex.day.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.temporalHex.day.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="pillarBox">
@@ -394,58 +505,77 @@ onUnmounted(() => {
                     @keydown.enter.prevent="openHexModal(store.temporalHex.hour.hex)"
                     @keydown.space.prevent="openHexModal(store.temporalHex.hour.hex)"
                   >
-                    <div class="hexNum">#{{ store.temporalHex.hour.hex.num ?? "—" }}</div>
-                    <HexagramLines :binary="store.temporalHex.hour.hex.binary" size="sm" />
-                    <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.hour.hex.num ?? null, store.temporalHex.hour.hex.nameCn) }}</div>
+                    <div class="hexTop">{{ hexLabel(store.temporalHex.hour.hex.num)?.english_name || "—" }}</div>
+                    <div class="hexRow">
+                      <div class="hexNum">#{{ store.temporalHex.hour.hex.num ?? "—" }}</div>
+                      <HexagramLines :binary="store.temporalHex.hour.hex.binary" size="sm" />
+                      <div class="hexRight">
+                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.hour.hex.num ?? null, store.temporalHex.hour.hex.nameCn) }}</div>
+                        <div class="hexPinyin">
+                          <PronunciationText
+                            :pinyin="hexLabel(store.temporalHex.hour.hex.num)?.pinyin_name || ''"
+                            :jyutping="hexLabel(store.temporalHex.hour.hex.num)?.jyutping_name"
+                            :zhuyin="hexLabel(store.temporalHex.hour.hex.num)?.zhuyin_name"
+                            :taigi="hexLabel(store.temporalHex.hour.hex.num)?.taigi_name"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div v-if="store.birthProfile" class="panelFooter">
-                <button
-                  v-if="store.interpretationNeedsRefresh"
-                  class="btn small"
-                  :disabled="store.interpretationLoading"
-                  @click="store.requestInterpretation()"
-                >
-                  {{ store.interpretationLoading ? "Loading…" : "Present" }}
-                </button>
+              <div v-if="store.presentSummaryLoading" class="baselineSummary baselineSummaryHint">
+                <p class="baselineSummaryText">Generating summary…</p>
+              </div>
+              <div v-else-if="store.presentSummary" class="baselineSummary">
+                <div class="baselineSummaryLabel">Present Summary</div>
+                <p class="baselineSummaryText">{{ store.presentSummary }}</p>
+              </div>
+              <div v-else-if="!hasLlmKey()" class="baselineSummary baselineSummaryHint">
+                <p class="baselineSummaryText">Add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env and restart to see summaries.</p>
               </div>
             </section>
           </div>
 
-          <div class="sec">
-            <div class="secTitle">Current (Flow)</div>
-            <div class="flowHeader">
-              <div class="meta">
-                {{ store.presentDatetimeLocal }} • {{ store.location || "location unspecified" }}
+          <!-- Current Flow: Generate button + analysis -->
+          <div class="sec currentFlowSec">
+            <button
+              type="button"
+              class="btn primary currentFlowBtn"
+              :disabled="store.currentFlowLoading"
+              @click="store.requestCurrentFlowAnalysis()"
+            >
+              {{ store.currentFlowLoading ? "Synthesizing…" : "🌊 Generate Current Flow Analysis" }}
+            </button>
+
+            <div v-if="store.currentFlowLoading" class="currentFlowBlock currentFlowLoading">
+              <p class="currentFlowMeta">Synthesizing…</p>
+            </div>
+
+            <div v-else-if="displayableCurrentFlow" class="currentFlowBlock">
+              <div class="currentFlowHeader">
+                <span class="currentFlowLabel">Current Flow</span>
+                <span class="currentFlowMeta">{{ store.presentDatetimeLocal }} · {{ store.location || "location unspecified" }}</span>
               </div>
-              <div class="topRight" v-if="store.interpretationPlaceholder && !store.interpretationNeedsRefresh">
-                <button class="btn small" @click="copyInterpretation">Copy</button>
+              <div class="currentFlowText">{{ store.currentFlowAnalysis }}</div>
+              <div class="currentFlowActions">
+                <button class="btn small" @click="copyCurrentFlow">Copy</button>
               </div>
             </div>
-            <div class="secBody">
-              <div v-if="store.interpretationLoading">Generating interpretation...</div>
-              <div v-else-if="store.interpretationPlaceholder && !store.interpretationNeedsRefresh" class="mono">
-                {{ store.interpretationPlaceholder }}
-              </div>
-              <div v-else-if="store.interpretationPlaceholder" class="mono interpretation-error">
-                {{ store.interpretationPlaceholder }}
-              </div>
-              <div v-else-if="store.interpretationNeedsRefresh" class="placeholder">
-                BaZi has changed. Use Past or Present above to generate a new interpretation.
-              </div>
-              <div v-else class="placeholder">
-                Enter birth datetime, then use Past or Present to interpret.
-              </div>
+
+            <div v-else class="currentFlowBlock currentFlowHint">
+              <p class="currentFlowMeta" v-if="hasLlmKey()">Click above to synthesize your Birth chart, the Moment's chart, and the Active Meridian.</p>
+              <p class="currentFlowMeta" v-else>Add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env and restart the dev server to enable synthesis.</p>
             </div>
-            <div class="advanced-wrapper" style="margin-top: 10px;">
+
+            <div class="advanced-wrapper" style="margin-top: 16px;">
               <button
                 type="button"
                 class="advanced-toggle"
                 :aria-expanded="advancedExpanded"
                 @click="advancedExpanded = !advancedExpanded"
               >
-                <span class="advanced-toggle-label">Advanced</span>
+                <span class="advanced-toggle-label">Advanced ⚙️</span>
                 <span class="advanced-toggle-icon" :class="{ expanded: advancedExpanded }">▼</span>
               </button>
               <Transition name="advanced-slide">
@@ -463,7 +593,12 @@ onUnmounted(() => {
           <div class="sec">
             <div class="secTitle">Future (Destiny)</div>
             <div class="secBody">
-              <textarea class="destinyBox" placeholder="Destiny is yours to write."></textarea>
+              <textarea
+                class="destinyBox"
+                placeholder="Destiny is yours to write."
+                v-model="store.generatedReading"
+                :readonly="store.isGenerating"
+              ></textarea>
             </div>
           </div>
         </div>
@@ -474,13 +609,27 @@ onUnmounted(() => {
         :hex-num="selectedHexNum"
         :hex-name="selectedHexDisplayName"
         :summaries="selectedHexSummary"
+        :moving-lines="selectedMovingLines"
         @close="closeHexModal"
+        @view-hexagram="onViewHexagram"
       />
     </div>
   </div>
 </template>
 
 <style scoped>
+.activeMeridianSection {
+  margin-bottom: 16px;
+  padding: 0 18px;
+}
+
+@media (max-width: 680px) {
+  .activeMeridianSection {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 .advanced-wrapper {
   border-top: 1px solid var(--b2);
   padding-top: 10px;
@@ -529,6 +678,66 @@ onUnmounted(() => {
 .advanced-slide-leave-to {
   opacity: 0;
   margin-top: -8px;
+}
+
+/* Task 12.2: Oracle Engine — baseline summaries & Current Flow */
+.baselineSummary {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  border: 1px solid var(--b2);
+}
+.baselineSummaryLabel {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.baselineSummaryText {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--txt);
+  margin: 0;
+}
+
+.currentFlowSec {
+  margin-top: 24px;
+}
+.currentFlowBtn {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 120, 140, 0.4), rgba(0, 80, 100, 0.5));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.15s, opacity 0.15s;
+}
+.currentFlowBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+.currentFlowBlock {
+  margin-top: 16px;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  border: 1px solid var(--b2);
+}
+.currentFlowLabel {
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.currentFlowText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--txt);
+  white-space: pre-wrap;
 }
 </style>
 

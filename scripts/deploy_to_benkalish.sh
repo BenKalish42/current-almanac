@@ -13,6 +13,18 @@ echo "Deploy Current Almanac to benkalish.com"
 echo "  Build from: $ALMANAC"
 echo "  Deploy to:  $PERSONAL (PersonalWebsite)"
 echo ""
+
+# 0. MANDATORY: Git checkpoint for THIS project (prevents losing uncommitted work)
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Uncommitted changes detected. Creating pre-deploy checkpoint..."
+  git add -A
+  git commit -m "chore: pre-deploy checkpoint $(date +%Y-%m-%d-%H%M)" || true
+  echo "Checkpoint created."
+else
+  echo "Working tree clean. No checkpoint needed."
+fi
+echo ""
+
 read -r -p "Press Enter to deploy (or Ctrl+C to cancel)..."
 echo ""
 

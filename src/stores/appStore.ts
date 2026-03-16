@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
+import { Geolocation } from "@capacitor/geolocation";
 import { serializeAdvancedAstro } from "@/core/advancedAstro";
 import { buildQimenChart } from "@/core/qimen";
 import { getTemporalXkdg } from "@/core/hexagramsXKDG";
@@ -10,6 +11,9 @@ import {
   type Sect,
 } from "@/lib/personal/baziNineStar";
 import { generateZWDSMatrix, type ZWDSGender } from "@/core/zwds";
+import { buildSystemPrompt, fetchDaoistReading } from "@/services/intelligenceService";
+import { fetchDeepSeekChat, hasLlmKey } from "@/services/llmService";
+import { useAlchemyStore } from "@/stores/alchemyStore";
 import { Lunar, LunarMonth, Solar } from "lunar-typescript";
 
 // --- Types ---
@@ -38,6 +42,9 @@ export type WeatherSnapshot = {
 };
 
 export type GeoCoords = { lat: number; lon: number };
+/** Task 12.3: Pinyin (Mandarin) or Jyutping (Cantonese) for hexagram pronunciation display. */
+/** Task 12.3/12.3b: Pinyin, Jyutping, Zhuyin, Taigi */
+export type PreferredDialect = "pinyin" | "jyutping" | "zhuyin" | "taigi";
 
 // --- Constants ---
 const LS_KEY = "current_almanac_log_v0";
@@ -256,6 +263,10 @@ export const useAppStore = defineStore("app", () => {
   const geoCoords = ref<GeoCoords | null>(null);
   const timezoneLabel = ref("unknown");
   const presentAuto = ref(true);
+  /** Location sync status for UI: idle | loading | resolved | denied | error */
+  const geoStatus = ref<"idle" | "loading" | "resolved" | "denied" | "error">("idle");
+  /** Source: auto (geolocation) or manual (user override) */
+  const geoSource = ref<"auto" | "manual">("auto");
 
   // Birth
   const birthDatetimeLocal = ref<string>(
@@ -265,15 +276,16 @@ export const useAppStore = defineStore("app", () => {
   /** For ZWDS; not rendered in UI. Default "male" when unknown. */
   const userGender = ref<ZWDSGender>("male");
 
-  // User State
-  const intentDomain = ref("general");
-  const intentGoalConstraint = ref("Test the current conditions without changing plans.");
+  // User State (Task 12.1: sane defaults)
+  const intentDomain = ref("General Wellness");
+  const intentGoalConstraint = ref("General wellness and balance.");
   const userCapacity = ref<number | null>(6);
   const userLoad = ref<number | null>(4);
   const userSleepQuality = ref<number | null>(6);
   const userCognitiveNoise = ref<number | null>(3);
   const userSocialLoad = ref<number | null>(4);
   const userEmotionalTone = ref("Steady, focused, lightly distracted.");
+  const preferredDialect = ref<PreferredDialect>("pinyin");
 
   // Readings
   const log = ref<Reading[]>([]);
@@ -285,9 +297,36 @@ export const useAppStore = defineStore("app", () => {
   /** Signature of BaZi state when we last generated interpretation. */
   const interpretationBaZiSignature = ref<string | null>(null);
 
+  // Task 12.2 — Oracle Engine: baseline summaries (auto-generated) and Current Flow synthesis
+  const pastSummary = ref<string | null>(null);
+  const presentSummary = ref<string | null>(null);
+  const pastSummaryLoading = ref(false);
+  const presentSummaryLoading = ref(false);
+  const pastSummarySignature = ref<string | null>(null);
+  const presentSummarySignature = ref<string | null>(null);
+  const currentFlowAnalysis = ref<string | null>(null);
+  const currentFlowLoading = ref(false);
+
+  // Phase 3 — Synthesis Engine (FUTURE / Destiny)
+  const generatedReading = ref("");
+  const isGenerating = ref(false);
+
   // Computed: selected date
   const selectedDate = computed(() => {
     return new Date(`${dateISO.value}T${timeHHMM.value}:00`);
+  });
+
+  /**
+   * Apply True Solar Time correction using geolocated longitude.
+   * 1° longitude ≈ 4 minutes of solar time; we adjust UTC by (longitude × 4) minutes.
+   * Falls back to raw selectedDate when geoCoords are unresolved.
+   */
+  const solarAdjustedSelectedDate = computed(() => {
+    const date = selectedDate.value;
+    const coords = geoCoords.value;
+    if (!coords || !Number.isFinite(coords.lon)) return date;
+    const longitudeOffsetMinutes = coords.lon * 4;
+    return new Date(date.getTime() + longitudeOffsetMinutes * 60 * 1000);
   });
 
   // Computed: birth profile
@@ -300,8 +339,18 @@ export const useAppStore = defineStore("app", () => {
     }
   });
 
-  // Computed: temporal hex (present moment)
-  const temporalHex = computed(() => getTemporalXkdg(selectedDate.value));
+  // Computed: temporal hex (present moment) — uses True Solar Time when geoCoords available
+  const temporalHex = computed(() => getTemporalXkdg(solarAdjustedSelectedDate.value));
+
+  /** BaZi pillar signatures — only change when year/month/day/hour pillars change (e.g. crossing 2h organ block). */
+  const presentBaziSignature = computed(() => {
+    const h = temporalHex.value;
+    return `${h.year.ganzhi}|${h.month.ganzhi}|${h.day.ganzhi}|${h.hour.ganzhi}`;
+  });
+  const pastBaziSignature = computed(() => {
+    const h = birthTemporalHex.value;
+    return h ? `${h.year.ganzhi}|${h.month.ganzhi}|${h.day.ganzhi}|${h.hour.ganzhi}` : "";
+  });
 
   // Computed: birth temporal hex
   function birthInputToDate(input: BirthProfileResult["input"]) {
@@ -324,10 +373,10 @@ export const useAppStore = defineStore("app", () => {
   const qimenChartHour = computed(() => buildQimenChart(selectedDate.value, "hour"));
   const qimenChartDay = computed(() => buildQimenChart(selectedDate.value, "day"));
 
-  // Computed: advanced astro firehose (moment - for present-moment context)
+  // Computed: advanced astro firehose (moment - for present-moment context) — True Solar Time when geoCoords available
   const advancedAstroMoment = computed(() => {
     try {
-      const date = selectedDate.value;
+      const date = solarAdjustedSelectedDate.value;
       const solar = Solar.fromDate(date);
       const lunar = Lunar.fromSolar(solar);
       const eightChar = lunar.getEightChar();
@@ -448,6 +497,20 @@ export const useAppStore = defineStore("app", () => {
             userCognitiveNoise.value = parsed.userCognitiveNoise as number;
           if (Number.isFinite(parsed.userSocialLoad)) userSocialLoad.value = parsed.userSocialLoad as number;
           if (typeof parsed.userEmotionalTone === "string") userEmotionalTone.value = parsed.userEmotionalTone;
+          if (
+            parsed.preferredDialect === "pinyin" ||
+            parsed.preferredDialect === "jyutping" ||
+            parsed.preferredDialect === "zhuyin" ||
+            parsed.preferredDialect === "taigi"
+          ) {
+            preferredDialect.value = parsed.preferredDialect;
+          } else if (
+            parsed.preferredDialect === "mandarin" ||
+            parsed.preferredDialect === "cantonese"
+          ) {
+            preferredDialect.value =
+              parsed.preferredDialect === "mandarin" ? "pinyin" : "jyutping";
+          }
         }
       } catch {
         // ignore
@@ -467,6 +530,7 @@ export const useAppStore = defineStore("app", () => {
         userCognitiveNoise: userCognitiveNoise.value,
         userSocialLoad: userSocialLoad.value,
         userEmotionalTone: userEmotionalTone.value,
+        preferredDialect: preferredDialect.value,
       })
     );
   }
@@ -479,51 +543,72 @@ export const useAppStore = defineStore("app", () => {
   }
 
   async function hydrateFromGeolocation() {
-    if (!("geolocation" in navigator)) return;
-    return new Promise<void>((resolve) => {
-      navigator.geolocation.getCurrentPosition(
-        async (pos) => {
-          const lat = pos.coords.latitude;
-          const lon = pos.coords.longitude;
-          geoCoords.value = { lat, lon };
-          try {
-            const res = await fetch(
-              `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&language=en&format=json`
-            );
-            if (res.ok) {
-              const data = await res.json();
-              const result = data?.results?.[0];
-              if (result)
-                location.value =
-                  `${result.name}${result.admin1 ? `, ${result.admin1}` : ""}${result.country ? `, ${result.country}` : ""}`;
-            }
-          } catch {
-            // ignore
+    geoStatus.value = "loading";
+    geoSource.value = "auto";
+    try {
+      const pos = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: false,
+        timeout: 8000,
+        maximumAge: 60000,
+      });
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      geoCoords.value = { lat, lon };
+      try {
+        const res = await fetch(
+          `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&language=en&format=json`
+        );
+        if (res.ok) {
+          const data = await res.json();
+          const result = data?.results?.[0];
+          if (result)
+            location.value =
+              `${result.name}${result.admin1 ? `, ${result.admin1}` : ""}${result.country ? `, ${result.country}` : ""}`;
+        }
+      } catch {
+        // ignore reverse geocode
+      }
+      timezoneLabel.value = Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown";
+      geoStatus.value = "resolved";
+    } catch {
+      // Permission denied or API failed — fallback to ipapi
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        if (res.ok) {
+          const data = await res.json();
+          const lat = Number(data?.latitude);
+          const lon = Number(data?.longitude);
+          if (Number.isFinite(lat) && Number.isFinite(lon)) {
+            geoCoords.value = { lat, lon };
+            const name = [data?.city, data?.region, data?.country_name].filter(Boolean).join(", ");
+            if (name) location.value = name;
+            if (typeof data?.timezone === "string") timezoneLabel.value = data.timezone;
+            geoStatus.value = "resolved";
+          } else {
+            geoStatus.value = "error";
           }
-          resolve();
-        },
-        async () => {
-          try {
-            const res = await fetch("https://ipapi.co/json/");
-            if (res.ok) {
-              const data = await res.json();
-              const lat = Number(data?.latitude);
-              const lon = Number(data?.longitude);
-              if (Number.isFinite(lat) && Number.isFinite(lon)) {
-                geoCoords.value = { lat, lon };
-                const name = [data?.city, data?.region, data?.country_name].filter(Boolean).join(", ");
-                if (name) location.value = name;
-                if (typeof data?.timezone === "string") timezoneLabel.value = data.timezone;
-              }
-            }
-          } catch {
-            // ignore
-          }
-          resolve();
-        },
-        { enableHighAccuracy: false, timeout: 8000, maximumAge: 60000 }
-      );
-    });
+        } else {
+          geoStatus.value = "error";
+        }
+      } catch {
+        geoStatus.value = "error";
+      }
+    }
+  }
+
+  function setManualLocation(value: string) {
+    geoSource.value = "manual";
+    location.value = value || "";
+  }
+
+  function setManualTimezone(value: string) {
+    geoSource.value = "manual";
+    timezoneLabel.value = value || "unknown";
+  }
+
+  function setManualGeoCoords(coords: GeoCoords | null) {
+    geoSource.value = "manual";
+    geoCoords.value = coords;
   }
 
   async function fetchWeatherSnapshot(): Promise<WeatherSnapshot | null> {
@@ -581,6 +666,27 @@ export const useAppStore = defineStore("app", () => {
     activeReading.value = r;
   }
 
+  function setGeneratedReading(value: string) {
+    generatedReading.value = value;
+  }
+
+  async function generateDaoistReading() {
+    isGenerating.value = true;
+    generatedReading.value = "";
+    try {
+      const alchemyStore = useAlchemyStore();
+      const systemPrompt = buildSystemPrompt(useAppStore(), alchemyStore);
+      const text = await fetchDaoistReading(systemPrompt);
+      generatedReading.value = text;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to generate reading.";
+      generatedReading.value = `Error: ${msg}`;
+      console.error("[generateDaoistReading]", err);
+    } finally {
+      isGenerating.value = false;
+    }
+  }
+
   const API_BASE = (import.meta.env.VITE_API_URL as string | undefined) ?? "";
 
   async function requestInterpretation() {
@@ -601,6 +707,19 @@ export const useAppStore = defineStore("app", () => {
         body: JSON.stringify(payload),
       });
       if (!res.ok) {
+        if (res.status === 404 && hasLlmKey()) {
+          try {
+            const text = await interpretViaDeepSeekDirect();
+            interpretationPlaceholder.value = text;
+            interpretationBaZiSignature.value = currentBaZiSignature.value;
+          } catch (fallbackErr) {
+            interpretationPlaceholder.value =
+              "Backend 404. Direct DeepSeek failed: " +
+              (fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr));
+            console.error("[requestInterpretation 404 fallback]", fallbackErr);
+          }
+          return;
+        }
         const text = await res.text();
         throw new Error(`API error (${res.status}): ${text || res.statusText}`);
       }
@@ -627,11 +746,223 @@ export const useAppStore = defineStore("app", () => {
         parts.length > 0 ? parts.join("\n\n") : "Interpretation received (no content yet).";
       interpretationBaZiSignature.value = currentBaZiSignature.value;
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Failed to get interpretation.";
-      interpretationPlaceholder.value = msg;
-      console.error("[requestInterpretation]", err);
+      const errMsg = err instanceof Error ? err.message : "Failed to get interpretation.";
+      const is404 = errMsg.includes("404");
+      if (is404 && hasLlmKey()) {
+        try {
+          const text = await interpretViaDeepSeekDirect();
+          interpretationPlaceholder.value = text;
+          interpretationBaZiSignature.value = currentBaZiSignature.value;
+        } catch (fallbackErr) {
+          interpretationPlaceholder.value =
+            errMsg + " (Direct DeepSeek also failed: " + (fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr)) + ")";
+          console.error("[requestInterpretation fallback]", fallbackErr);
+        }
+      } else {
+        interpretationPlaceholder.value = errMsg;
+        console.error("[requestInterpretation]", err);
+      }
     } finally {
       interpretationLoading.value = false;
+    }
+  }
+
+  /** Task 12.2: Fallback when backend returns 404 — call DeepSeek directly. */
+  async function interpretViaDeepSeekDirect(): Promise<string> {
+    const payload = serializeForApi(null);
+    if (!payload) throw new Error("No payload");
+    const userPrompt =
+      "Analyze this Daoist astrological data and return a concise interpretation (2–4 paragraphs). " +
+      "Focus on how birth BaZi meets the present moment. Be neutral, descriptive. No predictions or moralizing.\n\n" +
+      JSON.stringify(payload, null, 2);
+    const systemPrompt =
+      "You are a Master Daoist Astrologer. Interpret the user's BaZi data with clarity and poetic groundedness.";
+    return fetchDeepSeekChat(
+      [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt },
+      ],
+      { maxTokens: 600, temperature: 0.4 }
+    );
+  }
+
+  /** Task 12.2: Lightweight Past (Birth) summary. Silent, auto-triggered. */
+  async function requestPastSummary() {
+    if (!hasLlmKey()) {
+      console.debug("[requestPastSummary] No LLM key — add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env");
+      return;
+    }
+    const sig = pastBaziSignature.value;
+    if (!sig || pastSummarySignature.value === sig) return;
+    const hex = birthTemporalHex.value;
+    if (!hex) return;
+    pastSummarySignature.value = sig;
+    pastSummaryLoading.value = true;
+    try {
+      const json = JSON.stringify({
+        year: hex.year.ganzhi,
+        month: hex.month.ganzhi,
+        day: hex.day.ganzhi,
+        hour: hex.hour.ganzhi,
+        hexagrams: {
+          year: hex.year.hex?.num,
+          month: hex.month.hex?.num,
+          day: hex.day.hex?.num,
+          hour: hex.hour.hex?.num,
+        },
+      });
+      const text = await fetchDeepSeekChat(
+        [
+          {
+            role: "system",
+            content:
+              "You are a Daoist astrologer. Provide a 2–3 sentence summary of this birth chart (Four Pillars of Destiny). Be descriptive and neutral.",
+          },
+          { role: "user", content: json },
+        ],
+        { maxTokens: 150, temperature: 0.3 }
+      );
+      pastSummary.value = text?.trim() || null;
+    } catch (err) {
+      pastSummarySignature.value = null;
+      const msg = err instanceof Error ? err.message : String(err);
+      pastSummary.value = `Summary failed: ${msg}`;
+      console.error("[requestPastSummary] API error:", err);
+    } finally {
+      pastSummaryLoading.value = false;
+    }
+  }
+
+  /** Task 12.2: Lightweight Present (Moment) summary. Silent, auto-triggered. */
+  async function requestPresentSummary() {
+    if (!hasLlmKey()) {
+      console.debug("[requestPresentSummary] No LLM key — add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env");
+      return;
+    }
+    const sig = presentBaziSignature.value;
+    if (presentSummarySignature.value === sig) return;
+    const hex = temporalHex.value;
+    presentSummarySignature.value = sig;
+    presentSummaryLoading.value = true;
+    try {
+      const json = JSON.stringify({
+        year: hex.year.ganzhi,
+        month: hex.month.ganzhi,
+        day: hex.day.ganzhi,
+        hour: hex.hour.ganzhi,
+        organ: presentOrgan.value,
+        hexagrams: {
+          year: hex.year.hex?.num,
+          month: hex.month.hex?.num,
+          day: hex.day.hex?.num,
+          hour: hex.hour.hex?.num,
+        },
+      });
+      const text = await fetchDeepSeekChat(
+        [
+          {
+            role: "system",
+            content:
+              "You are a Daoist astrologer. Provide a 2–3 sentence summary of this present moment's chart and active meridian. Be descriptive and neutral.",
+          },
+          { role: "user", content: json },
+        ],
+        { maxTokens: 150, temperature: 0.3 }
+      );
+      presentSummary.value = text?.trim() || null;
+    } catch (err) {
+      presentSummarySignature.value = null;
+      const msg = err instanceof Error ? err.message : String(err);
+      presentSummary.value = `Summary failed: ${msg}`;
+      console.error("[requestPresentSummary] API error:", err);
+    } finally {
+      presentSummaryLoading.value = false;
+    }
+  }
+
+  /** Task 12.2: Full synthesis — Birth + Moment + Active Meridian. The primary "Generate Current Flow" action. */
+  async function requestCurrentFlowAnalysis() {
+    if (!hasLlmKey()) {
+      console.debug("[requestCurrentFlowAnalysis] No LLM key — add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env");
+      currentFlowAnalysis.value = null;
+      return;
+    }
+    currentFlowLoading.value = true;
+    currentFlowAnalysis.value = null;
+    console.debug("[requestCurrentFlowAnalysis] Calling LLM...");
+    const timeoutMs = 120_000;
+    try {
+      const bHex = birthTemporalHex.value;
+      const mHex = temporalHex.value;
+      const organ = presentOrgan.value;
+      if (!bHex || !mHex) {
+        currentFlowAnalysis.value = "Enter a valid birth datetime and ensure the moment is set.";
+        return;
+      }
+      const userPrompt = [
+        "### User's Birth (Past)",
+        "```json",
+        JSON.stringify(
+          {
+            year: bHex.year.ganzhi,
+            month: bHex.month.ganzhi,
+            day: bHex.day.ganzhi,
+            hour: bHex.hour.ganzhi,
+          },
+          null,
+          2
+        ),
+        "```",
+        "",
+        "### Current Moment (Present)",
+        "```json",
+        JSON.stringify(
+          {
+            year: mHex.year.ganzhi,
+            month: mHex.month.ganzhi,
+            day: mHex.day.ganzhi,
+            hour: mHex.hour.ganzhi,
+            active_meridian: organ,
+          },
+          null,
+          2
+        ),
+        "```",
+        "",
+        "Synthesize the user's Birth chart with the Current Moment's chart and the currently active Meridian. " +
+          "Explain what the user might be experiencing energetically right now, and offer ancient Chinese wisdom on how to move forward. " +
+          "Be poetic, grounded, and descriptive. No predictions or moralizing.",
+      ].join("\n");
+      const systemPrompt =
+        "You are a Master Daoist Astrologer. You bridge ancient Chinese astrological wisdom with the present moment.";
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const text = await fetchDeepSeekChat(
+          [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
+          ],
+          { maxTokens: 1536, temperature: 0.6, signal: controller.signal }
+        );
+        currentFlowAnalysis.value = text?.trim() || null;
+        console.debug("[requestCurrentFlowAnalysis] Success");
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      const friendlyMsg =
+        msg.includes("aborted") || msg.includes("AbortError")
+          ? `Request timed out (${timeoutMs / 1000}s). Try again or use a faster model (gpt-4o-mini) in .env.`
+          : msg;
+      currentFlowAnalysis.value = "Error: " + friendlyMsg;
+      console.error("[requestCurrentFlowAnalysis]", err);
+      if (msg.includes("404") || msg.includes("401") || msg.includes("403")) {
+        console.warn("[requestCurrentFlowAnalysis] If using DeepSeek, verify the API URL and model. You can switch to OpenAI: set VITE_LLM_API_URL=https://api.openai.com/v1/chat/completions and VITE_LLM_MODEL=gpt-4o-mini in .env");
+      }
+    } finally {
+      currentFlowLoading.value = false;
     }
   }
 
@@ -794,6 +1125,7 @@ export const useAppStore = defineStore("app", () => {
       userCognitiveNoise,
       userSocialLoad,
       userEmotionalTone,
+    preferredDialect,
     ],
     () => persistUserState()
   );
@@ -806,6 +1138,8 @@ export const useAppStore = defineStore("app", () => {
     timeHHMM,
     location,
     geoCoords,
+    geoStatus,
+    geoSource,
     timezoneLabel,
     presentAuto,
     birthDatetimeLocal,
@@ -818,15 +1152,26 @@ export const useAppStore = defineStore("app", () => {
     userCognitiveNoise,
     userSocialLoad,
     userEmotionalTone,
+    preferredDialect,
     log,
     activeReading,
     interpretationPlaceholder,
     interpretationLoading,
+    pastSummary,
+    presentSummary,
+    pastSummaryLoading,
+    presentSummaryLoading,
+    currentFlowAnalysis,
+    currentFlowLoading,
+    generatedReading,
+    isGenerating,
     // Computed
     selectedDate,
     birthProfile,
     temporalHex,
     birthTemporalHex,
+    pastBaziSignature,
+    presentBaziSignature,
     qimenChartHour,
     qimenChartDay,
     advancedAstroMoment,
@@ -842,12 +1187,20 @@ export const useAppStore = defineStore("app", () => {
     syncLocalTimeNow,
     shiftPresentHours,
     hydrateFromGeolocation,
+    setManualLocation,
+    setManualTimezone,
+    setManualGeoCoords,
     fetchWeatherSnapshot,
     togglePresentAuto,
     generate,
+    generateDaoistReading,
     clearLog,
     setActiveReading,
+    setGeneratedReading,
     requestInterpretation,
+    requestPastSummary,
+    requestPresentSummary,
+    requestCurrentFlowAnalysis,
     serializeForApi,
   };
 });
