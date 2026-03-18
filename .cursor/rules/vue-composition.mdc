@@ -1,0 +1,27 @@
+---
+description: 2026 Patterns for Vue 3 Composition API, Animations, and Architecture
+globs: "**/*.vue"
+---
+
+# Vue 3 Composition API Patterns
+
+- **Script setup**: Use `<script setup lang="ts">` for all Vue components. Do not use Options API.
+- **TypeScript strict mode**: Enable strict mode in tsconfig; avoid `any` and prefer explicit types.
+- **Functional components**: Prefer presentational components with props and emits. Keep components stateless where possible; use composables for shared logic.
+- **Tailwind CSS**: Use Tailwind utility classes for styling. Avoid inline styles or scoped CSS unless Tailwind cannot express the design. Prefer Tailwind’s design tokens (spacing, colors, typography).
+- **Animations**: Mandate Framer Motion (or its Vue equivalent) for animations. Do not use manual CSS transitions for complex choreography.
+- **Canonical Reference**: Reference `src/components/canonical-example.vue` for the gold standard on props, exports, and component architecture.
+
+## Example
+
+```vue
+<script setup lang="ts">
+defineProps<{ label: string }>()
+</script>
+
+<template>
+  <button class="rounded-lg bg-primary px-4 py-2 text-white">
+    {{ label }}
+  </button>
+</template>
+```
