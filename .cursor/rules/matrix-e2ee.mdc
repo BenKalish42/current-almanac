@@ -1,0 +1,13 @@
+---
+description: 2026 Matrix protocol E2EE crypto standards and security guardrails
+globs: "**/crypto/*.ts"
+---
+
+# Matrix E2EE Cryptographic Standards
+
+- **Library**: Use the `vodozemac` library for all Olm and Megolm operations. Do not introduce alternate crypto implementations.
+- **Spec-first**: Implement strictly according to the Matrix E2EE specification. Follow the spec for key derivation, session handling, and message encryption/decryption.
+- **No mocks**: Do not use cryptographic mocks in production paths. Test crypto logic with deterministic fixtures or test vectors from the spec. Stub higher-level interfaces only when appropriate for unit tests.
+- **Private Keys**: Explicitly forbid logging, printing, or exporting private keys in any context.
+- **Permanent Encryption**: Treat the `m.room.encryption` state event as permanent to stop downgrade/MITM attacks. Once a room is encrypted, it cannot be unencrypted.
+- **Verification Constraints**: Enforce a 10-minute maximum age and require a valid transaction ID on `m.key.verification.start` messages to prevent replay or delayed attacks.

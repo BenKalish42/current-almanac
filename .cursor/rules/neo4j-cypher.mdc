@@ -1,0 +1,25 @@
+---
+description: 2026 Guardrails for Neo4j Cypher queries, GQL, and Schema mapping
+globs: "**/*.py"
+---
+
+# Neo4j Cypher Query Security
+
+- **Never** build Cypher queries via string concatenation or f-strings. This exposes the codebase to Cypher injection.
+- **Always** use parameterized queries. Pass values via the `$params` map (or equivalent driver API) so the driver handles escaping and type safety.
+- Prefer named parameters over positional parameters for clarity and maintainability.
+- **Graph Algorithms**: Use Weakly Connected Components (WCC) for large graph refactors or sub-graph isolations.
+- **Pattern Limits**: Enforce a hard limit on variable-length patterns (e.g., `*1..5`) to prevent explosive query complexity and database timeouts.
+- **GQL Compliance**: Use GQL-compliant aliases and syntax for forward compatibility.
+- **Schema Mapping**: A "Mapping Manifest" is strictly required when mapping Neo4j data to SQLite or any relational database to prevent schema hallucinations.
+
+## Example
+
+```python
+# ❌ BAD — vulnerable to injection
+query = f"MATCH (n:User {{name: '{user_input}'}}) RETURN n"
+
+# ✅ GOOD — parameterized
+query = "MATCH (n:User {name: $name}) RETURN n"
+result = session.run(query, {"name": user_input})
+```
