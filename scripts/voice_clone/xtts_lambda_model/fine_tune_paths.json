@@ -1,0 +1,12 @@
+{
+  "_comment": "config.json, vocab.json, speaker_ref.wav copied locally. best_model.pth (~5.2GB) is still on the Lambda box unless you scp it into this folder.",
+  "fine_tuned_checkpoint": "/Users/benjaminkalish/Documents/CodeProjects/Current/current-almanac/scripts/voice_clone/xtts_lambda_model/best_model.pth",
+  "trainer_output": "/Users/benjaminkalish/Documents/CodeProjects/Current/current-almanac/scripts/voice_clone/xtts_lambda_model",
+  "original_xtts_config_copied_to": "/Users/benjaminkalish/Documents/CodeProjects/Current/current-almanac/scripts/voice_clone/xtts_lambda_model/config.json",
+  "vocab_copied_to": "/Users/benjaminkalish/Documents/CodeProjects/Current/current-almanac/scripts/voice_clone/xtts_lambda_model/vocab.json",
+  "speaker_reference_wav": "/Users/benjaminkalish/Documents/CodeProjects/Current/current-almanac/scripts/voice_clone/xtts_lambda_model/speaker_ref.wav",
+  "lambda_server_paths": {
+    "fine_tuned_checkpoint": "/home/ubuntu/xtts_ft_output/run/training/GPT_XTTS_FT-March-28-2026_01+51PM-0000000/best_model.pth",
+    "trainer_output": "/home/ubuntu/xtts_ft_output/run/training/GPT_XTTS_FT-March-28-2026_01+51PM-0000000"
+  }
+}

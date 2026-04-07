@@ -30,3 +30,11 @@ backend/__pycache__
 
 # Stray files
 =1.0.0
+
+# Voice clone artifacts (large WAVs)
+scripts/voice_clone/reference_clips/
+scripts/voice_clone/.venv*/
+scripts/voice_clone/xtts_ft_output/
+scripts/voice_clone/cloud/xtts_cloud_training_bundle.tar.gz
+scripts/voice_clone/xtts_lambda_model/best_model.pth
+scripts/voice_clone/.openvoice-workspace/

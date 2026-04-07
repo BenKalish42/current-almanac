@@ -13,6 +13,11 @@ const router = createRouter({
       component: () => import("@/views/HomeView.vue"),
     },
     {
+      path: "/hexagrams",
+      name: "hexagrams",
+      component: () => import("@/views/HexagramCenterView.vue"),
+    },
+    {
       path: "/alchemy",
       name: "alchemy",
       component: () => import("@/views/AlchemyView.vue"),
@@ -21,6 +26,11 @@ const router = createRouter({
       path: "/ai",
       name: "ai",
       component: () => import("@/views/AIChatView.vue"),
+    },
+    {
+      path: "/community",
+      name: "community",
+      component: () => import("@/views/CommunityView.vue"),
     },
   ],
 });

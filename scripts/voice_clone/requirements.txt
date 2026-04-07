@@ -1,0 +1,14 @@
+# Voice clone + dialogue (XTTS v2). Install in a dedicated venv — pulls PyTorch.
+# Before running: export COQUI_TOS_AGREED=1  (see https://coqui.ai/cpml)
+# Apple Silicon fine-tune: export PYTORCH_ENABLE_MPS_FALLBACK=1
+# python3 -m venv .venv-voice && source .venv-voice/bin/activate
+# pip install -r scripts/voice_clone/requirements.txt
+coqui-tts>=0.24.0
+openai>=1.0.0
+torch>=2.0.0
+faster-whisper>=0.9.0
+openai-whisper>=20231117
+pandas>=2.0.0
+tqdm>=4.65.0
+pyloudnorm>=0.1.1
+soundfile>=0.12.0

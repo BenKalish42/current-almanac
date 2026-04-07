@@ -1,0 +1,6 @@
+# Install CUDA PyTorch *before* this file (see setup_ubuntu_gpu.sh).
+# Remaining voice-clone stack (ASR not needed for --train-only).
+coqui-tts>=0.24.0
+faster-whisper>=0.9.0
+pandas>=2.0.0
+tqdm>=4.65.0

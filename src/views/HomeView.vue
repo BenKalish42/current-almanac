@@ -4,10 +4,13 @@ import CosmicBoard from "@/components/CosmicBoard.vue";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
 import OrganHourCard from "@/components/astrology/OrganHourCard.vue";
+import PillarBounds from "@/components/astrology/PillarBounds.vue";
+import LocationAutocomplete from "@/components/ui/LocationAutocomplete.vue";
 import PronunciationText from "@/components/ui/PronunciationText.vue";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
+import { getTrueSolarTime } from "@/utils/solarTime";
 import seedHexagrams from "@/data/seed_hexagrams.json";
 
 type HexagramSummary = {
@@ -72,6 +75,22 @@ function hexLabel(num: number | null) {
 
 /** Show Current Flow block only when we have real analysis — never API key hints. */
 const advancedExpanded = ref(false);
+/** Birth reference date for PillarBounds. Solar-adjusted when useTrueSolarTime && birthLongitude. */
+const birthReferenceDate = computed(() => {
+  const raw = store.birthDatetimeLocal;
+  if (!raw || !raw.includes("T")) return new Date();
+  try {
+    const d = new Date(raw.replace(/:\d{2}$/, ":00"));
+    if (Number.isNaN(d.getTime())) return new Date();
+    if (store.useTrueSolarTime && store.birthLongitude != null) {
+      return getTrueSolarTime(d, store.birthLongitude);
+    }
+    return d;
+  } catch {
+    return new Date();
+  }
+});
+
 const displayableCurrentFlow = computed(() => {
   const t = store.currentFlowAnalysis;
   if (!t?.trim()) return null;
@@ -238,6 +257,10 @@ onUnmounted(() => {
                     <input class="input inlineInput" type="datetime-local" v-model="store.birthDatetimeLocal" />
                   </label>
                   <label class="inlineLbl">
+                    Birth location
+                    <LocationAutocomplete v-model:locationName="store.birthLocationName" v-model:longitude="store.birthLongitude" />
+                  </label>
+                  <label class="inlineLbl">
                     BaZi sect
                     <select class="input inlineInput inlineSelect" v-model.number="store.birthSect">
                       <option :value="1">sect 1</option>
@@ -250,6 +273,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Year</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.birthTemporalHex.year.ganzhi) }}</div>
+                  <PillarBounds pillar-type="year" :pillar="store.birthTemporalHex.year" :reference-date="birthReferenceDate" :use-true-solar-time="!!(store.useTrueSolarTime && store.birthLongitude != null)" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.birthTemporalHex.year.hex.num }"
@@ -281,6 +305,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Month</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.birthTemporalHex.month.ganzhi) }}</div>
+                  <PillarBounds pillar-type="month" :pillar="store.birthTemporalHex.month" :reference-date="birthReferenceDate" :use-true-solar-time="!!(store.useTrueSolarTime && store.birthLongitude != null)" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.birthTemporalHex.month.hex.num }"
@@ -312,6 +337,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Day</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.birthTemporalHex.day.ganzhi) }}</div>
+                  <PillarBounds pillar-type="day" :pillar="store.birthTemporalHex.day" :reference-date="birthReferenceDate" :use-true-solar-time="!!(store.useTrueSolarTime && store.birthLongitude != null)" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.birthTemporalHex.day.hex.num }"
@@ -343,6 +369,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Hour</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.birthTemporalHex.hour.ganzhi) }}</div>
+                  <PillarBounds pillar-type="hour" :pillar="store.birthTemporalHex.hour" :reference-date="birthReferenceDate" :use-true-solar-time="!!(store.useTrueSolarTime && store.birthLongitude != null)" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.birthTemporalHex.hour.hex.num }"
@@ -402,6 +429,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Year</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.temporalHex.year.ganzhi) }}</div>
+                  <PillarBounds pillar-type="year" :pillar="store.temporalHex.year" :reference-date="store.solarAdjustedSelectedDate" :use-true-solar-time="store.useTrueSolarTime" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.temporalHex.year.hex.num }"
@@ -433,6 +461,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Month</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.temporalHex.month.ganzhi) }}</div>
+                  <PillarBounds pillar-type="month" :pillar="store.temporalHex.month" :reference-date="store.solarAdjustedSelectedDate" :use-true-solar-time="store.useTrueSolarTime" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.temporalHex.month.hex.num }"
@@ -464,6 +493,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Day</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.temporalHex.day.ganzhi) }}</div>
+                  <PillarBounds pillar-type="day" :pillar="store.temporalHex.day" :reference-date="store.solarAdjustedSelectedDate" :use-true-solar-time="store.useTrueSolarTime" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.temporalHex.day.hex.num }"
@@ -495,6 +525,7 @@ onUnmounted(() => {
                 <div class="pillarBox">
                   <div class="pillarLabel">Hour</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.temporalHex.hour.ganzhi) || "—" }}</div>
+                  <PillarBounds pillar-type="hour" :pillar="store.temporalHex.hour" :reference-date="store.solarAdjustedSelectedDate" :use-true-solar-time="store.useTrueSolarTime" :date-format="store.dateFormat" />
                   <div
                     class="pillarHex"
                     :class="{ clickable: !!store.temporalHex.hour.hex.num }"
@@ -580,6 +611,22 @@ onUnmounted(() => {
               </button>
               <Transition name="advanced-slide">
                 <div v-if="advancedExpanded" class="advanced-content">
+                  <label class="advanced-option">
+                    <input
+                      type="checkbox"
+                      v-model="store.useTrueSolarTime"
+                      :disabled="store.longitude === null"
+                    />
+                    <span>Enable True Solar Time <span v-if="store.longitude === null" class="muted">(Requires Longitude)</span></span>
+                  </label>
+                  <label class="advanced-option">
+                    Date Format
+                    <select class="input inlineInput inlineSelect" v-model="store.dateFormat">
+                      <option value="US">US (MM/DD/YYYY)</option>
+                      <option value="EU">EU (DD/MM/YYYY)</option>
+                      <option value="ASIAN">Asian (YYYY/MM/DD)</option>
+                    </select>
+                  </label>
                   <CosmicBoard
                     :qimen-chart-hour="store.qimenChartHour"
                     :qimen-chart-day="store.qimenChartDay"
@@ -667,6 +714,54 @@ onUnmounted(() => {
 
 .advanced-content {
   margin-top: 8px;
+}
+
+.advanced-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.advanced-option input {
+  flex-shrink: 0;
+}
+.advanced-option .muted {
+  color: var(--muted, rgba(255, 255, 255, 0.55));
+  font-size: 12px;
+}
+
+.advanced-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.advanced-option input[type="checkbox"] {
+  margin: 0;
+}
+.advanced-option .muted {
+  color: var(--muted, rgba(255, 255, 255, 0.5));
+  font-size: 12px;
+}
+
+.advanced-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--txt);
+}
+.advanced-option input[type="checkbox"] {
+  margin: 0;
+}
+.advanced-option .muted {
+  color: var(--muted, rgba(255, 255, 255, 0.55));
+  font-size: 12px;
 }
 
 .advanced-slide-enter-active,
