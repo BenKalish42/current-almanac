@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
   const netlifyTarget = env.VITE_NETLIFY_PROXY_TARGET || 'http://localhost:8888'
 
   return {
-    base: '/Current/',
+    base: '/',
     plugins: [vue(), tailwindcss()],
     resolve: {
       alias: {
