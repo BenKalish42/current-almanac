@@ -15,6 +15,7 @@ import { buildSystemPrompt, fetchDaoistReading } from "@/services/intelligenceSe
 import { fetchDeepSeekChat, hasLlmKey } from "@/services/llmService";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import { Lunar, LunarMonth, Solar } from "lunar-typescript";
+import { getTrueSolarTime } from "@/utils/solarTime";
 
 // --- Types ---
 type SignalStrength = "none" | "weak" | "moderate" | "dominant";
@@ -273,6 +274,10 @@ export const useAppStore = defineStore("app", () => {
     normalizeDatetimeLocal(safeLocalStorageGet(LS_KEY_BIRTH_DT) ?? "1990-01-01T12:00")
   );
   const birthSect = ref<Sect>((Number(safeLocalStorageGet(LS_KEY_BIRTH_SECT)) as Sect) || 2);
+  /** Task 12.5: Birth location (city name) for display. */
+  const birthLocationName = ref("");
+  /** Task 12.5: Birth longitude for True Solar Time on natal chart. null = not set. */
+  const birthLongitude = ref<number | null>(null);
   /** For ZWDS; not rendered in UI. Default "male" when unknown. */
   const userGender = ref<ZWDSGender>("male");
 
@@ -286,6 +291,11 @@ export const useAppStore = defineStore("app", () => {
   const userSocialLoad = ref<number | null>(4);
   const userEmotionalTone = ref("Steady, focused, lightly distracted.");
   const preferredDialect = ref<PreferredDialect>("pinyin");
+
+  /** Task 12.4: True Solar Time (Local Apparent Time) — EoT + longitude offset. Default off. */
+  const useTrueSolarTime = ref(false);
+  /** Task 12.5: Date format for bounds display. US | EU | ASIAN. */
+  const dateFormat = ref<"US" | "EU" | "ASIAN">("US");
 
   // Readings
   const log = ref<Reading[]>([]);
@@ -316,17 +326,21 @@ export const useAppStore = defineStore("app", () => {
     return new Date(`${dateISO.value}T${timeHHMM.value}:00`);
   });
 
+  /** Longitude for True Solar Time (from geoCoords). null when unresolved. */
+  const longitude = computed<number | null>(() => {
+    const c = geoCoords.value;
+    return c && Number.isFinite(c.lon) ? c.lon : null;
+  });
+
   /**
-   * Apply True Solar Time correction using geolocated longitude.
-   * 1° longitude ≈ 4 minutes of solar time; we adjust UTC by (longitude × 4) minutes.
-   * Falls back to raw selectedDate when geoCoords are unresolved.
+   * Apply True Solar Time (EoT + longitude offset) when useTrueSolarTime and longitude are set.
+   * Otherwise returns raw selectedDate.
    */
   const solarAdjustedSelectedDate = computed(() => {
     const date = selectedDate.value;
-    const coords = geoCoords.value;
-    if (!coords || !Number.isFinite(coords.lon)) return date;
-    const longitudeOffsetMinutes = coords.lon * 4;
-    return new Date(date.getTime() + longitudeOffsetMinutes * 60 * 1000);
+    const lon = longitude.value;
+    if (!useTrueSolarTime.value || lon === null) return date;
+    return getTrueSolarTime(date, lon);
   });
 
   // Computed: birth profile
@@ -366,7 +380,12 @@ export const useAppStore = defineStore("app", () => {
   const birthTemporalHex = computed(() => {
     const b = birthProfile.value;
     if (!b) return null;
-    return getTemporalXkdg(birthInputToDate(b.input));
+    const baseDate = birthInputToDate(b.input);
+    const effectiveDate =
+      useTrueSolarTime.value && birthLongitude.value != null
+        ? getTrueSolarTime(baseDate, birthLongitude.value)
+        : baseDate;
+    return getTemporalXkdg(effectiveDate);
   });
 
   // Computed: qimen charts
@@ -497,6 +516,12 @@ export const useAppStore = defineStore("app", () => {
             userCognitiveNoise.value = parsed.userCognitiveNoise as number;
           if (Number.isFinite(parsed.userSocialLoad)) userSocialLoad.value = parsed.userSocialLoad as number;
           if (typeof parsed.userEmotionalTone === "string") userEmotionalTone.value = parsed.userEmotionalTone;
+          if (typeof parsed.useTrueSolarTime === "boolean") useTrueSolarTime.value = parsed.useTrueSolarTime;
+          if (typeof parsed.birthLocationName === "string") birthLocationName.value = parsed.birthLocationName;
+          if (Number.isFinite(parsed.birthLongitude)) birthLongitude.value = parsed.birthLongitude as number;
+          else if (parsed.birthLongitude === null) birthLongitude.value = null;
+          if (parsed.dateFormat === "US" || parsed.dateFormat === "EU" || parsed.dateFormat === "ASIAN")
+            dateFormat.value = parsed.dateFormat;
           if (
             parsed.preferredDialect === "pinyin" ||
             parsed.preferredDialect === "jyutping" ||
@@ -531,6 +556,10 @@ export const useAppStore = defineStore("app", () => {
         userSocialLoad: userSocialLoad.value,
         userEmotionalTone: userEmotionalTone.value,
         preferredDialect: preferredDialect.value,
+        useTrueSolarTime: useTrueSolarTime.value,
+        birthLocationName: birthLocationName.value,
+        birthLongitude: birthLongitude.value,
+        dateFormat: dateFormat.value,
       })
     );
   }
@@ -1126,6 +1155,7 @@ export const useAppStore = defineStore("app", () => {
       userSocialLoad,
       userEmotionalTone,
     preferredDialect,
+    useTrueSolarTime,
     ],
     () => persistUserState()
   );
@@ -1144,6 +1174,9 @@ export const useAppStore = defineStore("app", () => {
     presentAuto,
     birthDatetimeLocal,
     birthSect,
+    birthLocationName,
+    birthLongitude,
+    dateFormat,
     intentDomain,
     intentGoalConstraint,
     userCapacity,
@@ -1153,6 +1186,8 @@ export const useAppStore = defineStore("app", () => {
     userSocialLoad,
     userEmotionalTone,
     preferredDialect,
+    useTrueSolarTime,
+    longitude,
     log,
     activeReading,
     interpretationPlaceholder,
@@ -1167,6 +1202,7 @@ export const useAppStore = defineStore("app", () => {
     isGenerating,
     // Computed
     selectedDate,
+    solarAdjustedSelectedDate,
     birthProfile,
     temporalHex,
     birthTemporalHex,

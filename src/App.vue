@@ -71,6 +71,9 @@ onMounted(() => {
         <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
         <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
         <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
+        <div style="flex: 1"></div>
+        <RouterLink to="/hexagrams" class="nav-link">Hexagrams</RouterLink>
+        <RouterLink to="/community" class="nav-link">Community</RouterLink>
       </nav>
       <RouterView />
     </div>
