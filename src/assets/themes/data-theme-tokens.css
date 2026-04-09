@@ -1,0 +1,259 @@
+/* Hot-swap skins: custom properties on body so descendants resolve var() without page reload. */
+
+body[data-theme="daoist"] {
+  --color-daoist-bg: #0d1520;
+  --color-daoist-surface: #141c2b;
+  --color-daoist-elevated: #1a2435;
+  --color-daoist-charcoal: #0f1824;
+  --color-daoist-jade: #4a9b7a;
+  --color-daoist-jade-muted: #3d8266;
+  --color-daoist-gold: #c9a227;
+  --color-daoist-gold-muted: #a68520;
+  --color-daoist-text: #e8eef4;
+  --color-daoist-muted: #8b9aab;
+  --color-daoist-subtle: #5c6b7a;
+  --b: rgba(255, 255, 255, 0.08);
+  --b2: rgba(255, 255, 255, 0.12);
+  --bg: rgba(255, 255, 255, 0.04);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+}
+
+body[data-theme="cosmic-crawl"] {
+  --color-daoist-bg: #060612;
+  --color-daoist-surface: #0c101c;
+  --color-daoist-elevated: #12182a;
+  --color-daoist-charcoal: #050508;
+  --color-daoist-jade: #5ec4d4;
+  --color-daoist-jade-muted: #3d9bab;
+  --color-daoist-gold: #d4b86a;
+  --color-daoist-gold-muted: #a68f4a;
+  --color-daoist-text: #e4eaf4;
+  --color-daoist-muted: #8a9bb8;
+  --color-daoist-subtle: #5c6a82;
+  --b: rgba(255, 255, 255, 0.08);
+  --b2: rgba(255, 255, 255, 0.14);
+  --bg: rgba(255, 255, 255, 0.05);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+}
+
+body[data-theme="frostwire"] {
+  --color-daoist-bg: #c1d4e8;
+  --color-daoist-surface: #ffffff;
+  --color-daoist-elevated: #e4eaf2;
+  --color-daoist-charcoal: #eef3f8;
+  --color-daoist-jade: #0066cc;
+  --color-daoist-jade-muted: #0052aa;
+  --color-daoist-gold: #3399ff;
+  --color-daoist-gold-muted: #66b3ff;
+  --color-daoist-text: #262626;
+  --color-daoist-muted: #5c6b7a;
+  --color-daoist-subtle: #6b7c90;
+  --color-daoist-border: #a8b8cc;
+  --color-daoist-border-strong: #8fa8c4;
+  --b: #c5d2e0;
+  --b2: #a8b8cc;
+  --bg: #f4f7fb;
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: light;
+  color: var(--color-daoist-text);
+  background: linear-gradient(180deg, #b8cfe5 0%, #c9d9eb 100%);
+}
+
+body[data-theme="tranceaddict-forum"] {
+  --color-daoist-bg: #000000;
+  --color-daoist-surface: #0d0d0d;
+  --color-daoist-elevated: #141414;
+  --color-daoist-charcoal: #0a0a0a;
+  --color-daoist-jade: #3366ff;
+  --color-daoist-jade-muted: #4d7aff;
+  --color-daoist-gold: #ffcc00;
+  --color-daoist-gold-muted: #d4aa00;
+  --color-daoist-text: #cccccc;
+  --color-daoist-muted: #add8e6;
+  --color-daoist-subtle: #6699ff;
+  --b: #444444;
+  --b2: #003366;
+  --bg: #0d0d0d;
+  --txt: #cccccc;
+  --muted: #add8e6;
+  --forum-category-start: #2a2a2a;
+  --forum-category-end: #333333;
+  color-scheme: dark;
+  color: #cccccc;
+  background-color: var(--color-daoist-bg);
+}
+
+body[data-theme="classic-90s-os"] {
+  --os-face: #c0c0c0;
+  --os-desktop: #808080;
+  --os-window: #c0c0c0;
+  --os-titlebar: #000080;
+  --os-titlebar-text: #ffffff;
+  --os-3d-light: #ffffff;
+  --os-3d-shadow: #808080;
+  --os-3d-dark: #404040;
+  --color-daoist-bg: #808080;
+  --color-daoist-surface: #c0c0c0;
+  --color-daoist-elevated: #d4d0c8;
+  --color-daoist-charcoal: #a0a0a0;
+  --color-daoist-jade: #000080;
+  --color-daoist-jade-muted: #000060;
+  --color-daoist-gold: #0000cc;
+  --color-daoist-gold-muted: #000080;
+  --color-daoist-text: #000000;
+  --color-daoist-muted: #404040;
+  --color-daoist-subtle: #505050;
+  --b: #808080;
+  --b2: #404040;
+  --bg: rgba(0, 0, 128, 0.12);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: light;
+  color: var(--color-daoist-text);
+  background-color: var(--os-desktop);
+}
+
+body[data-theme="monastic-terminal"] {
+  --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-daoist-bg: #0a0a0a;
+  --color-daoist-surface: #111111;
+  --color-daoist-elevated: #161616;
+  --color-daoist-charcoal: #0d0d0d;
+  --color-daoist-jade: #5a8f7a;
+  --color-daoist-jade-muted: #4a7565;
+  --color-daoist-gold: #5a8f7a;
+  --color-daoist-gold-muted: #3d5c4f;
+  --color-daoist-text: #f5f5f0;
+  --color-daoist-muted: #9a9a8c;
+  --color-daoist-subtle: #65655a;
+  --b: rgba(245, 245, 240, 0.12);
+  --b2: rgba(245, 245, 240, 0.2);
+  --bg: rgba(255, 255, 255, 0.03);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+  font-family: var(--font-serif);
+}
+
+body[data-theme="plaintext-brutalist"] {
+  --color-daoist-bg: #f5f5f5;
+  --color-daoist-surface: #ffffff;
+  --color-daoist-elevated: #fafafa;
+  --color-daoist-charcoal: #e8e8e8;
+  --color-daoist-jade: #000000;
+  --color-daoist-jade-muted: #333333;
+  --color-daoist-gold: #000000;
+  --color-daoist-gold-muted: #444444;
+  --color-daoist-text: #000000;
+  --color-daoist-muted: #555555;
+  --color-daoist-subtle: #777777;
+  --b: #000000;
+  --b2: #000000;
+  --bg: #ffffff;
+  --txt: #000000;
+  --muted: #555555;
+  color-scheme: light;
+  color: #000000;
+  background-color: #f5f5f5;
+  font-family: system-ui, "JetBrains Mono", ui-monospace, monospace;
+}
+
+body[data-theme="retro-terminal"] {
+  --color-daoist-bg: #0a0a12;
+  --color-daoist-surface: #0f1420;
+  --color-daoist-elevated: #141c2e;
+  --color-daoist-charcoal: #080810;
+  --color-daoist-jade: #33ff66;
+  --color-daoist-jade-muted: #22cc55;
+  --color-daoist-gold: #ffcc33;
+  --color-daoist-gold-muted: #cc9922;
+  --color-daoist-text: #33ff66;
+  --color-daoist-muted: #88cc99;
+  --color-daoist-subtle: #559966;
+  --b: rgba(51, 255, 102, 0.25);
+  --b2: rgba(51, 255, 102, 0.4);
+  --bg: rgba(51, 255, 102, 0.08);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body[data-theme="old-school-aol"] {
+  --aol-chrome-bg: #b4b4c4;
+  --color-daoist-bg: #b4b4c4;
+  --color-daoist-surface: #ffffff;
+  --color-daoist-elevated: #f0f0f4;
+  --color-daoist-charcoal: #d8d8e0;
+  --color-daoist-jade: #003399;
+  --color-daoist-jade-muted: #002266;
+  --color-daoist-gold: #4a2d6e;
+  --color-daoist-gold-muted: #3a2255;
+  --color-daoist-text: #000000;
+  --color-daoist-muted: #333333;
+  --color-daoist-subtle: #555555;
+  --b: #888899;
+  --b2: #666677;
+  --bg: rgba(0, 51, 153, 0.1);
+  --txt: #000000;
+  --muted: #444444;
+  color-scheme: light;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+  font-family: Arial, Helvetica, "MS Sans Serif", sans-serif;
+  font-size: 13px;
+}
+
+body[data-theme="vintage-print-almanac"] {
+  --color-daoist-bg: #f4f1e8;
+  --color-daoist-surface: #faf8f3;
+  --color-daoist-elevated: #fffef9;
+  --color-daoist-charcoal: #e8e4d9;
+  --color-daoist-jade: #2d5a4a;
+  --color-daoist-jade-muted: #244a3d;
+  --color-daoist-gold: #8b6914;
+  --color-daoist-gold-muted: #6d5210;
+  --color-daoist-text: #1a1a1a;
+  --color-daoist-muted: #5c5347;
+  --color-daoist-subtle: #8a8070;
+  --b: rgba(0, 0, 0, 0.12);
+  --b2: rgba(0, 0, 0, 0.2);
+  --bg: rgba(0, 0, 0, 0.04);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: light;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+  font-family: "Merriweather", Georgia, serif;
+}
+
+/* #app chrome follows active skin (inherits body custom props) */
+body[data-theme="frostwire"] #app {
+  background: linear-gradient(180deg, #b8cfe5 0%, #c9d9eb 100%);
+}
+
+body[data-theme="classic-90s-os"] #app {
+  background-color: var(--os-desktop);
+}
+
+body[data-theme="cosmic-crawl"] #app {
+  background: transparent;
+}
+
+body[data-theme="old-school-aol"] #app {
+  background: linear-gradient(180deg, #a8a8b8 0%, #c4c4d0 100%);
+}

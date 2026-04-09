@@ -2,21 +2,24 @@
 import { computed } from "vue";
 import { useAppStore } from "@/stores/appStore";
 import { getCurrentOrganHour } from "@/data/organClock";
+import { getShichenDetail } from "@/core/shichenDetail";
 import type { OrganHourEntry, WuXingElement } from "@/data/organClock";
 
 const store = useAppStore();
 
-/** Current hour (0–23) from store's dateISO + timeHHMM */
-const currentHour24 = computed(() => {
-  const [, t] = (store.presentDatetimeLocal || "").split("T");
-  if (!t) return new Date().getHours();
-  const [h] = t.split(":").map(Number);
-  return Number.isFinite(h) ? h : new Date().getHours();
+/** Moment for organ + Chu/Zheng/Ke (True Solar when enabled and longitude set) */
+const effectivePresentDate = computed(() => {
+  if (store.useTrueSolarTime && store.longitude != null) {
+    return store.solarAdjustedSelectedDate;
+  }
+  return store.selectedDate;
 });
 
 const activeOrgan = computed<OrganHourEntry>(() =>
-  getCurrentOrganHour(currentHour24.value ?? new Date().getHours())
+  getCurrentOrganHour(effectivePresentDate.value.getHours())
 );
+
+const shichenDetail = computed(() => getShichenDetail(effectivePresentDate.value));
 
 function formatTimeBlock(entry: OrganHourEntry): string {
   const fmt = (h: number) => String(h).padStart(2, "0") + ":00";
@@ -24,12 +27,13 @@ function formatTimeBlock(entry: OrganHourEntry): string {
   return `${fmt(entry.startHour)} – ${fmt(e === 24 ? 0 : entry.endHour)}`;
 }
 
+/** Blue-forward shell; Wu Xing read via border tint (matches home wave / daoist UI). */
 const wuXingClasses: Record<WuXingElement, string> = {
-  Wood: "from-emerald-950/60 to-emerald-900/40 border-emerald-500/30",
-  Fire: "from-orange-950/60 to-red-900/40 border-orange-500/30",
-  Earth: "from-amber-950/60 to-amber-900/40 border-amber-500/30",
-  Metal: "from-slate-800/60 to-slate-700/40 border-slate-400/30",
-  Water: "from-blue-950/60 to-indigo-900/40 border-blue-500/30",
+  Wood: "from-slate-950/80 via-cyan-950/45 to-blue-950/55 border-cyan-500/25",
+  Fire: "from-slate-950/80 via-blue-950/50 to-indigo-950/55 border-sky-400/35",
+  Earth: "from-slate-950/80 via-blue-950/40 to-slate-900/50 border-amber-500/20",
+  Metal: "from-slate-950/85 via-slate-900/55 to-blue-950/40 border-slate-400/28",
+  Water: "from-blue-950/70 via-indigo-950/50 to-slate-950/60 border-blue-400/35",
 };
 </script>
 
@@ -53,6 +57,14 @@ const wuXingClasses: Record<WuXingElement, string> = {
           <span class="text-sm text-white/60">
             {{ formatTimeBlock(activeOrgan) }}
           </span>
+        </div>
+        <div class="mt-2 text-xs leading-relaxed text-white/75">
+          <div class="mb-0.5 text-[10px] font-medium uppercase tracking-[0.15em] text-white/45">
+            Chu / Zheng / Ke (初正刻)
+          </div>
+          <div class="font-mono text-sm text-white/90">{{ shichenDetail.fullLabel }}</div>
+          <div class="text-white/65">{{ shichenDetail.fullLabelEn }}</div>
+          <div class="mt-0.5 text-white/55">{{ shichenDetail.keBoundsDisplay }} local</div>
         </div>
       </div>
       <div>

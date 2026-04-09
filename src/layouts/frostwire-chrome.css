@@ -1,0 +1,191 @@
+.skin-layout-frostwire-root .fw-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.skin-layout-frostwire-root .fw-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 10px 6px 14px;
+  padding-top: calc(6px + env(safe-area-inset-top, 0px));
+  background: linear-gradient(180deg, #0066ff 0%, #0052cc 100%);
+  border-bottom: 1px solid #0044aa;
+  flex-shrink: 0;
+}
+
+.skin-layout-frostwire-root .fw-titlebar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.skin-layout-frostwire-root .fw-app-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.skin-layout-frostwire-root .fw-tagline {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.25;
+}
+
+.skin-layout-frostwire-root .fw-titlebar-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.skin-layout-frostwire-root .fw-win-btn {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.skin-layout-frostwire-root .fw-win-min {
+  background: linear-gradient(180deg, #8ec5ff 0%, #4a9ae8 100%);
+}
+.skin-layout-frostwire-root .fw-win-max {
+  background: linear-gradient(180deg, #8ec5ff 0%, #4a9ae8 100%);
+}
+.skin-layout-frostwire-root .fw-win-close {
+  background: linear-gradient(180deg, #ff9a8b 0%, #e85d4c 100%);
+}
+
+.skin-layout-frostwire-root .fw-menubar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 4px 14px;
+  background: linear-gradient(180deg, #e8eef4 0%, #dde5ee 100%);
+  border-bottom: 1px solid var(--color-daoist-border);
+  flex-shrink: 0;
+}
+
+.skin-layout-frostwire-root .fw-menu-item {
+  font-size: 11px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+.skin-layout-frostwire-root .fw-menu-item:hover {
+  color: #0066cc;
+}
+
+.skin-layout-frostwire-root .fw-tabstrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 8px 10px 0;
+  background: linear-gradient(180deg, #dde5ee 0%, #d0dce8 100%);
+  border-bottom: 1px solid var(--color-daoist-border);
+  flex-shrink: 0;
+}
+
+.skin-layout-frostwire-root .fw-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #445566;
+  text-decoration: none;
+  border: 1px solid #9eb4cc;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #c8d6e6 0%, #b4c8dc 100%);
+  margin-bottom: -1px;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.skin-layout-frostwire-root .fw-tab:hover {
+  color: #1a1a1a;
+  background: linear-gradient(180deg, #d8e4f0 0%, #c4d4e8 100%);
+}
+
+.skin-layout-frostwire-root .fw-tab.fw-tab-active {
+  font-weight: 700;
+  color: #1a1a1a;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+  border-color: var(--color-daoist-border);
+  border-bottom-color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.skin-layout-frostwire-root .fw-content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: #ffffff;
+  border-left: 1px solid var(--color-daoist-border);
+  border-right: 1px solid var(--color-daoist-border);
+}
+
+.skin-layout-frostwire-root .fw-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 12px;
+  padding-bottom: calc(4px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, #d8e4f0 0%, #c5d4e8 100%);
+  border-top: 1px solid var(--color-daoist-border);
+  flex-shrink: 0;
+}
+
+.skin-layout-frostwire-root .fw-status-text {
+  font-size: 11px;
+  color: #4a5568;
+}
+
+.skin-layout-frostwire-root .fw-signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.skin-layout-frostwire-root .fw-signal-bar {
+  width: 4px;
+  border-radius: 1px;
+  background: #7a93b0;
+  border: 1px solid #5a7390;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.skin-layout-frostwire-root .fw-signal-bar:nth-child(1) {
+  height: 4px;
+}
+.skin-layout-frostwire-root .fw-signal-bar:nth-child(2) {
+  height: 7px;
+}
+.skin-layout-frostwire-root .fw-signal-bar:nth-child(3) {
+  height: 10px;
+}
+.skin-layout-frostwire-root .fw-signal-bar:nth-child(4) {
+  height: 13px;
+}
+
+/* Shared layout (views) */
+.skin-layout-frostwire-root .wrap {
+  display: flex;
+  min-height: 100%;
+  gap: 18px;
+  padding: 18px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  color: var(--txt);
+}

@@ -1,0 +1,53 @@
+.skin-layout-classic90s-root .os-bevel-out {
+  border: 2px solid;
+  border-color: var(--os-3d-light) var(--os-3d-dark) var(--os-3d-dark) var(--os-3d-light);
+}
+
+.skin-layout-classic90s-root .app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--os-window);
+}
+
+.skin-layout-classic90s-root .app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 6px 12px;
+  padding-top: calc(6px + env(safe-area-inset-top, 0px));
+  background: var(--os-titlebar);
+  border-bottom: 2px solid;
+  border-color: var(--os-3d-dark) var(--os-3d-light) var(--os-3d-light) var(--os-3d-dark);
+}
+
+.skin-layout-classic90s-root .app-nav-spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.skin-layout-classic90s-root .app-client {
+  flex: 1;
+  min-height: 0;
+  background: var(--os-window);
+}
+
+.skin-layout-classic90s-root .nav-link {
+  color: var(--os-titlebar-text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+}
+
+.skin-layout-classic90s-root .nav-link:hover {
+  text-decoration: underline;
+}
+
+.skin-layout-classic90s-root .nav-link.router-link-active {
+  text-decoration: underline;
+  font-weight: 700;
+}

@@ -1,0 +1,149 @@
+/* Late-90s “dial-up portal” chrome — generic homage, not a trademarked UI clone */
+
+.skin-layout-aol-root .aol-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--aol-chrome-bg, #b4b4c4);
+}
+
+.skin-layout-aol-root .aol-menubar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  padding: 3px 10px;
+  padding-top: calc(3px + env(safe-area-inset-top, 0px));
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+  background: linear-gradient(180deg, #ececec 0%, #d4d4d4 100%);
+  border-bottom: 1px solid #888;
+  user-select: none;
+}
+
+.skin-layout-aol-root .aol-menubar span {
+  cursor: default;
+}
+
+.skin-layout-aol-root .aol-brand-bar {
+  padding: 10px 14px 12px;
+  background: linear-gradient(180deg, #003366 0%, #1a1a4a 42%, #2d1f55 100%);
+  border-bottom: 2px solid #001a33;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.skin-layout-aol-root .aol-brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.skin-layout-aol-root .aol-brand-tagline {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #b8c8e8;
+}
+
+.skin-layout-aol-root .aol-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #e8e8f0 0%, #d0d0dc 100%);
+  border-bottom: 1px solid #9090a0;
+}
+
+.skin-layout-aol-root .aol-keyword {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0a1a66;
+  text-decoration: none;
+  background: linear-gradient(180deg, #f8f8ff 0%, #dcdcf0 100%);
+  border: 1px solid;
+  border-color: #ffffff #666688 #666688 #ffffff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.skin-layout-aol-root .aol-keyword:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #ececf8 100%);
+  color: #000080;
+}
+
+.skin-layout-aol-root .aol-keyword.router-link-active {
+  background: linear-gradient(180deg, #dde8ff 0%, #b8c8f0 100%);
+  border-color: #666688 #ffffff #ffffff #666688;
+  padding: 6px 11px 5px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.skin-layout-aol-root .aol-toolbar-spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.skin-layout-aol-root .aol-toolbar-skin :deep(.skinLbl) {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+.skin-layout-aol-root .aol-toolbar-skin :deep(.skinSelect) {
+  font-size: 11px;
+  padding: 3px 8px;
+  max-width: min(200px, 46vw);
+  border-radius: 4px;
+  border: 1px solid #666688;
+  background: #ffffff;
+  color: #000000;
+}
+
+.skin-layout-aol-root .aol-main {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: #c8c8d4;
+  padding: 10px 12px 14px;
+}
+
+.skin-layout-aol-root .aol-main-inner {
+  min-height: calc(100% - 4px);
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #888899 #ececf4 #ececf4 #888899;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.skin-layout-aol-root .aol-statusbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 10px;
+  padding-bottom: calc(4px + env(safe-area-inset-bottom, 0px));
+  font-size: 11px;
+  color: #111;
+  background: linear-gradient(180deg, #d8d8e4 0%, #c0c0cc 100%);
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #707080;
+}
+
+.skin-layout-aol-root .aol-status-left {
+  font-weight: 600;
+}
+
+.skin-layout-aol-root .aol-status-right {
+  font-family: ui-monospace, "Courier New", monospace;
+  color: #333;
+}

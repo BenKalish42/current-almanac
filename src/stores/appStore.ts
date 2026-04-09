@@ -16,6 +16,14 @@ import { fetchDeepSeekChat, hasLlmKey } from "@/services/llmService";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import { Lunar, LunarMonth, Solar } from "lunar-typescript";
 import { getTrueSolarTime } from "@/utils/solarTime";
+import { getShichenDetail } from "@/core/shichenDetail";
+import { getCurrentOrganHour } from "@/data/organClock";
+import {
+  DEFAULT_WAVE_VARIANT_ID,
+  isWaveVariantId,
+  LEGACY_WAVE_VARIANT_FLASH_RIPPLE,
+  type WaveVariantId,
+} from "@/components/waves/waveVariants";
 
 // --- Types ---
 type SignalStrength = "none" | "weak" | "moderate" | "dominant";
@@ -297,6 +305,13 @@ export const useAppStore = defineStore("app", () => {
   /** Task 12.5: Date format for bounds display. US | EU | ASIAN. */
   const dateFormat = ref<"US" | "EU" | "ASIAN">("US");
 
+  /** Home wave background variant (calming water layer). */
+  const waveVariantId = ref<WaveVariantId>(DEFAULT_WAVE_VARIANT_ID);
+  /** Ambient brook audio when variant supports it (user toggle). */
+  const waveAudioEnabled = ref(false);
+  /** Click/tap ripple overlay (independent of water style). */
+  const waveRippleClicksEnabled = ref(false);
+
   // Readings
   const log = ref<Reading[]>([]);
   const activeReading = ref<Reading | null>(null);
@@ -355,6 +370,15 @@ export const useAppStore = defineStore("app", () => {
 
   // Computed: temporal hex (present moment) — uses True Solar Time when geoCoords available
   const temporalHex = computed(() => getTemporalXkdg(solarAdjustedSelectedDate.value));
+
+  /** Chu / Zheng / Ke subdivisions (15-minute Ke); uses solar-adjusted moment when TST on. */
+  const presentShichenDetail = computed(() => getShichenDetail(solarAdjustedSelectedDate.value));
+
+  /** Changes every Ke (~15 min); independent of BaZi hour pillar. */
+  const presentKeSignature = computed(() => {
+    const d = presentShichenDetail.value;
+    return `${d.branchCn}|${d.chuZheng}|${d.keInShichen}|${d.keBoundsDisplay}`;
+  });
 
   /** BaZi pillar signatures — only change when year/month/day/hour pillars change (e.g. crossing 2h organ block). */
   const presentBaziSignature = computed(() => {
@@ -454,21 +478,10 @@ export const useAppStore = defineStore("app", () => {
     },
   });
 
-  // Computed: present organ
+  // Computed: present organ (same clock basis as temporal hex / shichen detail)
   const presentOrgan = computed(() => {
-    const h = selectedDate.value.getHours();
-    if (h >= 23 || h < 1) return "Gallbladder";
-    if (h >= 1 && h < 3) return "Liver";
-    if (h >= 3 && h < 5) return "Lung";
-    if (h >= 5 && h < 7) return "Large Intestine";
-    if (h >= 7 && h < 9) return "Stomach";
-    if (h >= 9 && h < 11) return "Spleen";
-    if (h >= 11 && h < 13) return "Heart";
-    if (h >= 13 && h < 15) return "Small Intestine";
-    if (h >= 15 && h < 17) return "Bladder";
-    if (h >= 17 && h < 19) return "Kidney";
-    if (h >= 19 && h < 21) return "Pericardium";
-    return "Triple Burner";
+    const h = solarAdjustedSelectedDate.value.getHours();
+    return getCurrentOrganHour(h).organ;
   });
 
   // Computed: sorted log
@@ -536,6 +549,20 @@ export const useAppStore = defineStore("app", () => {
             preferredDialect.value =
               parsed.preferredDialect === "mandarin" ? "pinyin" : "jyutping";
           }
+          if (typeof parsed.waveVariantId === "string") {
+            if (parsed.waveVariantId === LEGACY_WAVE_VARIANT_FLASH_RIPPLE) {
+              waveVariantId.value = DEFAULT_WAVE_VARIANT_ID;
+              waveRippleClicksEnabled.value = true;
+            } else if (isWaveVariantId(parsed.waveVariantId)) {
+              waveVariantId.value = parsed.waveVariantId;
+            }
+          }
+          if (typeof parsed.waveAudioEnabled === "boolean") {
+            waveAudioEnabled.value = parsed.waveAudioEnabled;
+          }
+          if (typeof parsed.waveRippleClicksEnabled === "boolean") {
+            waveRippleClicksEnabled.value = parsed.waveRippleClicksEnabled;
+          }
         }
       } catch {
         // ignore
@@ -560,8 +587,23 @@ export const useAppStore = defineStore("app", () => {
         birthLocationName: birthLocationName.value,
         birthLongitude: birthLongitude.value,
         dateFormat: dateFormat.value,
+        waveVariantId: waveVariantId.value,
+        waveAudioEnabled: waveAudioEnabled.value,
+        waveRippleClicksEnabled: waveRippleClicksEnabled.value,
       })
     );
+  }
+
+  function setWaveVariant(id: WaveVariantId) {
+    waveVariantId.value = id;
+  }
+
+  function setWaveAudioEnabled(enabled: boolean) {
+    waveAudioEnabled.value = enabled;
+  }
+
+  function setWaveRippleClicksEnabled(enabled: boolean) {
+    waveRippleClicksEnabled.value = enabled;
   }
 
   function syncLocalTimeNow(force = false) {
@@ -1066,6 +1108,20 @@ export const useAppStore = defineStore("app", () => {
             day: hex.day.ganzhi ?? null,
             hour: hex.hour.ganzhi ?? null,
           },
+          shichen_detail: (() => {
+            const s = presentShichenDetail.value;
+            return {
+              branch: s.branch,
+              branch_cn: s.branchCn,
+              chu_zheng: s.chuZheng,
+              chu_zheng_cn: s.chuZhengLabel,
+              ke_in_shichen: s.keInShichen,
+              ke_in_half: s.keInHalf,
+              label_cn: s.fullLabel,
+              label_en: s.fullLabelEn,
+              ke_bounds_local: s.keBoundsDisplay,
+            };
+          })(),
         },
         user: {
           bazi_natal: {
@@ -1154,8 +1210,11 @@ export const useAppStore = defineStore("app", () => {
       userCognitiveNoise,
       userSocialLoad,
       userEmotionalTone,
-    preferredDialect,
-    useTrueSolarTime,
+      preferredDialect,
+      useTrueSolarTime,
+      waveVariantId,
+      waveAudioEnabled,
+      waveRippleClicksEnabled,
     ],
     () => persistUserState()
   );
@@ -1187,6 +1246,9 @@ export const useAppStore = defineStore("app", () => {
     userEmotionalTone,
     preferredDialect,
     useTrueSolarTime,
+    waveVariantId,
+    waveAudioEnabled,
+    waveRippleClicksEnabled,
     longitude,
     log,
     activeReading,
@@ -1205,6 +1267,8 @@ export const useAppStore = defineStore("app", () => {
     solarAdjustedSelectedDate,
     birthProfile,
     temporalHex,
+    presentShichenDetail,
+    presentKeSignature,
     birthTemporalHex,
     pastBaziSignature,
     presentBaziSignature,
@@ -1220,6 +1284,9 @@ export const useAppStore = defineStore("app", () => {
     // Actions
     loadFromStorage,
     persistUserState,
+    setWaveVariant,
+    setWaveAudioEnabled,
+    setWaveRippleClicksEnabled,
     syncLocalTimeNow,
     shiftPresentHours,
     hydrateFromGeolocation,

@@ -3,6 +3,8 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import "./style.css";
+import "./assets/themes/data-theme-tokens.css";
+import "./assets/themes/cosmic-crawl-extras.css";
 
 const app = createApp(App);
 app.use(createPinia());

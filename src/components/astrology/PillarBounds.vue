@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import {
   getHourPillarBounds,
+  getKeBounds,
   getYearPillarBounds,
   getMonthPillarBounds,
   getDayPillarBounds,
@@ -35,6 +36,11 @@ const bounds = computed<PillarBoundsResult | null>(() => {
       return null;
   }
 });
+
+const keBounds = computed<PillarBoundsResult | null>(() => {
+  if (props.pillarType !== "hour") return null;
+  return getKeBounds(props.referenceDate, props.useTrueSolarTime);
+});
 </script>
 
 <template>
@@ -42,6 +48,11 @@ const bounds = computed<PillarBoundsResult | null>(() => {
     <span class="pillar-bounds-label">Bounds:</span>
     <span class="pillar-bounds-range">{{ bounds.start }} – {{ bounds.end }}</span>
     <span v-if="bounds.label" class="pillar-bounds-hint">({{ bounds.label }})</span>
+  </div>
+  <div v-if="keBounds" class="pillar-bounds pillar-bounds-ke">
+    <span class="pillar-bounds-label">Ke:</span>
+    <span class="pillar-bounds-range">{{ keBounds.start }} – {{ keBounds.end }}</span>
+    <span v-if="keBounds.label" class="pillar-bounds-hint">({{ keBounds.label }})</span>
   </div>
 </template>
 

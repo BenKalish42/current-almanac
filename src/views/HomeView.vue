@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import AstrologyCrawlBackdrop from "@/components/AstrologyCrawlBackdrop.vue";
+import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
+import WaveBackgroundHost from "@/components/waves/WaveBackgroundHost.vue";
+import { WAVE_VARIANTS, getWaveVariantDefinition } from "@/components/waves/waveVariants";
 import CosmicBoard from "@/components/CosmicBoard.vue";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
@@ -10,6 +14,7 @@ import PronunciationText from "@/components/ui/PronunciationText.vue";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
+import { useThemeStore } from "@/stores/themeStore";
 import { getTrueSolarTime } from "@/utils/solarTime";
 import seedHexagrams from "@/data/seed_hexagrams.json";
 
@@ -53,7 +58,10 @@ function buildHexSummaryMap(seed: SeedHexagram[]): HexagramSummaryMap {
 }
 
 const store = useAppStore();
+const themeStore = useThemeStore();
 const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
+
+const waveSupportsAudio = computed(() => getWaveVariantDefinition(store.waveVariantId).supportsAudio);
 
 /** Hex num → { english_name, pinyin_name, jyutping_name, zhuyin_name, taigi_name } for BaZi hexagram labels (Task 12.3/12.3b) */
 type HexLabel = { english_name: string; pinyin_name: string; jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
@@ -162,9 +170,157 @@ async function copyCurrentFlow() {
   await navigator.clipboard.writeText(text);
 }
 
+function pad2(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+/** Seconds shown in steps of 4 (0,4,…,56), phase-locked to the top of each hour. */
+function quantizedSecond(sec: number) {
+  return sec - (sec % 4);
+}
+
+const headerClockDatetime = ref("");
+
+/** Same cos²/sin² + blur curve; duration per hand. */
+const HEADER_SECONDS_CROSSFADE_MS = 4000;
+const HEADER_MINUTES_CROSSFADE_MS = 8000;
+const HEADER_HOURS_CROSSFADE_MS = 30_000;
+const HEADER_MINUTE_CROSSFADE_START_SEC = 60 - 8; // :52–:59
+const HEADER_HOUR_CROSSFADE_START_SEC = 60 - 30; // :59:30–:59:59
+
+const headerHoursOutgoing = ref("00");
+const headerHoursIncoming = ref("00");
+const headerMinutesOutgoing = ref("00");
+const headerMinutesIncoming = ref("00");
+const headerSecondsOutgoing = ref("00");
+const headerSecondsIncoming = ref("04");
+
+const headerHoursOutStyle = ref<Record<string, string>>({ opacity: "1", filter: "blur(0px)" });
+const headerHoursInStyle = ref<Record<string, string>>({ opacity: "0", filter: "blur(4.5px)" });
+const headerMinutesOutStyle = ref<Record<string, string>>({ opacity: "1", filter: "blur(0px)" });
+const headerMinutesInStyle = ref<Record<string, string>>({ opacity: "0", filter: "blur(4.5px)" });
+const headerSecondsOutStyle = ref<Record<string, string>>({
+  opacity: "1",
+  filter: "blur(0px)",
+});
+const headerSecondsInStyle = ref<Record<string, string>>({
+  opacity: "0",
+  filter: "blur(4.5px)",
+});
+
+const HEADER_PULSE_TROUGH = 0.79;
+const HEADER_PULSE_PEAK = 1;
+const headerClockPulseStyle = ref<Record<string, string>>({ opacity: String(HEADER_PULSE_TROUGH) });
+
+function tickHeaderClock() {
+  const now = new Date();
+  const h = now.getHours();
+  const mi = now.getMinutes();
+  const s = quantizedSecond(now.getSeconds());
+  const y = now.getFullYear();
+  const mo = pad2(now.getMonth() + 1);
+  const da = pad2(now.getDate());
+  headerClockDatetime.value = `${y}-${mo}-${da}T${pad2(h)}:${pad2(mi)}:${pad2(s)}`;
+}
+
+function blurForOpacity(o: number) {
+  return (1 - Math.min(1, Math.sqrt(Math.max(0, o)))) * 4.5;
+}
+
+function crossfadeLayerStyles(outOpacity: number, inOpacity: number) {
+  return {
+    out: {
+      opacity: String(outOpacity),
+      filter: `blur(${blurForOpacity(outOpacity)}px)`,
+    },
+    in: {
+      opacity: String(inOpacity),
+      filter: `blur(${blurForOpacity(inOpacity)}px)`,
+    },
+  };
+}
+
+function updateHeaderClockAnimations() {
+  const now = new Date();
+  const h = now.getHours();
+  const mi = now.getMinutes();
+  const sec = now.getSeconds();
+  const ms = now.getMilliseconds();
+
+  const secBase = sec - (sec % 4);
+  const secOut = secBase;
+  const secIn = (secBase + 4) % 60;
+  const secElapsedMs = (sec - secBase) * 1000 + ms;
+  const secPhase = Math.min(1, secElapsedMs / HEADER_SECONDS_CROSSFADE_MS);
+  const secAngles = crossfadeLayerStyles(
+    Math.cos((Math.PI / 2) * secPhase) ** 2,
+    Math.sin((Math.PI / 2) * secPhase) ** 2
+  );
+  headerSecondsOutgoing.value = pad2(secOut);
+  headerSecondsIncoming.value = pad2(secIn);
+  headerSecondsOutStyle.value = secAngles.out;
+  headerSecondsInStyle.value = secAngles.in;
+
+  let minPhase = 0;
+  let minOut = mi;
+  let minIn = mi;
+  if (sec >= HEADER_MINUTE_CROSSFADE_START_SEC) {
+    minOut = mi;
+    minIn = (mi + 1) % 60;
+    const minElapsedMs = (sec - HEADER_MINUTE_CROSSFADE_START_SEC) * 1000 + ms;
+    minPhase = Math.min(1, minElapsedMs / HEADER_MINUTES_CROSSFADE_MS);
+  }
+  const minStyles = crossfadeLayerStyles(
+    Math.cos((Math.PI / 2) * minPhase) ** 2,
+    Math.sin((Math.PI / 2) * minPhase) ** 2
+  );
+  headerMinutesOutgoing.value = pad2(minOut);
+  headerMinutesIncoming.value = pad2(minIn);
+  headerMinutesOutStyle.value = minStyles.out;
+  headerMinutesInStyle.value = minStyles.in;
+
+  let hourPhase = 0;
+  let hourOut = h;
+  let hourIn = h;
+  if (mi === 59 && sec >= HEADER_HOUR_CROSSFADE_START_SEC) {
+    hourOut = h;
+    hourIn = (h + 1) % 24;
+    const hourElapsedMs = (sec - HEADER_HOUR_CROSSFADE_START_SEC) * 1000 + ms;
+    hourPhase = Math.min(1, hourElapsedMs / HEADER_HOURS_CROSSFADE_MS);
+  }
+  const hourStyles = crossfadeLayerStyles(
+    Math.cos((Math.PI / 2) * hourPhase) ** 2,
+    Math.sin((Math.PI / 2) * hourPhase) ** 2
+  );
+  headerHoursOutgoing.value = pad2(hourOut);
+  headerHoursIncoming.value = pad2(hourIn);
+  headerHoursOutStyle.value = hourStyles.out;
+  headerHoursInStyle.value = hourStyles.in;
+
+  const T =
+    now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds() + now.getMilliseconds() / 1000;
+  const u = T % 2;
+  const cosHalf = Math.cos((Math.PI * u) / 2);
+  const pulseOpacity =
+    HEADER_PULSE_TROUGH + (HEADER_PULSE_PEAK - HEADER_PULSE_TROUGH) * (cosHalf * cosHalf);
+  headerClockPulseStyle.value = { opacity: String(pulseOpacity) };
+}
+
+let headerClockTimer: number | null = null;
+let headerSecondsRaf: number | null = null;
+
+function headerClockRafLoop() {
+  updateHeaderClockAnimations();
+  headerSecondsRaf = window.requestAnimationFrame(headerClockRafLoop);
+}
+
 let localSyncTimer: number | null = null;
 
 onMounted(() => {
+  tickHeaderClock();
+  headerClockTimer = window.setInterval(tickHeaderClock, 1000);
+  updateHeaderClockAnimations();
+  headerSecondsRaf = window.requestAnimationFrame(headerClockRafLoop);
   store.loadFromStorage();
   store.syncLocalTimeNow(true);
   store.timezoneLabel = getLocalTimezone();
@@ -213,29 +369,88 @@ watch(
 
 onUnmounted(() => {
   if (localSyncTimer) window.clearInterval(localSyncTimer);
+  if (headerClockTimer) window.clearInterval(headerClockTimer);
+  if (headerSecondsRaf != null) window.cancelAnimationFrame(headerSecondsRaf);
   if (pastDebounce) clearTimeout(pastDebounce);
   if (presentDebounce) clearTimeout(presentDebounce);
 });
 </script>
 
 <template>
-  <div class="appRoot">
+  <div
+    class="appRoot appRoot--home"
+    :class="{ 'appRoot--cosmicCrawl': themeStore.skinFeatures.cosmicCrawlBackdrop }"
+  >
+    <WaveBackgroundHost v-if="themeStore.skinFeatures.homeWaveLayer" />
+    <AstrologyCrawlBackdrop v-if="themeStore.skinFeatures.cosmicCrawlBackdrop" />
+    <div class="homeForeground">
     <div class="appHeader">
       <div class="headerLeft">
-        <div class="title">Current (v0)</div>
+        <div class="titleRow">
+          <time class="headerClock" :datetime="headerClockDatetime">
+            <span class="headerClockDigitsWrap">
+              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+              <span class="headerClockDigitsLayer" :style="headerHoursOutStyle">{{ headerHoursOutgoing }}</span>
+              <span class="headerClockDigitsLayer" :style="headerHoursInStyle">{{ headerHoursIncoming }}</span>
+            </span>
+            <span class="headerClockPulse" :style="headerClockPulseStyle">時</span>
+            <span class="headerClockDigitsWrap">
+              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+              <span class="headerClockDigitsLayer" :style="headerMinutesOutStyle">{{ headerMinutesOutgoing }}</span>
+              <span class="headerClockDigitsLayer" :style="headerMinutesInStyle">{{ headerMinutesIncoming }}</span>
+            </span>
+            <span class="headerClockPulse" :style="headerClockPulseStyle">分</span>
+            <span class="headerClockDigitsWrap">
+              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+              <span class="headerClockDigitsLayer" :style="headerSecondsOutStyle">{{ headerSecondsOutgoing }}</span>
+              <span class="headerClockDigitsLayer" :style="headerSecondsInStyle">{{ headerSecondsIncoming }}</span>
+            </span>
+            <span class="headerClockPulse" :style="headerClockPulseStyle">秒</span>
+          </time>
+          <div class="title">Current (v0)</div>
+        </div>
         <div class="subtitle">You're in the Present... Would you like to get in the Current?</div>
         <div class="sub">Stored locally. No accounts. Descriptive only.</div>
       </div>
-      <div class="headerRight">
-        <label class="dialectLbl">
-          Preferred Dialect
-          <select class="dialectSelect" v-model="store.preferredDialect">
-            <option value="pinyin">Mandarin (Pinyin)</option>
-            <option value="jyutping">Cantonese (Jyutping)</option>
-            <option value="zhuyin">Taiwanese (Zhuyin)</option>
-            <option value="taigi">Taiwanese (Taigi)</option>
-          </select>
-        </label>
+      <div class="headerRight homeHeaderRight">
+        <div class="headerPrimaryControls">
+          <label class="dialectLbl">
+            Preferred Dialect
+            <select class="dialectSelect" v-model="store.preferredDialect">
+              <option value="pinyin">Mandarin (Pinyin)</option>
+              <option value="jyutping">Cantonese (Jyutping)</option>
+              <option value="zhuyin">Taiwanese (Zhuyin)</option>
+              <option value="taigi">Taiwanese (Taigi)</option>
+            </select>
+          </label>
+          <ThemeSkinSelect class="header-skin-select" />
+        </div>
+        <div v-if="themeStore.skinFeatures.homeWaveLayer" class="headerWaveControls">
+          <label class="dialectLbl">
+            Water style
+            <select class="dialectSelect" v-model="store.waveVariantId">
+              <option v-for="v in WAVE_VARIANTS" :key="v.id" :value="v.id">{{ v.label }}</option>
+            </select>
+          </label>
+          <label class="dialectLbl homeAmbientLbl">
+            <input
+              type="checkbox"
+              class="homeAmbientChk"
+              :checked="store.waveRippleClicksEnabled"
+              @change="store.setWaveRippleClicksEnabled(($event.target as HTMLInputElement).checked)"
+            />
+            Ripple clicks
+          </label>
+          <label v-if="waveSupportsAudio" class="dialectLbl homeAmbientLbl">
+            <input
+              type="checkbox"
+              class="homeAmbientChk"
+              :checked="store.waveAudioEnabled"
+              @change="store.setWaveAudioEnabled(($event.target as HTMLInputElement).checked)"
+            />
+            Ambient brook
+          </label>
+        </div>
       </div>
     </div>
 
@@ -417,6 +632,11 @@ onUnmounted(() => {
                 <div>
                   <div class="secTitle">Present (Moment)</div>
                   <div class="organLine">Organ: <strong>{{ store.presentOrgan }}</strong></div>
+                  <div class="organLine organSubLine">
+                    <span class="cjkText">{{ store.presentShichenDetail.fullLabel }}</span>
+                    <span class="organKeEn">{{ store.presentShichenDetail.fullLabelEn }}</span>
+                    <span class="organKeBounds">{{ store.presentShichenDetail.keBoundsDisplay }}</span>
+                  </div>
                 </div>
                 <div class="panelControls">
                   <input class="input inlineInput" type="datetime-local" v-model="store.presentDatetimeLocal" />
@@ -661,10 +881,137 @@ onUnmounted(() => {
         @view-hexagram="onViewHexagram"
       />
     </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.appRoot--cosmicCrawl {
+  position: relative;
+  isolation: isolate;
+}
+
+.headerPrimaryControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 18px;
+  justify-content: flex-end;
+}
+
+.headerPrimaryControls :deep(.dialectLbl),
+.headerPrimaryControls :deep(.skinLbl) {
+  font-weight: 600;
+}
+
+.headerPrimaryControls :deep(.dialectSelect),
+.headerPrimaryControls :deep(.skinSelect) {
+  min-width: min(220px, 52vw);
+}
+
+.headerWaveControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  justify-content: flex-end;
+}
+
+@media (min-width: 720px) {
+  .headerWaveControls {
+    padding-left: 14px;
+    border-left: 1px solid var(--b2, rgba(255, 255, 255, 0.14));
+  }
+}
+
+.header-skin-select {
+  flex-shrink: 0;
+}
+
+.appRoot--home {
+  position: relative;
+  z-index: 0;
+}
+
+.homeForeground {
+  position: relative;
+  z-index: 1;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 14px;
+}
+
+.headerClock {
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    "PingFang SC", "Hiragino Sans GB", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP",
+    "Noto Sans CJK SC", "Noto Sans SC", "Yu Gothic UI", "Microsoft YaHei", sans-serif;
+}
+
+.headerClockPulse {
+  display: inline-block;
+  margin: 0 1px;
+  font-size: 0.68em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.headerClockDigitsWrap {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  line-height: inherit;
+}
+
+.headerClockDigitsSizer {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.headerClockDigitsLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: opacity, filter;
+}
+
+.homeHeaderRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-width: min(920px, 100%);
+}
+
+.homeAmbientLbl {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.homeAmbientChk {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--color-daoist-jade, #4a9b7a);
+}
+
 .activeMeridianSection {
   margin-bottom: 16px;
   padding: 0 18px;
@@ -833,6 +1180,25 @@ onUnmounted(() => {
   line-height: 1.6;
   color: var(--txt);
   white-space: pre-wrap;
+}
+
+.organSubLine {
+  font-size: 12px;
+  color: var(--muted, rgba(255, 255, 255, 0.55));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: baseline;
+  margin-top: 4px;
+}
+.organKeEn {
+  opacity: 0.88;
+  font-size: 11px;
+}
+.organKeBounds {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+  font-size: 11px;
 }
 </style>
 

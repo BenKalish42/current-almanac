@@ -1,6 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+import { computed, ref, onMounted, type Component } from "vue";
+import DefaultShell from "@/layouts/DefaultShell.vue";
+import FrostwireShell from "@/layouts/FrostwireShell.vue";
+import ForumShell from "@/layouts/ForumShell.vue";
+import Classic90sShell from "@/layouts/Classic90sShell.vue";
+import AolShell from "@/layouts/AolShell.vue";
+import { useThemeStore, type ThemeLayoutKind } from "@/stores/themeStore";
+
+const themeStore = useThemeStore();
+
+const layoutByKind: Record<ThemeLayoutKind, Component> = {
+  default: DefaultShell,
+  frostwire: FrostwireShell,
+  forum: ForumShell,
+  classic90s: Classic90sShell,
+  aol: AolShell,
+};
+
+const activeLayout = computed(() => layoutByKind[themeStore.layoutKind]);
 
 const ALPHA_UNLOCK_KEY = "alpha_unlocked";
 const ALPHA_PASSWORD = "dao2026";
@@ -65,19 +82,7 @@ onMounted(() => {
   </div>
 
   <!-- App content: only mounted when unlocked -->
-  <template v-else>
-    <div class="app-shell">
-      <nav class="app-nav">
-        <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
-        <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
-        <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
-        <div style="flex: 1"></div>
-        <RouterLink to="/hexagrams" class="nav-link">Hexagrams</RouterLink>
-        <RouterLink to="/community" class="nav-link">Community</RouterLink>
-      </nav>
-      <RouterView />
-    </div>
-  </template>
+  <component :is="activeLayout" v-else />
 </template>
 
 <style>
@@ -131,6 +136,8 @@ onMounted(() => {
 }
 
 .app-nav {
+  position: relative;
+  z-index: 5;
   display: flex;
   gap: 16px;
   padding: 12px 18px;

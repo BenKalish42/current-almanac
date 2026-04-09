@@ -6,6 +6,7 @@
  */
 
 import { Lunar, Solar } from "lunar-typescript";
+import { getShichenDetail } from "@/core/shichenDetail";
 import { ORGAN_CLOCK } from "@/data/organClock";
 import { formatDate, type DateFormatType } from "./formatters";
 import { getEquationOfTime } from "./solarTime";
@@ -107,6 +108,37 @@ export function getHourPillarBounds(
   return {
     start: formatTime12h(startH, startM),
     end: formatTime12h(endHourNorm === 24 ? 0 : endHourNorm, endM),
+  };
+}
+
+/** Shift wall clock by EoT minutes for True Solar display. */
+function applyTrueSolarOffsetToHm(
+  hour: number,
+  minute: number,
+  referenceDate: Date,
+  useTrueSolarTime: boolean
+): { hour: number; minute: number } {
+  if (!useTrueSolarTime) return { hour, minute };
+  const eot = Math.round(getEquationOfTime(referenceDate));
+  let total = hour * 60 + minute + eot;
+  total = ((total % (24 * 60)) + 24 * 60) % (24 * 60);
+  return { hour: Math.floor(total / 60) % 24, minute: total % 60 };
+}
+
+/**
+ * Current Ke (刻) window — 15 minutes within the shichen.
+ * When useTrueSolarTime is true, applies equation-of-time offset to displayed bounds.
+ */
+export function getKeBounds(referenceDate: Date, useTrueSolarTime: boolean): PillarBoundsResult {
+  const detail = getShichenDetail(referenceDate);
+  const s = detail.keStartDate;
+  const e = detail.keEndDate;
+  const sh = applyTrueSolarOffsetToHm(s.getHours(), s.getMinutes(), referenceDate, useTrueSolarTime);
+  const eh = applyTrueSolarOffsetToHm(e.getHours(), e.getMinutes(), referenceDate, useTrueSolarTime);
+  return {
+    start: formatTime12h(sh.hour, sh.minute),
+    end: formatTime12h(eh.hour, eh.minute),
+    label: "Ke (15 min)",
   };
 }
 

@@ -193,3 +193,19 @@ export function getCurrentOrganHour(hour24: number): OrganHourEntry {
   }
   return defaultEntry;
 }
+
+/**
+ * Minutes elapsed since the start of the current shichen (0–119).
+ * Zi (子): 23:00–23:59 → 0–59 (初); 00:00–00:59 → 60–119 (正).
+ * Other branches: start at entry.startHour on the same calendar day.
+ */
+export function getMinutesIntoShichen(hour24: number, minute: number): number {
+  if (hour24 >= 23) {
+    return (hour24 - 23) * 60 + minute;
+  }
+  if (hour24 < 1) {
+    return 60 + hour24 * 60 + minute;
+  }
+  const entry = getCurrentOrganHour(hour24);
+  return (hour24 - entry.startHour) * 60 + minute;
+}
