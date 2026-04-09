@@ -139,6 +139,7 @@ onMounted(() => {
   position: relative;
   z-index: 5;
   display: flex;
+  align-items: center;
   gap: 16px;
   padding: 12px 18px;
   padding-top: calc(12px + env(safe-area-inset-top, 0px));

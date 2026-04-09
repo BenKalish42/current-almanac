@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { RouterLink, RouterView, useRoute } from "vue-router";
-import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
+import ToolbarSettingsMenu from "@/components/toolbar/ToolbarSettingsMenu.vue";
 
 const route = useRoute();
 
@@ -35,10 +35,10 @@ const breadcrumbs = computed(() => {
           <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
           <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
           <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
+          <ToolbarSettingsMenu trigger-class="nav-link" />
           <RouterLink to="/hexagrams" class="nav-link">Hexagrams</RouterLink>
           <RouterLink to="/community" class="nav-link">Community</RouterLink>
         </div>
-        <ThemeSkinSelect v-if="route.name !== 'astrology'" class="forum-nav-skin" />
       </div>
       <div class="app-breadcrumb" aria-label="Breadcrumb">{{ breadcrumbs }}</div>
     </header>
@@ -50,10 +50,6 @@ const breadcrumbs = computed(() => {
 <style src="./forum-chrome.css"></style>
 
 <style scoped>
-.forum-nav-skin {
-  margin-left: auto;
-  flex-shrink: 0;
-}
 .app-nav {
   display: flex;
   flex-wrap: wrap;

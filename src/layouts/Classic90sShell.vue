@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRoute } from "vue-router";
-import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
-
-const route = useRoute();
+import { RouterLink, RouterView } from "vue-router";
+import ToolbarSettingsMenu from "@/components/toolbar/ToolbarSettingsMenu.vue";
 </script>
 
 <template>
@@ -13,7 +11,7 @@ const route = useRoute();
       <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
       <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
       <div class="app-nav-spacer" />
-      <ThemeSkinSelect v-if="route.name !== 'astrology'" class="c90-skin" />
+      <ToolbarSettingsMenu trigger-class="nav-link" />
       <RouterLink to="/hexagrams" class="nav-link">Hexagrams</RouterLink>
       <RouterLink to="/community" class="nav-link">Community</RouterLink>
     </nav>
@@ -26,9 +24,3 @@ const route = useRoute();
 
 <style src="./classic90s-chrome.css"></style>
 
-<style scoped>
-.c90-skin {
-  flex-shrink: 0;
-  margin: 0 6px;
-}
-</style>

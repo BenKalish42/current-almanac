@@ -8,7 +8,7 @@ export type WaveVariantId = "gif_veil" | "double_strip" | "brook_intro";
 /** Legacy picker value: migrate to default water style + ripple toggle. */
 export const LEGACY_WAVE_VARIANT_FLASH_RIPPLE = "flash_ripple" as const;
 
-export const DEFAULT_WAVE_VARIANT_ID: WaveVariantId = "gif_veil";
+export const DEFAULT_WAVE_VARIANT_ID: WaveVariantId = "brook_intro";
 
 export interface WaveVariantDefinition {
   id: WaveVariantId;

@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRoute } from "vue-router";
-import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
-
-const route = useRoute();
+import { RouterLink, RouterView } from "vue-router";
+import ToolbarSettingsMenu from "@/components/toolbar/ToolbarSettingsMenu.vue";
 </script>
 
 <template>
@@ -26,10 +24,10 @@ const route = useRoute();
         <RouterLink to="/astrology" class="aol-keyword" active-class="router-link-active">Astrology</RouterLink>
         <RouterLink to="/alchemy" class="aol-keyword" active-class="router-link-active">Alchemy</RouterLink>
         <RouterLink to="/ai" class="aol-keyword" active-class="router-link-active">Intelligence</RouterLink>
+        <ToolbarSettingsMenu trigger-class="aol-keyword" />
         <RouterLink to="/hexagrams" class="aol-keyword" active-class="router-link-active">Hexagrams</RouterLink>
         <RouterLink to="/community" class="aol-keyword" active-class="router-link-active">Community</RouterLink>
         <span class="aol-toolbar-spacer" />
-        <ThemeSkinSelect v-if="route.name !== 'astrology'" class="aol-toolbar-skin" />
       </nav>
 
       <main class="aol-main">

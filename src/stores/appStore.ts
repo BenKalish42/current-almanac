@@ -310,7 +310,7 @@ export const useAppStore = defineStore("app", () => {
   /** Ambient brook audio when variant supports it (user toggle). */
   const waveAudioEnabled = ref(false);
   /** Click/tap ripple overlay (independent of water style). */
-  const waveRippleClicksEnabled = ref(false);
+  const waveRippleClicksEnabled = ref(true);
 
   // Readings
   const log = ref<Reading[]>([]);

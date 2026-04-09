@@ -95,6 +95,13 @@
   flex-shrink: 0;
 }
 
+/* Settings menu wrapper: same bottom edge as tab RouterLinks */
+.skin-layout-frostwire-root .fw-tabstrip .toolbar-settings-root {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: flex-end;
+}
+
 .skin-layout-frostwire-root .fw-tab {
   display: inline-flex;
   align-items: center;

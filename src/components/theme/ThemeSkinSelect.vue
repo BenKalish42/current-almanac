@@ -2,6 +2,14 @@
 import { storeToRefs } from "pinia";
 import { useThemeStore, SKIN_OPTIONS, type ChosenSkin } from "@/stores/themeStore";
 
+withDefaults(
+  defineProps<{
+    /** Stacked label + select for header toolbars */
+    variant?: "default" | "toolbar";
+  }>(),
+  { variant: "default" }
+);
+
 const theme = useThemeStore();
 const { chosenSkin } = storeToRefs(theme);
 
@@ -12,8 +20,8 @@ function onChange(e: Event) {
 </script>
 
 <template>
-  <label class="skinLbl">
-    Chosen Skin
+  <label class="skinLbl" :class="{ 'skinLbl--toolbar': variant === 'toolbar' }">
+    <span class="skinLblText">Chosen Skin</span>
     <select class="skinSelect" :value="chosenSkin" @change="onChange">
       <option v-for="opt in SKIN_OPTIONS" :key="opt.id" :value="opt.id">
         {{ opt.label }}
@@ -29,6 +37,30 @@ function onChange(e: Event) {
   gap: 8px;
   font-size: 12px;
   color: var(--muted);
+}
+.skinLbl--toolbar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  margin: 0;
+}
+.skinLblText {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.skinLbl--toolbar .skinLblText {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.skinLbl--toolbar .skinSelect {
+  min-width: 0;
+  max-width: none;
+  width: 100%;
 }
 .skinSelect {
   padding: 8px 12px;

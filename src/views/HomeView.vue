@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import AstrologyCrawlBackdrop from "@/components/AstrologyCrawlBackdrop.vue";
-import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
+import AppSettingsFields from "@/components/settings/AppSettingsFields.vue";
 import WaveBackgroundHost from "@/components/waves/WaveBackgroundHost.vue";
-import { WAVE_VARIANTS, getWaveVariantDefinition } from "@/components/waves/waveVariants";
 import CosmicBoard from "@/components/CosmicBoard.vue";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
@@ -60,8 +59,6 @@ function buildHexSummaryMap(seed: SeedHexagram[]): HexagramSummaryMap {
 const store = useAppStore();
 const themeStore = useThemeStore();
 const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
-
-const waveSupportsAudio = computed(() => getWaveVariantDefinition(store.waveVariantId).supportsAudio);
 
 /** Hex num → { english_name, pinyin_name, jyutping_name, zhuyin_name, taigi_name } for BaZi hexagram labels (Task 12.3/12.3b) */
 type HexLabel = { english_name: string; pinyin_name: string; jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
@@ -384,81 +381,50 @@ onUnmounted(() => {
     <WaveBackgroundHost v-if="themeStore.skinFeatures.homeWaveLayer" />
     <AstrologyCrawlBackdrop v-if="themeStore.skinFeatures.cosmicCrawlBackdrop" />
     <div class="homeForeground">
-    <div class="appHeader">
-      <div class="headerLeft">
-        <div class="titleRow">
-          <time class="headerClock" :datetime="headerClockDatetime">
-            <span class="headerClockDigitsWrap">
-              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
-              <span class="headerClockDigitsLayer" :style="headerHoursOutStyle">{{ headerHoursOutgoing }}</span>
-              <span class="headerClockDigitsLayer" :style="headerHoursInStyle">{{ headerHoursIncoming }}</span>
-            </span>
-            <span class="headerClockPulse" :style="headerClockPulseStyle">時</span>
-            <span class="headerClockDigitsWrap">
-              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
-              <span class="headerClockDigitsLayer" :style="headerMinutesOutStyle">{{ headerMinutesOutgoing }}</span>
-              <span class="headerClockDigitsLayer" :style="headerMinutesInStyle">{{ headerMinutesIncoming }}</span>
-            </span>
-            <span class="headerClockPulse" :style="headerClockPulseStyle">分</span>
-            <span class="headerClockDigitsWrap">
-              <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
-              <span class="headerClockDigitsLayer" :style="headerSecondsOutStyle">{{ headerSecondsOutgoing }}</span>
-              <span class="headerClockDigitsLayer" :style="headerSecondsInStyle">{{ headerSecondsIncoming }}</span>
-            </span>
-            <span class="headerClockPulse" :style="headerClockPulseStyle">秒</span>
-          </time>
-          <div class="title">Current (v0)</div>
+    <div class="homeDesktopGrid">
+      <aside class="homeColLeft">
+        <div class="homeBrand">
+          <div class="titleRow">
+            <time class="headerClock" :datetime="headerClockDatetime">
+              <span class="headerClockDigitsWrap">
+                <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+                <span class="headerClockDigitsLayer" :style="headerHoursOutStyle">{{ headerHoursOutgoing }}</span>
+                <span class="headerClockDigitsLayer" :style="headerHoursInStyle">{{ headerHoursIncoming }}</span>
+              </span>
+              <span class="headerClockPulse" :style="headerClockPulseStyle">時</span>
+              <span class="headerClockDigitsWrap">
+                <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+                <span class="headerClockDigitsLayer" :style="headerMinutesOutStyle">{{ headerMinutesOutgoing }}</span>
+                <span class="headerClockDigitsLayer" :style="headerMinutesInStyle">{{ headerMinutesIncoming }}</span>
+              </span>
+              <span class="headerClockPulse" :style="headerClockPulseStyle">分</span>
+              <span class="headerClockDigitsWrap">
+                <span class="headerClockDigitsSizer" aria-hidden="true">00</span>
+                <span class="headerClockDigitsLayer" :style="headerSecondsOutStyle">{{ headerSecondsOutgoing }}</span>
+                <span class="headerClockDigitsLayer" :style="headerSecondsInStyle">{{ headerSecondsIncoming }}</span>
+              </span>
+              <span class="headerClockPulse" :style="headerClockPulseStyle">秒</span>
+            </time>
+            <div class="title">Current (v0)</div>
+          </div>
+          <div class="subtitle">You're in the Present... Would you like to get in the Current?</div>
+          <div class="sub">Stored locally. No accounts. Descriptive only.</div>
         </div>
-        <div class="subtitle">You're in the Present... Would you like to get in the Current?</div>
-        <div class="sub">Stored locally. No accounts. Descriptive only.</div>
-      </div>
-      <div class="headerRight homeHeaderRight">
-        <div class="headerPrimaryControls">
-          <label class="dialectLbl">
-            Preferred Dialect
-            <select class="dialectSelect" v-model="store.preferredDialect">
-              <option value="pinyin">Mandarin (Pinyin)</option>
-              <option value="jyutping">Cantonese (Jyutping)</option>
-              <option value="zhuyin">Taiwanese (Zhuyin)</option>
-              <option value="taigi">Taiwanese (Taigi)</option>
-            </select>
-          </label>
-          <ThemeSkinSelect class="header-skin-select" />
-        </div>
-        <div v-if="themeStore.skinFeatures.homeWaveLayer" class="headerWaveControls">
-          <label class="dialectLbl">
-            Water style
-            <select class="dialectSelect" v-model="store.waveVariantId">
-              <option v-for="v in WAVE_VARIANTS" :key="v.id" :value="v.id">{{ v.label }}</option>
-            </select>
-          </label>
-          <label class="dialectLbl homeAmbientLbl">
-            <input
-              type="checkbox"
-              class="homeAmbientChk"
-              :checked="store.waveRippleClicksEnabled"
-              @change="store.setWaveRippleClicksEnabled(($event.target as HTMLInputElement).checked)"
-            />
-            Ripple clicks
-          </label>
-          <label v-if="waveSupportsAudio" class="dialectLbl homeAmbientLbl">
-            <input
-              type="checkbox"
-              class="homeAmbientChk"
-              :checked="store.waveAudioEnabled"
-              @change="store.setWaveAudioEnabled(($event.target as HTMLInputElement).checked)"
-            />
-            Ambient brook
-          </label>
-        </div>
-      </div>
-    </div>
+      </aside>
 
-    <!-- Active Meridian: extracted to top for mobile, visible without scrolling -->
-    <div class="activeMeridianSection">
-      <OrganHourCard />
-    </div>
+      <div class="homeOrganHero">
+        <OrganHourCard />
+      </div>
 
+      <aside class="homeColRight">
+        <div class="headerOptionsPanel homeSettingsRail">
+          <div class="headerFieldsGrid">
+            <AppSettingsFields skin-select-variant="toolbar" skin-select-class="header-skin-select" />
+          </div>
+        </div>
+      </aside>
+
+      <div class="homeMainStream">
     <div class="wrap">
       <main class="main">
         <div class="card">
@@ -882,6 +848,8 @@ onUnmounted(() => {
       />
     </div>
     </div>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -891,41 +859,145 @@ onUnmounted(() => {
   isolation: isolate;
 }
 
-.headerPrimaryControls {
+.headerOptionsPanel {
+  width: 100%;
+  max-width: min(960px, 100%);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--b2, rgba(255, 255, 255, 0.12));
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.headerFieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px 18px;
+  align-items: start;
+}
+
+.headerFieldsGrid :deep(.headerField--motion) {
+  grid-column: 1 / -1;
+}
+
+.homeDesktopGrid {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 12px 18px;
-  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.headerPrimaryControls :deep(.dialectLbl),
-.headerPrimaryControls :deep(.skinLbl) {
-  font-weight: 600;
+.homeBrand {
+  padding: 18px 18px 0 18px;
+  box-sizing: border-box;
 }
 
-.headerPrimaryControls :deep(.dialectSelect),
-.headerPrimaryControls :deep(.skinSelect) {
-  min-width: min(220px, 52vw);
+.homeColLeft,
+.homeColRight {
+  min-width: 0;
 }
 
-.headerWaveControls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 10px 14px;
-  justify-content: flex-end;
-}
+@media (max-width: 1199px) {
+  .homeDesktopGrid {
+    gap: 0;
+  }
 
-@media (min-width: 720px) {
-  .headerWaveControls {
-    padding-left: 14px;
-    border-left: 1px solid var(--b2, rgba(255, 255, 255, 0.14));
+  .homeOrganHero {
+    order: 1;
+  }
+
+  .homeColLeft {
+    order: 2;
+  }
+
+  .homeColRight {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .homeMainStream {
+    order: 4;
   }
 }
 
-.header-skin-select {
-  flex-shrink: 0;
+@media (min-width: 1200px) {
+  .homeDesktopGrid {
+    display: grid;
+    grid-template-columns: minmax(200px, 280px) minmax(0, 1fr) minmax(260px, 300px);
+    grid-template-rows: auto 1fr;
+    gap: 16px 24px;
+    padding: 0 18px;
+    align-items: start;
+  }
+
+  /* Side rails: clock/copy and settings stay in view while center column scrolls */
+  .homeColLeft,
+  .homeColRight {
+    position: sticky;
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    align-self: start;
+    z-index: 3;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .homeColLeft {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .homeBrand {
+    padding-left: 0;
+    padding-right: 8px;
+  }
+
+  .homeOrganHero {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 6px 0 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .homeColRight {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    /* Align persistent settings with organ card (matches .homeOrganHero padding-top). */
+    padding-top: 6px;
+  }
+
+  .homeMainStream {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+  }
+
+  .titleRow {
+    gap: 8px 12px;
+  }
+
+  .headerClock {
+    font-size: 17px;
+  }
+
+  .headerOptionsPanel {
+    max-width: none;
+    padding: 10px 12px;
+  }
+
+  .headerFieldsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .headerFieldsGrid :deep(.headerField--motion) {
+    grid-column: auto;
+  }
 }
 
 .appRoot--home {
@@ -988,37 +1060,24 @@ onUnmounted(() => {
   will-change: opacity, filter;
 }
 
-.homeHeaderRight {
+.homeColRight {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 18px;
-  align-items: flex-end;
-  justify-content: flex-end;
-  max-width: min(920px, 100%);
+  flex-direction: column;
+  align-items: stretch;
+  align-self: flex-start;
+  justify-content: flex-start;
 }
 
-.homeAmbientLbl {
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-}
-
-.homeAmbientChk {
-  margin: 0;
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  cursor: pointer;
-  accent-color: var(--color-daoist-jade, #4a9b7a);
-}
-
-.activeMeridianSection {
-  margin-bottom: 16px;
-  padding: 0 18px;
+.homeOrganHero {
+  width: 100%;
+  max-width: min(840px, 100%);
+  margin: 0 auto 12px;
+  padding: 6px 18px 0;
+  box-sizing: border-box;
 }
 
 @media (max-width: 680px) {
-  .activeMeridianSection {
+  .homeOrganHero {
     padding-left: 12px;
     padding-right: 12px;
   }
