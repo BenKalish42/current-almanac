@@ -257,3 +257,31 @@ body[data-theme="cosmic-crawl"] #app {
 body[data-theme="old-school-aol"] #app {
   background: linear-gradient(180deg, #a8a8b8 0%, #c4c4d0 100%);
 }
+
+body[data-theme="zhang-zhung"] {
+  --color-daoist-bg: #1c0f13;
+  --color-daoist-surface: #2a161b;
+  --color-daoist-elevated: #3b1f26;
+  --color-daoist-charcoal: #221217;
+  --color-daoist-jade: #225a81;
+  --color-daoist-jade-muted: #1c4868;
+  --color-daoist-gold: #d4a046;
+  --color-daoist-gold-muted: #a67c35;
+  --color-daoist-text: #f3eedb;
+  --color-daoist-muted: #c9b99e;
+  --color-daoist-subtle: #96866f;
+  --b: rgba(243, 238, 219, 0.12);
+  --b2: rgba(243, 238, 219, 0.22);
+  --bg: rgba(243, 238, 219, 0.05);
+  --txt: var(--color-daoist-text);
+  --muted: var(--color-daoist-muted);
+  color-scheme: dark;
+  color: var(--color-daoist-text);
+  background-color: var(--color-daoist-bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+body[data-theme="zhang-zhung"] #app {
+  background-color: transparent;
+}

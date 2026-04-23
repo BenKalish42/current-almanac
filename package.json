@@ -23,6 +23,7 @@
     "@capacitor/ios": "^7.0.0",
     "@capacitor/splash-screen": "^7.0.0",
     "@capacitor/status-bar": "^7.0.0",
+    "astronomia": "^4.2.0",
     "iztro": "^2.5.7",
     "lottie-web": "^5.13.0",
     "lunar-javascript": "^1.7.7",

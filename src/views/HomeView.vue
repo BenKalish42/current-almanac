@@ -8,6 +8,8 @@ import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
 import OrganHourCard from "@/components/astrology/OrganHourCard.vue";
 import PillarBounds from "@/components/astrology/PillarBounds.vue";
+import NinePalacesMatrix from "@/components/astrology/NinePalacesMatrix.vue";
+import VedicChart from "@/components/astrology/VedicChart.vue";
 import LocationAutocomplete from "@/components/ui/LocationAutocomplete.vue";
 import PronunciationText from "@/components/ui/PronunciationText.vue";
 import { parseGanZhi } from "@/core/ganzhi";
@@ -15,6 +17,7 @@ import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
 import { useThemeStore } from "@/stores/themeStore";
 import { getTrueSolarTime } from "@/utils/solarTime";
+import { getVedicChart } from "@/utils/vedicMath";
 import seedHexagrams from "@/data/seed_hexagrams.json";
 
 type HexagramSummary = {
@@ -93,6 +96,33 @@ const birthReferenceDate = computed(() => {
     return d;
   } catch {
     return new Date();
+  }
+});
+
+const vedicUsingSavedBirthplace = computed(
+  () => store.birthLatitude != null && store.birthLongitude != null
+);
+
+/**
+ * Lagṇa needs a coherent (lat, lon) pair. Use saved **birth** coordinates when both exist;
+ * otherwise use **device** `geoCoords` only when both lat/lon are available (no mixing sources).
+ */
+const vedicNatalSnapshot = computed(() => {
+  let lat: number;
+  let lon: number;
+  if (vedicUsingSavedBirthplace.value) {
+    lat = store.birthLatitude as number;
+    lon = store.birthLongitude as number;
+  } else {
+    const g = store.geoCoords;
+    if (!g || !Number.isFinite(g.lat) || !Number.isFinite(g.lon)) return null;
+    lat = g.lat;
+    lon = g.lon;
+  }
+  try {
+    return getVedicChart(birthReferenceDate.value, lat, lon);
+  } catch {
+    return null;
   }
 });
 
@@ -439,7 +469,11 @@ onUnmounted(() => {
                   </label>
                   <label class="inlineLbl">
                     Birth location
-                    <LocationAutocomplete v-model:locationName="store.birthLocationName" v-model:longitude="store.birthLongitude" />
+                    <LocationAutocomplete
+                      v-model:locationName="store.birthLocationName"
+                      v-model:latitude="store.birthLatitude"
+                      v-model:longitude="store.birthLongitude"
+                    />
                   </label>
                   <label class="inlineLbl">
                     BaZi sect
@@ -450,8 +484,9 @@ onUnmounted(() => {
                   </label>
                 </div>
               </div>
-              <div v-if="store.birthTemporalHex" class="pillarGrid">
-                <div class="pillarBox">
+              <div v-if="store.birthTemporalHex" class="flex gap-4 overflow-x-auto pb-2 items-start">
+                <div class="pillarGrid shrink-0">
+                  <div class="pillarBox">
                   <div class="pillarLabel">Year</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.birthTemporalHex.year.ganzhi) }}</div>
                   <PillarBounds pillar-type="year" :pillar="store.birthTemporalHex.year" :reference-date="birthReferenceDate" :use-true-solar-time="!!(store.useTrueSolarTime && store.birthLongitude != null)" :date-format="store.dateFormat" />
@@ -579,6 +614,12 @@ onUnmounted(() => {
                     </div>
                   </div>
                 </div>
+                </div>
+                <NinePalacesMatrix
+                  v-if="store.birthProfile?.nineStar?.year?.number"
+                  :center-star="store.birthProfile.nineStar.year.number"
+                  class="shrink-0"
+                />
               </div>
               <div v-else class="meta">Enter a valid birth datetime.</div>
               <div v-if="store.pastSummaryLoading" class="baselineSummary baselineSummaryHint">
@@ -611,9 +652,10 @@ onUnmounted(() => {
                   <button class="btn small" @click="store.shiftPresentHours(2)">▶</button>
                 </div>
               </div>
-              <div class="pillarGrid">
-                <div class="pillarBox">
-                  <div class="pillarLabel">Year</div>
+              <div class="flex gap-4 overflow-x-auto pb-2 items-start">
+                <div class="pillarGrid shrink-0">
+                  <div class="pillarBox">
+                    <div class="pillarLabel">Year</div>
                   <div class="pillarGz cjkText">{{ formatGanZhiLines(store.temporalHex.year.ganzhi) }}</div>
                   <PillarBounds pillar-type="year" :pillar="store.temporalHex.year" :reference-date="store.solarAdjustedSelectedDate" :use-true-solar-time="store.useTrueSolarTime" :date-format="store.dateFormat" />
                   <div
@@ -740,6 +782,12 @@ onUnmounted(() => {
                     </div>
                   </div>
                 </div>
+                </div>
+                <NinePalacesMatrix
+                  v-if="store.presentProfile?.nineStar?.year?.number"
+                  :center-star="store.presentProfile.nineStar.year.number"
+                  class="shrink-0"
+                />
               </div>
               <div v-if="store.presentSummaryLoading" class="baselineSummary baselineSummaryHint">
                 <p class="baselineSummaryText">Generating summary…</p>
@@ -818,6 +866,23 @@ onUnmounted(() => {
                     :qimen-chart-day="store.qimenChartDay"
                     :selected-date="store.selectedDate"
                   />
+                  <div class="vedic-d1-advanced">
+                    <p v-if="!vedicNatalSnapshot" class="vedic-d1-hint">
+                      <strong>Vedic D1</strong> needs a full latitude and longitude. Either set
+                      <strong>Past (Birth) → Birth location</strong> and pick a city from the list (saves both
+                      coordinates), or allow the app to read your <strong>device location</strong> (same pair). Scroll
+                      up to Past (Birth) if the birth field is not visible.
+                    </p>
+                    <p
+                      v-else-if="!vedicUsingSavedBirthplace"
+                      class="vedic-d1-hint vedic-d1-hint--soft"
+                    >
+                      Coordinates are not the full saved birthplace pair (using device or mixed fallbacks). For a natal
+                      chart tied to your birth place, set <strong>Past (Birth) → Birth location</strong> and pick a city
+                      from the search results.
+                    </p>
+                    <VedicChart v-if="vedicNatalSnapshot" :chart="vedicNatalSnapshot" />
+                  </div>
                 </div>
               </Transition>
             </div>
@@ -1120,6 +1185,26 @@ onUnmounted(() => {
 
 .advanced-content {
   margin-top: 8px;
+}
+
+.vedic-d1-advanced {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--b2, rgba(51, 65, 85, 0.5));
+}
+
+.vedic-d1-hint {
+  font-size: 12px;
+  color: var(--muted, rgba(255, 255, 255, 0.55));
+  line-height: 1.4;
+  margin: 0;
+}
+
+.vedic-d1-hint--soft {
+  margin-bottom: 8px;
+  color: var(--muted, rgba(255, 255, 255, 0.65));
+  border-left: 3px solid rgba(251, 191, 36, 0.4);
+  padding-left: 10px;
 }
 
 .advanced-option {

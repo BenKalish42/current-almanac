@@ -14,7 +14,8 @@ export type ChosenSkin =
   | "plaintext-brutalist"
   | "retro-terminal"
   | "tranceaddict-forum"
-  | "vintage-print-almanac";
+  | "vintage-print-almanac"
+  | "zhang-zhung";
 
 export const SKIN_OPTIONS: { id: ChosenSkin; label: string }[] = [
   { id: "daoist", label: "Daoist (default)" },
@@ -27,6 +28,7 @@ export const SKIN_OPTIONS: { id: ChosenSkin; label: string }[] = [
   { id: "retro-terminal", label: "Retro terminal" },
   { id: "tranceaddict-forum", label: "TranceAddict forum" },
   { id: "vintage-print-almanac", label: "Vintage print almanac" },
+  { id: "zhang-zhung", label: "The Mystery of Zhang Zhung" },
 ];
 
 function readStoredSkin(): ChosenSkin {
@@ -61,6 +63,7 @@ const SKIN_TO_LAYOUT: Record<ChosenSkin, ThemeLayoutKind> = {
   "retro-terminal": "default",
   "tranceaddict-forum": "forum",
   "vintage-print-almanac": "default",
+  "zhang-zhung": "default",
 };
 
 /**
@@ -85,6 +88,7 @@ export const SKIN_FEATURES: Record<ChosenSkin, SkinFeatureFlags> = {
   "retro-terminal": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
   "tranceaddict-forum": { homeWaveLayer: false, cosmicCrawlBackdrop: false },
   "vintage-print-almanac": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
+  "zhang-zhung": { homeWaveLayer: false, cosmicCrawlBackdrop: false },
 };
 
 /**

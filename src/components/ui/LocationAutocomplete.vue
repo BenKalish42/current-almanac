@@ -3,17 +3,20 @@ import { ref, watch, onBeforeUnmount } from 'vue';
 
 const props = defineProps<{
   locationName: string;
+  latitude: number | null;
   longitude: number | null;
 }>();
 
 const emit = defineEmits<{
   (e: 'update:locationName', value: string): void;
+  (e: 'update:latitude', value: number | null): void;
   (e: 'update:longitude', value: number | null): void;
 }>();
 
 interface NominatimResult {
   place_id: number;
   display_name: string;
+  lat: string;
   lon: string;
 }
 
@@ -50,6 +53,7 @@ const onInput = (e: Event) => {
   
   // Emit just the text so it updates but invalidates the longitude until a valid click
   emit('update:locationName', val);
+  emit('update:latitude', null);
   emit('update:longitude', null);
   
   if (searchTimeout) clearTimeout(searchTimeout);
@@ -65,6 +69,7 @@ const selectLocation = (item: NominatimResult) => {
   showDropdown.value = false;
   
   emit('update:locationName', primaryName);
+  emit('update:latitude', parseFloat(item.lat));
   emit('update:longitude', parseFloat(item.lon));
 };
 

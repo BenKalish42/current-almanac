@@ -5,6 +5,7 @@ import router from "./router";
 import "./style.css";
 import "./assets/themes/data-theme-tokens.css";
 import "./assets/themes/cosmic-crawl-extras.css";
+import "./assets/themes/zhang-zhung-extras.css";
 
 const app = createApp(App);
 app.use(createPinia());

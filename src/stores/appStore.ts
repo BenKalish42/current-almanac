@@ -286,6 +286,8 @@ export const useAppStore = defineStore("app", () => {
   const birthLocationName = ref("");
   /** Task 12.5: Birth longitude for True Solar Time on natal chart. null = not set. */
   const birthLongitude = ref<number | null>(null);
+  /** Birth latitude (Nominatim) — required for Vedic ascendant. null = not set. */
+  const birthLatitude = ref<number | null>(null);
   /** For ZWDS; not rendered in UI. Default "male" when unknown. */
   const userGender = ref<ZWDSGender>("male");
 
@@ -412,6 +414,24 @@ export const useAppStore = defineStore("app", () => {
     return getTemporalXkdg(effectiveDate);
   });
 
+  // Computed: present profile (for Nine Star, etc.)
+  const presentProfile = computed<BirthProfileResult | null>(() => {
+    try {
+      const d = solarAdjustedSelectedDate.value;
+      const input = {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        hour: d.getHours(),
+        minute: d.getMinutes(),
+        second: d.getSeconds()
+      };
+      return computeBirthProfile(input, 2);
+    } catch {
+      return null;
+    }
+  });
+
   // Computed: qimen charts
   const qimenChartHour = computed(() => buildQimenChart(selectedDate.value, "hour"));
   const qimenChartDay = computed(() => buildQimenChart(selectedDate.value, "day"));
@@ -533,6 +553,8 @@ export const useAppStore = defineStore("app", () => {
           if (typeof parsed.birthLocationName === "string") birthLocationName.value = parsed.birthLocationName;
           if (Number.isFinite(parsed.birthLongitude)) birthLongitude.value = parsed.birthLongitude as number;
           else if (parsed.birthLongitude === null) birthLongitude.value = null;
+          if (Number.isFinite(parsed.birthLatitude)) birthLatitude.value = parsed.birthLatitude as number;
+          else if (parsed.birthLatitude === null) birthLatitude.value = null;
           if (parsed.dateFormat === "US" || parsed.dateFormat === "EU" || parsed.dateFormat === "ASIAN")
             dateFormat.value = parsed.dateFormat;
           if (
@@ -586,6 +608,7 @@ export const useAppStore = defineStore("app", () => {
         useTrueSolarTime: useTrueSolarTime.value,
         birthLocationName: birthLocationName.value,
         birthLongitude: birthLongitude.value,
+        birthLatitude: birthLatitude.value,
         dateFormat: dateFormat.value,
         waveVariantId: waveVariantId.value,
         waveAudioEnabled: waveAudioEnabled.value,
@@ -1212,6 +1235,10 @@ export const useAppStore = defineStore("app", () => {
       userEmotionalTone,
       preferredDialect,
       useTrueSolarTime,
+      birthLocationName,
+      birthLongitude,
+      birthLatitude,
+      dateFormat,
       waveVariantId,
       waveAudioEnabled,
       waveRippleClicksEnabled,
@@ -1235,6 +1262,7 @@ export const useAppStore = defineStore("app", () => {
     birthSect,
     birthLocationName,
     birthLongitude,
+    birthLatitude,
     dateFormat,
     intentDomain,
     intentGoalConstraint,
@@ -1266,6 +1294,7 @@ export const useAppStore = defineStore("app", () => {
     selectedDate,
     solarAdjustedSelectedDate,
     birthProfile,
+    presentProfile,
     temporalHex,
     presentShichenDetail,
     presentKeSignature,
