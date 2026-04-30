@@ -1,5 +1,19 @@
 import seedHexagrams from "@/data/seed_hexagrams.json";
 import { HEX_BINARY_TOP_TO_BOTTOM } from "@/core/iching";
+import type { LanguageCode } from "@/lib/languages";
+
+/**
+ * Per-hexagram translation cell — the new canonical shape (Task 12.5).
+ *
+ * `script` is what fills the "Chinese-character" display slot (e.g. Hanzi for
+ * pinyin, Hangul for korean, Devanagari for hindi). `roman` is the
+ * romanization-slot value (Hanyu Pinyin for pinyin, Revised Romanization for
+ * korean, Hunterian for hindi, …).
+ */
+export interface HexagramTranslation {
+  script: string;
+  roman: string;
+}
 
 type SeedHexagram = {
   id: number;
@@ -12,6 +26,9 @@ type SeedHexagram = {
   korean_name?: string;
   tibetan_name?: string;
   hindi_name?: string;
+  hanzi_simplified?: string;
+  hanzi_traditional?: string;
+  translations?: Partial<Record<LanguageCode, HexagramTranslation>>;
 };
 
 type TrigramDefinition = {
@@ -30,6 +47,12 @@ export type YiJingHexagram = {
   koreanName?: string;
   tibetanName?: string;
   hindiName?: string;
+  /** Hanzi simplified form, e.g. "乾". Always present. */
+  hanziSimplified: string;
+  /** Hanzi traditional form, e.g. "乾". Always present. */
+  hanziTraditional: string;
+  /** Per-language { script, roman } translation cells, indexed by LanguageCode. */
+  translations: Partial<Record<LanguageCode, HexagramTranslation>>;
   trigrams: string;
 };
 
@@ -71,6 +94,9 @@ export const YI_JING_HEXAGRAMS: YiJingHexagram[] = (seedHexagrams as SeedHexagra
     koreanName: hex.korean_name,
     tibetanName: hex.tibetan_name,
     hindiName: hex.hindi_name,
+    hanziSimplified: hex.hanzi_simplified ?? "",
+    hanziTraditional: hex.hanzi_traditional ?? hex.hanzi_simplified ?? "",
+    translations: hex.translations ?? {},
     trigrams: getTrigramBreakdown(hex.id),
   }))
   .sort((a, b) => a.id - b.id);
@@ -78,3 +104,15 @@ export const YI_JING_HEXAGRAMS: YiJingHexagram[] = (seedHexagrams as SeedHexagra
 export const YI_JING_BY_ID = new Map<number, YiJingHexagram>(
   YI_JING_HEXAGRAMS.map((hex) => [hex.id, hex])
 );
+
+/**
+ * Look up the per-language translation cell for a hexagram. Returns
+ * `undefined` if either the hex or the language has no entry — callers
+ * should fall back to the canonical Hanzi/Pinyin in that case.
+ */
+export function getHexagramTranslation(
+  hexId: number,
+  lang: LanguageCode
+): HexagramTranslation | undefined {
+  return YI_JING_BY_ID.get(hexId)?.translations[lang];
+}

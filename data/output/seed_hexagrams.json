@@ -17,7 +17,83 @@
     "japanese_name": "Ken",
     "korean_name": "건 (geon)",
     "tibetan_name": "ཁྱན",
-    "hindi_name": "छ्येन"
+    "hindi_name": "छ्येन",
+    "translations": {
+      "pinyin": {
+        "script": "乾",
+        "roman": "Qián"
+      },
+      "jyutping": {
+        "script": "乾",
+        "roman": "kin4"
+      },
+      "zhuyin": {
+        "script": "乾",
+        "roman": "ㄑㄧㄢˊ"
+      },
+      "taigi": {
+        "script": "乾",
+        "roman": "Kiân"
+      },
+      "japanese": {
+        "script": "乾",
+        "roman": "Ken"
+      },
+      "korean": {
+        "script": "건",
+        "roman": "geon"
+      },
+      "tibetan": {
+        "script": "ཁྱན",
+        "roman": "khyan"
+      },
+      "hindi": {
+        "script": "छ्येन",
+        "roman": "chhyen"
+      },
+      "mongolian": {
+        "script": "Чянь",
+        "roman": "Chyani"
+      },
+      "thai": {
+        "script": "เฉียน",
+        "roman": "chian"
+      },
+      "vietnamese": {
+        "script": "Càn",
+        "roman": "Càn"
+      },
+      "indonesian": {
+        "script": "Qián",
+        "roman": "Qián"
+      },
+      "balinese": {
+        "script": "Qián",
+        "roman": "Qián"
+      },
+      "malay": {
+        "script": "Qián",
+        "roman": "Qián"
+      },
+      "filipino": {
+        "script": "Qián",
+        "roman": "Qián"
+      },
+      "khmer": {
+        "script": "ឆ្យាន",
+        "roman": "chhyean"
+      },
+      "lao": {
+        "script": "ຈຽນ",
+        "roman": "chian"
+      },
+      "burmese": {
+        "script": "ချန်",
+        "roman": "chyan"
+      }
+    },
+    "hanzi_simplified": "乾",
+    "hanzi_traditional": "乾"
   },
   {
     "id": 2,
@@ -37,7 +113,83 @@
     "japanese_name": "Kon",
     "korean_name": "곤 (gon)",
     "tibetan_name": "ཁུན",
-    "hindi_name": "खुन"
+    "hindi_name": "खुन",
+    "translations": {
+      "pinyin": {
+        "script": "坤",
+        "roman": "Kūn"
+      },
+      "jyutping": {
+        "script": "坤",
+        "roman": "kwan1"
+      },
+      "zhuyin": {
+        "script": "坤",
+        "roman": "ㄎㄨㄣ"
+      },
+      "taigi": {
+        "script": "坤",
+        "roman": "Khun"
+      },
+      "japanese": {
+        "script": "坤",
+        "roman": "Kon"
+      },
+      "korean": {
+        "script": "곤",
+        "roman": "gon"
+      },
+      "tibetan": {
+        "script": "ཁུན",
+        "roman": "khun"
+      },
+      "hindi": {
+        "script": "खुन",
+        "roman": "khun"
+      },
+      "mongolian": {
+        "script": "Хунь",
+        "roman": "Khuni"
+      },
+      "thai": {
+        "script": "คุน",
+        "roman": "khun"
+      },
+      "vietnamese": {
+        "script": "Khôn",
+        "roman": "Khôn"
+      },
+      "indonesian": {
+        "script": "Kūn",
+        "roman": "Kūn"
+      },
+      "balinese": {
+        "script": "Kūn",
+        "roman": "Kūn"
+      },
+      "malay": {
+        "script": "Kūn",
+        "roman": "Kūn"
+      },
+      "filipino": {
+        "script": "Kūn",
+        "roman": "Kūn"
+      },
+      "khmer": {
+        "script": "ឃុន",
+        "roman": "khun"
+      },
+      "lao": {
+        "script": "ຄຸນ",
+        "roman": "khun"
+      },
+      "burmese": {
+        "script": "ခွန်",
+        "roman": "khun"
+      }
+    },
+    "hanzi_simplified": "坤",
+    "hanzi_traditional": "坤"
   },
   {
     "id": 3,
@@ -57,7 +209,83 @@
     "japanese_name": "Chun",
     "korean_name": "준 (jun)",
     "tibetan_name": "ཀྲུན",
-    "hindi_name": "जुन"
+    "hindi_name": "जुन",
+    "translations": {
+      "pinyin": {
+        "script": "屯",
+        "roman": "Zhūn"
+      },
+      "jyutping": {
+        "script": "屯",
+        "roman": "tyun4"
+      },
+      "zhuyin": {
+        "script": "屯",
+        "roman": "ㄓㄨㄣ"
+      },
+      "taigi": {
+        "script": "屯",
+        "roman": "Tûn"
+      },
+      "japanese": {
+        "script": "屯",
+        "roman": "Chun"
+      },
+      "korean": {
+        "script": "준",
+        "roman": "jun"
+      },
+      "tibetan": {
+        "script": "ཀྲུན",
+        "roman": "krun"
+      },
+      "hindi": {
+        "script": "जुन",
+        "roman": "jun"
+      },
+      "mongolian": {
+        "script": "Жунь",
+        "roman": "Juni"
+      },
+      "thai": {
+        "script": "จุน",
+        "roman": "chun"
+      },
+      "vietnamese": {
+        "script": "Truân",
+        "roman": "Truân"
+      },
+      "indonesian": {
+        "script": "Zhūn",
+        "roman": "Zhūn"
+      },
+      "balinese": {
+        "script": "Zhūn",
+        "roman": "Zhūn"
+      },
+      "malay": {
+        "script": "Zhūn",
+        "roman": "Zhūn"
+      },
+      "filipino": {
+        "script": "Zhūn",
+        "roman": "Zhūn"
+      },
+      "khmer": {
+        "script": "ជូន",
+        "roman": "chun"
+      },
+      "lao": {
+        "script": "ຈຸນ",
+        "roman": "chun"
+      },
+      "burmese": {
+        "script": "ချွန်",
+        "roman": "chyun"
+      }
+    },
+    "hanzi_simplified": "屯",
+    "hanzi_traditional": "屯"
   },
   {
     "id": 4,
@@ -77,7 +305,83 @@
     "japanese_name": "Mō",
     "korean_name": "몽 (mong)",
     "tibetan_name": "མུང",
-    "hindi_name": "मेङ"
+    "hindi_name": "मेङ",
+    "translations": {
+      "pinyin": {
+        "script": "蒙",
+        "roman": "Méng"
+      },
+      "jyutping": {
+        "script": "蒙",
+        "roman": "mung4"
+      },
+      "zhuyin": {
+        "script": "蒙",
+        "roman": "ㄇㄥˊ"
+      },
+      "taigi": {
+        "script": "蒙",
+        "roman": "Bông"
+      },
+      "japanese": {
+        "script": "蒙",
+        "roman": "Mō"
+      },
+      "korean": {
+        "script": "몽",
+        "roman": "mong"
+      },
+      "tibetan": {
+        "script": "མུང",
+        "roman": "mung"
+      },
+      "hindi": {
+        "script": "मेङ",
+        "roman": "meng"
+      },
+      "mongolian": {
+        "script": "Мэн",
+        "roman": "Meng"
+      },
+      "thai": {
+        "script": "เหมิง",
+        "roman": "mueang"
+      },
+      "vietnamese": {
+        "script": "Mông",
+        "roman": "Mông"
+      },
+      "indonesian": {
+        "script": "Méng",
+        "roman": "Méng"
+      },
+      "balinese": {
+        "script": "Méng",
+        "roman": "Méng"
+      },
+      "malay": {
+        "script": "Méng",
+        "roman": "Méng"
+      },
+      "filipino": {
+        "script": "Méng",
+        "roman": "Méng"
+      },
+      "khmer": {
+        "script": "ម៉ឺង",
+        "roman": "moeung"
+      },
+      "lao": {
+        "script": "ເມິງ",
+        "roman": "moeng"
+      },
+      "burmese": {
+        "script": "မုန်",
+        "roman": "mun"
+      }
+    },
+    "hanzi_simplified": "蒙",
+    "hanzi_traditional": "蒙"
   },
   {
     "id": 5,
@@ -97,7 +401,83 @@
     "japanese_name": "Ju",
     "korean_name": "수 (su)",
     "tibetan_name": "ཤུའུ",
-    "hindi_name": "श्यू"
+    "hindi_name": "श्यू",
+    "translations": {
+      "pinyin": {
+        "script": "需",
+        "roman": "Xū"
+      },
+      "jyutping": {
+        "script": "需",
+        "roman": "seoi1"
+      },
+      "zhuyin": {
+        "script": "需",
+        "roman": "ㄒㄩ"
+      },
+      "taigi": {
+        "script": "需",
+        "roman": "Su"
+      },
+      "japanese": {
+        "script": "需",
+        "roman": "Ju"
+      },
+      "korean": {
+        "script": "수",
+        "roman": "su"
+      },
+      "tibetan": {
+        "script": "ཤུའུ",
+        "roman": "shu'u"
+      },
+      "hindi": {
+        "script": "श्यू",
+        "roman": "shyu"
+      },
+      "mongolian": {
+        "script": "Шү",
+        "roman": "Shu"
+      },
+      "thai": {
+        "script": "ซวี",
+        "roman": "sue"
+      },
+      "vietnamese": {
+        "script": "Nhu",
+        "roman": "Nhu"
+      },
+      "indonesian": {
+        "script": "Xū",
+        "roman": "Xū"
+      },
+      "balinese": {
+        "script": "Xū",
+        "roman": "Xū"
+      },
+      "malay": {
+        "script": "Xū",
+        "roman": "Xū"
+      },
+      "filipino": {
+        "script": "Xū",
+        "roman": "Xū"
+      },
+      "khmer": {
+        "script": "ស៊ូ",
+        "roman": "su"
+      },
+      "lao": {
+        "script": "ຊຶ",
+        "roman": "se"
+      },
+      "burmese": {
+        "script": "ရှူး",
+        "roman": "shu"
+      }
+    },
+    "hanzi_simplified": "需",
+    "hanzi_traditional": "需"
   },
   {
     "id": 6,
@@ -117,7 +497,83 @@
     "japanese_name": "Shō",
     "korean_name": "송 (song)",
     "tibetan_name": "སུང",
-    "hindi_name": "सोङ"
+    "hindi_name": "सोङ",
+    "translations": {
+      "pinyin": {
+        "script": "讼",
+        "roman": "Sòng"
+      },
+      "jyutping": {
+        "script": "訟",
+        "roman": "zung6"
+      },
+      "zhuyin": {
+        "script": "訟",
+        "roman": "ㄙㄨㄥˋ"
+      },
+      "taigi": {
+        "script": "訟",
+        "roman": "Siōng"
+      },
+      "japanese": {
+        "script": "訟",
+        "roman": "Shō"
+      },
+      "korean": {
+        "script": "송",
+        "roman": "song"
+      },
+      "tibetan": {
+        "script": "སུང",
+        "roman": "sung"
+      },
+      "hindi": {
+        "script": "सोङ",
+        "roman": "song"
+      },
+      "mongolian": {
+        "script": "Сун",
+        "roman": "Sun"
+      },
+      "thai": {
+        "script": "ซ่ง",
+        "roman": "song"
+      },
+      "vietnamese": {
+        "script": "Tụng",
+        "roman": "Tụng"
+      },
+      "indonesian": {
+        "script": "Sòng",
+        "roman": "Sòng"
+      },
+      "balinese": {
+        "script": "Sòng",
+        "roman": "Sòng"
+      },
+      "malay": {
+        "script": "Sòng",
+        "roman": "Sòng"
+      },
+      "filipino": {
+        "script": "Sòng",
+        "roman": "Sòng"
+      },
+      "khmer": {
+        "script": "ស៊ុង",
+        "roman": "sung"
+      },
+      "lao": {
+        "script": "ຊົ່ງ",
+        "roman": "song"
+      },
+      "burmese": {
+        "script": "ဆွန်း",
+        "roman": "swan"
+      }
+    },
+    "hanzi_simplified": "讼",
+    "hanzi_traditional": "訟"
   },
   {
     "id": 7,
@@ -137,7 +593,83 @@
     "japanese_name": "Shi",
     "korean_name": "사 (sa)",
     "tibetan_name": "ཤི",
-    "hindi_name": "शी"
+    "hindi_name": "शी",
+    "translations": {
+      "pinyin": {
+        "script": "师",
+        "roman": "Shī"
+      },
+      "jyutping": {
+        "script": "師",
+        "roman": "si1"
+      },
+      "zhuyin": {
+        "script": "師",
+        "roman": "ㄕ"
+      },
+      "taigi": {
+        "script": "師",
+        "roman": "Su"
+      },
+      "japanese": {
+        "script": "師",
+        "roman": "Shi"
+      },
+      "korean": {
+        "script": "사",
+        "roman": "sa"
+      },
+      "tibetan": {
+        "script": "ཤི",
+        "roman": "shi"
+      },
+      "hindi": {
+        "script": "शी",
+        "roman": "shi"
+      },
+      "mongolian": {
+        "script": "Ши",
+        "roman": "Shi"
+      },
+      "thai": {
+        "script": "ชือ",
+        "roman": "chue"
+      },
+      "vietnamese": {
+        "script": "Sư",
+        "roman": "Sư"
+      },
+      "indonesian": {
+        "script": "Shī",
+        "roman": "Shī"
+      },
+      "balinese": {
+        "script": "Shī",
+        "roman": "Shī"
+      },
+      "malay": {
+        "script": "Shī",
+        "roman": "Shī"
+      },
+      "filipino": {
+        "script": "Shī",
+        "roman": "Shī"
+      },
+      "khmer": {
+        "script": "ឈិ",
+        "roman": "chhi"
+      },
+      "lao": {
+        "script": "ຊື່",
+        "roman": "sue"
+      },
+      "burmese": {
+        "script": "ရှိ",
+        "roman": "shi"
+      }
+    },
+    "hanzi_simplified": "师",
+    "hanzi_traditional": "師"
   },
   {
     "id": 8,
@@ -157,7 +689,83 @@
     "japanese_name": "Hi",
     "korean_name": "비 (bi)",
     "tibetan_name": "པི",
-    "hindi_name": "पी"
+    "hindi_name": "पी",
+    "translations": {
+      "pinyin": {
+        "script": "比",
+        "roman": "Bǐ"
+      },
+      "jyutping": {
+        "script": "比",
+        "roman": "bei2"
+      },
+      "zhuyin": {
+        "script": "比",
+        "roman": "ㄅㄧˇ"
+      },
+      "taigi": {
+        "script": "比",
+        "roman": "Pí"
+      },
+      "japanese": {
+        "script": "比",
+        "roman": "Hi"
+      },
+      "korean": {
+        "script": "비",
+        "roman": "bi"
+      },
+      "tibetan": {
+        "script": "པི",
+        "roman": "pi"
+      },
+      "hindi": {
+        "script": "पी",
+        "roman": "pi"
+      },
+      "mongolian": {
+        "script": "Би",
+        "roman": "Bi"
+      },
+      "thai": {
+        "script": "ปี่",
+        "roman": "pi"
+      },
+      "vietnamese": {
+        "script": "Tỷ",
+        "roman": "Tỷ"
+      },
+      "indonesian": {
+        "script": "Bǐ",
+        "roman": "Bǐ"
+      },
+      "balinese": {
+        "script": "Bǐ",
+        "roman": "Bǐ"
+      },
+      "malay": {
+        "script": "Bǐ",
+        "roman": "Bǐ"
+      },
+      "filipino": {
+        "script": "Bǐ",
+        "roman": "Bǐ"
+      },
+      "khmer": {
+        "script": "ប៊ី",
+        "roman": "bi"
+      },
+      "lao": {
+        "script": "ປີ່",
+        "roman": "pi"
+      },
+      "burmese": {
+        "script": "ပီ",
+        "roman": "pi"
+      }
+    },
+    "hanzi_simplified": "比",
+    "hanzi_traditional": "比"
   },
   {
     "id": 9,
@@ -177,7 +785,83 @@
     "japanese_name": "Shōchiku",
     "korean_name": "소축 (sochuk)",
     "tibetan_name": "ཤའོ་ཁྲུ",
-    "hindi_name": "श्याओ छू"
+    "hindi_name": "श्याओ छू",
+    "translations": {
+      "pinyin": {
+        "script": "小畜",
+        "roman": "Xiǎo Chù"
+      },
+      "jyutping": {
+        "script": "小畜",
+        "roman": "siu2 cuk1"
+      },
+      "zhuyin": {
+        "script": "小畜",
+        "roman": "ㄒㄧㄠˇ ㄔㄨˋ"
+      },
+      "taigi": {
+        "script": "小畜",
+        "roman": "Sió-thiok"
+      },
+      "japanese": {
+        "script": "小畜",
+        "roman": "Shōchiku"
+      },
+      "korean": {
+        "script": "소축",
+        "roman": "sochuk"
+      },
+      "tibetan": {
+        "script": "ཤའོ་ཁྲུ",
+        "roman": "sha'o khru"
+      },
+      "hindi": {
+        "script": "श्याओ छू",
+        "roman": "shyao chhu"
+      },
+      "mongolian": {
+        "script": "Шяочү",
+        "roman": "Shyaochu"
+      },
+      "thai": {
+        "script": "เสี่ยวฉู",
+        "roman": "siao chu"
+      },
+      "vietnamese": {
+        "script": "Tiểu Súc",
+        "roman": "Tiểu Súc"
+      },
+      "indonesian": {
+        "script": "Xiǎo Chù",
+        "roman": "Xiǎo Chù"
+      },
+      "balinese": {
+        "script": "Xiǎo Chù",
+        "roman": "Xiǎo Chù"
+      },
+      "malay": {
+        "script": "Xiǎo Chù",
+        "roman": "Xiǎo Chù"
+      },
+      "filipino": {
+        "script": "Xiǎo Chù",
+        "roman": "Xiǎo Chù"
+      },
+      "khmer": {
+        "script": "ស្យាវឈូ",
+        "roman": "syav chhu"
+      },
+      "lao": {
+        "script": "ຊຽວຊູ",
+        "roman": "siao su"
+      },
+      "burmese": {
+        "script": "ရှောက်ချူ",
+        "roman": "shauk chyu"
+      }
+    },
+    "hanzi_simplified": "小畜",
+    "hanzi_traditional": "小畜"
   },
   {
     "id": 10,
@@ -197,7 +881,83 @@
     "japanese_name": "Ri",
     "korean_name": "리 (ri)",
     "tibetan_name": "ལུའུ",
-    "hindi_name": "ल्यू"
+    "hindi_name": "ल्यू",
+    "translations": {
+      "pinyin": {
+        "script": "履",
+        "roman": "Lǚ"
+      },
+      "jyutping": {
+        "script": "履",
+        "roman": "lei5"
+      },
+      "zhuyin": {
+        "script": "履",
+        "roman": "ㄌㄩˇ"
+      },
+      "taigi": {
+        "script": "履",
+        "roman": "Lí"
+      },
+      "japanese": {
+        "script": "履",
+        "roman": "Ri"
+      },
+      "korean": {
+        "script": "리",
+        "roman": "ri"
+      },
+      "tibetan": {
+        "script": "ལུའུ",
+        "roman": "lu'u"
+      },
+      "hindi": {
+        "script": "ल्यू",
+        "roman": "lyu"
+      },
+      "mongolian": {
+        "script": "Лү",
+        "roman": "Lu"
+      },
+      "thai": {
+        "script": "หลฺวี่",
+        "roman": "lue"
+      },
+      "vietnamese": {
+        "script": "Lý",
+        "roman": "Lý"
+      },
+      "indonesian": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "balinese": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "malay": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "filipino": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "khmer": {
+        "script": "លី",
+        "roman": "li"
+      },
+      "lao": {
+        "script": "ລື່",
+        "roman": "lue"
+      },
+      "burmese": {
+        "script": "လူ",
+        "roman": "lu"
+      }
+    },
+    "hanzi_simplified": "履",
+    "hanzi_traditional": "履"
   },
   {
     "id": 11,
@@ -217,7 +977,83 @@
     "japanese_name": "Tai",
     "korean_name": "태 (tae)",
     "tibetan_name": "ཐའེ",
-    "hindi_name": "ताई"
+    "hindi_name": "ताई",
+    "translations": {
+      "pinyin": {
+        "script": "泰",
+        "roman": "Tài"
+      },
+      "jyutping": {
+        "script": "泰",
+        "roman": "taai3"
+      },
+      "zhuyin": {
+        "script": "泰",
+        "roman": "ㄊㄞˋ"
+      },
+      "taigi": {
+        "script": "泰",
+        "roman": "Thài"
+      },
+      "japanese": {
+        "script": "泰",
+        "roman": "Tai"
+      },
+      "korean": {
+        "script": "태",
+        "roman": "tae"
+      },
+      "tibetan": {
+        "script": "ཐའེ",
+        "roman": "tha'e"
+      },
+      "hindi": {
+        "script": "ताई",
+        "roman": "tai"
+      },
+      "mongolian": {
+        "script": "Тай",
+        "roman": "Tai"
+      },
+      "thai": {
+        "script": "ไท่",
+        "roman": "thai"
+      },
+      "vietnamese": {
+        "script": "Thái",
+        "roman": "Thái"
+      },
+      "indonesian": {
+        "script": "Tài",
+        "roman": "Tài"
+      },
+      "balinese": {
+        "script": "Tài",
+        "roman": "Tài"
+      },
+      "malay": {
+        "script": "Tài",
+        "roman": "Tài"
+      },
+      "filipino": {
+        "script": "Tài",
+        "roman": "Tài"
+      },
+      "khmer": {
+        "script": "ថៃ",
+        "roman": "thai"
+      },
+      "lao": {
+        "script": "ໄທ່",
+        "roman": "thai"
+      },
+      "burmese": {
+        "script": "ထိုင်း",
+        "roman": "thaing"
+      }
+    },
+    "hanzi_simplified": "泰",
+    "hanzi_traditional": "泰"
   },
   {
     "id": 12,
@@ -237,7 +1073,83 @@
     "japanese_name": "Hi",
     "korean_name": "비 (bi)",
     "tibetan_name": "ཕི",
-    "hindi_name": "पी"
+    "hindi_name": "पी",
+    "translations": {
+      "pinyin": {
+        "script": "否",
+        "roman": "Pǐ"
+      },
+      "jyutping": {
+        "script": "否",
+        "roman": "pei2"
+      },
+      "zhuyin": {
+        "script": "否",
+        "roman": "ㄆㄧˇ"
+      },
+      "taigi": {
+        "script": "否",
+        "roman": "Pí"
+      },
+      "japanese": {
+        "script": "否",
+        "roman": "Hi"
+      },
+      "korean": {
+        "script": "비",
+        "roman": "bi"
+      },
+      "tibetan": {
+        "script": "ཕི",
+        "roman": "phi"
+      },
+      "hindi": {
+        "script": "पी",
+        "roman": "pi"
+      },
+      "mongolian": {
+        "script": "Пи",
+        "roman": "Pi"
+      },
+      "thai": {
+        "script": "ผี่",
+        "roman": "phi"
+      },
+      "vietnamese": {
+        "script": "Bĩ",
+        "roman": "Bĩ"
+      },
+      "indonesian": {
+        "script": "Pǐ",
+        "roman": "Pǐ"
+      },
+      "balinese": {
+        "script": "Pǐ",
+        "roman": "Pǐ"
+      },
+      "malay": {
+        "script": "Pǐ",
+        "roman": "Pǐ"
+      },
+      "filipino": {
+        "script": "Pǐ",
+        "roman": "Pǐ"
+      },
+      "khmer": {
+        "script": "ភី",
+        "roman": "phi"
+      },
+      "lao": {
+        "script": "ຜີ່",
+        "roman": "phi"
+      },
+      "burmese": {
+        "script": "ဖီ",
+        "roman": "phi"
+      }
+    },
+    "hanzi_simplified": "否",
+    "hanzi_traditional": "否"
   },
   {
     "id": 13,
@@ -257,7 +1169,83 @@
     "japanese_name": "Dōjin",
     "korean_name": "동인 (dongin)",
     "tibetan_name": "ཐུང་རན",
-    "hindi_name": "थोङ रन"
+    "hindi_name": "थोङ रन",
+    "translations": {
+      "pinyin": {
+        "script": "同人",
+        "roman": "Tóng Rén"
+      },
+      "jyutping": {
+        "script": "同人",
+        "roman": "tung4 jan4"
+      },
+      "zhuyin": {
+        "script": "同人",
+        "roman": "ㄊㄨㄥˊ ㄖㄣˊ"
+      },
+      "taigi": {
+        "script": "同人",
+        "roman": "Tông-jîn"
+      },
+      "japanese": {
+        "script": "同人",
+        "roman": "Dōjin"
+      },
+      "korean": {
+        "script": "동인",
+        "roman": "dongin"
+      },
+      "tibetan": {
+        "script": "ཐུང་རན",
+        "roman": "thung ran"
+      },
+      "hindi": {
+        "script": "थोङ रन",
+        "roman": "thong ran"
+      },
+      "mongolian": {
+        "script": "Тунжэн",
+        "roman": "Tung jen"
+      },
+      "thai": {
+        "script": "ถงเหริน",
+        "roman": "thong ren"
+      },
+      "vietnamese": {
+        "script": "Đồng Nhân",
+        "roman": "Đồng Nhân"
+      },
+      "indonesian": {
+        "script": "Tóng Rén",
+        "roman": "Tóng Rén"
+      },
+      "balinese": {
+        "script": "Tóng Rén",
+        "roman": "Tóng Rén"
+      },
+      "malay": {
+        "script": "Tóng Rén",
+        "roman": "Tóng Rén"
+      },
+      "filipino": {
+        "script": "Tóng Rén",
+        "roman": "Tóng Rén"
+      },
+      "khmer": {
+        "script": "ថុងរ៉េន",
+        "roman": "thung ren"
+      },
+      "lao": {
+        "script": "ທົງເຣິນ",
+        "roman": "thong ren"
+      },
+      "burmese": {
+        "script": "သုံးရန်",
+        "roman": "thon ran"
+      }
+    },
+    "hanzi_simplified": "同人",
+    "hanzi_traditional": "同人"
   },
   {
     "id": 14,
@@ -277,7 +1265,83 @@
     "japanese_name": "Daiyū",
     "korean_name": "대유 (daeyu)",
     "tibetan_name": "ཏ་ཡའོ",
-    "hindi_name": "ता योऊ"
+    "hindi_name": "ता योऊ",
+    "translations": {
+      "pinyin": {
+        "script": "大有",
+        "roman": "Dà Yǒu"
+      },
+      "jyutping": {
+        "script": "大有",
+        "roman": "daai6 jau5"
+      },
+      "zhuyin": {
+        "script": "大有",
+        "roman": "ㄉㄚˋ ㄧㄡˇ"
+      },
+      "taigi": {
+        "script": "大有",
+        "roman": "Tāi-iú"
+      },
+      "japanese": {
+        "script": "大有",
+        "roman": "Daiyū"
+      },
+      "korean": {
+        "script": "대유",
+        "roman": "daeyu"
+      },
+      "tibetan": {
+        "script": "ཏ་ཡའོ",
+        "roman": "ta ya'o"
+      },
+      "hindi": {
+        "script": "ता योऊ",
+        "roman": "ta you"
+      },
+      "mongolian": {
+        "script": "Даю",
+        "roman": "Dayu"
+      },
+      "thai": {
+        "script": "ต้ายฺหวี่",
+        "roman": "ta yu"
+      },
+      "vietnamese": {
+        "script": "Đại Hữu",
+        "roman": "Đại Hữu"
+      },
+      "indonesian": {
+        "script": "Dà Yǒu",
+        "roman": "Dà Yǒu"
+      },
+      "balinese": {
+        "script": "Dà Yǒu",
+        "roman": "Dà Yǒu"
+      },
+      "malay": {
+        "script": "Dà Yǒu",
+        "roman": "Dà Yǒu"
+      },
+      "filipino": {
+        "script": "Dà Yǒu",
+        "roman": "Dà Yǒu"
+      },
+      "khmer": {
+        "script": "តាយូ",
+        "roman": "ta yu"
+      },
+      "lao": {
+        "script": "ຕ້າຢື່",
+        "roman": "ta yue"
+      },
+      "burmese": {
+        "script": "တာယူး",
+        "roman": "ta yu"
+      }
+    },
+    "hanzi_simplified": "大有",
+    "hanzi_traditional": "大有"
   },
   {
     "id": 15,
@@ -297,7 +1361,83 @@
     "japanese_name": "Ken",
     "korean_name": "겸 (gyeom)",
     "tibetan_name": "ཆཱན",
-    "hindi_name": "छ्येन"
+    "hindi_name": "छ्येन",
+    "translations": {
+      "pinyin": {
+        "script": "谦",
+        "roman": "Qiān"
+      },
+      "jyutping": {
+        "script": "謙",
+        "roman": "him1"
+      },
+      "zhuyin": {
+        "script": "謙",
+        "roman": "ㄑㄧㄢ"
+      },
+      "taigi": {
+        "script": "謙",
+        "roman": "Khiam"
+      },
+      "japanese": {
+        "script": "謙",
+        "roman": "Ken"
+      },
+      "korean": {
+        "script": "겸",
+        "roman": "gyeom"
+      },
+      "tibetan": {
+        "script": "ཆཱན",
+        "roman": "chan"
+      },
+      "hindi": {
+        "script": "छ्येन",
+        "roman": "chhyen"
+      },
+      "mongolian": {
+        "script": "Чянь",
+        "roman": "Chyani"
+      },
+      "thai": {
+        "script": "เชียน",
+        "roman": "chian"
+      },
+      "vietnamese": {
+        "script": "Khiêm",
+        "roman": "Khiêm"
+      },
+      "indonesian": {
+        "script": "Qiān",
+        "roman": "Qiān"
+      },
+      "balinese": {
+        "script": "Qiān",
+        "roman": "Qiān"
+      },
+      "malay": {
+        "script": "Qiān",
+        "roman": "Qiān"
+      },
+      "filipino": {
+        "script": "Qiān",
+        "roman": "Qiān"
+      },
+      "khmer": {
+        "script": "ឆ្យាន",
+        "roman": "chhyean"
+      },
+      "lao": {
+        "script": "ຈຽນ",
+        "roman": "chian"
+      },
+      "burmese": {
+        "script": "ချန်",
+        "roman": "chyan"
+      }
+    },
+    "hanzi_simplified": "谦",
+    "hanzi_traditional": "謙"
   },
   {
     "id": 16,
@@ -317,7 +1457,83 @@
     "japanese_name": "Yo",
     "korean_name": "예 (ye)",
     "tibetan_name": "ཡུའུ",
-    "hindi_name": "यू"
+    "hindi_name": "यू",
+    "translations": {
+      "pinyin": {
+        "script": "豫",
+        "roman": "Yù"
+      },
+      "jyutping": {
+        "script": "豫",
+        "roman": "jyu6"
+      },
+      "zhuyin": {
+        "script": "豫",
+        "roman": "ㄩˋ"
+      },
+      "taigi": {
+        "script": "豫",
+        "roman": "Ū"
+      },
+      "japanese": {
+        "script": "豫",
+        "roman": "Yo"
+      },
+      "korean": {
+        "script": "예",
+        "roman": "ye"
+      },
+      "tibetan": {
+        "script": "ཡུའུ",
+        "roman": "yu'u"
+      },
+      "hindi": {
+        "script": "यू",
+        "roman": "yu"
+      },
+      "mongolian": {
+        "script": "Юй",
+        "roman": "Yui"
+      },
+      "thai": {
+        "script": "ยฺวี่",
+        "roman": "yu"
+      },
+      "vietnamese": {
+        "script": "Dự",
+        "roman": "Dự"
+      },
+      "indonesian": {
+        "script": "Yù",
+        "roman": "Yù"
+      },
+      "balinese": {
+        "script": "Yù",
+        "roman": "Yù"
+      },
+      "malay": {
+        "script": "Yù",
+        "roman": "Yù"
+      },
+      "filipino": {
+        "script": "Yù",
+        "roman": "Yù"
+      },
+      "khmer": {
+        "script": "យូ",
+        "roman": "yu"
+      },
+      "lao": {
+        "script": "ຢື່",
+        "roman": "yue"
+      },
+      "burmese": {
+        "script": "ယူ",
+        "roman": "yu"
+      }
+    },
+    "hanzi_simplified": "豫",
+    "hanzi_traditional": "豫"
   },
   {
     "id": 17,
@@ -337,7 +1553,83 @@
     "japanese_name": "Zui",
     "korean_name": "수 (su)",
     "tibetan_name": "སུའེ",
-    "hindi_name": "सुई"
+    "hindi_name": "सुई",
+    "translations": {
+      "pinyin": {
+        "script": "随",
+        "roman": "Suí"
+      },
+      "jyutping": {
+        "script": "隨",
+        "roman": "ceoi4"
+      },
+      "zhuyin": {
+        "script": "隨",
+        "roman": "ㄙㄨㄟˊ"
+      },
+      "taigi": {
+        "script": "隨",
+        "roman": "Sûi"
+      },
+      "japanese": {
+        "script": "隨",
+        "roman": "Zui"
+      },
+      "korean": {
+        "script": "수",
+        "roman": "su"
+      },
+      "tibetan": {
+        "script": "སུའེ",
+        "roman": "su'e"
+      },
+      "hindi": {
+        "script": "सुई",
+        "roman": "sui"
+      },
+      "mongolian": {
+        "script": "Суй",
+        "roman": "Suy"
+      },
+      "thai": {
+        "script": "สุย",
+        "roman": "sui"
+      },
+      "vietnamese": {
+        "script": "Tùy",
+        "roman": "Tùy"
+      },
+      "indonesian": {
+        "script": "Suí",
+        "roman": "Suí"
+      },
+      "balinese": {
+        "script": "Suí",
+        "roman": "Suí"
+      },
+      "malay": {
+        "script": "Suí",
+        "roman": "Suí"
+      },
+      "filipino": {
+        "script": "Suí",
+        "roman": "Suí"
+      },
+      "khmer": {
+        "script": "ស៊ុយ",
+        "roman": "suy"
+      },
+      "lao": {
+        "script": "ຊຸຍ",
+        "roman": "sui"
+      },
+      "burmese": {
+        "script": "ဆွေး",
+        "roman": "swe"
+      }
+    },
+    "hanzi_simplified": "随",
+    "hanzi_traditional": "隨"
   },
   {
     "id": 18,
@@ -357,7 +1649,83 @@
     "japanese_name": "Ko",
     "korean_name": "고 (go)",
     "tibetan_name": "ཀུའུ",
-    "hindi_name": "गू"
+    "hindi_name": "गू",
+    "translations": {
+      "pinyin": {
+        "script": "蛊",
+        "roman": "Gǔ"
+      },
+      "jyutping": {
+        "script": "蠱",
+        "roman": "gu2"
+      },
+      "zhuyin": {
+        "script": "蠱",
+        "roman": "ㄍㄨˇ"
+      },
+      "taigi": {
+        "script": "蠱",
+        "roman": "Kóo"
+      },
+      "japanese": {
+        "script": "蠱",
+        "roman": "Ko"
+      },
+      "korean": {
+        "script": "고",
+        "roman": "go"
+      },
+      "tibetan": {
+        "script": "ཀུའུ",
+        "roman": "ku'u"
+      },
+      "hindi": {
+        "script": "गू",
+        "roman": "gu"
+      },
+      "mongolian": {
+        "script": "Гу",
+        "roman": "Gu"
+      },
+      "thai": {
+        "script": "กู่",
+        "roman": "ku"
+      },
+      "vietnamese": {
+        "script": "Cổ",
+        "roman": "Cổ"
+      },
+      "indonesian": {
+        "script": "Gǔ",
+        "roman": "Gǔ"
+      },
+      "balinese": {
+        "script": "Gǔ",
+        "roman": "Gǔ"
+      },
+      "malay": {
+        "script": "Gǔ",
+        "roman": "Gǔ"
+      },
+      "filipino": {
+        "script": "Gǔ",
+        "roman": "Gǔ"
+      },
+      "khmer": {
+        "script": "គូ",
+        "roman": "ku"
+      },
+      "lao": {
+        "script": "ກູ່",
+        "roman": "ku"
+      },
+      "burmese": {
+        "script": "ကူး",
+        "roman": "ku"
+      }
+    },
+    "hanzi_simplified": "蛊",
+    "hanzi_traditional": "蠱"
   },
   {
     "id": 19,
@@ -377,7 +1745,83 @@
     "japanese_name": "Rin",
     "korean_name": "림 (rim)",
     "tibetan_name": "ལིན",
-    "hindi_name": "लिन"
+    "hindi_name": "लिन",
+    "translations": {
+      "pinyin": {
+        "script": "临",
+        "roman": "Lín"
+      },
+      "jyutping": {
+        "script": "臨",
+        "roman": "lam4"
+      },
+      "zhuyin": {
+        "script": "臨",
+        "roman": "ㄌㄧㄣˊ"
+      },
+      "taigi": {
+        "script": "臨",
+        "roman": "Lîm"
+      },
+      "japanese": {
+        "script": "臨",
+        "roman": "Rin"
+      },
+      "korean": {
+        "script": "림",
+        "roman": "rim"
+      },
+      "tibetan": {
+        "script": "ལིན",
+        "roman": "lin"
+      },
+      "hindi": {
+        "script": "लिन",
+        "roman": "lin"
+      },
+      "mongolian": {
+        "script": "Линь",
+        "roman": "Lini"
+      },
+      "thai": {
+        "script": "หลิน",
+        "roman": "lin"
+      },
+      "vietnamese": {
+        "script": "Lâm",
+        "roman": "Lâm"
+      },
+      "indonesian": {
+        "script": "Lín",
+        "roman": "Lín"
+      },
+      "balinese": {
+        "script": "Lín",
+        "roman": "Lín"
+      },
+      "malay": {
+        "script": "Lín",
+        "roman": "Lín"
+      },
+      "filipino": {
+        "script": "Lín",
+        "roman": "Lín"
+      },
+      "khmer": {
+        "script": "លីន",
+        "roman": "lin"
+      },
+      "lao": {
+        "script": "ລິນ",
+        "roman": "lin"
+      },
+      "burmese": {
+        "script": "လင်",
+        "roman": "lin"
+      }
+    },
+    "hanzi_simplified": "临",
+    "hanzi_traditional": "臨"
   },
   {
     "id": 20,
@@ -397,7 +1841,83 @@
     "japanese_name": "Kan",
     "korean_name": "관 (gwan)",
     "tibetan_name": "ཀུཨན",
-    "hindi_name": "गुआन"
+    "hindi_name": "गुआन",
+    "translations": {
+      "pinyin": {
+        "script": "观",
+        "roman": "Guān"
+      },
+      "jyutping": {
+        "script": "觀",
+        "roman": "gun1"
+      },
+      "zhuyin": {
+        "script": "觀",
+        "roman": "ㄍㄨㄢ"
+      },
+      "taigi": {
+        "script": "觀",
+        "roman": "Koan"
+      },
+      "japanese": {
+        "script": "觀",
+        "roman": "Kan"
+      },
+      "korean": {
+        "script": "관",
+        "roman": "gwan"
+      },
+      "tibetan": {
+        "script": "ཀུཨན",
+        "roman": "ku'an"
+      },
+      "hindi": {
+        "script": "गुआन",
+        "roman": "guan"
+      },
+      "mongolian": {
+        "script": "Гуань",
+        "roman": "Guani"
+      },
+      "thai": {
+        "script": "กฺวาน",
+        "roman": "kwan"
+      },
+      "vietnamese": {
+        "script": "Quan",
+        "roman": "Quan"
+      },
+      "indonesian": {
+        "script": "Guān",
+        "roman": "Guān"
+      },
+      "balinese": {
+        "script": "Guān",
+        "roman": "Guān"
+      },
+      "malay": {
+        "script": "Guān",
+        "roman": "Guān"
+      },
+      "filipino": {
+        "script": "Guān",
+        "roman": "Guān"
+      },
+      "khmer": {
+        "script": "ក្វាន់",
+        "roman": "kvan"
+      },
+      "lao": {
+        "script": "ກວານ",
+        "roman": "kuan"
+      },
+      "burmese": {
+        "script": "ကွမ်",
+        "roman": "kwan"
+      }
+    },
+    "hanzi_simplified": "观",
+    "hanzi_traditional": "觀"
   },
   {
     "id": 21,
@@ -417,7 +1937,83 @@
     "japanese_name": "Zegō",
     "korean_name": "서합 (seohap)",
     "tibetan_name": "ཤི་ཧུའེ",
-    "hindi_name": "श्र हे"
+    "hindi_name": "श्र हे",
+    "translations": {
+      "pinyin": {
+        "script": "噬嗑",
+        "roman": "Shì Kè"
+      },
+      "jyutping": {
+        "script": "噬嗑",
+        "roman": "sai6 hap6"
+      },
+      "zhuyin": {
+        "script": "噬嗑",
+        "roman": "ㄕˋ ㄎㄜˋ"
+      },
+      "taigi": {
+        "script": "噬嗑",
+        "roman": "Sē-khap"
+      },
+      "japanese": {
+        "script": "噬嗑",
+        "roman": "Zegō"
+      },
+      "korean": {
+        "script": "서합",
+        "roman": "seohap"
+      },
+      "tibetan": {
+        "script": "ཤི་ཧུའེ",
+        "roman": "shi hu'e"
+      },
+      "hindi": {
+        "script": "श्र हे",
+        "roman": "shr he"
+      },
+      "mongolian": {
+        "script": "Шихэ",
+        "roman": "Shi he"
+      },
+      "thai": {
+        "script": "ซื่อเค่อ",
+        "roman": "sue khoe"
+      },
+      "vietnamese": {
+        "script": "Phệ Hạp",
+        "roman": "Phệ Hạp"
+      },
+      "indonesian": {
+        "script": "Shì Kè",
+        "roman": "Shì Kè"
+      },
+      "balinese": {
+        "script": "Shì Kè",
+        "roman": "Shì Kè"
+      },
+      "malay": {
+        "script": "Shì Kè",
+        "roman": "Shì Kè"
+      },
+      "filipino": {
+        "script": "Shì Kè",
+        "roman": "Shì Kè"
+      },
+      "khmer": {
+        "script": "ស៊ឺឃឺ",
+        "roman": "su khu"
+      },
+      "lao": {
+        "script": "ຊື່ເຄິ່",
+        "roman": "sue khoe"
+      },
+      "burmese": {
+        "script": "ရှုခွဲ",
+        "roman": "shu khwe"
+      }
+    },
+    "hanzi_simplified": "噬嗑",
+    "hanzi_traditional": "噬嗑"
   },
   {
     "id": 22,
@@ -437,7 +2033,83 @@
     "japanese_name": "Hi",
     "korean_name": "비 (bi)",
     "tibetan_name": "པི",
-    "hindi_name": "पी"
+    "hindi_name": "पी",
+    "translations": {
+      "pinyin": {
+        "script": "贲",
+        "roman": "Bì"
+      },
+      "jyutping": {
+        "script": "賁",
+        "roman": "ban3"
+      },
+      "zhuyin": {
+        "script": "賁",
+        "roman": "ㄅㄧˋ"
+      },
+      "taigi": {
+        "script": "賁",
+        "roman": "Pì"
+      },
+      "japanese": {
+        "script": "賁",
+        "roman": "Hi"
+      },
+      "korean": {
+        "script": "비",
+        "roman": "bi"
+      },
+      "tibetan": {
+        "script": "པི",
+        "roman": "pi"
+      },
+      "hindi": {
+        "script": "पी",
+        "roman": "pi"
+      },
+      "mongolian": {
+        "script": "Би",
+        "roman": "Bi"
+      },
+      "thai": {
+        "script": "ปี้",
+        "roman": "pi"
+      },
+      "vietnamese": {
+        "script": "Bí",
+        "roman": "Bí"
+      },
+      "indonesian": {
+        "script": "Bì",
+        "roman": "Bì"
+      },
+      "balinese": {
+        "script": "Bì",
+        "roman": "Bì"
+      },
+      "malay": {
+        "script": "Bì",
+        "roman": "Bì"
+      },
+      "filipino": {
+        "script": "Bì",
+        "roman": "Bì"
+      },
+      "khmer": {
+        "script": "ប៊ី",
+        "roman": "bi"
+      },
+      "lao": {
+        "script": "ປີ່",
+        "roman": "pi"
+      },
+      "burmese": {
+        "script": "ပီ",
+        "roman": "pi"
+      }
+    },
+    "hanzi_simplified": "贲",
+    "hanzi_traditional": "賁"
   },
   {
     "id": 23,
@@ -457,7 +2129,83 @@
     "japanese_name": "Haku",
     "korean_name": "박 (bak)",
     "tibetan_name": "པོ",
-    "hindi_name": "पो"
+    "hindi_name": "पो",
+    "translations": {
+      "pinyin": {
+        "script": "剥",
+        "roman": "Bō"
+      },
+      "jyutping": {
+        "script": "剝",
+        "roman": "mok1"
+      },
+      "zhuyin": {
+        "script": "剝",
+        "roman": "ㄅㄛ"
+      },
+      "taigi": {
+        "script": "剝",
+        "roman": "Pok"
+      },
+      "japanese": {
+        "script": "剝",
+        "roman": "Haku"
+      },
+      "korean": {
+        "script": "박",
+        "roman": "bak"
+      },
+      "tibetan": {
+        "script": "པོ",
+        "roman": "po"
+      },
+      "hindi": {
+        "script": "पो",
+        "roman": "po"
+      },
+      "mongolian": {
+        "script": "Бо",
+        "roman": "Bo"
+      },
+      "thai": {
+        "script": "ปอ",
+        "roman": "po"
+      },
+      "vietnamese": {
+        "script": "Bác",
+        "roman": "Bác"
+      },
+      "indonesian": {
+        "script": "Bō",
+        "roman": "Bō"
+      },
+      "balinese": {
+        "script": "Bō",
+        "roman": "Bō"
+      },
+      "malay": {
+        "script": "Bō",
+        "roman": "Bō"
+      },
+      "filipino": {
+        "script": "Bō",
+        "roman": "Bō"
+      },
+      "khmer": {
+        "script": "ប៉ូ",
+        "roman": "po"
+      },
+      "lao": {
+        "script": "ປໍ",
+        "roman": "po"
+      },
+      "burmese": {
+        "script": "ပို",
+        "roman": "po"
+      }
+    },
+    "hanzi_simplified": "剥",
+    "hanzi_traditional": "剝"
   },
   {
     "id": 24,
@@ -477,7 +2225,83 @@
     "japanese_name": "Fuku",
     "korean_name": "복 (bok)",
     "tibetan_name": "ཕུའུ",
-    "hindi_name": "फू"
+    "hindi_name": "फू",
+    "translations": {
+      "pinyin": {
+        "script": "复",
+        "roman": "Fù"
+      },
+      "jyutping": {
+        "script": "復",
+        "roman": "fuk6"
+      },
+      "zhuyin": {
+        "script": "復",
+        "roman": "ㄈㄨˋ"
+      },
+      "taigi": {
+        "script": "復",
+        "roman": "Ho̍k"
+      },
+      "japanese": {
+        "script": "復",
+        "roman": "Fuku"
+      },
+      "korean": {
+        "script": "복",
+        "roman": "bok"
+      },
+      "tibetan": {
+        "script": "ཕུའུ",
+        "roman": "phu'u"
+      },
+      "hindi": {
+        "script": "फू",
+        "roman": "phu"
+      },
+      "mongolian": {
+        "script": "Фу",
+        "roman": "Fu"
+      },
+      "thai": {
+        "script": "ฟู่",
+        "roman": "fu"
+      },
+      "vietnamese": {
+        "script": "Phục",
+        "roman": "Phục"
+      },
+      "indonesian": {
+        "script": "Fù",
+        "roman": "Fù"
+      },
+      "balinese": {
+        "script": "Fù",
+        "roman": "Fù"
+      },
+      "malay": {
+        "script": "Fù",
+        "roman": "Fù"
+      },
+      "filipino": {
+        "script": "Fù",
+        "roman": "Fù"
+      },
+      "khmer": {
+        "script": "ហ្វូ",
+        "roman": "fu"
+      },
+      "lao": {
+        "script": "ຟູ່",
+        "roman": "fu"
+      },
+      "burmese": {
+        "script": "ဖူး",
+        "roman": "phu"
+      }
+    },
+    "hanzi_simplified": "复",
+    "hanzi_traditional": "復"
   },
   {
     "id": 25,
@@ -497,7 +2321,83 @@
     "japanese_name": "Mubō",
     "korean_name": "무망 (mumang)",
     "tibetan_name": "འུ་ཝང",
-    "hindi_name": "वू वाङ"
+    "hindi_name": "वू वाङ",
+    "translations": {
+      "pinyin": {
+        "script": "无妄",
+        "roman": "Wú Wàng"
+      },
+      "jyutping": {
+        "script": "無妄",
+        "roman": "mou4 mong5"
+      },
+      "zhuyin": {
+        "script": "無妄",
+        "roman": "ㄨˊ ㄨㄤˋ"
+      },
+      "taigi": {
+        "script": "無妄",
+        "roman": "Bô-bōng"
+      },
+      "japanese": {
+        "script": "無妄",
+        "roman": "Mubō"
+      },
+      "korean": {
+        "script": "무망",
+        "roman": "mumang"
+      },
+      "tibetan": {
+        "script": "འུ་ཝང",
+        "roman": "u wang"
+      },
+      "hindi": {
+        "script": "वू वाङ",
+        "roman": "wu wang"
+      },
+      "mongolian": {
+        "script": "Уван",
+        "roman": "U wang"
+      },
+      "thai": {
+        "script": "อู๋ว่าง",
+        "roman": "wu wang"
+      },
+      "vietnamese": {
+        "script": "Vô Vọng",
+        "roman": "Vô Vọng"
+      },
+      "indonesian": {
+        "script": "Wú Wàng",
+        "roman": "Wú Wàng"
+      },
+      "balinese": {
+        "script": "Wú Wàng",
+        "roman": "Wú Wàng"
+      },
+      "malay": {
+        "script": "Wú Wàng",
+        "roman": "Wú Wàng"
+      },
+      "filipino": {
+        "script": "Wú Wàng",
+        "roman": "Wú Wàng"
+      },
+      "khmer": {
+        "script": "អូវ៉ាង",
+        "roman": "u wang"
+      },
+      "lao": {
+        "script": "ອູ່ຫວ່າງ",
+        "roman": "u wang"
+      },
+      "burmese": {
+        "script": "အူဝမ်း",
+        "roman": "u wang"
+      }
+    },
+    "hanzi_simplified": "无妄",
+    "hanzi_traditional": "無妄"
   },
   {
     "id": 26,
@@ -517,7 +2417,83 @@
     "japanese_name": "Daichiku",
     "korean_name": "대축 (daechuk)",
     "tibetan_name": "ཏ་ཁྲུ",
-    "hindi_name": "ता छू"
+    "hindi_name": "ता छू",
+    "translations": {
+      "pinyin": {
+        "script": "大畜",
+        "roman": "Dà Chù"
+      },
+      "jyutping": {
+        "script": "大畜",
+        "roman": "daai6 cuk1"
+      },
+      "zhuyin": {
+        "script": "大畜",
+        "roman": "ㄉㄚˋ ㄔㄨˋ"
+      },
+      "taigi": {
+        "script": "大畜",
+        "roman": "Tāi-thiok"
+      },
+      "japanese": {
+        "script": "大畜",
+        "roman": "Daichiku"
+      },
+      "korean": {
+        "script": "대축",
+        "roman": "daechuk"
+      },
+      "tibetan": {
+        "script": "ཏ་ཁྲུ",
+        "roman": "ta khru"
+      },
+      "hindi": {
+        "script": "ता छू",
+        "roman": "ta chhu"
+      },
+      "mongolian": {
+        "script": "Дачү",
+        "roman": "Dachu"
+      },
+      "thai": {
+        "script": "ต้าฉู",
+        "roman": "ta chu"
+      },
+      "vietnamese": {
+        "script": "Đại Súc",
+        "roman": "Đại Súc"
+      },
+      "indonesian": {
+        "script": "Dà Chù",
+        "roman": "Dà Chù"
+      },
+      "balinese": {
+        "script": "Dà Chù",
+        "roman": "Dà Chù"
+      },
+      "malay": {
+        "script": "Dà Chù",
+        "roman": "Dà Chù"
+      },
+      "filipino": {
+        "script": "Dà Chù",
+        "roman": "Dà Chù"
+      },
+      "khmer": {
+        "script": "តាឈូ",
+        "roman": "ta chhu"
+      },
+      "lao": {
+        "script": "ຕ້າຊູ",
+        "roman": "ta su"
+      },
+      "burmese": {
+        "script": "တာချူ",
+        "roman": "ta chyu"
+      }
+    },
+    "hanzi_simplified": "大畜",
+    "hanzi_traditional": "大畜"
   },
   {
     "id": 27,
@@ -537,7 +2513,83 @@
     "japanese_name": "I",
     "korean_name": "이 (i)",
     "tibetan_name": "ཡི",
-    "hindi_name": "यी"
+    "hindi_name": "यी",
+    "translations": {
+      "pinyin": {
+        "script": "颐",
+        "roman": "Yí"
+      },
+      "jyutping": {
+        "script": "頤",
+        "roman": "ji4"
+      },
+      "zhuyin": {
+        "script": "頤",
+        "roman": "ㄧˊ"
+      },
+      "taigi": {
+        "script": "頤",
+        "roman": "Î"
+      },
+      "japanese": {
+        "script": "頤",
+        "roman": "I"
+      },
+      "korean": {
+        "script": "이",
+        "roman": "i"
+      },
+      "tibetan": {
+        "script": "ཡི",
+        "roman": "yi"
+      },
+      "hindi": {
+        "script": "यी",
+        "roman": "yi"
+      },
+      "mongolian": {
+        "script": "И",
+        "roman": "I"
+      },
+      "thai": {
+        "script": "อี๋",
+        "roman": "i"
+      },
+      "vietnamese": {
+        "script": "Di",
+        "roman": "Di"
+      },
+      "indonesian": {
+        "script": "Yí",
+        "roman": "Yí"
+      },
+      "balinese": {
+        "script": "Yí",
+        "roman": "Yí"
+      },
+      "malay": {
+        "script": "Yí",
+        "roman": "Yí"
+      },
+      "filipino": {
+        "script": "Yí",
+        "roman": "Yí"
+      },
+      "khmer": {
+        "script": "យី",
+        "roman": "yi"
+      },
+      "lao": {
+        "script": "ອີ່",
+        "roman": "i"
+      },
+      "burmese": {
+        "script": "ယီ",
+        "roman": "yi"
+      }
+    },
+    "hanzi_simplified": "颐",
+    "hanzi_traditional": "頤"
   },
   {
     "id": 28,
@@ -557,7 +2609,83 @@
     "japanese_name": "Daika",
     "korean_name": "대과 (daegwa)",
     "tibetan_name": "ཏ་ཀོ",
-    "hindi_name": "ता क्वो"
+    "hindi_name": "ता क्वो",
+    "translations": {
+      "pinyin": {
+        "script": "大过",
+        "roman": "Dà Guò"
+      },
+      "jyutping": {
+        "script": "大過",
+        "roman": "daai6 gwo3"
+      },
+      "zhuyin": {
+        "script": "大過",
+        "roman": "ㄉㄚˋ ㄍㄨㄛˋ"
+      },
+      "taigi": {
+        "script": "大過",
+        "roman": "Tāi-kòe"
+      },
+      "japanese": {
+        "script": "大過",
+        "roman": "Daika"
+      },
+      "korean": {
+        "script": "대과",
+        "roman": "daegwa"
+      },
+      "tibetan": {
+        "script": "ཏ་ཀོ",
+        "roman": "ta ko"
+      },
+      "hindi": {
+        "script": "ता क्वो",
+        "roman": "ta kwo"
+      },
+      "mongolian": {
+        "script": "Дакво",
+        "roman": "Dakvo"
+      },
+      "thai": {
+        "script": "ต้ากั้ว",
+        "roman": "ta kuo"
+      },
+      "vietnamese": {
+        "script": "Đại Quá",
+        "roman": "Đại Quá"
+      },
+      "indonesian": {
+        "script": "Dà Guò",
+        "roman": "Dà Guò"
+      },
+      "balinese": {
+        "script": "Dà Guò",
+        "roman": "Dà Guò"
+      },
+      "malay": {
+        "script": "Dà Guò",
+        "roman": "Dà Guò"
+      },
+      "filipino": {
+        "script": "Dà Guò",
+        "roman": "Dà Guò"
+      },
+      "khmer": {
+        "script": "តាគ្វ័រ",
+        "roman": "ta kuo"
+      },
+      "lao": {
+        "script": "ຕ້າກົ່ວ",
+        "roman": "ta kuo"
+      },
+      "burmese": {
+        "script": "တာကွိုး",
+        "roman": "ta kwo"
+      }
+    },
+    "hanzi_simplified": "大过",
+    "hanzi_traditional": "大過"
   },
   {
     "id": 29,
@@ -577,7 +2705,83 @@
     "japanese_name": "Kan",
     "korean_name": "감 (gam)",
     "tibetan_name": "ཁན",
-    "hindi_name": "खान"
+    "hindi_name": "खान",
+    "translations": {
+      "pinyin": {
+        "script": "坎",
+        "roman": "Kǎn"
+      },
+      "jyutping": {
+        "script": "坎",
+        "roman": "ham2"
+      },
+      "zhuyin": {
+        "script": "坎",
+        "roman": "ㄎㄢˇ"
+      },
+      "taigi": {
+        "script": "坎",
+        "roman": "Khám"
+      },
+      "japanese": {
+        "script": "坎",
+        "roman": "Kan"
+      },
+      "korean": {
+        "script": "감",
+        "roman": "gam"
+      },
+      "tibetan": {
+        "script": "ཁན",
+        "roman": "khan"
+      },
+      "hindi": {
+        "script": "खान",
+        "roman": "khan"
+      },
+      "mongolian": {
+        "script": "Хан",
+        "roman": "Khan"
+      },
+      "thai": {
+        "script": "ข่าน",
+        "roman": "khan"
+      },
+      "vietnamese": {
+        "script": "Khảm",
+        "roman": "Khảm"
+      },
+      "indonesian": {
+        "script": "Kǎn",
+        "roman": "Kǎn"
+      },
+      "balinese": {
+        "script": "Kǎn",
+        "roman": "Kǎn"
+      },
+      "malay": {
+        "script": "Kǎn",
+        "roman": "Kǎn"
+      },
+      "filipino": {
+        "script": "Kǎn",
+        "roman": "Kǎn"
+      },
+      "khmer": {
+        "script": "ឃាន់",
+        "roman": "khan"
+      },
+      "lao": {
+        "script": "ຄ່ານ",
+        "roman": "khan"
+      },
+      "burmese": {
+        "script": "ခါန်",
+        "roman": "khan"
+      }
+    },
+    "hanzi_simplified": "坎",
+    "hanzi_traditional": "坎"
   },
   {
     "id": 30,
@@ -597,7 +2801,83 @@
     "japanese_name": "Ri",
     "korean_name": "리 (ri)",
     "tibetan_name": "ལི",
-    "hindi_name": "ली"
+    "hindi_name": "ली",
+    "translations": {
+      "pinyin": {
+        "script": "离",
+        "roman": "Lí"
+      },
+      "jyutping": {
+        "script": "離",
+        "roman": "lei4"
+      },
+      "zhuyin": {
+        "script": "離",
+        "roman": "ㄌㄧˊ"
+      },
+      "taigi": {
+        "script": "離",
+        "roman": "Lî"
+      },
+      "japanese": {
+        "script": "離",
+        "roman": "Ri"
+      },
+      "korean": {
+        "script": "리",
+        "roman": "ri"
+      },
+      "tibetan": {
+        "script": "ལི",
+        "roman": "li"
+      },
+      "hindi": {
+        "script": "ली",
+        "roman": "li"
+      },
+      "mongolian": {
+        "script": "Ли",
+        "roman": "Li"
+      },
+      "thai": {
+        "script": "หลี",
+        "roman": "li"
+      },
+      "vietnamese": {
+        "script": "Ly",
+        "roman": "Ly"
+      },
+      "indonesian": {
+        "script": "Lí",
+        "roman": "Lí"
+      },
+      "balinese": {
+        "script": "Lí",
+        "roman": "Lí"
+      },
+      "malay": {
+        "script": "Lí",
+        "roman": "Lí"
+      },
+      "filipino": {
+        "script": "Lí",
+        "roman": "Lí"
+      },
+      "khmer": {
+        "script": "លី",
+        "roman": "li"
+      },
+      "lao": {
+        "script": "ລີ",
+        "roman": "li"
+      },
+      "burmese": {
+        "script": "လီ",
+        "roman": "li"
+      }
+    },
+    "hanzi_simplified": "离",
+    "hanzi_traditional": "離"
   },
   {
     "id": 31,
@@ -617,7 +2897,83 @@
     "japanese_name": "Kan",
     "korean_name": "함 (ham)",
     "tibetan_name": "ཤན",
-    "hindi_name": "श्येन"
+    "hindi_name": "श्येन",
+    "translations": {
+      "pinyin": {
+        "script": "咸",
+        "roman": "Xián"
+      },
+      "jyutping": {
+        "script": "咸",
+        "roman": "haam4"
+      },
+      "zhuyin": {
+        "script": "咸",
+        "roman": "ㄒㄧㄢˊ"
+      },
+      "taigi": {
+        "script": "咸",
+        "roman": "Hâm"
+      },
+      "japanese": {
+        "script": "咸",
+        "roman": "Kan"
+      },
+      "korean": {
+        "script": "함",
+        "roman": "ham"
+      },
+      "tibetan": {
+        "script": "ཤན",
+        "roman": "shan"
+      },
+      "hindi": {
+        "script": "श्येन",
+        "roman": "shyen"
+      },
+      "mongolian": {
+        "script": "Шянь",
+        "roman": "Shyani"
+      },
+      "thai": {
+        "script": "เสฺยียน",
+        "roman": "sian"
+      },
+      "vietnamese": {
+        "script": "Hàm",
+        "roman": "Hàm"
+      },
+      "indonesian": {
+        "script": "Xián",
+        "roman": "Xián"
+      },
+      "balinese": {
+        "script": "Xián",
+        "roman": "Xián"
+      },
+      "malay": {
+        "script": "Xián",
+        "roman": "Xián"
+      },
+      "filipino": {
+        "script": "Xián",
+        "roman": "Xián"
+      },
+      "khmer": {
+        "script": "ស្យេន",
+        "roman": "syen"
+      },
+      "lao": {
+        "script": "ຊຽນ",
+        "roman": "sian"
+      },
+      "burmese": {
+        "script": "ရှန်",
+        "roman": "shan"
+      }
+    },
+    "hanzi_simplified": "咸",
+    "hanzi_traditional": "咸"
   },
   {
     "id": 32,
@@ -637,7 +2993,83 @@
     "japanese_name": "Kō",
     "korean_name": "항 (hang)",
     "tibetan_name": "ཧང",
-    "hindi_name": "हङ"
+    "hindi_name": "हङ",
+    "translations": {
+      "pinyin": {
+        "script": "恒",
+        "roman": "Héng"
+      },
+      "jyutping": {
+        "script": "恆",
+        "roman": "hang4"
+      },
+      "zhuyin": {
+        "script": "恆",
+        "roman": "ㄏㄥˊ"
+      },
+      "taigi": {
+        "script": "恆",
+        "roman": "Hêng"
+      },
+      "japanese": {
+        "script": "恆",
+        "roman": "Kō"
+      },
+      "korean": {
+        "script": "항",
+        "roman": "hang"
+      },
+      "tibetan": {
+        "script": "ཧང",
+        "roman": "hang"
+      },
+      "hindi": {
+        "script": "हङ",
+        "roman": "hang"
+      },
+      "mongolian": {
+        "script": "Хэн",
+        "roman": "Heng"
+      },
+      "thai": {
+        "script": "เหิง",
+        "roman": "heng"
+      },
+      "vietnamese": {
+        "script": "Hằng",
+        "roman": "Hằng"
+      },
+      "indonesian": {
+        "script": "Héng",
+        "roman": "Héng"
+      },
+      "balinese": {
+        "script": "Héng",
+        "roman": "Héng"
+      },
+      "malay": {
+        "script": "Héng",
+        "roman": "Héng"
+      },
+      "filipino": {
+        "script": "Héng",
+        "roman": "Héng"
+      },
+      "khmer": {
+        "script": "ហេង",
+        "roman": "heng"
+      },
+      "lao": {
+        "script": "ເຫິງ",
+        "roman": "heng"
+      },
+      "burmese": {
+        "script": "ဟန်း",
+        "roman": "han"
+      }
+    },
+    "hanzi_simplified": "恒",
+    "hanzi_traditional": "恆"
   },
   {
     "id": 33,
@@ -657,7 +3089,83 @@
     "japanese_name": "Ton",
     "korean_name": "둔 (dun)",
     "tibetan_name": "ཏུན",
-    "hindi_name": "तुन"
+    "hindi_name": "तुन",
+    "translations": {
+      "pinyin": {
+        "script": "遯",
+        "roman": "Dùn"
+      },
+      "jyutping": {
+        "script": "遯",
+        "roman": "deon6"
+      },
+      "zhuyin": {
+        "script": "遯",
+        "roman": "ㄉㄨㄣˋ"
+      },
+      "taigi": {
+        "script": "遯",
+        "roman": "Tūn"
+      },
+      "japanese": {
+        "script": "遯",
+        "roman": "Ton"
+      },
+      "korean": {
+        "script": "둔",
+        "roman": "dun"
+      },
+      "tibetan": {
+        "script": "ཏུན",
+        "roman": "tun"
+      },
+      "hindi": {
+        "script": "तुन",
+        "roman": "tun"
+      },
+      "mongolian": {
+        "script": "Тунь",
+        "roman": "Tuni"
+      },
+      "thai": {
+        "script": "ตุ้น",
+        "roman": "tun"
+      },
+      "vietnamese": {
+        "script": "Độn",
+        "roman": "Độn"
+      },
+      "indonesian": {
+        "script": "Dùn",
+        "roman": "Dùn"
+      },
+      "balinese": {
+        "script": "Dùn",
+        "roman": "Dùn"
+      },
+      "malay": {
+        "script": "Dùn",
+        "roman": "Dùn"
+      },
+      "filipino": {
+        "script": "Dùn",
+        "roman": "Dùn"
+      },
+      "khmer": {
+        "script": "ទុន",
+        "roman": "tun"
+      },
+      "lao": {
+        "script": "ຕຸ່ນ",
+        "roman": "tun"
+      },
+      "burmese": {
+        "script": "တုန်း",
+        "roman": "tun"
+      }
+    },
+    "hanzi_simplified": "遯",
+    "hanzi_traditional": "遯"
   },
   {
     "id": 34,
@@ -677,7 +3185,83 @@
     "japanese_name": "Daisō",
     "korean_name": "대장 (daejang)",
     "tibetan_name": "ཏ་ཀྲུཨང",
-    "hindi_name": "ता च्वाङ"
+    "hindi_name": "ता च्वाङ",
+    "translations": {
+      "pinyin": {
+        "script": "大壮",
+        "roman": "Dà Zhuàng"
+      },
+      "jyutping": {
+        "script": "大壯",
+        "roman": "daai6 zong3"
+      },
+      "zhuyin": {
+        "script": "大壯",
+        "roman": "ㄉㄚˋ ㄓㄨㄤˋ"
+      },
+      "taigi": {
+        "script": "大壯",
+        "roman": "Tāi-chòng"
+      },
+      "japanese": {
+        "script": "大壯",
+        "roman": "Daisō"
+      },
+      "korean": {
+        "script": "대장",
+        "roman": "daejang"
+      },
+      "tibetan": {
+        "script": "ཏ་ཀྲུཨང",
+        "roman": "ta krwang"
+      },
+      "hindi": {
+        "script": "ता च्वाङ",
+        "roman": "ta chwang"
+      },
+      "mongolian": {
+        "script": "Дажуан",
+        "roman": "Da juang"
+      },
+      "thai": {
+        "script": "ต้าจฺวั้ง",
+        "roman": "ta chuang"
+      },
+      "vietnamese": {
+        "script": "Đại Tráng",
+        "roman": "Đại Tráng"
+      },
+      "indonesian": {
+        "script": "Dà Zhuàng",
+        "roman": "Dà Zhuàng"
+      },
+      "balinese": {
+        "script": "Dà Zhuàng",
+        "roman": "Dà Zhuàng"
+      },
+      "malay": {
+        "script": "Dà Zhuàng",
+        "roman": "Dà Zhuàng"
+      },
+      "filipino": {
+        "script": "Dà Zhuàng",
+        "roman": "Dà Zhuàng"
+      },
+      "khmer": {
+        "script": "តាជ្វាង",
+        "roman": "ta jvang"
+      },
+      "lao": {
+        "script": "ຕ້າຈົ່ວງ",
+        "roman": "ta chuang"
+      },
+      "burmese": {
+        "script": "တာချွမ်း",
+        "roman": "ta chwan"
+      }
+    },
+    "hanzi_simplified": "大壮",
+    "hanzi_traditional": "大壯"
   },
   {
     "id": 35,
@@ -697,7 +3281,83 @@
     "japanese_name": "Shin",
     "korean_name": "진 (jin)",
     "tibetan_name": "ཅིན",
-    "hindi_name": "जिन"
+    "hindi_name": "जिन",
+    "translations": {
+      "pinyin": {
+        "script": "晋",
+        "roman": "Jìn"
+      },
+      "jyutping": {
+        "script": "晉",
+        "roman": "zeon3"
+      },
+      "zhuyin": {
+        "script": "晉",
+        "roman": "ㄐㄧㄣˋ"
+      },
+      "taigi": {
+        "script": "晉",
+        "roman": "Chìn"
+      },
+      "japanese": {
+        "script": "晉",
+        "roman": "Shin"
+      },
+      "korean": {
+        "script": "진",
+        "roman": "jin"
+      },
+      "tibetan": {
+        "script": "ཅིན",
+        "roman": "cin"
+      },
+      "hindi": {
+        "script": "जिन",
+        "roman": "jin"
+      },
+      "mongolian": {
+        "script": "Жинь",
+        "roman": "Jini"
+      },
+      "thai": {
+        "script": "จิ้น",
+        "roman": "chin"
+      },
+      "vietnamese": {
+        "script": "Tấn",
+        "roman": "Tấn"
+      },
+      "indonesian": {
+        "script": "Jìn",
+        "roman": "Jìn"
+      },
+      "balinese": {
+        "script": "Jìn",
+        "roman": "Jìn"
+      },
+      "malay": {
+        "script": "Jìn",
+        "roman": "Jìn"
+      },
+      "filipino": {
+        "script": "Jìn",
+        "roman": "Jìn"
+      },
+      "khmer": {
+        "script": "ជីន",
+        "roman": "jin"
+      },
+      "lao": {
+        "script": "ຈິ່ນ",
+        "roman": "chin"
+      },
+      "burmese": {
+        "script": "ကျင်း",
+        "roman": "kyin"
+      }
+    },
+    "hanzi_simplified": "晋",
+    "hanzi_traditional": "晉"
   },
   {
     "id": 36,
@@ -717,7 +3377,83 @@
     "japanese_name": "Meii",
     "korean_name": "명이 (myeongi)",
     "tibetan_name": "མིང་ཡི",
-    "hindi_name": "मिङ यी"
+    "hindi_name": "मिङ यी",
+    "translations": {
+      "pinyin": {
+        "script": "明夷",
+        "roman": "Míng Yí"
+      },
+      "jyutping": {
+        "script": "明夷",
+        "roman": "ming4 ji4"
+      },
+      "zhuyin": {
+        "script": "明夷",
+        "roman": "ㄇㄧㄥˊ ㄧˊ"
+      },
+      "taigi": {
+        "script": "明夷",
+        "roman": "Bêng-î"
+      },
+      "japanese": {
+        "script": "明夷",
+        "roman": "Meii"
+      },
+      "korean": {
+        "script": "명이",
+        "roman": "myeongi"
+      },
+      "tibetan": {
+        "script": "མིང་ཡི",
+        "roman": "ming yi"
+      },
+      "hindi": {
+        "script": "मिङ यी",
+        "roman": "ming yi"
+      },
+      "mongolian": {
+        "script": "Минии",
+        "roman": "Mingi"
+      },
+      "thai": {
+        "script": "หมิงอี๋",
+        "roman": "ming i"
+      },
+      "vietnamese": {
+        "script": "Minh Di",
+        "roman": "Minh Di"
+      },
+      "indonesian": {
+        "script": "Míng Yí",
+        "roman": "Míng Yí"
+      },
+      "balinese": {
+        "script": "Míng Yí",
+        "roman": "Míng Yí"
+      },
+      "malay": {
+        "script": "Míng Yí",
+        "roman": "Míng Yí"
+      },
+      "filipino": {
+        "script": "Míng Yí",
+        "roman": "Míng Yí"
+      },
+      "khmer": {
+        "script": "មីងយី",
+        "roman": "ming yi"
+      },
+      "lao": {
+        "script": "ມີ່ງອີ່",
+        "roman": "ming i"
+      },
+      "burmese": {
+        "script": "မင်းယီ",
+        "roman": "ming yi"
+      }
+    },
+    "hanzi_simplified": "明夷",
+    "hanzi_traditional": "明夷"
   },
   {
     "id": 37,
@@ -737,7 +3473,83 @@
     "japanese_name": "Kajin",
     "korean_name": "가인 (gain)",
     "tibetan_name": "ཅཱ་རན",
-    "hindi_name": "ज्या रन"
+    "hindi_name": "ज्या रन",
+    "translations": {
+      "pinyin": {
+        "script": "家人",
+        "roman": "Jiā Rén"
+      },
+      "jyutping": {
+        "script": "家人",
+        "roman": "gaa1 jan4"
+      },
+      "zhuyin": {
+        "script": "家人",
+        "roman": "ㄐㄧㄚ ㄖㄣˊ"
+      },
+      "taigi": {
+        "script": "家人",
+        "roman": "Ka-jîn"
+      },
+      "japanese": {
+        "script": "家人",
+        "roman": "Kajin"
+      },
+      "korean": {
+        "script": "가인",
+        "roman": "gain"
+      },
+      "tibetan": {
+        "script": "ཅཱ་རན",
+        "roman": "ca ran"
+      },
+      "hindi": {
+        "script": "ज्या रन",
+        "roman": "jya ran"
+      },
+      "mongolian": {
+        "script": "Жяжэн",
+        "roman": "Jya jen"
+      },
+      "thai": {
+        "script": "เจียเหริน",
+        "roman": "chia ren"
+      },
+      "vietnamese": {
+        "script": "Gia Nhân",
+        "roman": "Gia Nhân"
+      },
+      "indonesian": {
+        "script": "Jiā Rén",
+        "roman": "Jiā Rén"
+      },
+      "balinese": {
+        "script": "Jiā Rén",
+        "roman": "Jiā Rén"
+      },
+      "malay": {
+        "script": "Jiā Rén",
+        "roman": "Jiā Rén"
+      },
+      "filipino": {
+        "script": "Jiā Rén",
+        "roman": "Jiā Rén"
+      },
+      "khmer": {
+        "script": "ជារ៉េន",
+        "roman": "ja ren"
+      },
+      "lao": {
+        "script": "ຈຽເຣິນ",
+        "roman": "chia ren"
+      },
+      "burmese": {
+        "script": "ကျာရန်",
+        "roman": "kya ran"
+      }
+    },
+    "hanzi_simplified": "家人",
+    "hanzi_traditional": "家人"
   },
   {
     "id": 38,
@@ -757,7 +3569,83 @@
     "japanese_name": "Kei",
     "korean_name": "규 (gyu)",
     "tibetan_name": "ཁུའེ",
-    "hindi_name": "खुई"
+    "hindi_name": "खुई",
+    "translations": {
+      "pinyin": {
+        "script": "睽",
+        "roman": "Kuí"
+      },
+      "jyutping": {
+        "script": "睽",
+        "roman": "kwai4"
+      },
+      "zhuyin": {
+        "script": "睽",
+        "roman": "ㄎㄨㄟˊ"
+      },
+      "taigi": {
+        "script": "睽",
+        "roman": "Khue"
+      },
+      "japanese": {
+        "script": "睽",
+        "roman": "Kei"
+      },
+      "korean": {
+        "script": "규",
+        "roman": "gyu"
+      },
+      "tibetan": {
+        "script": "ཁུའེ",
+        "roman": "khu'e"
+      },
+      "hindi": {
+        "script": "खुई",
+        "roman": "khui"
+      },
+      "mongolian": {
+        "script": "Хуй",
+        "roman": "Khuy"
+      },
+      "thai": {
+        "script": "คุย",
+        "roman": "khui"
+      },
+      "vietnamese": {
+        "script": "Khuê",
+        "roman": "Khuê"
+      },
+      "indonesian": {
+        "script": "Kuí",
+        "roman": "Kuí"
+      },
+      "balinese": {
+        "script": "Kuí",
+        "roman": "Kuí"
+      },
+      "malay": {
+        "script": "Kuí",
+        "roman": "Kuí"
+      },
+      "filipino": {
+        "script": "Kuí",
+        "roman": "Kuí"
+      },
+      "khmer": {
+        "script": "ឃុយ",
+        "roman": "khuy"
+      },
+      "lao": {
+        "script": "ຄຸຍ",
+        "roman": "khui"
+      },
+      "burmese": {
+        "script": "ခွေး",
+        "roman": "khwe"
+      }
+    },
+    "hanzi_simplified": "睽",
+    "hanzi_traditional": "睽"
   },
   {
     "id": 39,
@@ -777,7 +3665,83 @@
     "japanese_name": "Ken",
     "korean_name": "건 (geon)",
     "tibetan_name": "ཅཱན",
-    "hindi_name": "ज्येन"
+    "hindi_name": "ज्येन",
+    "translations": {
+      "pinyin": {
+        "script": "蹇",
+        "roman": "Jiǎn"
+      },
+      "jyutping": {
+        "script": "蹇",
+        "roman": "gin2"
+      },
+      "zhuyin": {
+        "script": "蹇",
+        "roman": "ㄐㄧㄢˇ"
+      },
+      "taigi": {
+        "script": "蹇",
+        "roman": "Kián"
+      },
+      "japanese": {
+        "script": "蹇",
+        "roman": "Ken"
+      },
+      "korean": {
+        "script": "건",
+        "roman": "geon"
+      },
+      "tibetan": {
+        "script": "ཅཱན",
+        "roman": "can"
+      },
+      "hindi": {
+        "script": "ज्येन",
+        "roman": "jyen"
+      },
+      "mongolian": {
+        "script": "Жянь",
+        "roman": "Jyani"
+      },
+      "thai": {
+        "script": "เจี่ยน",
+        "roman": "chian"
+      },
+      "vietnamese": {
+        "script": "Kiển",
+        "roman": "Kiển"
+      },
+      "indonesian": {
+        "script": "Jiǎn",
+        "roman": "Jiǎn"
+      },
+      "balinese": {
+        "script": "Jiǎn",
+        "roman": "Jiǎn"
+      },
+      "malay": {
+        "script": "Jiǎn",
+        "roman": "Jiǎn"
+      },
+      "filipino": {
+        "script": "Jiǎn",
+        "roman": "Jiǎn"
+      },
+      "khmer": {
+        "script": "ជៀន",
+        "roman": "chian"
+      },
+      "lao": {
+        "script": "ຈຽນ",
+        "roman": "chian"
+      },
+      "burmese": {
+        "script": "ကျန်း",
+        "roman": "kyan"
+      }
+    },
+    "hanzi_simplified": "蹇",
+    "hanzi_traditional": "蹇"
   },
   {
     "id": 40,
@@ -797,7 +3761,83 @@
     "japanese_name": "Kai",
     "korean_name": "해 (hae)",
     "tibetan_name": "ཤེ",
-    "hindi_name": "श्ये"
+    "hindi_name": "श्ये",
+    "translations": {
+      "pinyin": {
+        "script": "解",
+        "roman": "Xiè"
+      },
+      "jyutping": {
+        "script": "解",
+        "roman": "gaai2"
+      },
+      "zhuyin": {
+        "script": "解",
+        "roman": "ㄐㄧㄝˇ"
+      },
+      "taigi": {
+        "script": "解",
+        "roman": "Kái"
+      },
+      "japanese": {
+        "script": "解",
+        "roman": "Kai"
+      },
+      "korean": {
+        "script": "해",
+        "roman": "hae"
+      },
+      "tibetan": {
+        "script": "ཤེ",
+        "roman": "she"
+      },
+      "hindi": {
+        "script": "श्ये",
+        "roman": "shye"
+      },
+      "mongolian": {
+        "script": "Шэ",
+        "roman": "She"
+      },
+      "thai": {
+        "script": "เจี่ย",
+        "roman": "chia"
+      },
+      "vietnamese": {
+        "script": "Giải",
+        "roman": "Giải"
+      },
+      "indonesian": {
+        "script": "Xiè",
+        "roman": "Xiè"
+      },
+      "balinese": {
+        "script": "Xiè",
+        "roman": "Xiè"
+      },
+      "malay": {
+        "script": "Xiè",
+        "roman": "Xiè"
+      },
+      "filipino": {
+        "script": "Xiè",
+        "roman": "Xiè"
+      },
+      "khmer": {
+        "script": "ស្យេ",
+        "roman": "sye"
+      },
+      "lao": {
+        "script": "ຈຽ",
+        "roman": "chia"
+      },
+      "burmese": {
+        "script": "ရှေး",
+        "roman": "she"
+      }
+    },
+    "hanzi_simplified": "解",
+    "hanzi_traditional": "解"
   },
   {
     "id": 41,
@@ -817,7 +3857,83 @@
     "japanese_name": "Son",
     "korean_name": "손 (son)",
     "tibetan_name": "སུན",
-    "hindi_name": "सुन"
+    "hindi_name": "सुन",
+    "translations": {
+      "pinyin": {
+        "script": "损",
+        "roman": "Sǔn"
+      },
+      "jyutping": {
+        "script": "損",
+        "roman": "syun2"
+      },
+      "zhuyin": {
+        "script": "損",
+        "roman": "ㄙㄨㄣˇ"
+      },
+      "taigi": {
+        "script": "損",
+        "roman": "Sún"
+      },
+      "japanese": {
+        "script": "損",
+        "roman": "Son"
+      },
+      "korean": {
+        "script": "손",
+        "roman": "son"
+      },
+      "tibetan": {
+        "script": "སུན",
+        "roman": "sun"
+      },
+      "hindi": {
+        "script": "सुन",
+        "roman": "sun"
+      },
+      "mongolian": {
+        "script": "Сунь",
+        "roman": "Suni"
+      },
+      "thai": {
+        "script": "สุ่น",
+        "roman": "sun"
+      },
+      "vietnamese": {
+        "script": "Tổn",
+        "roman": "Tổn"
+      },
+      "indonesian": {
+        "script": "Sǔn",
+        "roman": "Sǔn"
+      },
+      "balinese": {
+        "script": "Sǔn",
+        "roman": "Sǔn"
+      },
+      "malay": {
+        "script": "Sǔn",
+        "roman": "Sǔn"
+      },
+      "filipino": {
+        "script": "Sǔn",
+        "roman": "Sǔn"
+      },
+      "khmer": {
+        "script": "ស៊ុន",
+        "roman": "sun"
+      },
+      "lao": {
+        "script": "ຊຸ່ນ",
+        "roman": "sun"
+      },
+      "burmese": {
+        "script": "ဆွန်း",
+        "roman": "swan"
+      }
+    },
+    "hanzi_simplified": "损",
+    "hanzi_traditional": "損"
   },
   {
     "id": 42,
@@ -837,7 +3953,83 @@
     "japanese_name": "Eki",
     "korean_name": "익 (ik)",
     "tibetan_name": "ཡི",
-    "hindi_name": "यी"
+    "hindi_name": "यी",
+    "translations": {
+      "pinyin": {
+        "script": "益",
+        "roman": "Yì"
+      },
+      "jyutping": {
+        "script": "益",
+        "roman": "jik1"
+      },
+      "zhuyin": {
+        "script": "益",
+        "roman": "ㄧˋ"
+      },
+      "taigi": {
+        "script": "益",
+        "roman": "Ik"
+      },
+      "japanese": {
+        "script": "益",
+        "roman": "Eki"
+      },
+      "korean": {
+        "script": "익",
+        "roman": "ik"
+      },
+      "tibetan": {
+        "script": "ཡི",
+        "roman": "yi"
+      },
+      "hindi": {
+        "script": "यी",
+        "roman": "yi"
+      },
+      "mongolian": {
+        "script": "И",
+        "roman": "I"
+      },
+      "thai": {
+        "script": "อี้",
+        "roman": "i"
+      },
+      "vietnamese": {
+        "script": "Ích",
+        "roman": "Ích"
+      },
+      "indonesian": {
+        "script": "Yì",
+        "roman": "Yì"
+      },
+      "balinese": {
+        "script": "Yì",
+        "roman": "Yì"
+      },
+      "malay": {
+        "script": "Yì",
+        "roman": "Yì"
+      },
+      "filipino": {
+        "script": "Yì",
+        "roman": "Yì"
+      },
+      "khmer": {
+        "script": "យី",
+        "roman": "yi"
+      },
+      "lao": {
+        "script": "ອີ່",
+        "roman": "i"
+      },
+      "burmese": {
+        "script": "ယီ",
+        "roman": "yi"
+      }
+    },
+    "hanzi_simplified": "益",
+    "hanzi_traditional": "益"
   },
   {
     "id": 43,
@@ -857,7 +4049,83 @@
     "japanese_name": "Kai",
     "korean_name": "쾌 (kwae)",
     "tibetan_name": "ཀུཨའེ",
-    "hindi_name": "गुआई"
+    "hindi_name": "गुआई",
+    "translations": {
+      "pinyin": {
+        "script": "夬",
+        "roman": "Guài"
+      },
+      "jyutping": {
+        "script": "夬",
+        "roman": "gwaai3"
+      },
+      "zhuyin": {
+        "script": "夬",
+        "roman": "ㄍㄨㄞˋ"
+      },
+      "taigi": {
+        "script": "夬",
+        "roman": "Kòai"
+      },
+      "japanese": {
+        "script": "夬",
+        "roman": "Kai"
+      },
+      "korean": {
+        "script": "쾌",
+        "roman": "kwae"
+      },
+      "tibetan": {
+        "script": "ཀུཨའེ",
+        "roman": "ku'a'e"
+      },
+      "hindi": {
+        "script": "गुआई",
+        "roman": "guai"
+      },
+      "mongolian": {
+        "script": "Гуай",
+        "roman": "Guay"
+      },
+      "thai": {
+        "script": "กว้าย",
+        "roman": "kuai"
+      },
+      "vietnamese": {
+        "script": "Quải",
+        "roman": "Quải"
+      },
+      "indonesian": {
+        "script": "Guài",
+        "roman": "Guài"
+      },
+      "balinese": {
+        "script": "Guài",
+        "roman": "Guài"
+      },
+      "malay": {
+        "script": "Guài",
+        "roman": "Guài"
+      },
+      "filipino": {
+        "script": "Guài",
+        "roman": "Guài"
+      },
+      "khmer": {
+        "script": "ក្វៃ",
+        "roman": "kvai"
+      },
+      "lao": {
+        "script": "ກວາຍ",
+        "roman": "kuai"
+      },
+      "burmese": {
+        "script": "ကွိုက်",
+        "roman": "kwaik"
+      }
+    },
+    "hanzi_simplified": "夬",
+    "hanzi_traditional": "夬"
   },
   {
     "id": 44,
@@ -877,7 +4145,83 @@
     "japanese_name": "Kō",
     "korean_name": "구 (gu)",
     "tibetan_name": "ཀོའུ",
-    "hindi_name": "गोऊ"
+    "hindi_name": "गोऊ",
+    "translations": {
+      "pinyin": {
+        "script": "姤",
+        "roman": "Gòu"
+      },
+      "jyutping": {
+        "script": "姤",
+        "roman": "gau3"
+      },
+      "zhuyin": {
+        "script": "姤",
+        "roman": "ㄍㄡˋ"
+      },
+      "taigi": {
+        "script": "姤",
+        "roman": "Kòo"
+      },
+      "japanese": {
+        "script": "姤",
+        "roman": "Kō"
+      },
+      "korean": {
+        "script": "구",
+        "roman": "gu"
+      },
+      "tibetan": {
+        "script": "ཀོའུ",
+        "roman": "ko'u"
+      },
+      "hindi": {
+        "script": "गोऊ",
+        "roman": "gou"
+      },
+      "mongolian": {
+        "script": "Гоу",
+        "roman": "Gou"
+      },
+      "thai": {
+        "script": "โก้ว",
+        "roman": "kou"
+      },
+      "vietnamese": {
+        "script": "Cấu",
+        "roman": "Cấu"
+      },
+      "indonesian": {
+        "script": "Gòu",
+        "roman": "Gòu"
+      },
+      "balinese": {
+        "script": "Gòu",
+        "roman": "Gòu"
+      },
+      "malay": {
+        "script": "Gòu",
+        "roman": "Gòu"
+      },
+      "filipino": {
+        "script": "Gòu",
+        "roman": "Gòu"
+      },
+      "khmer": {
+        "script": "កូវ",
+        "roman": "kov"
+      },
+      "lao": {
+        "script": "ໂກ່ວ",
+        "roman": "kou"
+      },
+      "burmese": {
+        "script": "ကိုး",
+        "roman": "ko"
+      }
+    },
+    "hanzi_simplified": "姤",
+    "hanzi_traditional": "姤"
   },
   {
     "id": 45,
@@ -897,7 +4241,83 @@
     "japanese_name": "Sui",
     "korean_name": "췌 (chwe)",
     "tibetan_name": "ཚུའེ",
-    "hindi_name": "छुई"
+    "hindi_name": "छुई",
+    "translations": {
+      "pinyin": {
+        "script": "萃",
+        "roman": "Cuì"
+      },
+      "jyutping": {
+        "script": "萃",
+        "roman": "seoi6"
+      },
+      "zhuyin": {
+        "script": "萃",
+        "roman": "ㄘㄨㄟˋ"
+      },
+      "taigi": {
+        "script": "萃",
+        "roman": "Chūi"
+      },
+      "japanese": {
+        "script": "萃",
+        "roman": "Sui"
+      },
+      "korean": {
+        "script": "췌",
+        "roman": "chwe"
+      },
+      "tibetan": {
+        "script": "ཚུའེ",
+        "roman": "tshu'e"
+      },
+      "hindi": {
+        "script": "छुई",
+        "roman": "chhui"
+      },
+      "mongolian": {
+        "script": "Цуй",
+        "roman": "Tsuy"
+      },
+      "thai": {
+        "script": "ฉุ่ย",
+        "roman": "chui"
+      },
+      "vietnamese": {
+        "script": "Tụy",
+        "roman": "Tụy"
+      },
+      "indonesian": {
+        "script": "Cuì",
+        "roman": "Cuì"
+      },
+      "balinese": {
+        "script": "Cuì",
+        "roman": "Cuì"
+      },
+      "malay": {
+        "script": "Cuì",
+        "roman": "Cuì"
+      },
+      "filipino": {
+        "script": "Cuì",
+        "roman": "Cuì"
+      },
+      "khmer": {
+        "script": "ឈុយ",
+        "roman": "chhuy"
+      },
+      "lao": {
+        "script": "ຊຸຍ",
+        "roman": "sui"
+      },
+      "burmese": {
+        "script": "ချွေး",
+        "roman": "chwe"
+      }
+    },
+    "hanzi_simplified": "萃",
+    "hanzi_traditional": "萃"
   },
   {
     "id": 46,
@@ -917,7 +4337,83 @@
     "japanese_name": "Shō",
     "korean_name": "승 (seung)",
     "tibetan_name": "ཤང",
-    "hindi_name": "शेङ"
+    "hindi_name": "शेङ",
+    "translations": {
+      "pinyin": {
+        "script": "升",
+        "roman": "Shēng"
+      },
+      "jyutping": {
+        "script": "升",
+        "roman": "sing1"
+      },
+      "zhuyin": {
+        "script": "升",
+        "roman": "ㄕㄥ"
+      },
+      "taigi": {
+        "script": "升",
+        "roman": "Seng"
+      },
+      "japanese": {
+        "script": "升",
+        "roman": "Shō"
+      },
+      "korean": {
+        "script": "승",
+        "roman": "seung"
+      },
+      "tibetan": {
+        "script": "ཤང",
+        "roman": "shang"
+      },
+      "hindi": {
+        "script": "शेङ",
+        "roman": "sheng"
+      },
+      "mongolian": {
+        "script": "Шэн",
+        "roman": "Sheng"
+      },
+      "thai": {
+        "script": "เซิง",
+        "roman": "sheng"
+      },
+      "vietnamese": {
+        "script": "Thăng",
+        "roman": "Thăng"
+      },
+      "indonesian": {
+        "script": "Shēng",
+        "roman": "Shēng"
+      },
+      "balinese": {
+        "script": "Shēng",
+        "roman": "Shēng"
+      },
+      "malay": {
+        "script": "Shēng",
+        "roman": "Shēng"
+      },
+      "filipino": {
+        "script": "Shēng",
+        "roman": "Shēng"
+      },
+      "khmer": {
+        "script": "ស៊េង",
+        "roman": "seng"
+      },
+      "lao": {
+        "script": "ເຊິງ",
+        "roman": "seng"
+      },
+      "burmese": {
+        "script": "ရှင်း",
+        "roman": "shin"
+      }
+    },
+    "hanzi_simplified": "升",
+    "hanzi_traditional": "升"
   },
   {
     "id": 47,
@@ -937,7 +4433,83 @@
     "japanese_name": "Kon",
     "korean_name": "곤 (gon)",
     "tibetan_name": "ཁུན",
-    "hindi_name": "खुन"
+    "hindi_name": "खुन",
+    "translations": {
+      "pinyin": {
+        "script": "困",
+        "roman": "Kùn"
+      },
+      "jyutping": {
+        "script": "困",
+        "roman": "kwan3"
+      },
+      "zhuyin": {
+        "script": "困",
+        "roman": "ㄎㄨㄣˋ"
+      },
+      "taigi": {
+        "script": "困",
+        "roman": "Khùn"
+      },
+      "japanese": {
+        "script": "困",
+        "roman": "Kon"
+      },
+      "korean": {
+        "script": "곤",
+        "roman": "gon"
+      },
+      "tibetan": {
+        "script": "ཁུན",
+        "roman": "khun"
+      },
+      "hindi": {
+        "script": "खुन",
+        "roman": "khun"
+      },
+      "mongolian": {
+        "script": "Кунь",
+        "roman": "Kuni"
+      },
+      "thai": {
+        "script": "คุ่น",
+        "roman": "khun"
+      },
+      "vietnamese": {
+        "script": "Khốn",
+        "roman": "Khốn"
+      },
+      "indonesian": {
+        "script": "Kùn",
+        "roman": "Kùn"
+      },
+      "balinese": {
+        "script": "Kùn",
+        "roman": "Kùn"
+      },
+      "malay": {
+        "script": "Kùn",
+        "roman": "Kùn"
+      },
+      "filipino": {
+        "script": "Kùn",
+        "roman": "Kùn"
+      },
+      "khmer": {
+        "script": "ឃុន",
+        "roman": "khun"
+      },
+      "lao": {
+        "script": "ຄຸ່ນ",
+        "roman": "khun"
+      },
+      "burmese": {
+        "script": "ခွန်း",
+        "roman": "khwan"
+      }
+    },
+    "hanzi_simplified": "困",
+    "hanzi_traditional": "困"
   },
   {
     "id": 48,
@@ -957,7 +4529,83 @@
     "japanese_name": "Sei",
     "korean_name": "정 (jeong)",
     "tibetan_name": "ཅིང",
-    "hindi_name": "जिङ"
+    "hindi_name": "जिङ",
+    "translations": {
+      "pinyin": {
+        "script": "井",
+        "roman": "Jǐng"
+      },
+      "jyutping": {
+        "script": "井",
+        "roman": "zing2"
+      },
+      "zhuyin": {
+        "script": "井",
+        "roman": "ㄐㄧㄥˇ"
+      },
+      "taigi": {
+        "script": "井",
+        "roman": "Chéng"
+      },
+      "japanese": {
+        "script": "井",
+        "roman": "Sei"
+      },
+      "korean": {
+        "script": "정",
+        "roman": "jeong"
+      },
+      "tibetan": {
+        "script": "ཅིང",
+        "roman": "cing"
+      },
+      "hindi": {
+        "script": "जिङ",
+        "roman": "jing"
+      },
+      "mongolian": {
+        "script": "Жин",
+        "roman": "Jing"
+      },
+      "thai": {
+        "script": "จิ่ง",
+        "roman": "ching"
+      },
+      "vietnamese": {
+        "script": "Tỉnh",
+        "roman": "Tỉnh"
+      },
+      "indonesian": {
+        "script": "Jǐng",
+        "roman": "Jǐng"
+      },
+      "balinese": {
+        "script": "Jǐng",
+        "roman": "Jǐng"
+      },
+      "malay": {
+        "script": "Jǐng",
+        "roman": "Jǐng"
+      },
+      "filipino": {
+        "script": "Jǐng",
+        "roman": "Jǐng"
+      },
+      "khmer": {
+        "script": "ជីង",
+        "roman": "jing"
+      },
+      "lao": {
+        "script": "ຈິ່ງ",
+        "roman": "ching"
+      },
+      "burmese": {
+        "script": "ကျင်း",
+        "roman": "kyin"
+      }
+    },
+    "hanzi_simplified": "井",
+    "hanzi_traditional": "井"
   },
   {
     "id": 49,
@@ -977,7 +4625,83 @@
     "japanese_name": "Kaku",
     "korean_name": "혁 (hyeok)",
     "tibetan_name": "ཀེ",
-    "hindi_name": "गे"
+    "hindi_name": "गे",
+    "translations": {
+      "pinyin": {
+        "script": "革",
+        "roman": "Gé"
+      },
+      "jyutping": {
+        "script": "革",
+        "roman": "gaak3"
+      },
+      "zhuyin": {
+        "script": "革",
+        "roman": "ㄍㄜˊ"
+      },
+      "taigi": {
+        "script": "革",
+        "roman": "Kek"
+      },
+      "japanese": {
+        "script": "革",
+        "roman": "Kaku"
+      },
+      "korean": {
+        "script": "혁",
+        "roman": "hyeok"
+      },
+      "tibetan": {
+        "script": "ཀེ",
+        "roman": "ke"
+      },
+      "hindi": {
+        "script": "गे",
+        "roman": "ge"
+      },
+      "mongolian": {
+        "script": "Гэ",
+        "roman": "Ge"
+      },
+      "thai": {
+        "script": "เก๋อ",
+        "roman": "ke"
+      },
+      "vietnamese": {
+        "script": "Cách",
+        "roman": "Cách"
+      },
+      "indonesian": {
+        "script": "Gé",
+        "roman": "Gé"
+      },
+      "balinese": {
+        "script": "Gé",
+        "roman": "Gé"
+      },
+      "malay": {
+        "script": "Gé",
+        "roman": "Gé"
+      },
+      "filipino": {
+        "script": "Gé",
+        "roman": "Gé"
+      },
+      "khmer": {
+        "script": "គេ",
+        "roman": "ke"
+      },
+      "lao": {
+        "script": "ເກິ່",
+        "roman": "ke"
+      },
+      "burmese": {
+        "script": "ကေး",
+        "roman": "ke"
+      }
+    },
+    "hanzi_simplified": "革",
+    "hanzi_traditional": "革"
   },
   {
     "id": 50,
@@ -997,7 +4721,83 @@
     "japanese_name": "Tei",
     "korean_name": "정 (jeong)",
     "tibetan_name": "ཏིང",
-    "hindi_name": "तिङ"
+    "hindi_name": "तिङ",
+    "translations": {
+      "pinyin": {
+        "script": "鼎",
+        "roman": "Dǐng"
+      },
+      "jyutping": {
+        "script": "鼎",
+        "roman": "ding2"
+      },
+      "zhuyin": {
+        "script": "鼎",
+        "roman": "ㄉㄧㄥˇ"
+      },
+      "taigi": {
+        "script": "鼎",
+        "roman": "Tiáⁿ"
+      },
+      "japanese": {
+        "script": "鼎",
+        "roman": "Tei"
+      },
+      "korean": {
+        "script": "정",
+        "roman": "jeong"
+      },
+      "tibetan": {
+        "script": "ཏིང",
+        "roman": "ting"
+      },
+      "hindi": {
+        "script": "तिङ",
+        "roman": "ting"
+      },
+      "mongolian": {
+        "script": "Тин",
+        "roman": "Ting"
+      },
+      "thai": {
+        "script": "ติ่ง",
+        "roman": "ting"
+      },
+      "vietnamese": {
+        "script": "Đỉnh",
+        "roman": "Đỉnh"
+      },
+      "indonesian": {
+        "script": "Dǐng",
+        "roman": "Dǐng"
+      },
+      "balinese": {
+        "script": "Dǐng",
+        "roman": "Dǐng"
+      },
+      "malay": {
+        "script": "Dǐng",
+        "roman": "Dǐng"
+      },
+      "filipino": {
+        "script": "Dǐng",
+        "roman": "Dǐng"
+      },
+      "khmer": {
+        "script": "ទីង",
+        "roman": "ting"
+      },
+      "lao": {
+        "script": "ຕິ່ງ",
+        "roman": "ting"
+      },
+      "burmese": {
+        "script": "တင်း",
+        "roman": "tin"
+      }
+    },
+    "hanzi_simplified": "鼎",
+    "hanzi_traditional": "鼎"
   },
   {
     "id": 51,
@@ -1017,7 +4817,83 @@
     "japanese_name": "Shin",
     "korean_name": "진 (jin)",
     "tibetan_name": "ཀྲན",
-    "hindi_name": "जन"
+    "hindi_name": "जन",
+    "translations": {
+      "pinyin": {
+        "script": "震",
+        "roman": "Zhèn"
+      },
+      "jyutping": {
+        "script": "震",
+        "roman": "zan3"
+      },
+      "zhuyin": {
+        "script": "震",
+        "roman": "ㄓㄣˋ"
+      },
+      "taigi": {
+        "script": "震",
+        "roman": "Chìn"
+      },
+      "japanese": {
+        "script": "震",
+        "roman": "Shin"
+      },
+      "korean": {
+        "script": "진",
+        "roman": "jin"
+      },
+      "tibetan": {
+        "script": "ཀྲན",
+        "roman": "kran"
+      },
+      "hindi": {
+        "script": "जन",
+        "roman": "jen"
+      },
+      "mongolian": {
+        "script": "Жэн",
+        "roman": "Jen"
+      },
+      "thai": {
+        "script": "เจิ้น",
+        "roman": "chen"
+      },
+      "vietnamese": {
+        "script": "Chấn",
+        "roman": "Chấn"
+      },
+      "indonesian": {
+        "script": "Zhèn",
+        "roman": "Zhèn"
+      },
+      "balinese": {
+        "script": "Zhèn",
+        "roman": "Zhèn"
+      },
+      "malay": {
+        "script": "Zhèn",
+        "roman": "Zhèn"
+      },
+      "filipino": {
+        "script": "Zhèn",
+        "roman": "Zhèn"
+      },
+      "khmer": {
+        "script": "ជេន",
+        "roman": "jen"
+      },
+      "lao": {
+        "script": "ເຈິ່ນ",
+        "roman": "chen"
+      },
+      "burmese": {
+        "script": "ကျန်း",
+        "roman": "kyan"
+      }
+    },
+    "hanzi_simplified": "震",
+    "hanzi_traditional": "震"
   },
   {
     "id": 52,
@@ -1037,7 +4913,83 @@
     "japanese_name": "Gon",
     "korean_name": "간 (gan)",
     "tibetan_name": "ཀན",
-    "hindi_name": "गन"
+    "hindi_name": "गन",
+    "translations": {
+      "pinyin": {
+        "script": "艮",
+        "roman": "Gèn"
+      },
+      "jyutping": {
+        "script": "艮",
+        "roman": "gan3"
+      },
+      "zhuyin": {
+        "script": "艮",
+        "roman": "ㄍㄣˋ"
+      },
+      "taigi": {
+        "script": "艮",
+        "roman": "Kùn"
+      },
+      "japanese": {
+        "script": "艮",
+        "roman": "Gon"
+      },
+      "korean": {
+        "script": "간",
+        "roman": "gan"
+      },
+      "tibetan": {
+        "script": "ཀན",
+        "roman": "kan"
+      },
+      "hindi": {
+        "script": "गन",
+        "roman": "gan"
+      },
+      "mongolian": {
+        "script": "Гэн",
+        "roman": "Gen"
+      },
+      "thai": {
+        "script": "เกิ้น",
+        "roman": "ken"
+      },
+      "vietnamese": {
+        "script": "Cấn",
+        "roman": "Cấn"
+      },
+      "indonesian": {
+        "script": "Gèn",
+        "roman": "Gèn"
+      },
+      "balinese": {
+        "script": "Gèn",
+        "roman": "Gèn"
+      },
+      "malay": {
+        "script": "Gèn",
+        "roman": "Gèn"
+      },
+      "filipino": {
+        "script": "Gèn",
+        "roman": "Gèn"
+      },
+      "khmer": {
+        "script": "កែន",
+        "roman": "ken"
+      },
+      "lao": {
+        "script": "ເກິ່ນ",
+        "roman": "ken"
+      },
+      "burmese": {
+        "script": "ကန်း",
+        "roman": "kan"
+      }
+    },
+    "hanzi_simplified": "艮",
+    "hanzi_traditional": "艮"
   },
   {
     "id": 53,
@@ -1057,7 +5009,83 @@
     "japanese_name": "Zen",
     "korean_name": "점 (jeom)",
     "tibetan_name": "ཅཱན",
-    "hindi_name": "ज्येन"
+    "hindi_name": "ज्येन",
+    "translations": {
+      "pinyin": {
+        "script": "渐",
+        "roman": "Jiàn"
+      },
+      "jyutping": {
+        "script": "漸",
+        "roman": "zim6"
+      },
+      "zhuyin": {
+        "script": "漸",
+        "roman": "ㄐㄧㄢˋ"
+      },
+      "taigi": {
+        "script": "漸",
+        "roman": "Chiām"
+      },
+      "japanese": {
+        "script": "漸",
+        "roman": "Zen"
+      },
+      "korean": {
+        "script": "점",
+        "roman": "jeom"
+      },
+      "tibetan": {
+        "script": "ཅཱན",
+        "roman": "can"
+      },
+      "hindi": {
+        "script": "ज्येन",
+        "roman": "jyen"
+      },
+      "mongolian": {
+        "script": "Жянь",
+        "roman": "Jyani"
+      },
+      "thai": {
+        "script": "เจี้ยน",
+        "roman": "chian"
+      },
+      "vietnamese": {
+        "script": "Tiệm",
+        "roman": "Tiệm"
+      },
+      "indonesian": {
+        "script": "Jiàn",
+        "roman": "Jiàn"
+      },
+      "balinese": {
+        "script": "Jiàn",
+        "roman": "Jiàn"
+      },
+      "malay": {
+        "script": "Jiàn",
+        "roman": "Jiàn"
+      },
+      "filipino": {
+        "script": "Jiàn",
+        "roman": "Jiàn"
+      },
+      "khmer": {
+        "script": "ជៀន",
+        "roman": "chian"
+      },
+      "lao": {
+        "script": "ຈຽນ",
+        "roman": "chian"
+      },
+      "burmese": {
+        "script": "ကျန်း",
+        "roman": "kyan"
+      }
+    },
+    "hanzi_simplified": "渐",
+    "hanzi_traditional": "漸"
   },
   {
     "id": 54,
@@ -1077,7 +5105,83 @@
     "japanese_name": "Kimai",
     "korean_name": "귀매 (gwimae)",
     "tibetan_name": "ཀུའེ་མེའེ",
-    "hindi_name": "गुई मे"
+    "hindi_name": "गुई मे",
+    "translations": {
+      "pinyin": {
+        "script": "归妹",
+        "roman": "Guī Mèi"
+      },
+      "jyutping": {
+        "script": "歸妹",
+        "roman": "gwai1 mui6"
+      },
+      "zhuyin": {
+        "script": "歸妹",
+        "roman": "ㄍㄨㄟ ㄇㄟˋ"
+      },
+      "taigi": {
+        "script": "歸妹",
+        "roman": "Kui-bē"
+      },
+      "japanese": {
+        "script": "歸妹",
+        "roman": "Kimai"
+      },
+      "korean": {
+        "script": "귀매",
+        "roman": "gwimae"
+      },
+      "tibetan": {
+        "script": "ཀུའེ་མེའེ",
+        "roman": "ku'e me'e"
+      },
+      "hindi": {
+        "script": "गुई मे",
+        "roman": "gui me"
+      },
+      "mongolian": {
+        "script": "Гуймэй",
+        "roman": "Guy mei"
+      },
+      "thai": {
+        "script": "กุยเม่ย",
+        "roman": "kui mei"
+      },
+      "vietnamese": {
+        "script": "Quy Muội",
+        "roman": "Quy Muội"
+      },
+      "indonesian": {
+        "script": "Guī Mèi",
+        "roman": "Guī Mèi"
+      },
+      "balinese": {
+        "script": "Guī Mèi",
+        "roman": "Guī Mèi"
+      },
+      "malay": {
+        "script": "Guī Mèi",
+        "roman": "Guī Mèi"
+      },
+      "filipino": {
+        "script": "Guī Mèi",
+        "roman": "Guī Mèi"
+      },
+      "khmer": {
+        "script": "គុយម៉ី",
+        "roman": "kuy mei"
+      },
+      "lao": {
+        "script": "ກຸຍເມີ່",
+        "roman": "kui mei"
+      },
+      "burmese": {
+        "script": "ကွေးမယ်",
+        "roman": "kwe me"
+      }
+    },
+    "hanzi_simplified": "归妹",
+    "hanzi_traditional": "歸妹"
   },
   {
     "id": 55,
@@ -1097,7 +5201,83 @@
     "japanese_name": "Hō",
     "korean_name": "풍 (pung)",
     "tibetan_name": "ཕིང",
-    "hindi_name": "फेङ"
+    "hindi_name": "फेङ",
+    "translations": {
+      "pinyin": {
+        "script": "丰",
+        "roman": "Fēng"
+      },
+      "jyutping": {
+        "script": "豐",
+        "roman": "fung1"
+      },
+      "zhuyin": {
+        "script": "豐",
+        "roman": "ㄈㄥ"
+      },
+      "taigi": {
+        "script": "豐",
+        "roman": "Hong"
+      },
+      "japanese": {
+        "script": "豐",
+        "roman": "Hō"
+      },
+      "korean": {
+        "script": "풍",
+        "roman": "pung"
+      },
+      "tibetan": {
+        "script": "ཕིང",
+        "roman": "phing"
+      },
+      "hindi": {
+        "script": "फेङ",
+        "roman": "pheng"
+      },
+      "mongolian": {
+        "script": "Фэн",
+        "roman": "Feng"
+      },
+      "thai": {
+        "script": "เฟิง",
+        "roman": "feng"
+      },
+      "vietnamese": {
+        "script": "Phong",
+        "roman": "Phong"
+      },
+      "indonesian": {
+        "script": "Fēng",
+        "roman": "Fēng"
+      },
+      "balinese": {
+        "script": "Fēng",
+        "roman": "Fēng"
+      },
+      "malay": {
+        "script": "Fēng",
+        "roman": "Fēng"
+      },
+      "filipino": {
+        "script": "Fēng",
+        "roman": "Fēng"
+      },
+      "khmer": {
+        "script": "ផេង",
+        "roman": "pheng"
+      },
+      "lao": {
+        "script": "ເຟິງ",
+        "roman": "feng"
+      },
+      "burmese": {
+        "script": "ဖေါင်း",
+        "roman": "phaung"
+      }
+    },
+    "hanzi_simplified": "丰",
+    "hanzi_traditional": "豐"
   },
   {
     "id": 56,
@@ -1117,7 +5297,83 @@
     "japanese_name": "Ryo",
     "korean_name": "려 (ryeo)",
     "tibetan_name": "ལུའུ",
-    "hindi_name": "ल्यू"
+    "hindi_name": "ल्यू",
+    "translations": {
+      "pinyin": {
+        "script": "旅",
+        "roman": "Lǚ"
+      },
+      "jyutping": {
+        "script": "旅",
+        "roman": "leoi5"
+      },
+      "zhuyin": {
+        "script": "旅",
+        "roman": "ㄌㄩˇ"
+      },
+      "taigi": {
+        "script": "旅",
+        "roman": "Lí"
+      },
+      "japanese": {
+        "script": "旅",
+        "roman": "Ryo"
+      },
+      "korean": {
+        "script": "려",
+        "roman": "ryeo"
+      },
+      "tibetan": {
+        "script": "ལུའུ",
+        "roman": "lu'u"
+      },
+      "hindi": {
+        "script": "ल्यू",
+        "roman": "lyu"
+      },
+      "mongolian": {
+        "script": "Лү",
+        "roman": "Lu"
+      },
+      "thai": {
+        "script": "หลฺวี่",
+        "roman": "lue"
+      },
+      "vietnamese": {
+        "script": "Lữ",
+        "roman": "Lữ"
+      },
+      "indonesian": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "balinese": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "malay": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "filipino": {
+        "script": "Lǚ",
+        "roman": "Lǚ"
+      },
+      "khmer": {
+        "script": "លី",
+        "roman": "li"
+      },
+      "lao": {
+        "script": "ລື່",
+        "roman": "lue"
+      },
+      "burmese": {
+        "script": "လူ",
+        "roman": "lu"
+      }
+    },
+    "hanzi_simplified": "旅",
+    "hanzi_traditional": "旅"
   },
   {
     "id": 57,
@@ -1137,7 +5393,83 @@
     "japanese_name": "Son",
     "korean_name": "손 (son)",
     "tibetan_name": "ཤུན",
-    "hindi_name": "श्युन"
+    "hindi_name": "श्युन",
+    "translations": {
+      "pinyin": {
+        "script": "巽",
+        "roman": "Xùn"
+      },
+      "jyutping": {
+        "script": "巽",
+        "roman": "seon3"
+      },
+      "zhuyin": {
+        "script": "巽",
+        "roman": "ㄒㄩㄣˋ"
+      },
+      "taigi": {
+        "script": "巽",
+        "roman": "Sùn"
+      },
+      "japanese": {
+        "script": "巽",
+        "roman": "Son"
+      },
+      "korean": {
+        "script": "손",
+        "roman": "son"
+      },
+      "tibetan": {
+        "script": "ཤུན",
+        "roman": "shun"
+      },
+      "hindi": {
+        "script": "श्युन",
+        "roman": "shyun"
+      },
+      "mongolian": {
+        "script": "Сүнь",
+        "roman": "Suni"
+      },
+      "thai": {
+        "script": "ซฺวิ่น",
+        "roman": "sun"
+      },
+      "vietnamese": {
+        "script": "Tốn",
+        "roman": "Tốn"
+      },
+      "indonesian": {
+        "script": "Xùn",
+        "roman": "Xùn"
+      },
+      "balinese": {
+        "script": "Xùn",
+        "roman": "Xùn"
+      },
+      "malay": {
+        "script": "Xùn",
+        "roman": "Xùn"
+      },
+      "filipino": {
+        "script": "Xùn",
+        "roman": "Xùn"
+      },
+      "khmer": {
+        "script": "ស៊ុន",
+        "roman": "sun"
+      },
+      "lao": {
+        "script": "ຊຶ່ນ",
+        "roman": "sun"
+      },
+      "burmese": {
+        "script": "ဆွန်း",
+        "roman": "swan"
+      }
+    },
+    "hanzi_simplified": "巽",
+    "hanzi_traditional": "巽"
   },
   {
     "id": 58,
@@ -1157,7 +5489,83 @@
     "japanese_name": "Da",
     "korean_name": "태 (tae)",
     "tibetan_name": "ཏུའེ",
-    "hindi_name": "तुई"
+    "hindi_name": "तुई",
+    "translations": {
+      "pinyin": {
+        "script": "兑",
+        "roman": "Duì"
+      },
+      "jyutping": {
+        "script": "兌",
+        "roman": "deoi3"
+      },
+      "zhuyin": {
+        "script": "兌",
+        "roman": "ㄉㄨㄟˋ"
+      },
+      "taigi": {
+        "script": "兌",
+        "roman": "Tōe"
+      },
+      "japanese": {
+        "script": "兌",
+        "roman": "Da"
+      },
+      "korean": {
+        "script": "태",
+        "roman": "tae"
+      },
+      "tibetan": {
+        "script": "ཏུའེ",
+        "roman": "tu'e"
+      },
+      "hindi": {
+        "script": "तुई",
+        "roman": "tui"
+      },
+      "mongolian": {
+        "script": "Дуй",
+        "roman": "Duy"
+      },
+      "thai": {
+        "script": "ตุ้ย",
+        "roman": "tui"
+      },
+      "vietnamese": {
+        "script": "Đoài",
+        "roman": "Đoài"
+      },
+      "indonesian": {
+        "script": "Duì",
+        "roman": "Duì"
+      },
+      "balinese": {
+        "script": "Duì",
+        "roman": "Duì"
+      },
+      "malay": {
+        "script": "Duì",
+        "roman": "Duì"
+      },
+      "filipino": {
+        "script": "Duì",
+        "roman": "Duì"
+      },
+      "khmer": {
+        "script": "ទុយ",
+        "roman": "tuy"
+      },
+      "lao": {
+        "script": "ຕຸຍ",
+        "roman": "tui"
+      },
+      "burmese": {
+        "script": "တွေး",
+        "roman": "twe"
+      }
+    },
+    "hanzi_simplified": "兑",
+    "hanzi_traditional": "兌"
   },
   {
     "id": 59,
@@ -1177,7 +5585,83 @@
     "japanese_name": "Kan",
     "korean_name": "환 (hwan)",
     "tibetan_name": "ཧུཨན",
-    "hindi_name": "हुआन"
+    "hindi_name": "हुआन",
+    "translations": {
+      "pinyin": {
+        "script": "涣",
+        "roman": "Huàn"
+      },
+      "jyutping": {
+        "script": "渙",
+        "roman": "wun6"
+      },
+      "zhuyin": {
+        "script": "渙",
+        "roman": "ㄏㄨㄢˋ"
+      },
+      "taigi": {
+        "script": "渙",
+        "roman": "Hoān"
+      },
+      "japanese": {
+        "script": "渙",
+        "roman": "Kan"
+      },
+      "korean": {
+        "script": "환",
+        "roman": "hwan"
+      },
+      "tibetan": {
+        "script": "ཧུཨན",
+        "roman": "hu'an"
+      },
+      "hindi": {
+        "script": "हुआन",
+        "roman": "huan"
+      },
+      "mongolian": {
+        "script": "Хуан",
+        "roman": "Khuan"
+      },
+      "thai": {
+        "script": "ฮ่วน",
+        "roman": "huan"
+      },
+      "vietnamese": {
+        "script": "Hoán",
+        "roman": "Hoán"
+      },
+      "indonesian": {
+        "script": "Huàn",
+        "roman": "Huàn"
+      },
+      "balinese": {
+        "script": "Huàn",
+        "roman": "Huàn"
+      },
+      "malay": {
+        "script": "Huàn",
+        "roman": "Huàn"
+      },
+      "filipino": {
+        "script": "Huàn",
+        "roman": "Huàn"
+      },
+      "khmer": {
+        "script": "ហួន",
+        "roman": "huan"
+      },
+      "lao": {
+        "script": "ຫວນ",
+        "roman": "huan"
+      },
+      "burmese": {
+        "script": "ဟွမ်း",
+        "roman": "hwan"
+      }
+    },
+    "hanzi_simplified": "涣",
+    "hanzi_traditional": "渙"
   },
   {
     "id": 60,
@@ -1197,7 +5681,83 @@
     "japanese_name": "Setsu",
     "korean_name": "절 (jeol)",
     "tibetan_name": "ཅཱ",
-    "hindi_name": "ज्ये"
+    "hindi_name": "ज्ये",
+    "translations": {
+      "pinyin": {
+        "script": "节",
+        "roman": "Jié"
+      },
+      "jyutping": {
+        "script": "節",
+        "roman": "zit3"
+      },
+      "zhuyin": {
+        "script": "節",
+        "roman": "ㄐㄧㄝˊ"
+      },
+      "taigi": {
+        "script": "節",
+        "roman": "Chiat"
+      },
+      "japanese": {
+        "script": "節",
+        "roman": "Setsu"
+      },
+      "korean": {
+        "script": "절",
+        "roman": "jeol"
+      },
+      "tibetan": {
+        "script": "ཅཱ",
+        "roman": "ca"
+      },
+      "hindi": {
+        "script": "ज्ये",
+        "roman": "jye"
+      },
+      "mongolian": {
+        "script": "Же",
+        "roman": "Je"
+      },
+      "thai": {
+        "script": "เจี๋ย",
+        "roman": "chia"
+      },
+      "vietnamese": {
+        "script": "Tiết",
+        "roman": "Tiết"
+      },
+      "indonesian": {
+        "script": "Jié",
+        "roman": "Jié"
+      },
+      "balinese": {
+        "script": "Jié",
+        "roman": "Jié"
+      },
+      "malay": {
+        "script": "Jié",
+        "roman": "Jié"
+      },
+      "filipino": {
+        "script": "Jié",
+        "roman": "Jié"
+      },
+      "khmer": {
+        "script": "ជៀ",
+        "roman": "chia"
+      },
+      "lao": {
+        "script": "ຈຽ",
+        "roman": "chia"
+      },
+      "burmese": {
+        "script": "ကျယ်",
+        "roman": "kya"
+      }
+    },
+    "hanzi_simplified": "节",
+    "hanzi_traditional": "節"
   },
   {
     "id": 61,
@@ -1217,7 +5777,83 @@
     "japanese_name": "Chūfu",
     "korean_name": "중부 (jungbu)",
     "tibetan_name": "ཀྲུང་ཕུའུ",
-    "hindi_name": "जोङ फू"
+    "hindi_name": "जोङ फू",
+    "translations": {
+      "pinyin": {
+        "script": "中孚",
+        "roman": "Zhōng Fú"
+      },
+      "jyutping": {
+        "script": "中孚",
+        "roman": "zung1 fu4"
+      },
+      "zhuyin": {
+        "script": "中孚",
+        "roman": "ㄓㄨㄥ ㄈㄨˊ"
+      },
+      "taigi": {
+        "script": "中孚",
+        "roman": "Tiong-hu"
+      },
+      "japanese": {
+        "script": "中孚",
+        "roman": "Chūfu"
+      },
+      "korean": {
+        "script": "중부",
+        "roman": "jungbu"
+      },
+      "tibetan": {
+        "script": "ཀྲུང་ཕུའུ",
+        "roman": "krung phu'u"
+      },
+      "hindi": {
+        "script": "जोङ फू",
+        "roman": "jong phu"
+      },
+      "mongolian": {
+        "script": "Жунфу",
+        "roman": "Jung fu"
+      },
+      "thai": {
+        "script": "จงฝู",
+        "roman": "chong fu"
+      },
+      "vietnamese": {
+        "script": "Trung Phu",
+        "roman": "Trung Phu"
+      },
+      "indonesian": {
+        "script": "Zhōng Fú",
+        "roman": "Zhōng Fú"
+      },
+      "balinese": {
+        "script": "Zhōng Fú",
+        "roman": "Zhōng Fú"
+      },
+      "malay": {
+        "script": "Zhōng Fú",
+        "roman": "Zhōng Fú"
+      },
+      "filipino": {
+        "script": "Zhōng Fú",
+        "roman": "Zhōng Fú"
+      },
+      "khmer": {
+        "script": "ជុងហ្វូ",
+        "roman": "jung fu"
+      },
+      "lao": {
+        "script": "ຈົງຟູ",
+        "roman": "chong fu"
+      },
+      "burmese": {
+        "script": "ကျုံဖူး",
+        "roman": "kyon phu"
+      }
+    },
+    "hanzi_simplified": "中孚",
+    "hanzi_traditional": "中孚"
   },
   {
     "id": 62,
@@ -1237,7 +5873,83 @@
     "japanese_name": "Shōka",
     "korean_name": "소과 (sogwa)",
     "tibetan_name": "ཤའོ་ཀོ",
-    "hindi_name": "श्याओ क्वो"
+    "hindi_name": "श्याओ क्वो",
+    "translations": {
+      "pinyin": {
+        "script": "小过",
+        "roman": "Xiǎo Guò"
+      },
+      "jyutping": {
+        "script": "小過",
+        "roman": "siu2 gwo3"
+      },
+      "zhuyin": {
+        "script": "小過",
+        "roman": "ㄒㄧㄠˇ ㄍㄨㄛˋ"
+      },
+      "taigi": {
+        "script": "小過",
+        "roman": "Sió-kòe"
+      },
+      "japanese": {
+        "script": "小過",
+        "roman": "Shōka"
+      },
+      "korean": {
+        "script": "소과",
+        "roman": "sogwa"
+      },
+      "tibetan": {
+        "script": "ཤའོ་ཀོ",
+        "roman": "sha'o ko"
+      },
+      "hindi": {
+        "script": "श्याओ क्वो",
+        "roman": "shyao kwo"
+      },
+      "mongolian": {
+        "script": "Шяокво",
+        "roman": "Shyao kvo"
+      },
+      "thai": {
+        "script": "เสี่ยวกั้ว",
+        "roman": "siao kuo"
+      },
+      "vietnamese": {
+        "script": "Tiểu Quá",
+        "roman": "Tiểu Quá"
+      },
+      "indonesian": {
+        "script": "Xiǎo Guò",
+        "roman": "Xiǎo Guò"
+      },
+      "balinese": {
+        "script": "Xiǎo Guò",
+        "roman": "Xiǎo Guò"
+      },
+      "malay": {
+        "script": "Xiǎo Guò",
+        "roman": "Xiǎo Guò"
+      },
+      "filipino": {
+        "script": "Xiǎo Guò",
+        "roman": "Xiǎo Guò"
+      },
+      "khmer": {
+        "script": "ស្យាវគ្វ័រ",
+        "roman": "syav kuo"
+      },
+      "lao": {
+        "script": "ຊຽວກົ່ວ",
+        "roman": "siao kuo"
+      },
+      "burmese": {
+        "script": "ရှောက်ကွိုး",
+        "roman": "shauk kwo"
+      }
+    },
+    "hanzi_simplified": "小过",
+    "hanzi_traditional": "小過"
   },
   {
     "id": 63,
@@ -1257,7 +5969,83 @@
     "japanese_name": "Kisei",
     "korean_name": "기제 (gije)",
     "tibetan_name": "ཅི་ཅི",
-    "hindi_name": "जी जी"
+    "hindi_name": "जी जी",
+    "translations": {
+      "pinyin": {
+        "script": "既济",
+        "roman": "Jì Jì"
+      },
+      "jyutping": {
+        "script": "既濟",
+        "roman": "gei3 zai3"
+      },
+      "zhuyin": {
+        "script": "既濟",
+        "roman": "ㄐㄧˋ ㄐㄧˋ"
+      },
+      "taigi": {
+        "script": "既濟",
+        "roman": "Kì-chè"
+      },
+      "japanese": {
+        "script": "既濟",
+        "roman": "Kisei"
+      },
+      "korean": {
+        "script": "기제",
+        "roman": "gije"
+      },
+      "tibetan": {
+        "script": "ཅི་ཅི",
+        "roman": "ci ci"
+      },
+      "hindi": {
+        "script": "जी जी",
+        "roman": "ji ji"
+      },
+      "mongolian": {
+        "script": "Жижи",
+        "roman": "Ji ji"
+      },
+      "thai": {
+        "script": "จี้จี้",
+        "roman": "chi chi"
+      },
+      "vietnamese": {
+        "script": "Ký Tế",
+        "roman": "Ký Tế"
+      },
+      "indonesian": {
+        "script": "Jì Jì",
+        "roman": "Jì Jì"
+      },
+      "balinese": {
+        "script": "Jì Jì",
+        "roman": "Jì Jì"
+      },
+      "malay": {
+        "script": "Jì Jì",
+        "roman": "Jì Jì"
+      },
+      "filipino": {
+        "script": "Jì Jì",
+        "roman": "Jì Jì"
+      },
+      "khmer": {
+        "script": "ជីជី",
+        "roman": "ji ji"
+      },
+      "lao": {
+        "script": "ຈີ່ຈີ່",
+        "roman": "chi chi"
+      },
+      "burmese": {
+        "script": "ကျိကျိ",
+        "roman": "kyi kyi"
+      }
+    },
+    "hanzi_simplified": "既济",
+    "hanzi_traditional": "既濟"
   },
   {
     "id": 64,
@@ -1277,6 +6065,82 @@
     "japanese_name": "Misei",
     "korean_name": "미제 (mije)",
     "tibetan_name": "ཝེའེ་ཅི",
-    "hindi_name": "वे जी"
+    "hindi_name": "वे जी",
+    "translations": {
+      "pinyin": {
+        "script": "未济",
+        "roman": "Wèi Jì"
+      },
+      "jyutping": {
+        "script": "未濟",
+        "roman": "mei6 zai3"
+      },
+      "zhuyin": {
+        "script": "未濟",
+        "roman": "ㄨㄟˋ ㄐㄧˋ"
+      },
+      "taigi": {
+        "script": "未濟",
+        "roman": "Bī-chè"
+      },
+      "japanese": {
+        "script": "未濟",
+        "roman": "Misei"
+      },
+      "korean": {
+        "script": "미제",
+        "roman": "mije"
+      },
+      "tibetan": {
+        "script": "ཝེའེ་ཅི",
+        "roman": "we'e ci"
+      },
+      "hindi": {
+        "script": "वे जी",
+        "roman": "we ji"
+      },
+      "mongolian": {
+        "script": "Вэйжи",
+        "roman": "Wei ji"
+      },
+      "thai": {
+        "script": "เว่ยจี้",
+        "roman": "wei chi"
+      },
+      "vietnamese": {
+        "script": "Vị Tế",
+        "roman": "Vị Tế"
+      },
+      "indonesian": {
+        "script": "Wèi Jì",
+        "roman": "Wèi Jì"
+      },
+      "balinese": {
+        "script": "Wèi Jì",
+        "roman": "Wèi Jì"
+      },
+      "malay": {
+        "script": "Wèi Jì",
+        "roman": "Wèi Jì"
+      },
+      "filipino": {
+        "script": "Wèi Jì",
+        "roman": "Wèi Jì"
+      },
+      "khmer": {
+        "script": "វេជី",
+        "roman": "we ji"
+      },
+      "lao": {
+        "script": "ເຫວ່ຍຈີ່",
+        "roman": "wei chi"
+      },
+      "burmese": {
+        "script": "ဝေးကျိ",
+        "roman": "we kyi"
+      }
+    },
+    "hanzi_simplified": "未济",
+    "hanzi_traditional": "未濟"
   }
 ]
