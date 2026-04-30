@@ -23,6 +23,16 @@ const props = withDefaults(
     korean?: string | null;
     tibetan?: string | null;
     hindi?: string | null;
+    thai?: string | null;
+    vietnamese?: string | null;
+    indonesian?: string | null;
+    balinese?: string | null;
+    malay?: string | null;
+    filipino?: string | null;
+    khmer?: string | null;
+    lao?: string | null;
+    burmese?: string | null;
+    mongolian?: string | null;
   }>(),
   {
     jyutping: null,
@@ -32,6 +42,16 @@ const props = withDefaults(
     korean: null,
     tibetan: null,
     hindi: null,
+    thai: null,
+    vietnamese: null,
+    indonesian: null,
+    balinese: null,
+    malay: null,
+    filipino: null,
+    khmer: null,
+    lao: null,
+    burmese: null,
+    mongolian: null,
   }
 );
 
@@ -47,6 +67,16 @@ const displayText = computed(() => {
     korean: props.korean,
     tibetan: props.tibetan,
     hindi: props.hindi,
+    thai: props.thai,
+    vietnamese: props.vietnamese,
+    indonesian: props.indonesian,
+    balinese: props.balinese,
+    malay: props.malay,
+    filipino: props.filipino,
+    khmer: props.khmer,
+    lao: props.lao,
+    burmese: props.burmese,
+    mongolian: props.mongolian,
   };
   const chosen = lookup[store.preferredLanguage as LanguageCode]?.trim();
   if (chosen) return chosen;

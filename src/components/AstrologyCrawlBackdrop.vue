@@ -32,6 +32,16 @@ type RubyProps = {
   korean: string | null;
   tibetan: string | null;
   hindi: string | null;
+  thai: string | null;
+  vietnamese: string | null;
+  indonesian: string | null;
+  balinese: string | null;
+  malay: string | null;
+  filipino: string | null;
+  khmer: string | null;
+  lao: string | null;
+  burmese: string | null;
+  mongolian: string | null;
 };
 
 function rubyProps(ro: string): RubyProps {
@@ -45,6 +55,16 @@ function rubyProps(ro: string): RubyProps {
     korean: null,
     tibetan: null,
     hindi: null,
+    thai: null,
+    vietnamese: null,
+    indonesian: null,
+    balinese: null,
+    malay: null,
+    filipino: null,
+    khmer: null,
+    lao: null,
+    burmese: null,
+    mongolian: null,
   };
   if (lang !== "pinyin") base[lang] = ro;
   return base;

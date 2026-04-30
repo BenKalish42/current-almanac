@@ -18,7 +18,17 @@ export type LanguageCode =
   | "japanese"
   | "korean"
   | "tibetan"
-  | "hindi";
+  | "hindi"
+  | "thai"
+  | "vietnamese"
+  | "indonesian"
+  | "balinese"
+  | "malay"
+  | "filipino"
+  | "khmer"
+  | "lao"
+  | "burmese"
+  | "mongolian";
 
 /** Field name in `seed_hexagrams.json` (snake_case). */
 export type HexagramFieldKey =
@@ -29,7 +39,17 @@ export type HexagramFieldKey =
   | "japanese_name"
   | "korean_name"
   | "tibetan_name"
-  | "hindi_name";
+  | "hindi_name"
+  | "thai_name"
+  | "vietnamese_name"
+  | "indonesian_name"
+  | "balinese_name"
+  | "malay_name"
+  | "filipino_name"
+  | "khmer_name"
+  | "lao_name"
+  | "burmese_name"
+  | "mongolian_name";
 
 /** Camel-cased TS field name on `YiJingHexagram`. */
 export type HexagramTsField =
@@ -40,18 +60,40 @@ export type HexagramTsField =
   | "japaneseName"
   | "koreanName"
   | "tibetanName"
-  | "hindiName";
+  | "hindiName"
+  | "thaiName"
+  | "vietnameseName"
+  | "indonesianName"
+  | "balineseName"
+  | "malayName"
+  | "filipinoName"
+  | "khmerName"
+  | "laoName"
+  | "burmeseName"
+  | "mongolianName";
 
 export interface LanguageDefinition {
   code: LanguageCode;
   /** UI label shown in the settings dropdown, e.g. "Mandarin (Pinyin)". */
   label: string;
-  /** Optgroup label, e.g. "Chinese", "Other Asian". */
+  /** Optgroup label, e.g. "Chinese", "Other Asian", "Southeast Asian". */
   group: string;
   /** Field name in `seed_hexagrams.json`. */
   hexagramFieldKey: HexagramFieldKey;
   /** Camel-cased TS field on `YiJingHexagram`. */
   hexagramTsField: HexagramTsField;
+  /**
+   * The romanization standard this language uses for its English-friendly
+   * pronunciation slot. Used in tooltips and the architecture doc; helps
+   * downstream tooling pick the right transliteration system.
+   *
+   * Examples: "Hanyu Pinyin", "Jyutping", "Hepburn", "Revised Romanization",
+   * "Wylie", "Hunterian", "RTGS", "Quốc ngữ", "UN Romanization", "BGN/PCGN",
+   * "MLC", "MNS 5217".
+   */
+  romanizationStandard: string;
+  /** Display name of the language's native script (Hanzi, Hangul, Devanagari, …). */
+  nativeScript: string;
   /**
    * Optional per-character romanizer used by the opening crawl ruby text.
    * If omitted, the crawl falls back to Mandarin pinyin (no tones) for that
@@ -104,6 +146,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Chinese",
     hexagramFieldKey: "pinyin_name",
     hexagramTsField: "pinyinName",
+    romanizationStandard: "Hanyu Pinyin",
+    nativeScript: "Hanzi (Simplified)",
     crawlRomanizer: pinyinFor,
     legacyAliases: ["mandarin"],
   },
@@ -113,6 +157,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Chinese",
     hexagramFieldKey: "jyutping_name",
     hexagramTsField: "jyutpingName",
+    romanizationStandard: "Jyutping",
+    nativeScript: "Hanzi (Traditional)",
     crawlRomanizer: jyutpingFor,
     legacyAliases: ["cantonese"],
   },
@@ -122,6 +168,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Chinese",
     hexagramFieldKey: "zhuyin_name",
     hexagramTsField: "zhuyinName",
+    romanizationStandard: "Bopomofo",
+    nativeScript: "Hanzi (Traditional)",
     crawlRomanizer: zhuyinFor,
   },
   {
@@ -130,6 +178,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Chinese",
     hexagramFieldKey: "taigi_name",
     hexagramTsField: "taigiName",
+    romanizationStandard: "Pe̍h-ōe-jī",
+    nativeScript: "Hanzi (Traditional)",
     // No bundled per-character Taigi dictionary — fall back to pinyin (no tones).
     crawlRomanizer: pinyinFor,
   },
@@ -139,6 +189,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Other Asian",
     hexagramFieldKey: "japanese_name",
     hexagramTsField: "japaneseName",
+    romanizationStandard: "Hepburn",
+    nativeScript: "Kanji",
     // No bundled Kanji-on'yomi dictionary — per-hex names live in the seed JSON.
     crawlRomanizer: pinyinFor,
   },
@@ -148,6 +200,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Other Asian",
     hexagramFieldKey: "korean_name",
     hexagramTsField: "koreanName",
+    romanizationStandard: "Revised Romanization",
+    nativeScript: "Hangul",
     crawlRomanizer: pinyinFor,
   },
   {
@@ -156,6 +210,8 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Other Asian",
     hexagramFieldKey: "tibetan_name",
     hexagramTsField: "tibetanName",
+    romanizationStandard: "Wylie",
+    nativeScript: "Tibetan",
     // Phonetic-only — no classical Yi-Jing transliteration tradition.
     crawlRomanizer: pinyinFor,
   },
@@ -165,7 +221,109 @@ export const LANGUAGES: readonly LanguageDefinition[] = [
     group: "Other Asian",
     hexagramFieldKey: "hindi_name",
     hexagramTsField: "hindiName",
+    romanizationStandard: "Hunterian",
+    nativeScript: "Devanagari",
     // Phonetic-only — see Task12.4 doc.
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "mongolian",
+    label: "Mongolian (Монгол)",
+    group: "Other Asian",
+    hexagramFieldKey: "mongolian_name",
+    hexagramTsField: "mongolianName",
+    romanizationStandard: "MNS 5217",
+    nativeScript: "Cyrillic",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "thai",
+    label: "Thai (ภาษาไทย)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "thai_name",
+    hexagramTsField: "thaiName",
+    romanizationStandard: "RTGS",
+    nativeScript: "Thai",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "vietnamese",
+    label: "Vietnamese (Tiếng Việt)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "vietnamese_name",
+    hexagramTsField: "vietnameseName",
+    romanizationStandard: "Quốc ngữ",
+    nativeScript: "Latin (Quốc ngữ)",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "indonesian",
+    label: "Indonesian (Bahasa Indonesia)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "indonesian_name",
+    hexagramTsField: "indonesianName",
+    romanizationStandard: "Latin (phonetic)",
+    nativeScript: "Latin",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "balinese",
+    label: "Balinese (Basa Bali)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "balinese_name",
+    hexagramTsField: "balineseName",
+    romanizationStandard: "Latin (phonetic)",
+    nativeScript: "Latin",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "malay",
+    label: "Malay (Bahasa Melayu)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "malay_name",
+    hexagramTsField: "malayName",
+    romanizationStandard: "Latin (phonetic)",
+    nativeScript: "Latin",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "filipino",
+    label: "Filipino (Tagalog)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "filipino_name",
+    hexagramTsField: "filipinoName",
+    romanizationStandard: "Latin (phonetic)",
+    nativeScript: "Latin",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "khmer",
+    label: "Khmer (ខ្មែរ)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "khmer_name",
+    hexagramTsField: "khmerName",
+    romanizationStandard: "UN Romanization of Khmer",
+    nativeScript: "Khmer",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "lao",
+    label: "Lao (ລາວ)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "lao_name",
+    hexagramTsField: "laoName",
+    romanizationStandard: "BGN/PCGN",
+    nativeScript: "Lao",
+    crawlRomanizer: pinyinFor,
+  },
+  {
+    code: "burmese",
+    label: "Burmese (မြန်မာ)",
+    group: "Southeast Asian",
+    hexagramFieldKey: "burmese_name",
+    hexagramTsField: "burmeseName",
+    romanizationStandard: "MLC",
+    nativeScript: "Myanmar",
     crawlRomanizer: pinyinFor,
   },
 ] as const;
