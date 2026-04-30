@@ -23,12 +23,15 @@ const props = withDefaults(
     dayKey?: string | number | null;
     /** Idle tug interval in ms. */
     tugIntervalMs?: number;
+    /** Initial delay before the first tug (ms). */
+    initialTugDelayMs?: number;
   }>(),
   {
     moment: () => new Date(),
     keKey: null,
     dayKey: null,
     tugIntervalMs: 8000,
+    initialTugDelayMs: 3500,
   }
 );
 
@@ -39,29 +42,31 @@ const prefersReducedMotion = usePrefersReducedMotion();
 const tugging = ref(false);
 let tugTimer: number | null = null;
 
-function scheduleTug() {
+function scheduleTug(initial = false) {
   if (tugTimer != null) {
     clearTimeout(tugTimer);
     tugTimer = null;
   }
   // Slight jitter (±1s) so it doesn't feel mechanical.
-  const jitter = (Math.random() * 2000 - 1000);
-  const delay = Math.max(2000, props.tugIntervalMs + jitter);
+  const jitter = Math.random() * 2000 - 1000;
+  const delay = initial
+    ? props.initialTugDelayMs
+    : Math.max(2000, props.tugIntervalMs + jitter);
   tugTimer = window.setTimeout(() => {
     if (!prefersReducedMotion.value && !catching.value) {
       tugging.value = true;
       window.setTimeout(() => {
         tugging.value = false;
-        scheduleTug();
+        scheduleTug(false);
       }, 480);
     } else {
-      scheduleTug();
+      scheduleTug(false);
     }
   }, delay);
 }
 
 onMounted(() => {
-  scheduleTug();
+  scheduleTug(true);
 });
 
 onUnmounted(() => {
@@ -501,8 +506,9 @@ const bobberClasses = computed(() => ({
 
 @keyframes fishermanRodTug {
   0% { transform: rotate(0deg); }
-  35% { transform: rotate(-9deg); }
-  65% { transform: rotate(4deg); }
+  25% { transform: rotate(-16deg); }
+  55% { transform: rotate(7deg); }
+  80% { transform: rotate(-3deg); }
   100% { transform: rotate(0deg); }
 }
 
