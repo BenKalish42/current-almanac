@@ -39,7 +39,7 @@ The workflow builds the existing Netlify web app, uploads desktop installers to 
 ## Local checks
 
 - `npm run build`
-- `npm run build:mobile`
+- `npm run build:embedded && npx cap sync android`
 - `npm run desktop:package`
 - `cd android && ./gradlew bundleRelease`
 
