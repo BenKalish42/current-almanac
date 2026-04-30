@@ -9,6 +9,7 @@
  */
 
 import { YI_JING_BY_ID } from "@/data/yiJing";
+import type { ClassicalFormula, FormulaTranslation } from "@/data/schema_formulas";
 import type { LanguageCode } from "@/lib/languages";
 
 export type ScriptMap = Partial<Record<LanguageCode, string>>;
@@ -65,3 +66,38 @@ export function hexagramHanziTraditional(
   const hex = YI_JING_BY_ID.get(hexId);
   return hex?.hanziTraditional ?? hex?.hanziSimplified ?? "";
 }
+
+/* -------------------------------------------------------------------------- */
+/* Formula translations                                                       */
+/* -------------------------------------------------------------------------- */
+
+/** Per-language script-slot values for one classical formula. */
+export function formulaScripts(
+  formula: { translations?: Record<string, FormulaTranslation> } | null | undefined
+): ScriptMap {
+  if (!formula?.translations) return EMPTY;
+  const out: ScriptMap = {};
+  for (const [lang, cell] of Object.entries(formula.translations) as Array<
+    [LanguageCode, FormulaTranslation | undefined]
+  >) {
+    if (cell?.script) out[lang] = cell.script;
+  }
+  return out;
+}
+
+/** Per-language romanization-slot values for one classical formula. */
+export function formulaRomans(
+  formula: { translations?: Record<string, FormulaTranslation> } | null | undefined
+): RomanMap {
+  if (!formula?.translations) return EMPTY;
+  const out: RomanMap = {};
+  for (const [lang, cell] of Object.entries(formula.translations) as Array<
+    [LanguageCode, FormulaTranslation | undefined]
+  >) {
+    if (cell?.roman) out[lang] = cell.roman;
+  }
+  return out;
+}
+
+// Re-export for type-only callers.
+export type { ClassicalFormula };

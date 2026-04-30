@@ -4,6 +4,9 @@ import { useAlchemyStore } from "@/stores/alchemyStore";
 import { useFormulaStore } from "@/stores/formulaStore";
 import type { FormulaIngredient, MarketIngredient, MarketVariant } from "@/data/schema_formulas";
 import type { CauldronIngredientInput } from "@/stores/alchemyStore";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
+import PronunciationText from "@/components/ui/PronunciationText.vue";
+import { formulaScripts, formulaRomans } from "@/i18n/localizedTerms";
 
 const formulaStore = useFormulaStore();
 const alchemyStore = useAlchemyStore();
@@ -125,8 +128,10 @@ function confirmLoad(append: boolean) {
         >
           <div class="min-w-0 sm:flex-1">
             <p class="text-daoist-text font-semibold">
-              {{ formula.name_hanzi }}
-              <span class="text-daoist-muted font-normal ml-2">{{ formula.name_pinyin }}</span>
+              <LocalizedScript :hanzi="formula.name_hanzi" :scripts="formulaScripts(formula)" />
+              <span class="text-daoist-muted font-normal ml-2">
+                <PronunciationText :pinyin="formula.name_pinyin" v-bind="formulaRomans(formula)" />
+              </span>
             </p>
             <p class="text-xs text-daoist-subtle">
               {{ formula.source_text }}

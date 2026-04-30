@@ -10,6 +10,16 @@ export interface FormulaLinguistics {
   taiwanese: string;
 }
 
+/**
+ * Per-language `{ script, roman }` cell for a formula name (Task 12.5).
+ * `script` fills the CJK/native-script display slot; `roman` fills the
+ * pinyin-position display slot.
+ */
+export interface FormulaTranslation {
+  script: string;
+  roman: string;
+}
+
 export interface ClassicalFormula {
   id: string;
   name_hanzi: string;
@@ -17,6 +27,8 @@ export interface ClassicalFormula {
   linguistics: FormulaLinguistics;
   source_text: string;
   description: string;
+  /** Per-language localizations indexed by LanguageCode. Optional for back-compat. */
+  translations?: Record<string, FormulaTranslation>;
 }
 
 export interface FormulaIngredient {

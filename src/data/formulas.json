@@ -9,7 +9,81 @@
         "taiwanese": "la̍k-bī tē-hông-oân"
       },
       "source_text": "Xiao Er Yao Zheng Zhi Jue",
-      "description": "Foundational Kidney Yin tonic formula that nourishes Liver-Kidney Yin with Shu Di Huang as the core herb."
+      "description": "Foundational Kidney Yin tonic formula that nourishes Liver-Kidney Yin with Shu Di Huang as the core herb.",
+      "translations": {
+        "pinyin": {
+          "script": "六味地黄丸",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "jyutping": {
+          "script": "六味地黄丸",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "zhuyin": {
+          "script": "六味地黄丸",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "taigi": {
+          "script": "六味地黄丸",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "japanese": {
+          "script": "六味地黄丸",
+          "roman": "Rokumijiōgan"
+        },
+        "korean": {
+          "script": "육미지황환",
+          "roman": "Yukmijihwanghwan"
+        },
+        "tibetan": {
+          "script": "ལིའུཝེའེཏིཧུཨངཝན",
+          "roman": "li'u we'e ti hu'ang wan"
+        },
+        "hindi": {
+          "script": "ल्यू वे ती हुआङ वान",
+          "roman": "lyu we ti huang wan"
+        },
+        "mongolian": {
+          "script": "Лю Вэй Ди Хуан Ван",
+          "roman": "Lyu Wei Di Khuan Wan"
+        },
+        "thai": {
+          "script": "หลิวเว่ยตี้หฺวงหฺวาน",
+          "roman": "liu wei ti huang wan"
+        },
+        "vietnamese": {
+          "script": "Lục Vị Địa Hoàng Hoàn",
+          "roman": "Lục Vị Địa Hoàng Hoàn"
+        },
+        "indonesian": {
+          "script": "Liu Wei Di Huang Wan",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "balinese": {
+          "script": "Liu Wei Di Huang Wan",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "malay": {
+          "script": "Liu Wei Di Huang Wan",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "filipino": {
+          "script": "Liu Wei Di Huang Wan",
+          "roman": "Liu Wei Di Huang Wan"
+        },
+        "khmer": {
+          "script": "លីវវេទីហួងវាន",
+          "roman": "liv ve ti huong vean"
+        },
+        "lao": {
+          "script": "ລິວເວ່ຍຕີ້ຫວງຫວານ",
+          "roman": "liu wei ti huang wan"
+        },
+        "burmese": {
+          "script": "လျုဝေးတီဟွမ်းဝမ်း",
+          "roman": "lyu we ti hwan wan"
+        }
+      }
     },
     {
       "id": "classical_bao_he_wan",
@@ -20,7 +94,81 @@
         "taiwanese": "pó-hô-oân"
       },
       "source_text": "Dan Xi Xin Fa",
-      "description": "Food stagnation resolving formula that reduces clumping, transforms phlegm, and supports middle burner movement."
+      "description": "Food stagnation resolving formula that reduces clumping, transforms phlegm, and supports middle burner movement.",
+      "translations": {
+        "pinyin": {
+          "script": "保和丸",
+          "roman": "Bao He Wan"
+        },
+        "jyutping": {
+          "script": "保和丸",
+          "roman": "Bao He Wan"
+        },
+        "zhuyin": {
+          "script": "保和丸",
+          "roman": "Bao He Wan"
+        },
+        "taigi": {
+          "script": "保和丸",
+          "roman": "Bao He Wan"
+        },
+        "japanese": {
+          "script": "保和丸",
+          "roman": "Howagan"
+        },
+        "korean": {
+          "script": "보화환",
+          "roman": "Bohwahwan"
+        },
+        "tibetan": {
+          "script": "པའོཧེཝན",
+          "roman": "pa'o he wan"
+        },
+        "hindi": {
+          "script": "बाओ हे वान",
+          "roman": "bao he wan"
+        },
+        "mongolian": {
+          "script": "Бао Хэ Ван",
+          "roman": "Bao Khe Wan"
+        },
+        "thai": {
+          "script": "เป่าเหอหฺวาน",
+          "roman": "bao he wan"
+        },
+        "vietnamese": {
+          "script": "Bảo Hòa Hoàn",
+          "roman": "Bảo Hòa Hoàn"
+        },
+        "indonesian": {
+          "script": "Bao He Wan",
+          "roman": "Bao He Wan"
+        },
+        "balinese": {
+          "script": "Bao He Wan",
+          "roman": "Bao He Wan"
+        },
+        "malay": {
+          "script": "Bao He Wan",
+          "roman": "Bao He Wan"
+        },
+        "filipino": {
+          "script": "Bao He Wan",
+          "roman": "Bao He Wan"
+        },
+        "khmer": {
+          "script": "បាវហឺវាន",
+          "roman": "bav heu vean"
+        },
+        "lao": {
+          "script": "ເປົ່າເຫິຫວານ",
+          "roman": "bao he wan"
+        },
+        "burmese": {
+          "script": "ဘောင်းဟေးဝမ်း",
+          "roman": "baung he wan"
+        }
+      }
     }
   ],
   "formula_ingredients": [
