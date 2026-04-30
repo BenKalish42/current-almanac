@@ -1,4 +1,6 @@
-app_identifier(ENV["BUNDLE_IDENTIFIER"] || "com.current.almanac")
+app_identifier(ENV["BUNDLE_IDENTIFIER"] || ENV.fetch("IOS_BUNDLE_ID", "com.current.almanac"))
+apple_id(ENV["FASTLANE_APPLE_ID"] || ENV["APPLE_ID"])
+team_id(ENV["APPLE_TEAM_ID"] || ENV["APP_STORE_CONNECT_TEAM_ID"])
+itc_team_id(ENV["APP_STORE_CONNECT_TEAM_ID"]) if ENV["APP_STORE_CONNECT_TEAM_ID"]
 
-apple_id(ENV["APPLE_ID"] || "change-me@example.com")
-team_id(ENV["APP_STORE_CONNECT_TEAM_ID"] || "TEAMID1234")
+package_name(ENV.fetch("ANDROID_PACKAGE_NAME", ENV["DEVELOPER_PACKAGE_NAME"] || "com.current.almanac"))

@@ -7,31 +7,80 @@ def ensure_env!(keys)
   end
 end
 
+def require_env!(key)
+  value = ENV[key]
+  UI.user_error!("Missing required environment variable: #{key}") if value.to_s.empty?
+  value
+end
+
+def app_store_connect_key
+  app_store_connect_api_key(
+    key_id: ENV["APPLE_KEY_ID"] || require_env!("APP_STORE_CONNECT_KEY_ID"),
+    issuer_id: ENV["APPLE_ISSUER_ID"] || require_env!("APP_STORE_CONNECT_ISSUER_ID"),
+    key_content: ENV["APPLE_KEY_CONTENT"] || require_env!("APP_STORE_CONNECT_KEY_CONTENT"),
+    is_key_content_base64: (ENV["APP_STORE_CONNECT_KEY_IS_BASE64"] || "true") == "true",
+    duration: 1200,
+    in_house: false
+  )
+end
+
+def decoded_secret_file(env_key, destination)
+  encoded_value = require_env!(env_key)
+  FileUtils.mkdir_p(File.dirname(destination))
+  File.binwrite(destination, Base64.decode64(encoded_value))
+  destination
+end
+
 platform :ios do
   desc "Build and upload iOS build to TestFlight"
   lane :testflight do
+    setup_ci if ENV["CI"]
+
     ensure_env!(%w[
       APP_STORE_CONNECT_TEAM_ID
-      BUNDLE_IDENTIFIER
-      APPLE_KEY_ID
-      APPLE_ISSUER_ID
-      APPLE_KEY_CONTENT
     ])
 
-    api_key = app_store_connect_api_key(
-      key_id: ENV["APPLE_KEY_ID"],
-      issuer_id: ENV["APPLE_ISSUER_ID"],
-      key_content: ENV["APPLE_KEY_CONTENT"],
-      is_key_content_base64: true,
-      duration: 1200,
-      in_house: false
+    api_key = app_store_connect_key
+    certificate_path = decoded_secret_file(
+      ENV["IOS_DISTRIBUTION_CERTIFICATE_BASE64"] ? "IOS_DISTRIBUTION_CERTIFICATE_BASE64" : "BUILD_CERTIFICATE_BASE64",
+      "ios/App/build/certificates/distribution.p12"
+    )
+    profile_path = decoded_secret_file(
+      ENV["IOS_PROVISIONING_PROFILE_BASE64"] ? "IOS_PROVISIONING_PROFILE_BASE64" : "BUILD_PROVISION_PROFILE_BASE64",
+      "ios/App/build/profiles/current_almanac.mobileprovision"
+    )
+
+    keychain_password = ENV["IOS_KEYCHAIN_PASSWORD"] || ENV["P12_PASSWORD"] || require_env!("P12_PASSWORD")
+
+    create_keychain(
+      name: "current-almanac-ci",
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600
+    )
+    import_certificate(
+      certificate_path: certificate_path,
+      certificate_password: ENV["IOS_DISTRIBUTION_CERTIFICATE_PASSWORD"] || ENV["P12_PASSWORD"] || require_env!("P12_PASSWORD"),
+      keychain_name: "current-almanac-ci",
+      keychain_password: keychain_password
+    )
+    install_provisioning_profile(path: profile_path)
+
+    update_code_signing_settings(
+      path: "ios/App/App.xcodeproj",
+      use_automatic_signing: false,
+      team_id: ENV["APPLE_TEAM_ID"] || ENV["APP_STORE_CONNECT_TEAM_ID"],
+      profile_name: ENV["IOS_PROVISIONING_PROFILE_NAME"] || ENV["APPLE_PROFILE_NAME"],
+      code_sign_identity: "Apple Distribution"
     )
 
     build_app(
-      project: "ios/App/App.xcodeproj",
+      workspace: File.exist?("ios/App/App.xcworkspace") ? "ios/App/App.xcworkspace" : nil,
+      project: File.exist?("ios/App/App.xcodeproj") ? "ios/App/App.xcodeproj" : nil,
       scheme: "App",
       export_method: "app-store",
-      output_directory: "build/ios",
+      output_directory: "ios/App/build",
       output_name: "CurrentAlmanac.ipa",
       xcargs: "DEVELOPMENT_TEAM=#{ENV['APP_STORE_CONNECT_TEAM_ID']}",
       export_xcargs: "-allowProvisioningUpdates"
@@ -39,7 +88,7 @@ platform :ios do
 
     pilot(
       api_key: api_key,
-      ipa: "build/ios/CurrentAlmanac.ipa",
+      ipa: "ios/App/build/CurrentAlmanac.ipa",
       skip_waiting_for_build_processing: true
     )
   end
@@ -67,16 +116,15 @@ platform :android do
   lane :internal do
     ensure_env!(%w[
       PLAY_CONFIG_JSON
-      ANDROID_KEYSTORE_FILE
-      KEYSTORE_KEY_ALIAS
-      KEYSTORE_KEY_PASSWORD
-      KEYSTORE_STORE_PASSWORD
-      DEVELOPER_PACKAGE_NAME
+      ANDROID_KEYSTORE_FILE_BASE64
+      ANDROID_KEY_ALIAS
+      ANDROID_KEY_PASSWORD
+      ANDROID_KEYSTORE_PASSWORD
     ])
 
     keystore_path = File.expand_path("build/android-keystore.jks")
     play_json_path = File.expand_path("build/play-config.json")
-    decode_base64_to_file("ANDROID_KEYSTORE_FILE", keystore_path)
+    decode_base64_to_file("ANDROID_KEYSTORE_FILE_BASE64", keystore_path)
     decode_base64_to_file("PLAY_CONFIG_JSON", play_json_path)
 
     gradle(
@@ -86,16 +134,16 @@ platform :android do
       print_command: false,
       properties: {
         "android.injected.signing.store.file" => keystore_path,
-        "android.injected.signing.store.password" => ENV["KEYSTORE_STORE_PASSWORD"],
-        "android.injected.signing.key.alias" => ENV["KEYSTORE_KEY_ALIAS"],
-        "android.injected.signing.key.password" => ENV["KEYSTORE_KEY_PASSWORD"]
+        "android.injected.signing.store.password" => ENV["ANDROID_KEYSTORE_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
+        "android.injected.signing.key.password" => ENV["ANDROID_KEY_PASSWORD"]
       }
     )
 
     upload_to_play_store(
       json_key: play_json_path,
-      package_name: ENV["DEVELOPER_PACKAGE_NAME"],
-      track: "internal",
+      package_name: ENV["DEVELOPER_PACKAGE_NAME"] || ENV["ANDROID_PACKAGE_NAME"] || "com.current.almanac",
+      track: ENV["GOOGLE_PLAY_TRACK"] || "internal",
       aab: "android/app/build/outputs/bundle/release/app-release.aab",
       skip_upload_metadata: true,
       skip_upload_images: true,
@@ -109,7 +157,7 @@ platform :android do
     internal
     upload_to_play_store(
       json_key_data: Base64.decode64(ENV.fetch("PLAY_CONFIG_JSON")),
-      package_name: ENV["DEVELOPER_PACKAGE_NAME"],
+      package_name: ENV["DEVELOPER_PACKAGE_NAME"] || ENV["ANDROID_PACKAGE_NAME"] || "com.current.almanac",
       track: "production",
       aab: "android/app/build/outputs/bundle/release/app-release.aab",
       skip_upload_metadata: true,
