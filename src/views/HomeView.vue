@@ -9,7 +9,12 @@ import HexagramModal from "@/components/HexagramModal.vue";
 import OrganHourCard from "@/components/astrology/OrganHourCard.vue";
 import PillarBounds from "@/components/astrology/PillarBounds.vue";
 import LocationAutocomplete from "@/components/ui/LocationAutocomplete.vue";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
 import PronunciationText from "@/components/ui/PronunciationText.vue";
+import {
+  hexagramScripts,
+  hexagramRomans,
+} from "@/i18n/localizedTerms";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
@@ -148,9 +153,9 @@ const HEX_NAME_CN_SHORT: string[] = [
   "小过", "既济", "未济",
 ];
 
-function hexNameShort(num: number | null, fallback: string | null) {
+function hexNameShort(num: number | null, fallback: string | null): string {
   if (!num || num < 1 || num >= HEX_NAME_CN_SHORT.length) return fallback ?? "—";
-  return HEX_NAME_CN_SHORT[num];
+  return HEX_NAME_CN_SHORT[num] ?? fallback ?? "—";
 }
 
 function openHexModal(hex: { num: number | null; nameCn: string | null; movingLines?: number[] }) {
@@ -492,17 +497,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.birthTemporalHex.year.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.birthTemporalHex.year.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.year.hex.num ?? null, store.birthTemporalHex.year.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.birthTemporalHex.year.hex.num ?? null, store.birthTemporalHex.year.hex.nameCn)" :scripts="hexagramScripts(store.birthTemporalHex.year.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.birthTemporalHex.year.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.birthTemporalHex.year.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.birthTemporalHex.year.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.birthTemporalHex.year.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.birthTemporalHex.year.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.birthTemporalHex.year.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.birthTemporalHex.year.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.birthTemporalHex.year.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.birthTemporalHex.year.hex.num)"
                           />
                         </div>
                       </div>
@@ -528,17 +527,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.birthTemporalHex.month.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.birthTemporalHex.month.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.month.hex.num ?? null, store.birthTemporalHex.month.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.birthTemporalHex.month.hex.num ?? null, store.birthTemporalHex.month.hex.nameCn)" :scripts="hexagramScripts(store.birthTemporalHex.month.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.birthTemporalHex.month.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.birthTemporalHex.month.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.birthTemporalHex.month.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.birthTemporalHex.month.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.birthTemporalHex.month.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.birthTemporalHex.month.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.birthTemporalHex.month.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.birthTemporalHex.month.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.birthTemporalHex.month.hex.num)"
                           />
                         </div>
                       </div>
@@ -564,17 +557,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.birthTemporalHex.day.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.birthTemporalHex.day.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.day.hex.num ?? null, store.birthTemporalHex.day.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.birthTemporalHex.day.hex.num ?? null, store.birthTemporalHex.day.hex.nameCn)" :scripts="hexagramScripts(store.birthTemporalHex.day.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.birthTemporalHex.day.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.birthTemporalHex.day.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.birthTemporalHex.day.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.birthTemporalHex.day.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.birthTemporalHex.day.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.birthTemporalHex.day.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.birthTemporalHex.day.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.birthTemporalHex.day.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.birthTemporalHex.day.hex.num)"
                           />
                         </div>
                       </div>
@@ -600,17 +587,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.birthTemporalHex.hour.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.birthTemporalHex.hour.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.birthTemporalHex.hour.hex.num ?? null, store.birthTemporalHex.hour.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.birthTemporalHex.hour.hex.num ?? null, store.birthTemporalHex.hour.hex.nameCn)" :scripts="hexagramScripts(store.birthTemporalHex.hour.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.birthTemporalHex.hour.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.birthTemporalHex.hour.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.birthTemporalHex.hour.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.birthTemporalHex.hour.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.birthTemporalHex.hour.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.birthTemporalHex.hour.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.birthTemporalHex.hour.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.birthTemporalHex.hour.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.birthTemporalHex.hour.hex.num)"
                           />
                         </div>
                       </div>
@@ -669,17 +650,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.temporalHex.year.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.temporalHex.year.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.year.hex.num ?? null, store.temporalHex.year.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.temporalHex.year.hex.num ?? null, store.temporalHex.year.hex.nameCn)" :scripts="hexagramScripts(store.temporalHex.year.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.temporalHex.year.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.temporalHex.year.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.temporalHex.year.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.temporalHex.year.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.temporalHex.year.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.temporalHex.year.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.temporalHex.year.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.temporalHex.year.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.temporalHex.year.hex.num)"
                           />
                         </div>
                       </div>
@@ -705,17 +680,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.temporalHex.month.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.temporalHex.month.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.month.hex.num ?? null, store.temporalHex.month.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.temporalHex.month.hex.num ?? null, store.temporalHex.month.hex.nameCn)" :scripts="hexagramScripts(store.temporalHex.month.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.temporalHex.month.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.temporalHex.month.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.temporalHex.month.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.temporalHex.month.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.temporalHex.month.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.temporalHex.month.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.temporalHex.month.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.temporalHex.month.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.temporalHex.month.hex.num)"
                           />
                         </div>
                       </div>
@@ -741,17 +710,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.temporalHex.day.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.temporalHex.day.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.day.hex.num ?? null, store.temporalHex.day.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.temporalHex.day.hex.num ?? null, store.temporalHex.day.hex.nameCn)" :scripts="hexagramScripts(store.temporalHex.day.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.temporalHex.day.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.temporalHex.day.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.temporalHex.day.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.temporalHex.day.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.temporalHex.day.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.temporalHex.day.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.temporalHex.day.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.temporalHex.day.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.temporalHex.day.hex.num)"
                           />
                         </div>
                       </div>
@@ -777,17 +740,11 @@ onUnmounted(() => {
                       <div class="hexNum">#{{ store.temporalHex.hour.hex.num ?? "—" }}</div>
                       <HexagramLines :binary="store.temporalHex.hour.hex.binary" size="sm" />
                       <div class="hexRight">
-                        <div class="hexName cjkText">{{ hexNameShort(store.temporalHex.hour.hex.num ?? null, store.temporalHex.hour.hex.nameCn) }}</div>
+                        <LocalizedScript class="hexName" :hanzi="hexNameShort(store.temporalHex.hour.hex.num ?? null, store.temporalHex.hour.hex.nameCn)" :scripts="hexagramScripts(store.temporalHex.hour.hex.num ?? null)" />
                         <div class="hexPinyin">
                           <PronunciationText
                             :pinyin="hexLabel(store.temporalHex.hour.hex.num)?.pinyin_name || ''"
-                            :jyutping="hexLabel(store.temporalHex.hour.hex.num)?.jyutping_name"
-                            :zhuyin="hexLabel(store.temporalHex.hour.hex.num)?.zhuyin_name"
-                            :taigi="hexLabel(store.temporalHex.hour.hex.num)?.taigi_name"
-                            :japanese="hexLabel(store.temporalHex.hour.hex.num)?.japanese_name"
-                            :korean="hexLabel(store.temporalHex.hour.hex.num)?.korean_name"
-                            :tibetan="hexLabel(store.temporalHex.hour.hex.num)?.tibetan_name"
-                            :hindi="hexLabel(store.temporalHex.hour.hex.num)?.hindi_name"
+                            v-bind="hexagramRomans(store.temporalHex.hour.hex.num)"
                           />
                         </div>
                       </div>

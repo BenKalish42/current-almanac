@@ -4,7 +4,13 @@ import { YI_JING_HEXAGRAMS } from "@/data/yiJing";
 import { getHexBinary } from "@/core/iching";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
 import seedHexagrams from "@/data/seed_hexagrams.json";
+import { useAppStore } from "@/stores/appStore";
+import { localizedNumeral } from "@/i18n/numerals_localized";
+import type { LanguageCode } from "@/lib/languages";
+
+const appStore = useAppStore();
 
 function toRoman(num: number): string {
   const roman = [
@@ -90,6 +96,19 @@ const HEX_NAME_CN_SHORT: string[] = [
   "小过", "既济", "未济",
 ];
 
+/** Build a ScriptMap for the cell numeral so LocalizedScript shows it in
+ *  the active language's numeral system. */
+function numeralScripts(id: number): Partial<Record<LanguageCode, string>> {
+  const out: Partial<Record<LanguageCode, string>> = {};
+  // Only populate the currently-selected language; LocalizedScript falls
+  // back to `hanzi` (the canonical Chinese numeral) for everything else.
+  const lang = appStore.preferredLanguage as LanguageCode;
+  if (lang !== "pinyin") {
+    out[lang] = localizedNumeral(id, lang);
+  }
+  return out;
+}
+
 function hexNameShort(num: number | null) {
   if (!num || num < 1 || num >= HEX_NAME_CN_SHORT.length) return "—";
   return HEX_NAME_CN_SHORT[num];
@@ -143,7 +162,11 @@ function onViewHexagram(id: number) {
             <div class="hex-numerals">
               <div class="hex-arabic">{{ hex.id }}</div>
               <div class="hex-roman">{{ toRoman(hex.id) }}</div>
-              <div class="hex-chinese cjkText">{{ toChineseNumeral(hex.id) }}</div>
+              <LocalizedScript
+                class="hex-chinese"
+                :hanzi="toChineseNumeral(hex.id)"
+                :scripts="numeralScripts(hex.id)"
+              />
             </div>
             <div class="hex-lines">
               <HexagramLines :binary="getHexBinary(hex.id)" size="sm" />

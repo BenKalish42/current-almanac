@@ -3,7 +3,9 @@ import { onMounted, onUnmounted, computed, ref, watch } from "vue";
 import { getHexBinary, getRelatingHexagram } from "@/core/iching";
 import { YI_JING_BY_ID, type YiJingHexagram } from "@/data/yiJing";
 import PhilosophyIcon from "@/components/astrology/PhilosophyIcon.vue";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
 import PronunciationText from "@/components/ui/PronunciationText.vue";
+import { hexagramScripts, hexagramRomans } from "@/i18n/localizedTerms";
 
 type HexagramSummary = {
   daoist: string;
@@ -268,7 +270,11 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
         <div>
           <div class="hexModalTitle">
             HEXAGRAM #{{ hexNum ?? "?" }} <span class="text-gray-400">•</span>
-            <span class="hexNameCn cjkText">{{ hexTraditionalName }}</span>
+            <LocalizedScript
+              class="hexNameCn"
+              :hanzi="hexTraditionalName"
+              :scripts="hexagramScripts(hexNum ?? null)"
+            />
             <span v-if="selectedHexagram?.englishName" class="hexEnglishName">
               • <span class="text-xl font-bold">{{ selectedHexagram.englishName }}</span>
             </span>
@@ -276,13 +282,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
           <div class="hexModalLinguistics">
             Pronunciation: <PronunciationText
               :pinyin="selectedHexagram?.pinyinName ?? ''"
-              :jyutping="selectedHexagram?.jyutpingName"
-              :zhuyin="selectedHexagram?.zhuyinName"
-              :taigi="selectedHexagram?.taigiName"
-              :japanese="selectedHexagram?.japaneseName"
-              :korean="selectedHexagram?.koreanName"
-              :tibetan="selectedHexagram?.tibetanName"
-              :hindi="selectedHexagram?.hindiName"
+              v-bind="hexagramRomans(hexNum ?? null)"
             />
             <span v-if="selectedHexagram?.trigrams"> | {{ selectedHexagram.trigrams }}</span>
           </div>
