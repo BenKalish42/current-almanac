@@ -1,0 +1,6 @@
+app_identifier(ENV.fetch("IOS_BUNDLE_ID", "com.current.almanac"))
+apple_id(ENV["FASTLANE_APPLE_ID"])
+team_id(ENV["APPLE_TEAM_ID"])
+itc_team_id(ENV["APP_STORE_CONNECT_TEAM_ID"])
+
+package_name(ENV.fetch("ANDROID_PACKAGE_NAME", "com.current.almanac"))
