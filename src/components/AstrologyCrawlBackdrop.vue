@@ -2,30 +2,52 @@
 import { computed } from "vue";
 import { useAppStore } from "@/stores/appStore";
 import { OPENING_CRAWL_ZH } from "@/data/openingCrawlZh";
-import { romanizeCrawlChar, type CrawlDialect } from "@/lib/crawlRomanization";
+import { romanizeCrawlChar, type CrawlLanguage } from "@/lib/crawlRomanization";
 import PronunciationText from "@/components/ui/PronunciationText.vue";
 
 const store = useAppStore();
 
 const paragraphs = computed(() => {
-  const d = store.preferredDialect as CrawlDialect;
+  const lang = store.preferredLanguage as CrawlLanguage;
   return OPENING_CRAWL_ZH.split("\n\n").map((para) =>
     Array.from(para).map((ch) => ({
       ch,
-      ro: romanizeCrawlChar(ch, d),
+      ro: romanizeCrawlChar(ch, lang),
     }))
   );
 });
 
-/** Feed the same computed reading into the slot PronunciationText expects for each dialect. */
-function rubyProps(ro: string) {
-  const dialect = store.preferredDialect;
-  return {
-    pinyin: dialect === "pinyin" || dialect === "taigi" ? ro : "",
-    jyutping: dialect === "jyutping" ? ro : null,
-    zhuyin: dialect === "zhuyin" ? ro : null,
-    taigi: dialect === "taigi" ? ro : null,
+/**
+ * Pass the per-character romanization through to PronunciationText for the
+ * currently-selected language. PronunciationText falls back to `pinyin` when
+ * the chosen language has no value, so we always populate `pinyin` (the
+ * romanizer fallback) and selectively populate the active language's prop.
+ */
+type RubyProps = {
+  pinyin: string;
+  jyutping: string | null;
+  zhuyin: string | null;
+  taigi: string | null;
+  japanese: string | null;
+  korean: string | null;
+  tibetan: string | null;
+  hindi: string | null;
+};
+
+function rubyProps(ro: string): RubyProps {
+  const lang = store.preferredLanguage as CrawlLanguage;
+  const base: RubyProps = {
+    pinyin: ro,
+    jyutping: null,
+    zhuyin: null,
+    taigi: null,
+    japanese: null,
+    korean: null,
+    tibetan: null,
+    hindi: null,
   };
+  if (lang !== "pinyin") base[lang] = ro;
+  return base;
 }
 </script>
 

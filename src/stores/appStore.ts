@@ -24,6 +24,11 @@ import {
   LEGACY_WAVE_VARIANT_FLASH_RIPPLE,
   type WaveVariantId,
 } from "@/components/waves/waveVariants";
+import {
+  DEFAULT_LANGUAGE,
+  migrateLegacyLanguage,
+  type LanguageCode,
+} from "@/lib/languages";
 
 // --- Types ---
 type SignalStrength = "none" | "weak" | "moderate" | "dominant";
@@ -51,9 +56,16 @@ export type WeatherSnapshot = {
 };
 
 export type GeoCoords = { lat: number; lon: number };
-/** Task 12.3: Pinyin (Mandarin) or Jyutping (Cantonese) for hexagram pronunciation display. */
-/** Task 12.3/12.3b: Pinyin, Jyutping, Zhuyin, Taigi */
-export type PreferredDialect = "pinyin" | "jyutping" | "zhuyin" | "taigi";
+/**
+ * Task 12.3/12.3b/12.4: Preferred language for pronunciation display.
+ * Sourced from the language registry in `src/lib/languages.ts`.
+ *
+ * `PreferredDialect` is kept as a deprecated alias for back-compat with any
+ * external callers; new code should use `PreferredLanguage`.
+ */
+export type PreferredLanguage = LanguageCode;
+/** @deprecated Renamed to `PreferredLanguage`. Will be removed in a future release. */
+export type PreferredDialect = PreferredLanguage;
 
 // --- Constants ---
 const LS_KEY = "current_almanac_log_v0";
@@ -298,7 +310,7 @@ export const useAppStore = defineStore("app", () => {
   const userCognitiveNoise = ref<number | null>(3);
   const userSocialLoad = ref<number | null>(4);
   const userEmotionalTone = ref("Steady, focused, lightly distracted.");
-  const preferredDialect = ref<PreferredDialect>("pinyin");
+  const preferredLanguage = ref<PreferredLanguage>(DEFAULT_LANGUAGE);
 
   /** Task 12.4: True Solar Time (Local Apparent Time) — EoT + longitude offset. Default off. */
   const useTrueSolarTime = ref(false);
@@ -535,19 +547,15 @@ export const useAppStore = defineStore("app", () => {
           else if (parsed.birthLongitude === null) birthLongitude.value = null;
           if (parsed.dateFormat === "US" || parsed.dateFormat === "EU" || parsed.dateFormat === "ASIAN")
             dateFormat.value = parsed.dateFormat;
-          if (
-            parsed.preferredDialect === "pinyin" ||
-            parsed.preferredDialect === "jyutping" ||
-            parsed.preferredDialect === "zhuyin" ||
-            parsed.preferredDialect === "taigi"
-          ) {
-            preferredDialect.value = parsed.preferredDialect;
-          } else if (
-            parsed.preferredDialect === "mandarin" ||
-            parsed.preferredDialect === "cantonese"
-          ) {
-            preferredDialect.value =
-              parsed.preferredDialect === "mandarin" ? "pinyin" : "jyutping";
+          // Task 12.4: read either `preferredLanguage` (current) or legacy
+          // `preferredDialect` (which may itself contain `mandarin`/`cantonese`
+          // from an even older release). The registry handles all aliases.
+          const rawLang =
+            parsed.preferredLanguage !== undefined
+              ? parsed.preferredLanguage
+              : parsed.preferredDialect;
+          if (rawLang !== undefined) {
+            preferredLanguage.value = migrateLegacyLanguage(rawLang);
           }
           if (typeof parsed.waveVariantId === "string") {
             if (parsed.waveVariantId === LEGACY_WAVE_VARIANT_FLASH_RIPPLE) {
@@ -582,7 +590,7 @@ export const useAppStore = defineStore("app", () => {
         userCognitiveNoise: userCognitiveNoise.value,
         userSocialLoad: userSocialLoad.value,
         userEmotionalTone: userEmotionalTone.value,
-        preferredDialect: preferredDialect.value,
+        preferredLanguage: preferredLanguage.value,
         useTrueSolarTime: useTrueSolarTime.value,
         birthLocationName: birthLocationName.value,
         birthLongitude: birthLongitude.value,
@@ -1210,7 +1218,7 @@ export const useAppStore = defineStore("app", () => {
       userCognitiveNoise,
       userSocialLoad,
       userEmotionalTone,
-      preferredDialect,
+      preferredLanguage,
       useTrueSolarTime,
       waveVariantId,
       waveAudioEnabled,
@@ -1244,7 +1252,7 @@ export const useAppStore = defineStore("app", () => {
     userCognitiveNoise,
     userSocialLoad,
     userEmotionalTone,
-    preferredDialect,
+    preferredLanguage,
     useTrueSolarTime,
     waveVariantId,
     waveAudioEnabled,

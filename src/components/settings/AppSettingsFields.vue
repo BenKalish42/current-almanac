@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
 import { WAVE_VARIANTS, getWaveVariantDefinition } from "@/components/waves/waveVariants";
+import { getGroupedLanguages } from "@/lib/languages";
 import { useAppStore } from "@/stores/appStore";
 import { useThemeStore } from "@/stores/themeStore";
 
@@ -17,16 +18,21 @@ const store = useAppStore();
 const themeStore = useThemeStore();
 
 const waveSupportsAudio = computed(() => getWaveVariantDefinition(store.waveVariantId).supportsAudio);
+
+/** Registry-driven options for the language `<select>`. Adding a new language
+ *  in `src/lib/languages.ts` automatically appears here. */
+const languageGroups = computed(() => getGroupedLanguages());
 </script>
 
 <template>
   <div class="headerField">
-    <span class="headerFieldLabel">Preferred dialect</span>
-    <select class="headerFieldSelect" v-model="store.preferredDialect">
-      <option value="pinyin">Mandarin (Pinyin)</option>
-      <option value="jyutping">Cantonese (Jyutping)</option>
-      <option value="zhuyin">Taiwanese (Zhuyin)</option>
-      <option value="taigi">Taiwanese (Taigi)</option>
+    <span class="headerFieldLabel">Preferred language</span>
+    <select class="headerFieldSelect" v-model="store.preferredLanguage">
+      <optgroup v-for="grp in languageGroups" :key="grp.label" :label="grp.label">
+        <option v-for="lang in grp.items" :key="lang.code" :value="lang.code">
+          {{ lang.label }}
+        </option>
+      </optgroup>
     </select>
   </div>
   <ThemeSkinSelect :variant="skinSelectVariant" :class="skinSelectClass" />
