@@ -29,6 +29,10 @@ backend/.env
 backend/__pycache__
 *.pyc
 
+# Python virtualenv
+.venv/
+venv/
+
 # Stray files
 =1.0.0
 
