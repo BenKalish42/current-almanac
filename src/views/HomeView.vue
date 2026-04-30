@@ -15,6 +15,8 @@ import {
   hexagramScripts,
   hexagramRomans,
 } from "@/i18n/localizedTerms";
+import { formatGanZhiScript, formatGanZhiRoman } from "@/i18n/ganzhi_localized";
+import type { LanguageCode } from "@/lib/languages";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
@@ -178,10 +180,16 @@ function closeHexModal() {
 function formatGanZhiLines(gz: string | null) {
   const parsed = parseGanZhi(gz ?? "");
   if (!parsed.stem || !parsed.branch) return gz ?? "—";
-  const chars = `${parsed.stem.char}${parsed.branch.char}`;
+  // Script slot follows the active language; English semantic line + emojis stay.
+  const lang = store.preferredLanguage as LanguageCode;
+  const chars = formatGanZhiScript(`${parsed.stem.char}${parsed.branch.char}`, lang);
   const english = `${parsed.stem.element} ${parsed.stem.yinYang} ${parsed.branch.animal}`;
   const emojis = `${parsed.stem.elementEmoji}${parsed.stem.yinYangEmoji}${parsed.branch.animalEmoji}`;
-  return `${chars}\n${english}\n${emojis}`;
+  // Optional roman line (under the script line) when the active language has one.
+  const roman = formatGanZhiRoman(`${parsed.stem.char}${parsed.branch.char}`, lang);
+  return roman
+    ? `${chars}\n${roman}\n${english}\n${emojis}`
+    : `${chars}\n${english}\n${emojis}`;
 }
 
 function getLocalTimezone() {
