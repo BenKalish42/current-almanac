@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import AstrologyCrawlBackdrop from "@/components/AstrologyCrawlBackdrop.vue";
+import PremiumGate from "@/components/premium/PremiumGate.vue";
 import AppSettingsFields from "@/components/settings/AppSettingsFields.vue";
 import WaveBackgroundHost from "@/components/waves/WaveBackgroundHost.vue";
 import CosmicBoard from "@/components/CosmicBoard.vue";
@@ -13,6 +14,7 @@ import PronunciationText from "@/components/ui/PronunciationText.vue";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
 import { useAppStore } from "@/stores/appStore";
+import { useSubscriptionStore } from "@/stores/subscriptionStore";
 import { useThemeStore } from "@/stores/themeStore";
 import { getTrueSolarTime } from "@/utils/solarTime";
 import seedHexagrams from "@/data/seed_hexagrams.json";
@@ -57,6 +59,7 @@ function buildHexSummaryMap(seed: SeedHexagram[]): HexagramSummaryMap {
 }
 
 const store = useAppStore();
+const subscriptionStore = useSubscriptionStore();
 const themeStore = useThemeStore();
 const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
 
@@ -810,34 +813,49 @@ onUnmounted(() => {
 
           <!-- Current Flow: Generate button + analysis -->
           <div class="sec currentFlowSec">
-            <button
-              type="button"
-              class="btn primary currentFlowBtn"
-              :disabled="store.currentFlowLoading"
-              @click="store.requestCurrentFlowAnalysis()"
+            <PremiumGate
+              title="Current+ synthesis"
+              description="Current Flow Analysis is the first premium automation path. Free users can still explore the astrology and alchemy views, while paid users unlock guided synthesis across birth, present, and meridian context."
             >
-              {{ store.currentFlowLoading ? "Synthesizing…" : "🌊 Generate Current Flow Analysis" }}
-            </button>
+              <button
+                type="button"
+                class="btn primary currentFlowBtn"
+                :disabled="store.currentFlowLoading || !subscriptionStore.paid"
+                @click="store.requestCurrentFlowAnalysis()"
+              >
+                {{
+                  store.currentFlowLoading
+                    ? "Synthesizing…"
+                    : subscriptionStore.paid
+                      ? "🌊 Generate Current Flow Analysis"
+                      : "🌊 Current+ required"
+                }}
+              </button>
 
-            <div v-if="store.currentFlowLoading" class="currentFlowBlock currentFlowLoading">
-              <p class="currentFlowMeta">Synthesizing…</p>
-            </div>
-
-            <div v-else-if="displayableCurrentFlow" class="currentFlowBlock">
-              <div class="currentFlowHeader">
-                <span class="currentFlowLabel">Current Flow</span>
-                <span class="currentFlowMeta">{{ store.presentDatetimeLocal }} · {{ store.location || "location unspecified" }}</span>
+              <div v-if="store.currentFlowLoading" class="currentFlowBlock currentFlowLoading">
+                <p class="currentFlowMeta">Synthesizing…</p>
               </div>
-              <div class="currentFlowText">{{ store.currentFlowAnalysis }}</div>
-              <div class="currentFlowActions">
-                <button class="btn small" @click="copyCurrentFlow">Copy</button>
-              </div>
-            </div>
 
-            <div v-else class="currentFlowBlock currentFlowHint">
-              <p class="currentFlowMeta" v-if="hasLlmKey()">Click above to synthesize your Birth chart, the Moment's chart, and the Active Meridian.</p>
-              <p class="currentFlowMeta" v-else>Add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env and restart the dev server to enable synthesis.</p>
-            </div>
+              <div v-else-if="displayableCurrentFlow" class="currentFlowBlock">
+                <div class="currentFlowHeader">
+                  <span class="currentFlowLabel">Current Flow</span>
+                  <span class="currentFlowMeta">{{ store.presentDatetimeLocal }} · {{ store.location || "location unspecified" }}</span>
+                </div>
+                <div class="currentFlowText">{{ store.currentFlowAnalysis }}</div>
+                <div class="currentFlowActions">
+                  <button class="btn small" @click="copyCurrentFlow">Copy</button>
+                </div>
+              </div>
+
+              <div v-else class="currentFlowBlock currentFlowHint">
+                <p v-if="!subscriptionStore.paid" class="currentFlowMeta">
+                  Current Flow Analysis is part of the Current+ monthly tier.
+                  Open Settings → Account &amp; Subscription to subscribe for $13.31/month.
+                </p>
+                <p class="currentFlowMeta" v-if="hasLlmKey()">Click above to synthesize your Birth chart, the Moment's chart, and the Active Meridian.</p>
+                <p class="currentFlowMeta" v-else>Add VITE_DEEPSEEK_API_KEY or VITE_LLM_API_KEY to .env and restart the dev server to enable synthesis.</p>
+              </div>
+            </PremiumGate>
 
             <div class="advanced-wrapper" style="margin-top: 16px;">
               <button

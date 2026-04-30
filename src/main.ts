@@ -6,13 +6,27 @@ import "./style.css";
 import "./assets/themes/data-theme-tokens.css";
 import "./assets/themes/cosmic-crawl-extras.css";
 import { CapacitorUpdater } from "@capgo/capacitor-updater";
-import { registerAppServiceWorker } from "@/lib/pwa";
+import { registerPwaServiceWorker } from "@/lib/pwa";
+import { useAuthStore } from "@/stores/authStore";
+import { useSubscriptionStore } from "@/stores/subscriptionStore";
 
 const app = createApp(App);
-app.use(createPinia());
+const pinia = createPinia();
+app.use(pinia);
 app.use(router);
 app.mount("#app");
-registerAppServiceWorker();
+void registerPwaServiceWorker();
+
+const authStore = useAuthStore(pinia);
+const subscriptionStore = useSubscriptionStore(pinia);
+
+void authStore.initialize().then(async () => {
+  try {
+    await subscriptionStore.initialize();
+  } catch (error) {
+    console.error("[subscriptionStore.initialize]", error);
+  }
+});
 
 // Capacitor native: Status Bar (dark style) + hide Splash Screen when mounted
 (async () => {

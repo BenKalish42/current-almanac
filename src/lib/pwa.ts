@@ -4,7 +4,7 @@ export async function registerPwaServiceWorker() {
   const { registerSW } = await import("virtual:pwa-register");
   registerSW({
     immediate: true,
-    onRegisterError(error) {
+    onRegisterError(error: unknown) {
       console.error("[pwa] service worker registration failed", error);
     },
   });

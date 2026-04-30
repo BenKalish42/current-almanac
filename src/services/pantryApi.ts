@@ -2,24 +2,11 @@
  * Pantry API - inventory management for Practitioner Pantry.
  */
 
-const API_BASE = (import.meta.env.VITE_API_URL as string | undefined) ?? "";
+import { apiFetch } from "@/services/apiClient";
 
 export interface PantryItem {
   herb_id: string;
   in_stock: boolean;
-}
-
-async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const url = `${API_BASE}${path}`;
-  const res = await fetch(url, {
-    headers: { "Content-Type": "application/json", ...options.headers },
-    ...options,
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`API error (${res.status}): ${text || res.statusText}`);
-  }
-  return res.json() as Promise<T>;
 }
 
 /**

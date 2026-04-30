@@ -24,13 +24,30 @@ import random
 import uuid
 from typing import Any, AsyncGenerator
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 
 from .core.safety import TIER_3_BLOCKED, TIER_3_ERROR_MESSAGE
-from .db import get_all_formulas, get_all_neidan_practices, get_formula_by_id, get_herb_tier, get_pantry, get_supabase, toggle_pantry
+from .db import (
+    get_all_formulas,
+    get_all_neidan_practices,
+    get_formula_by_id,
+    get_herb_tier,
+    get_pantry,
+    get_profile,
+    get_subscription_state,
+    get_supabase,
+    get_supabase_anon_client,
+    insert_subscription_event,
+    toggle_pantry,
+    upsert_profile,
+    upsert_subscription_customer,
+    upsert_subscription_state,
+)
 from .schemas import (
+    AuthEmailOtpRequest,
+    AuthSessionResponse,
     FormulaRequest,
     HealthResponse,
     InterpretationRequest,
@@ -42,9 +59,16 @@ from .schemas import (
     PantryItem,
     PantryToggleRequest,
     Prescription,
+    RevenueCatWebhookEventEnvelope,
+    SubscriptionStateResponse,
+    UserProfileResponse,
 )
 from .services.alchemy_math import build_prescription, match_neidan_for_pattern, merge_formulas as he_fang_merge
 from .services.llm_service import chat_stream, has_deepseek_key, interpret_with_llm
+from .services.subscription_sync import (
+    fetch_revenuecat_subscriber,
+    normalize_revenuecat_subscriber,
+)
 
 try:
     from openai import APIError, APIStatusError, APIConnectionError
@@ -83,6 +107,181 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
 def health_check() -> HealthResponse:
     """Health check for load balancers and monitoring."""
     return HealthResponse(status="ok", version="current_v1")
+
+
+def _resolve_authenticated_user(authorization: str | None) -> dict[str, Any]:
+    """Validate a Supabase bearer token and return the user payload."""
+    if not authorization or not authorization.lower().startswith("bearer "):
+        raise HTTPException(status_code=401, detail="Missing bearer token.")
+
+    token = authorization.split(" ", 1)[1].strip()
+    if not token:
+        raise HTTPException(status_code=401, detail="Missing bearer token.")
+
+    supabase = get_supabase_anon_client()
+    if not supabase:
+        raise HTTPException(status_code=503, detail="Supabase auth is not configured.")
+
+    try:
+        response = supabase.auth.get_user(token)
+        user = getattr(response, "user", None)
+        if not user:
+            raise HTTPException(status_code=401, detail="Invalid Supabase session.")
+        return user.model_dump() if hasattr(user, "model_dump") else dict(user)
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=401, detail=f"Invalid Supabase session: {exc}") from exc
+
+
+def _sync_profile_and_subscription_state(user: dict[str, Any]) -> tuple[dict | None, dict | None]:
+    """Upsert profile and refresh normalized subscription state."""
+    supabase = get_supabase()
+    user_id = str(user.get("id") or "")
+    if not user_id:
+        return None, None
+
+    email = user.get("email")
+    profile = upsert_profile(user_id, email, supabase)
+    if profile is None:
+        profile = get_profile(user_id, supabase)
+
+    subscription_state = get_subscription_state(user_id, supabase)
+    if not subscription_state:
+        subscriber = fetch_revenuecat_subscriber(user_id)
+        if subscriber:
+            normalized = normalize_revenuecat_subscriber(user_id, subscriber)
+            upsert_subscription_customer(
+                user_id,
+                user_id,
+                normalized.get("original_app_user_id"),
+                supabase,
+            )
+            subscription_state = upsert_subscription_state(normalized, supabase)
+    return profile, subscription_state
+
+
+def _extract_authorization_header(
+    authorization: str | None,
+    revenuecat_authorization: str | None,
+) -> str | None:
+    """Prefer the standard Authorization header, fallback to RevenueCat-specific alias."""
+    return authorization or revenuecat_authorization
+
+
+@app.post("/api/auth/email-otp")
+def request_email_otp(payload: AuthEmailOtpRequest) -> dict[str, bool]:
+    """Trigger a Supabase email OTP / magic link sign-in flow."""
+    supabase = get_supabase_anon_client()
+    if not supabase:
+        raise HTTPException(status_code=503, detail="Supabase auth is not configured.")
+
+    options: dict[str, Any] = {}
+    redirect_to = os.environ.get("SUPABASE_AUTH_REDIRECT_URL")
+    if redirect_to:
+        options["email_redirect_to"] = redirect_to
+
+    try:
+        supabase.auth.sign_in_with_otp(
+            {
+                "email": payload.email,
+                "options": {
+                    **options,
+                    "should_create_user": True,
+                },
+            }
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"Could not request sign-in link: {exc}") from exc
+
+    return {"ok": True}
+
+
+@app.get("/api/auth/session", response_model=AuthSessionResponse)
+def get_auth_session(
+    authorization: str | None = Header(default=None),
+    revenuecat_authorization: str | None = Header(default=None, alias="X-RevenueCat-Authorization"),
+) -> AuthSessionResponse:
+    """Return the authenticated Supabase user plus normalized subscription snapshot."""
+    user = _resolve_authenticated_user(
+        _extract_authorization_header(authorization, revenuecat_authorization)
+    )
+    profile, subscription_state = _sync_profile_and_subscription_state(user)
+
+    return AuthSessionResponse(
+        user=user,
+        profile=UserProfileResponse.model_validate(profile) if profile else None,
+        subscription=SubscriptionStateResponse.model_validate(subscription_state)
+        if subscription_state
+        else None,
+    )
+
+
+@app.get("/api/me", response_model=AuthSessionResponse)
+def get_me(
+    authorization: str | None = Header(default=None),
+    revenuecat_authorization: str | None = Header(default=None, alias="X-RevenueCat-Authorization"),
+) -> AuthSessionResponse:
+    """Alias for /api/auth/session."""
+    return get_auth_session(authorization, revenuecat_authorization)
+
+
+@app.get("/api/subscription/state", response_model=SubscriptionStateResponse)
+def get_subscription_snapshot(
+    authorization: str | None = Header(default=None),
+    revenuecat_authorization: str | None = Header(default=None, alias="X-RevenueCat-Authorization"),
+) -> SubscriptionStateResponse:
+    """Fetch the current normalized subscription state for the authenticated user."""
+    user = _resolve_authenticated_user(
+        _extract_authorization_header(authorization, revenuecat_authorization)
+    )
+    _, subscription_state = _sync_profile_and_subscription_state(user)
+    if not subscription_state:
+        return SubscriptionStateResponse(user_id=str(user.get("id")), is_paid=False)
+    return SubscriptionStateResponse.model_validate(subscription_state)
+
+
+@app.post("/api/revenuecat/webhook")
+async def revenuecat_webhook(
+    request: Request,
+    authorization: str | None = Header(default=None),
+) -> dict[str, bool]:
+    """Ingest RevenueCat webhook events and refresh the customer's normalized state."""
+    expected_auth = os.environ.get("REVENUECAT_WEBHOOK_AUTHORIZATION")
+    if expected_auth and authorization != expected_auth:
+        raise HTTPException(status_code=401, detail="Invalid RevenueCat webhook authorization.")
+
+    payload = RevenueCatWebhookEventEnvelope.model_validate(await request.json())
+    event = payload.event
+    supabase = get_supabase()
+
+    inserted = insert_subscription_event(
+        {
+            "event_id": event.id,
+            "user_id": event.app_user_id,
+            "event_type": event.type,
+            "store": event.store,
+            "payload": payload.model_dump(mode="json"),
+        },
+        supabase,
+    )
+    if inserted is None and supabase:
+        return {"ok": True}
+
+    user_id = event.app_user_id or event.original_app_user_id
+    if user_id:
+        subscriber = fetch_revenuecat_subscriber(user_id)
+        if subscriber:
+            normalized = normalize_revenuecat_subscriber(user_id, subscriber)
+            upsert_subscription_customer(
+                user_id,
+                user_id,
+                normalized.get("original_app_user_id"),
+                supabase,
+            )
+            upsert_subscription_state(normalized, supabase)
+
+    return {"ok": True}
 
 
 @app.post("/api/interpret", response_model=InterpretationResponse)

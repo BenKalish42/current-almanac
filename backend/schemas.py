@@ -312,3 +312,83 @@ class PantryToggleRequest(BaseModel):
 
     herb_id: str
     user_id: str = "default"
+
+
+class AuthEmailOtpRequest(BaseModel):
+    """Request a magic-link / one-time-code email."""
+
+    email: str
+
+
+class SubscriptionEntitlement(BaseModel):
+    """Normalized entitlement details returned to the frontend."""
+
+    identifier: str
+    is_active: bool
+    product_identifier: str | None = None
+    store: str | None = None
+    expires_at: str | None = None
+    will_renew: bool | None = None
+    billing_issue_detected_at: str | None = None
+    period_type: str | None = None
+
+
+class SubscriptionStateResponse(BaseModel):
+    """Normalized subscription state for app-side gating."""
+
+    user_id: str
+    is_paid: bool = False
+    active_entitlements: dict[str, SubscriptionEntitlement] = Field(default_factory=dict)
+    active_products: list[str] = Field(default_factory=list)
+    management_url: str | None = None
+    store: str | None = None
+    period_type: str | None = None
+    expires_at: str | None = None
+    will_renew: bool | None = None
+    billing_issue_detected_at: str | None = None
+    source: Literal["supabase_cache", "revenuecat", "unavailable"] = "unavailable"
+    updated_at: str | None = None
+
+
+class UserProfileResponse(BaseModel):
+    """Normalized profile payload returned to the frontend."""
+
+    id: str
+    email: str | None = None
+    display_name: str | None = None
+    created_at: str | None = None
+    updated_at: str | None = None
+
+
+class AuthSessionResponse(BaseModel):
+    """Authenticated session bootstrap payload."""
+
+    user: dict[str, Any]
+    profile: UserProfileResponse | None = None
+    subscription: SubscriptionStateResponse | None = None
+
+
+class RevenueCatWebhookEvent(BaseModel):
+    """RevenueCat webhook event envelope."""
+
+    id: str
+    type: str
+    app_user_id: str | None = None
+    original_app_user_id: str | None = None
+    aliases: list[str] = Field(default_factory=list)
+    entitlement_ids: list[str] = Field(default_factory=list)
+    product_id: str | None = None
+    store: str | None = None
+    environment: str | None = None
+    period_type: str | None = None
+    expiration_at_ms: int | None = None
+    purchased_at_ms: int | None = None
+    subscriber_attributes: dict[str, Any] = Field(default_factory=dict)
+    raw_event: dict[str, Any] = Field(default_factory=dict)
+
+
+class RevenueCatWebhookEventEnvelope(BaseModel):
+    """RevenueCat webhook payload."""
+
+    api_version: str
+    event: RevenueCatWebhookEvent

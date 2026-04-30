@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { UIMessage } from "ai";
 import { computed, ref } from "vue";
+import PremiumGate from "@/components/premium/PremiumGate.vue";
 import { useChat } from "@/composables/useChat";
 
 const { messages, status, error, sendMessage, stop } = useChat();
@@ -30,6 +31,13 @@ function getMessageText(msg: UIMessage) {
 
 <template>
   <div class="ai-chat-view">
+    <PremiumGate
+      title="Current Plus unlocks the full oracle."
+      message="Subscribers get unlimited access to the intelligence chat across web, desktop, iOS, and Android. Sign in from Settings to keep your subscription synced."
+      cta-label="Subscribe now"
+      class="chatPremiumGate"
+    />
+
     <!-- Scrollable message area -->
     <div class="chat-messages">
       <div

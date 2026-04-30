@@ -126,10 +126,10 @@ onUnmounted(() => {
   left: auto;
   box-sizing: border-box;
   /* Cap width so a 10px gutter remains on the left when the panel is wide (fixed = no document scroll). */
-  width: min(380px, calc(100vw - 20px));
-  max-width: min(380px, calc(100vw - 20px));
+  width: min(440px, calc(100vw - 20px));
+  max-width: min(440px, calc(100vw - 20px));
   min-width: 0;
-  max-height: min(70vh, 520px);
+  max-height: min(78vh, 680px);
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0;

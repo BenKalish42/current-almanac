@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import AccountSubscriptionPanel from "@/components/settings/AccountSubscriptionPanel.vue";
 import ThemeSkinSelect from "@/components/theme/ThemeSkinSelect.vue";
 import { WAVE_VARIANTS, getWaveVariantDefinition } from "@/components/waves/waveVariants";
 import { getGroupedLanguages } from "@/lib/languages";
@@ -25,6 +26,7 @@ const languageGroups = computed(() => getGroupedLanguages());
 </script>
 
 <template>
+  <AccountSubscriptionPanel />
   <div class="headerField">
     <span class="headerFieldLabel">Preferred language</span>
     <select class="headerFieldSelect" v-model="store.preferredLanguage">

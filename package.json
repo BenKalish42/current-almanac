@@ -28,6 +28,7 @@
   "dependencies": {
     "@ai-sdk/vue": "^3.0.97",
     "@capacitor/android": "^7.0.0",
+    "@capacitor/browser": "^7.0.5",
     "@capacitor/core": "^7.0.0",
     "@capacitor/geolocation": "^7.1.8",
     "@capacitor/ios": "^7.0.0",
@@ -35,6 +36,7 @@
     "@capacitor/status-bar": "^7.0.0",
     "@capgo/capacitor-updater": "^7.43.3",
     "@revenuecat/purchases-capacitor": "^11.3.2",
+    "@revenuecat/purchases-capacitor-ui": "^11.3.2",
     "@revenuecat/purchases-js": "^1.37.0",
     "@supabase/supabase-js": "^2.105.1",
     "@vueuse/core": "^14.2.1",

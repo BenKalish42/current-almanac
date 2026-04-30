@@ -6,6 +6,7 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import { fetchPantry, togglePantryHerb } from "@/services/pantryApi";
+import { useAuthStore } from "@/stores/authStore";
 
 const LS_KEY_USER_ID = "current_pantry_user_id";
 
@@ -27,17 +28,20 @@ export const usePantryStore = defineStore("pantry", () => {
   const loading = ref(false);
   const error = ref<string | null>(null);
 
-  const userId = getOrCreateUserId();
-
   const isHerbInStock = computed(() => (herbId: string) => {
     return inventory.value.get(herbId) ?? false;
   });
+
+  function resolveUserId() {
+    const authStore = useAuthStore();
+    return authStore.userId ?? getOrCreateUserId();
+  }
 
   async function fetchInventory() {
     loading.value = true;
     error.value = null;
     try {
-      const items = await fetchPantry(userId);
+      const items = await fetchPantry(resolveUserId());
       const map = new Map<string, boolean>();
       for (const item of items) {
         map.set(item.herb_id, item.in_stock);
@@ -54,7 +58,7 @@ export const usePantryStore = defineStore("pantry", () => {
   async function toggleHerb(herbId: string) {
     error.value = null;
     try {
-      const res = await togglePantryHerb(herbId, userId);
+      const res = await togglePantryHerb(herbId, resolveUserId());
       const next = new Map(inventory.value);
       next.set(herbId, res.in_stock);
       inventory.value = next;

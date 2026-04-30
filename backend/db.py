@@ -31,6 +31,24 @@ def get_supabase() -> "Client | None":
     return None
 
 
+def get_supabase_anon_client() -> "Client | None":
+    """Create Supabase client using publishable/anon credentials for auth verification."""
+    if not _SUPABASE_AVAILABLE or create_client is None:
+        return None
+    try:
+        url = os.environ.get("SUPABASE_URL")
+        key = (
+            os.environ.get("SUPABASE_ANON_KEY")
+            or os.environ.get("SUPABASE_PUBLISHABLE_KEY")
+            or os.environ.get("SUPABASE_KEY")
+        )
+        if url and key:
+            return create_client(url, key)
+    except Exception:
+        pass
+    return None
+
+
 def _seed_path(filename: str) -> Path:
     """Resolve path to seed data file. Tries project root, then cwd."""
     project_root = Path(__file__).resolve().parent.parent
@@ -211,3 +229,136 @@ def toggle_pantry(user_id: str, herb_id: str, supabase: Client | None) -> bool:
         return True
     _pantry_fallback[user_id][herb_id] = not _pantry_fallback[user_id][herb_id]
     return _pantry_fallback[user_id][herb_id]
+
+
+def upsert_profile(user_id: str, email: str | None, supabase: Client | None) -> dict | None:
+    """Create or update a user profile row."""
+    if not supabase:
+        return None
+    payload = {
+        "id": user_id,
+        "email": email,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+    try:
+        response = (
+            supabase.table("profiles")
+            .upsert(payload, on_conflict="id")
+            .execute()
+        )
+        if response.data:
+            return dict(response.data[0]) if isinstance(response.data, list) else dict(response.data)
+    except Exception:
+        pass
+    return None
+
+
+def get_profile(user_id: str, supabase: Client | None) -> dict | None:
+    """Get a user's profile."""
+    if not supabase:
+        return None
+    try:
+        response = supabase.table("profiles").select("*").eq("id", user_id).maybe_single().execute()
+        if response.data:
+            return dict(response.data)
+    except Exception:
+        pass
+    return None
+
+
+def upsert_subscription_customer(
+    user_id: str,
+    revenuecat_app_user_id: str,
+    revenuecat_original_app_user_id: str | None,
+    supabase: Client | None,
+) -> dict | None:
+    """Upsert RevenueCat customer mapping."""
+    if not supabase:
+        return None
+    payload = {
+        "user_id": user_id,
+        "revenuecat_app_user_id": revenuecat_app_user_id,
+        "revenuecat_original_app_user_id": revenuecat_original_app_user_id,
+        "last_seen_at": datetime.now(timezone.utc).isoformat(),
+    }
+    try:
+        response = (
+            supabase.table("subscription_customers")
+            .upsert(payload, on_conflict="user_id")
+            .execute()
+        )
+        if response.data:
+            return dict(response.data[0]) if isinstance(response.data, list) else dict(response.data)
+    except Exception:
+        pass
+    return None
+
+
+def get_subscription_state(user_id: str, supabase: Client | None) -> dict | None:
+    """Get a user's normalized subscription state."""
+    if not supabase:
+        return None
+    try:
+        response = (
+            supabase.table("subscription_state")
+            .select("*")
+            .eq("user_id", user_id)
+            .maybe_single()
+            .execute()
+        )
+        if response.data:
+            return dict(response.data)
+    except Exception:
+        pass
+    return None
+
+
+def upsert_subscription_state(payload: dict[str, Any], supabase: Client | None) -> dict | None:
+    """Persist normalized subscription state."""
+    if not supabase:
+        return None
+    normalized = {
+        **payload,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+    try:
+        response = (
+            supabase.table("subscription_state")
+            .upsert(normalized, on_conflict="user_id")
+            .execute()
+        )
+        if response.data:
+            return dict(response.data[0]) if isinstance(response.data, list) else dict(response.data)
+    except Exception:
+        pass
+    return None
+
+
+def insert_subscription_event(payload: dict[str, Any], supabase: Client | None) -> dict | None:
+    """Insert a subscription event if it hasn't been processed yet."""
+    if not supabase:
+        return None
+    try:
+        response = supabase.table("subscription_events").insert(payload).execute()
+        if response.data:
+            return dict(response.data[0]) if isinstance(response.data, list) else dict(response.data)
+    except Exception:
+        return None
+    return None
+
+
+def has_processed_subscription_event(event_id: str, supabase: Client | None) -> bool:
+    """Check whether a RevenueCat webhook event has already been processed."""
+    if not supabase:
+        return False
+    try:
+        response = (
+            supabase.table("subscription_events")
+            .select("id")
+            .eq("event_id", event_id)
+            .limit(1)
+            .execute()
+        )
+        return bool(response.data)
+    except Exception:
+        return False
