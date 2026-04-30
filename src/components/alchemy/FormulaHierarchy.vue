@@ -2,6 +2,9 @@
 import { computed } from "vue";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import type { Herb } from "@/stores/alchemyStore";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
+import PronunciationText from "@/components/ui/PronunciationText.vue";
+import { herbScripts, herbRomans } from "@/i18n/localizedTerms";
 
 const alchemyStore = useAlchemyStore();
 
@@ -158,7 +161,15 @@ function displayCommonName(herb: Herb): string {
             class="flex items-center justify-between gap-2 py-1"
           >
             <div>
-              <span class="font-medium">{{ displayPinyin(herb) }}</span>
+              <LocalizedScript
+                v-if="Object.keys(herbScripts(herb)).length > 0"
+                class="font-medium mr-1"
+                :hanzi="''"
+                :scripts="herbScripts(herb)"
+              />
+              <span class="font-medium">
+                <PronunciationText :pinyin="displayPinyin(herb)" v-bind="herbRomans(herb)" />
+              </span>
               <span class="text-daoist-muted text-sm ml-2">{{ displayCommonName(herb) }}</span>
             </div>
             <select

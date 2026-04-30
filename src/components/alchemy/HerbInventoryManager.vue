@@ -2,6 +2,9 @@
 import { ref, computed, watch } from "vue";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import type { Herb } from "@/stores/alchemyStore";
+import LocalizedScript from "@/components/ui/LocalizedScript.vue";
+import PronunciationText from "@/components/ui/PronunciationText.vue";
+import { herbScripts, herbRomans } from "@/i18n/localizedTerms";
 
 const alchemyStore = useAlchemyStore();
 const searchInput = ref("");
@@ -125,7 +128,9 @@ async function analyzeVectors() {
             class="w-full px-4 py-3 text-left hover:bg-white/5 focus:bg-white/5 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-daoist-jade/50 transition-colors first:rounded-t-lg last:rounded-b-lg"
             @mousedown.prevent="selectHerb(herb)"
           >
-            <span class="block font-medium text-daoist-text">{{ displayPinyin(herb) }}</span>
+            <span class="block font-medium text-daoist-text">
+              <PronunciationText :pinyin="displayPinyin(herb)" v-bind="herbRomans(herb)" />
+            </span>
             <span class="block text-sm text-daoist-muted mt-0.5">
               {{ herb.common_name }}
               <span v-if="getMatchedAlias(herb, debouncedQuery)" class="text-daoist-subtle ml-2">
@@ -162,7 +167,15 @@ async function analyzeVectors() {
           class="flex items-center justify-between gap-2 rounded-lg bg-daoist-surface/60 border border-white/5 px-3 py-2"
         >
           <div class="min-w-0">
-            <span class="font-medium text-daoist-text text-sm">{{ displayPinyin(herb) }}</span>
+            <LocalizedScript
+              v-if="Object.keys(herbScripts(herb)).length > 0"
+              class="font-medium text-daoist-text text-sm mr-1"
+              :hanzi="''"
+              :scripts="herbScripts(herb)"
+            />
+            <span class="font-medium text-daoist-text text-sm">
+              <PronunciationText :pinyin="displayPinyin(herb)" v-bind="herbRomans(herb)" />
+            </span>
             <span class="text-daoist-muted text-xs ml-2">{{ displayCommonName(herb) }}</span>
             <span class="text-daoist-jade text-xs ml-2 font-mono tabular-nums">
               {{ alchemyStore.getHerbDosage(herb.id).toFixed(2) }} g

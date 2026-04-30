@@ -68,6 +68,42 @@ export function hexagramHanziTraditional(
 }
 
 /* -------------------------------------------------------------------------- */
+/* Herb translations                                                          */
+/* -------------------------------------------------------------------------- */
+
+interface HerbLike {
+  linguistics?: {
+    translations?: Record<string, { script: string; roman: string }>;
+  };
+}
+
+/** Per-language script-slot values for one herb. */
+export function herbScripts(herb: HerbLike | null | undefined): ScriptMap {
+  const t = herb?.linguistics?.translations;
+  if (!t) return EMPTY;
+  const out: ScriptMap = {};
+  for (const [lang, cell] of Object.entries(t) as Array<
+    [LanguageCode, { script?: string } | undefined]
+  >) {
+    if (cell?.script) out[lang] = cell.script;
+  }
+  return out;
+}
+
+/** Per-language romanization-slot values for one herb. */
+export function herbRomans(herb: HerbLike | null | undefined): RomanMap {
+  const t = herb?.linguistics?.translations;
+  if (!t) return EMPTY;
+  const out: RomanMap = {};
+  for (const [lang, cell] of Object.entries(t) as Array<
+    [LanguageCode, { roman?: string } | undefined]
+  >) {
+    if (cell?.roman) out[lang] = cell.roman;
+  }
+  return out;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Formula translations                                                       */
 /* -------------------------------------------------------------------------- */
 

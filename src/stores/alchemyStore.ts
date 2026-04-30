@@ -19,10 +19,17 @@ export interface HerbProperties {
   meridians: string[];
 }
 
+export interface HerbTranslationCell {
+  script: string;
+  roman: string;
+}
+
 export interface HerbLinguistics {
   tonal_pinyin?: string;
   jyutping?: string;
   hokkien?: string;
+  /** Per-language { script, roman } translations (Task 12.5). */
+  translations?: Record<string, HerbTranslationCell>;
 }
 
 export interface Herb {
