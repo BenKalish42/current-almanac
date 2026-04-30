@@ -249,8 +249,7 @@ const breathStyle = computed(() => ({
     animation: sfBoatBob 5.8s ease-in-out infinite alternate;
   }
   .sleeping-fisherwoman-scene__ribcage {
-    transform-box: fill-box;
-    transform-origin: 50% 100%;
+    transform-origin: 100px 156px;
     animation: sfBreath var(--sf-breath-period, 4s) ease-in-out infinite;
     animation-delay: var(--sf-breath-delay, 0s);
   }
@@ -270,6 +269,7 @@ const breathStyle = computed(() => ({
     animation: none !important;
   }
   .sleeping-fisherwoman-scene__ribcage {
+    transform-origin: 100px 156px;
     animation-duration: var(--sf-breath-period, 4s);
     animation-name: sfBreathReduced;
     animation-iteration-count: infinite;

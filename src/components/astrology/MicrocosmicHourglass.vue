@@ -85,9 +85,10 @@ const topVaporPoints = computed(() => {
   return `${xl},${ys} ${xr},${ys} ${CX},${TOP_Y1}`;
 });
 
-/** Bottom dew pool polygon. */
+/** Bottom dew pool polygon. Floor at 4% so even tiny progress shows a puddle. */
 const bottomPoolPoints = computed(() => {
-  const ys = BOTTOM_Y1 - clamped.value * (BOTTOM_Y1 - BOTTOM_Y0);
+  const visualProgress = Math.max(0.04, clamped.value);
+  const ys = BOTTOM_Y1 - visualProgress * (BOTTOM_Y1 - BOTTOM_Y0);
   const w = widthAtBottom(ys);
   const xl = CX - w / 2;
   const xr = CX + w / 2;
@@ -252,8 +253,8 @@ function onFlipEnd() {
           </radialGradient>
 
           <linearGradient id="mhVaporColumn" x1="50" y1="12" x2="50" y2="78" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#cfe9ff" stop-opacity="0.35" />
-            <stop offset="1" stop-color="#9fc7ff" stop-opacity="0.15" />
+            <stop stop-color="#e6f5ff" stop-opacity="0.7" />
+            <stop offset="1" stop-color="#9fcdf2" stop-opacity="0.5" />
           </linearGradient>
 
           <!-- Pool gradient: bright across whole height so a small pool still glows. -->
