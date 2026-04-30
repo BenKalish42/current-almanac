@@ -72,19 +72,21 @@ export type SkinFeatureFlags = {
   homeWaveLayer: boolean;
   /** Starfield CSS + scroll crawl backdrop (dialect-aware) */
   cosmicCrawlBackdrop: boolean;
+  /** Anime SVG companions flanking the OrganHourCard (fisherman + sleeping fisherwoman) */
+  daoistSceneCharacters: boolean;
 };
 
 export const SKIN_FEATURES: Record<ChosenSkin, SkinFeatureFlags> = {
-  daoist: { homeWaveLayer: true, cosmicCrawlBackdrop: false },
-  "cosmic-crawl": { homeWaveLayer: true, cosmicCrawlBackdrop: true },
-  "classic-90s-os": { homeWaveLayer: false, cosmicCrawlBackdrop: false },
-  frostwire: { homeWaveLayer: false, cosmicCrawlBackdrop: false },
-  "monastic-terminal": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
-  "old-school-aol": { homeWaveLayer: false, cosmicCrawlBackdrop: false },
-  "plaintext-brutalist": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
-  "retro-terminal": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
-  "tranceaddict-forum": { homeWaveLayer: false, cosmicCrawlBackdrop: false },
-  "vintage-print-almanac": { homeWaveLayer: true, cosmicCrawlBackdrop: false },
+  daoist: { homeWaveLayer: true, cosmicCrawlBackdrop: false, daoistSceneCharacters: true },
+  "cosmic-crawl": { homeWaveLayer: true, cosmicCrawlBackdrop: true, daoistSceneCharacters: true },
+  "classic-90s-os": { homeWaveLayer: false, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  frostwire: { homeWaveLayer: false, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "monastic-terminal": { homeWaveLayer: true, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "old-school-aol": { homeWaveLayer: false, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "plaintext-brutalist": { homeWaveLayer: true, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "retro-terminal": { homeWaveLayer: true, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "tranceaddict-forum": { homeWaveLayer: false, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
+  "vintage-print-almanac": { homeWaveLayer: true, cosmicCrawlBackdrop: false, daoistSceneCharacters: false },
 };
 
 /**
