@@ -23,17 +23,62 @@ def _normalize_pinyin(s: str) -> str:
     return "".join(s.lower().split())
 
 
+def _ingest_translations(session, parent_label: str, parent_id: str, translations: dict):
+    """
+    Task 12.5: Attach (:Translation { lang, script, roman }) nodes to a
+    parent (:Herb|:Formula|:Hexagram) via [:HAS_TRANSLATION].
+
+    Uses parameterized Cypher (per repo Neo4j security rule). Each
+    (parent_id, lang) pair is unique.
+    """
+    if not isinstance(translations, dict):
+        return
+    for lang, cell in translations.items():
+        if not isinstance(cell, dict):
+            continue
+        script = cell.get("script") or ""
+        roman = cell.get("roman") or ""
+        if not script and not roman:
+            continue
+        cypher = f"""
+            MATCH (parent:{parent_label} {{id: $parent_id}})
+            MERGE (t:Translation {{ parent_id: $parent_id, lang: $lang }})
+            SET t.script = $script, t.roman = $roman
+            MERGE (parent)-[:HAS_TRANSLATION]->(t)
+        """
+        # parent_label is a fixed allow-listed string from this function's
+        # callers (Herb / Formula / Hexagram) and never user input — safe to
+        # interpolate.
+        session.run(
+            cypher,
+            parent_id=parent_id,
+            lang=lang,
+            script=script,
+            roman=roman,
+        )
+
+
 def run(driver):
     with driver.session() as session:
         # Constraints
         for stmt in [
             "CREATE CONSTRAINT herb_id_unique IF NOT EXISTS FOR (h:Herb) REQUIRE h.id IS UNIQUE",
             "CREATE CONSTRAINT formula_id_unique IF NOT EXISTS FOR (f:Formula) REQUIRE f.id IS UNIQUE",
+            # Task 12.5: composite uniqueness for translation nodes.
+            "CREATE CONSTRAINT translation_parent_lang_unique IF NOT EXISTS FOR (t:Translation) REQUIRE (t.parent_id, t.lang) IS UNIQUE",
         ]:
             try:
                 session.run(stmt)
             except Exception:
                 pass  # Constraint may already exist
+
+        # Index for fast per-language lookups across the graph.
+        try:
+            session.run(
+                "CREATE INDEX translation_lang IF NOT EXISTS FOR (t:Translation) ON (t.lang)"
+            )
+        except Exception:
+            pass
 
         # Ingest herbs
         with open(HERBS_PATH, encoding="utf-8") as f:
@@ -55,6 +100,10 @@ def run(driver):
                 tier=int(tier),
                 norm=norm,
             )
+
+            # Task 12.5: ingest per-language { script, roman } for the herb.
+            translations = (h.get("linguistics") or {}).get("translations") or {}
+            _ingest_translations(session, "Herb", pid, translations)
             for m_name in h.get("meridians", []):
                 if m_name:
                     session.run(
@@ -86,6 +135,10 @@ def run(driver):
                 english=english,
                 pattern=pattern,
             )
+
+            # Task 12.5: ingest per-language { script, roman } for the formula.
+            translations = f.get("translations") or {}
+            _ingest_translations(session, "Formula", fid, translations)
             for arch in f.get("architecture", []):
                 herb_pinyin = arch.get("herb_pinyin", "")
                 role = arch.get("role", "")

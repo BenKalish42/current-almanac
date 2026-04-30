@@ -36,6 +36,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SEED_HERBS_PATH = PROJECT_ROOT / "src" / "data" / "seed_herbs.json"
+SEED_HERBS_MIRROR = PROJECT_ROOT / "data" / "output" / "seed_herbs.json"
 
 ALL_LANGUAGES: list[str] = [
     "pinyin", "jyutping", "zhuyin", "taigi",
@@ -216,6 +217,12 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"Updated {SEED_HERBS_PATH} with translations[18] for {len(herbs)} herbs.")
+    if SEED_HERBS_MIRROR.parent.exists():
+        SEED_HERBS_MIRROR.write_text(
+            json.dumps(herbs, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Mirrored to {SEED_HERBS_MIRROR}")
     return 0
 
 

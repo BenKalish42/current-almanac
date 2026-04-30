@@ -26,6 +26,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FORMULAS_PATH = PROJECT_ROOT / "src" / "data" / "formulas.json"
 SEED_FORMULAS_PATH = PROJECT_ROOT / "src" / "data" / "seed_formulas.json"
+SEED_FORMULAS_MIRROR = PROJECT_ROOT / "data" / "output" / "seed_formulas.json"
 
 # --------------------------------------------------------------------------
 # Per-Hanzi reading dictionary for the chars that appear in our formulas.
@@ -242,6 +243,12 @@ def main() -> int:
             encoding="utf-8",
         )
         print(f"Updated {SEED_FORMULAS_PATH} ({len(seeds)} formulas)")
+        if SEED_FORMULAS_MIRROR.parent.exists():
+            SEED_FORMULAS_MIRROR.write_text(
+                json.dumps(seeds, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+            print(f"Mirrored to {SEED_FORMULAS_MIRROR}")
 
     return 0
 
