@@ -8,6 +8,10 @@ type SeedHexagram = {
   jyutping_name?: string;
   zhuyin_name?: string;
   taigi_name?: string;
+  japanese_name?: string;
+  korean_name?: string;
+  tibetan_name?: string;
+  hindi_name?: string;
 };
 
 type TrigramDefinition = {
@@ -22,6 +26,10 @@ export type YiJingHexagram = {
   jyutpingName?: string;
   zhuyinName?: string;
   taigiName?: string;
+  japaneseName?: string;
+  koreanName?: string;
+  tibetanName?: string;
+  hindiName?: string;
   trigrams: string;
 };
 
@@ -59,6 +67,10 @@ export const YI_JING_HEXAGRAMS: YiJingHexagram[] = (seedHexagrams as SeedHexagra
     jyutpingName: hex.jyutping_name,
     zhuyinName: hex.zhuyin_name,
     taigiName: hex.taigi_name,
+    japaneseName: hex.japanese_name,
+    koreanName: hex.korean_name,
+    tibetanName: hex.tibetan_name,
+    hindiName: hex.hindi_name,
     trigrams: getTrigramBreakdown(hex.id),
   }))
   .sort((a, b) => a.id - b.id);

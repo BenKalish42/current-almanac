@@ -13,7 +13,11 @@
     },
     "jyutping_name": "kin4",
     "zhuyin_name": "ㄑㄧㄢˊ",
-    "taigi_name": "Kiân"
+    "taigi_name": "Kiân",
+    "japanese_name": "Ken",
+    "korean_name": "건 (geon)",
+    "tibetan_name": "ཁྱན",
+    "hindi_name": "छ्येन"
   },
   {
     "id": 2,
@@ -29,7 +33,11 @@
     },
     "jyutping_name": "kwan1",
     "zhuyin_name": "ㄎㄨㄣ",
-    "taigi_name": "Khun"
+    "taigi_name": "Khun",
+    "japanese_name": "Kon",
+    "korean_name": "곤 (gon)",
+    "tibetan_name": "ཁུན",
+    "hindi_name": "खुन"
   },
   {
     "id": 3,
@@ -45,7 +53,11 @@
     },
     "jyutping_name": "tyun4",
     "zhuyin_name": "ㄓㄨㄣ",
-    "taigi_name": "Tûn"
+    "taigi_name": "Tûn",
+    "japanese_name": "Chun",
+    "korean_name": "준 (jun)",
+    "tibetan_name": "ཀྲུན",
+    "hindi_name": "जुन"
   },
   {
     "id": 4,
@@ -61,7 +73,11 @@
     },
     "jyutping_name": "mung4",
     "zhuyin_name": "ㄇㄥˊ",
-    "taigi_name": "Bông"
+    "taigi_name": "Bông",
+    "japanese_name": "Mō",
+    "korean_name": "몽 (mong)",
+    "tibetan_name": "མུང",
+    "hindi_name": "मेङ"
   },
   {
     "id": 5,
@@ -77,7 +93,11 @@
     },
     "jyutping_name": "seoi1",
     "zhuyin_name": "ㄒㄩ",
-    "taigi_name": "Su"
+    "taigi_name": "Su",
+    "japanese_name": "Ju",
+    "korean_name": "수 (su)",
+    "tibetan_name": "ཤུའུ",
+    "hindi_name": "श्यू"
   },
   {
     "id": 6,
@@ -93,7 +113,11 @@
     },
     "jyutping_name": "zung6",
     "zhuyin_name": "ㄙㄨㄥˋ",
-    "taigi_name": "Siōng"
+    "taigi_name": "Siōng",
+    "japanese_name": "Shō",
+    "korean_name": "송 (song)",
+    "tibetan_name": "སུང",
+    "hindi_name": "सोङ"
   },
   {
     "id": 7,
@@ -109,7 +133,11 @@
     },
     "jyutping_name": "si1",
     "zhuyin_name": "ㄕ",
-    "taigi_name": "Su"
+    "taigi_name": "Su",
+    "japanese_name": "Shi",
+    "korean_name": "사 (sa)",
+    "tibetan_name": "ཤི",
+    "hindi_name": "शी"
   },
   {
     "id": 8,
@@ -125,7 +153,11 @@
     },
     "jyutping_name": "bei2",
     "zhuyin_name": "ㄅㄧˇ",
-    "taigi_name": "Pí"
+    "taigi_name": "Pí",
+    "japanese_name": "Hi",
+    "korean_name": "비 (bi)",
+    "tibetan_name": "པི",
+    "hindi_name": "पी"
   },
   {
     "id": 9,
@@ -141,7 +173,11 @@
     },
     "jyutping_name": "siu2 cuk1",
     "zhuyin_name": "ㄒㄧㄠˇ ㄔㄨˋ",
-    "taigi_name": "Sió-thiok"
+    "taigi_name": "Sió-thiok",
+    "japanese_name": "Shōchiku",
+    "korean_name": "소축 (sochuk)",
+    "tibetan_name": "ཤའོ་ཁྲུ",
+    "hindi_name": "श्याओ छू"
   },
   {
     "id": 10,
@@ -157,7 +193,11 @@
     },
     "jyutping_name": "lei5",
     "zhuyin_name": "ㄌㄩˇ",
-    "taigi_name": "Lí"
+    "taigi_name": "Lí",
+    "japanese_name": "Ri",
+    "korean_name": "리 (ri)",
+    "tibetan_name": "ལུའུ",
+    "hindi_name": "ल्यू"
   },
   {
     "id": 11,
@@ -173,7 +213,11 @@
     },
     "jyutping_name": "taai3",
     "zhuyin_name": "ㄊㄞˋ",
-    "taigi_name": "Thài"
+    "taigi_name": "Thài",
+    "japanese_name": "Tai",
+    "korean_name": "태 (tae)",
+    "tibetan_name": "ཐའེ",
+    "hindi_name": "ताई"
   },
   {
     "id": 12,
@@ -189,7 +233,11 @@
     },
     "jyutping_name": "pei2",
     "zhuyin_name": "ㄆㄧˇ",
-    "taigi_name": "Pí"
+    "taigi_name": "Pí",
+    "japanese_name": "Hi",
+    "korean_name": "비 (bi)",
+    "tibetan_name": "ཕི",
+    "hindi_name": "पी"
   },
   {
     "id": 13,
@@ -205,7 +253,11 @@
     },
     "jyutping_name": "tung4 jan4",
     "zhuyin_name": "ㄊㄨㄥˊ ㄖㄣˊ",
-    "taigi_name": "Tông-jîn"
+    "taigi_name": "Tông-jîn",
+    "japanese_name": "Dōjin",
+    "korean_name": "동인 (dongin)",
+    "tibetan_name": "ཐུང་རན",
+    "hindi_name": "थोङ रन"
   },
   {
     "id": 14,
@@ -221,7 +273,11 @@
     },
     "jyutping_name": "daai6 jau5",
     "zhuyin_name": "ㄉㄚˋ ㄧㄡˇ",
-    "taigi_name": "Tāi-iú"
+    "taigi_name": "Tāi-iú",
+    "japanese_name": "Daiyū",
+    "korean_name": "대유 (daeyu)",
+    "tibetan_name": "ཏ་ཡའོ",
+    "hindi_name": "ता योऊ"
   },
   {
     "id": 15,
@@ -237,7 +293,11 @@
     },
     "jyutping_name": "him1",
     "zhuyin_name": "ㄑㄧㄢ",
-    "taigi_name": "Khiam"
+    "taigi_name": "Khiam",
+    "japanese_name": "Ken",
+    "korean_name": "겸 (gyeom)",
+    "tibetan_name": "ཆཱན",
+    "hindi_name": "छ्येन"
   },
   {
     "id": 16,
@@ -253,7 +313,11 @@
     },
     "jyutping_name": "jyu6",
     "zhuyin_name": "ㄩˋ",
-    "taigi_name": "Ū"
+    "taigi_name": "Ū",
+    "japanese_name": "Yo",
+    "korean_name": "예 (ye)",
+    "tibetan_name": "ཡུའུ",
+    "hindi_name": "यू"
   },
   {
     "id": 17,
@@ -269,7 +333,11 @@
     },
     "jyutping_name": "ceoi4",
     "zhuyin_name": "ㄙㄨㄟˊ",
-    "taigi_name": "Sûi"
+    "taigi_name": "Sûi",
+    "japanese_name": "Zui",
+    "korean_name": "수 (su)",
+    "tibetan_name": "སུའེ",
+    "hindi_name": "सुई"
   },
   {
     "id": 18,
@@ -285,7 +353,11 @@
     },
     "jyutping_name": "gu2",
     "zhuyin_name": "ㄍㄨˇ",
-    "taigi_name": "Kóo"
+    "taigi_name": "Kóo",
+    "japanese_name": "Ko",
+    "korean_name": "고 (go)",
+    "tibetan_name": "ཀུའུ",
+    "hindi_name": "गू"
   },
   {
     "id": 19,
@@ -301,7 +373,11 @@
     },
     "jyutping_name": "lam4",
     "zhuyin_name": "ㄌㄧㄣˊ",
-    "taigi_name": "Lîm"
+    "taigi_name": "Lîm",
+    "japanese_name": "Rin",
+    "korean_name": "림 (rim)",
+    "tibetan_name": "ལིན",
+    "hindi_name": "लिन"
   },
   {
     "id": 20,
@@ -317,7 +393,11 @@
     },
     "jyutping_name": "gun1",
     "zhuyin_name": "ㄍㄨㄢ",
-    "taigi_name": "Koan"
+    "taigi_name": "Koan",
+    "japanese_name": "Kan",
+    "korean_name": "관 (gwan)",
+    "tibetan_name": "ཀུཨན",
+    "hindi_name": "गुआन"
   },
   {
     "id": 21,
@@ -333,7 +413,11 @@
     },
     "jyutping_name": "sai6 hap6",
     "zhuyin_name": "ㄕˋ ㄎㄜˋ",
-    "taigi_name": "Sē-khap"
+    "taigi_name": "Sē-khap",
+    "japanese_name": "Zegō",
+    "korean_name": "서합 (seohap)",
+    "tibetan_name": "ཤི་ཧུའེ",
+    "hindi_name": "श्र हे"
   },
   {
     "id": 22,
@@ -349,7 +433,11 @@
     },
     "jyutping_name": "ban3",
     "zhuyin_name": "ㄅㄧˋ",
-    "taigi_name": "Pì"
+    "taigi_name": "Pì",
+    "japanese_name": "Hi",
+    "korean_name": "비 (bi)",
+    "tibetan_name": "པི",
+    "hindi_name": "पी"
   },
   {
     "id": 23,
@@ -365,7 +453,11 @@
     },
     "jyutping_name": "mok1",
     "zhuyin_name": "ㄅㄛ",
-    "taigi_name": "Pok"
+    "taigi_name": "Pok",
+    "japanese_name": "Haku",
+    "korean_name": "박 (bak)",
+    "tibetan_name": "པོ",
+    "hindi_name": "पो"
   },
   {
     "id": 24,
@@ -381,7 +473,11 @@
     },
     "jyutping_name": "fuk6",
     "zhuyin_name": "ㄈㄨˋ",
-    "taigi_name": "Ho̍k"
+    "taigi_name": "Ho̍k",
+    "japanese_name": "Fuku",
+    "korean_name": "복 (bok)",
+    "tibetan_name": "ཕུའུ",
+    "hindi_name": "फू"
   },
   {
     "id": 25,
@@ -397,7 +493,11 @@
     },
     "jyutping_name": "mou4 mong5",
     "zhuyin_name": "ㄨˊ ㄨㄤˋ",
-    "taigi_name": "Bô-bōng"
+    "taigi_name": "Bô-bōng",
+    "japanese_name": "Mubō",
+    "korean_name": "무망 (mumang)",
+    "tibetan_name": "འུ་ཝང",
+    "hindi_name": "वू वाङ"
   },
   {
     "id": 26,
@@ -413,7 +513,11 @@
     },
     "jyutping_name": "daai6 cuk1",
     "zhuyin_name": "ㄉㄚˋ ㄔㄨˋ",
-    "taigi_name": "Tāi-thiok"
+    "taigi_name": "Tāi-thiok",
+    "japanese_name": "Daichiku",
+    "korean_name": "대축 (daechuk)",
+    "tibetan_name": "ཏ་ཁྲུ",
+    "hindi_name": "ता छू"
   },
   {
     "id": 27,
@@ -429,7 +533,11 @@
     },
     "jyutping_name": "ji4",
     "zhuyin_name": "ㄧˊ",
-    "taigi_name": "Î"
+    "taigi_name": "Î",
+    "japanese_name": "I",
+    "korean_name": "이 (i)",
+    "tibetan_name": "ཡི",
+    "hindi_name": "यी"
   },
   {
     "id": 28,
@@ -445,7 +553,11 @@
     },
     "jyutping_name": "daai6 gwo3",
     "zhuyin_name": "ㄉㄚˋ ㄍㄨㄛˋ",
-    "taigi_name": "Tāi-kòe"
+    "taigi_name": "Tāi-kòe",
+    "japanese_name": "Daika",
+    "korean_name": "대과 (daegwa)",
+    "tibetan_name": "ཏ་ཀོ",
+    "hindi_name": "ता क्वो"
   },
   {
     "id": 29,
@@ -461,7 +573,11 @@
     },
     "jyutping_name": "ham2",
     "zhuyin_name": "ㄎㄢˇ",
-    "taigi_name": "Khám"
+    "taigi_name": "Khám",
+    "japanese_name": "Kan",
+    "korean_name": "감 (gam)",
+    "tibetan_name": "ཁན",
+    "hindi_name": "खान"
   },
   {
     "id": 30,
@@ -477,7 +593,11 @@
     },
     "jyutping_name": "lei4",
     "zhuyin_name": "ㄌㄧˊ",
-    "taigi_name": "Lî"
+    "taigi_name": "Lî",
+    "japanese_name": "Ri",
+    "korean_name": "리 (ri)",
+    "tibetan_name": "ལི",
+    "hindi_name": "ली"
   },
   {
     "id": 31,
@@ -493,7 +613,11 @@
     },
     "jyutping_name": "haam4",
     "zhuyin_name": "ㄒㄧㄢˊ",
-    "taigi_name": "Hâm"
+    "taigi_name": "Hâm",
+    "japanese_name": "Kan",
+    "korean_name": "함 (ham)",
+    "tibetan_name": "ཤན",
+    "hindi_name": "श्येन"
   },
   {
     "id": 32,
@@ -509,7 +633,11 @@
     },
     "jyutping_name": "hang4",
     "zhuyin_name": "ㄏㄥˊ",
-    "taigi_name": "Hêng"
+    "taigi_name": "Hêng",
+    "japanese_name": "Kō",
+    "korean_name": "항 (hang)",
+    "tibetan_name": "ཧང",
+    "hindi_name": "हङ"
   },
   {
     "id": 33,
@@ -525,7 +653,11 @@
     },
     "jyutping_name": "deon6",
     "zhuyin_name": "ㄉㄨㄣˋ",
-    "taigi_name": "Tūn"
+    "taigi_name": "Tūn",
+    "japanese_name": "Ton",
+    "korean_name": "둔 (dun)",
+    "tibetan_name": "ཏུན",
+    "hindi_name": "तुन"
   },
   {
     "id": 34,
@@ -541,7 +673,11 @@
     },
     "jyutping_name": "daai6 zong3",
     "zhuyin_name": "ㄉㄚˋ ㄓㄨㄤˋ",
-    "taigi_name": "Tāi-chòng"
+    "taigi_name": "Tāi-chòng",
+    "japanese_name": "Daisō",
+    "korean_name": "대장 (daejang)",
+    "tibetan_name": "ཏ་ཀྲུཨང",
+    "hindi_name": "ता च्वाङ"
   },
   {
     "id": 35,
@@ -557,7 +693,11 @@
     },
     "jyutping_name": "zeon3",
     "zhuyin_name": "ㄐㄧㄣˋ",
-    "taigi_name": "Chìn"
+    "taigi_name": "Chìn",
+    "japanese_name": "Shin",
+    "korean_name": "진 (jin)",
+    "tibetan_name": "ཅིན",
+    "hindi_name": "जिन"
   },
   {
     "id": 36,
@@ -573,7 +713,11 @@
     },
     "jyutping_name": "ming4 ji4",
     "zhuyin_name": "ㄇㄧㄥˊ ㄧˊ",
-    "taigi_name": "Bêng-î"
+    "taigi_name": "Bêng-î",
+    "japanese_name": "Meii",
+    "korean_name": "명이 (myeongi)",
+    "tibetan_name": "མིང་ཡི",
+    "hindi_name": "मिङ यी"
   },
   {
     "id": 37,
@@ -589,7 +733,11 @@
     },
     "jyutping_name": "gaa1 jan4",
     "zhuyin_name": "ㄐㄧㄚ ㄖㄣˊ",
-    "taigi_name": "Ka-jîn"
+    "taigi_name": "Ka-jîn",
+    "japanese_name": "Kajin",
+    "korean_name": "가인 (gain)",
+    "tibetan_name": "ཅཱ་རན",
+    "hindi_name": "ज्या रन"
   },
   {
     "id": 38,
@@ -605,7 +753,11 @@
     },
     "jyutping_name": "kwai4",
     "zhuyin_name": "ㄎㄨㄟˊ",
-    "taigi_name": "Khue"
+    "taigi_name": "Khue",
+    "japanese_name": "Kei",
+    "korean_name": "규 (gyu)",
+    "tibetan_name": "ཁུའེ",
+    "hindi_name": "खुई"
   },
   {
     "id": 39,
@@ -621,7 +773,11 @@
     },
     "jyutping_name": "gin2",
     "zhuyin_name": "ㄐㄧㄢˇ",
-    "taigi_name": "Kián"
+    "taigi_name": "Kián",
+    "japanese_name": "Ken",
+    "korean_name": "건 (geon)",
+    "tibetan_name": "ཅཱན",
+    "hindi_name": "ज्येन"
   },
   {
     "id": 40,
@@ -637,7 +793,11 @@
     },
     "jyutping_name": "gaai2",
     "zhuyin_name": "ㄐㄧㄝˇ",
-    "taigi_name": "Kái"
+    "taigi_name": "Kái",
+    "japanese_name": "Kai",
+    "korean_name": "해 (hae)",
+    "tibetan_name": "ཤེ",
+    "hindi_name": "श्ये"
   },
   {
     "id": 41,
@@ -653,7 +813,11 @@
     },
     "jyutping_name": "syun2",
     "zhuyin_name": "ㄙㄨㄣˇ",
-    "taigi_name": "Sún"
+    "taigi_name": "Sún",
+    "japanese_name": "Son",
+    "korean_name": "손 (son)",
+    "tibetan_name": "སུན",
+    "hindi_name": "सुन"
   },
   {
     "id": 42,
@@ -669,7 +833,11 @@
     },
     "jyutping_name": "jik1",
     "zhuyin_name": "ㄧˋ",
-    "taigi_name": "Ik"
+    "taigi_name": "Ik",
+    "japanese_name": "Eki",
+    "korean_name": "익 (ik)",
+    "tibetan_name": "ཡི",
+    "hindi_name": "यी"
   },
   {
     "id": 43,
@@ -685,7 +853,11 @@
     },
     "jyutping_name": "gwaai3",
     "zhuyin_name": "ㄍㄨㄞˋ",
-    "taigi_name": "Kòai"
+    "taigi_name": "Kòai",
+    "japanese_name": "Kai",
+    "korean_name": "쾌 (kwae)",
+    "tibetan_name": "ཀུཨའེ",
+    "hindi_name": "गुआई"
   },
   {
     "id": 44,
@@ -701,7 +873,11 @@
     },
     "jyutping_name": "gau3",
     "zhuyin_name": "ㄍㄡˋ",
-    "taigi_name": "Kòo"
+    "taigi_name": "Kòo",
+    "japanese_name": "Kō",
+    "korean_name": "구 (gu)",
+    "tibetan_name": "ཀོའུ",
+    "hindi_name": "गोऊ"
   },
   {
     "id": 45,
@@ -717,7 +893,11 @@
     },
     "jyutping_name": "seoi6",
     "zhuyin_name": "ㄘㄨㄟˋ",
-    "taigi_name": "Chūi"
+    "taigi_name": "Chūi",
+    "japanese_name": "Sui",
+    "korean_name": "췌 (chwe)",
+    "tibetan_name": "ཚུའེ",
+    "hindi_name": "छुई"
   },
   {
     "id": 46,
@@ -733,7 +913,11 @@
     },
     "jyutping_name": "sing1",
     "zhuyin_name": "ㄕㄥ",
-    "taigi_name": "Seng"
+    "taigi_name": "Seng",
+    "japanese_name": "Shō",
+    "korean_name": "승 (seung)",
+    "tibetan_name": "ཤང",
+    "hindi_name": "शेङ"
   },
   {
     "id": 47,
@@ -749,7 +933,11 @@
     },
     "jyutping_name": "kwan3",
     "zhuyin_name": "ㄎㄨㄣˋ",
-    "taigi_name": "Khùn"
+    "taigi_name": "Khùn",
+    "japanese_name": "Kon",
+    "korean_name": "곤 (gon)",
+    "tibetan_name": "ཁུན",
+    "hindi_name": "खुन"
   },
   {
     "id": 48,
@@ -765,7 +953,11 @@
     },
     "jyutping_name": "zing2",
     "zhuyin_name": "ㄐㄧㄥˇ",
-    "taigi_name": "Chéng"
+    "taigi_name": "Chéng",
+    "japanese_name": "Sei",
+    "korean_name": "정 (jeong)",
+    "tibetan_name": "ཅིང",
+    "hindi_name": "जिङ"
   },
   {
     "id": 49,
@@ -781,7 +973,11 @@
     },
     "jyutping_name": "gaak3",
     "zhuyin_name": "ㄍㄜˊ",
-    "taigi_name": "Kek"
+    "taigi_name": "Kek",
+    "japanese_name": "Kaku",
+    "korean_name": "혁 (hyeok)",
+    "tibetan_name": "ཀེ",
+    "hindi_name": "गे"
   },
   {
     "id": 50,
@@ -797,7 +993,11 @@
     },
     "jyutping_name": "ding2",
     "zhuyin_name": "ㄉㄧㄥˇ",
-    "taigi_name": "Tiáⁿ"
+    "taigi_name": "Tiáⁿ",
+    "japanese_name": "Tei",
+    "korean_name": "정 (jeong)",
+    "tibetan_name": "ཏིང",
+    "hindi_name": "तिङ"
   },
   {
     "id": 51,
@@ -813,7 +1013,11 @@
     },
     "jyutping_name": "zan3",
     "zhuyin_name": "ㄓㄣˋ",
-    "taigi_name": "Chìn"
+    "taigi_name": "Chìn",
+    "japanese_name": "Shin",
+    "korean_name": "진 (jin)",
+    "tibetan_name": "ཀྲན",
+    "hindi_name": "जन"
   },
   {
     "id": 52,
@@ -829,7 +1033,11 @@
     },
     "jyutping_name": "gan3",
     "zhuyin_name": "ㄍㄣˋ",
-    "taigi_name": "Kùn"
+    "taigi_name": "Kùn",
+    "japanese_name": "Gon",
+    "korean_name": "간 (gan)",
+    "tibetan_name": "ཀན",
+    "hindi_name": "गन"
   },
   {
     "id": 53,
@@ -845,7 +1053,11 @@
     },
     "jyutping_name": "zim6",
     "zhuyin_name": "ㄐㄧㄢˋ",
-    "taigi_name": "Chiām"
+    "taigi_name": "Chiām",
+    "japanese_name": "Zen",
+    "korean_name": "점 (jeom)",
+    "tibetan_name": "ཅཱན",
+    "hindi_name": "ज्येन"
   },
   {
     "id": 54,
@@ -861,7 +1073,11 @@
     },
     "jyutping_name": "gwai1 mui6",
     "zhuyin_name": "ㄍㄨㄟ ㄇㄟˋ",
-    "taigi_name": "Kui-bē"
+    "taigi_name": "Kui-bē",
+    "japanese_name": "Kimai",
+    "korean_name": "귀매 (gwimae)",
+    "tibetan_name": "ཀུའེ་མེའེ",
+    "hindi_name": "गुई मे"
   },
   {
     "id": 55,
@@ -877,7 +1093,11 @@
     },
     "jyutping_name": "fung1",
     "zhuyin_name": "ㄈㄥ",
-    "taigi_name": "Hong"
+    "taigi_name": "Hong",
+    "japanese_name": "Hō",
+    "korean_name": "풍 (pung)",
+    "tibetan_name": "ཕིང",
+    "hindi_name": "फेङ"
   },
   {
     "id": 56,
@@ -893,7 +1113,11 @@
     },
     "jyutping_name": "leoi5",
     "zhuyin_name": "ㄌㄩˇ",
-    "taigi_name": "Lí"
+    "taigi_name": "Lí",
+    "japanese_name": "Ryo",
+    "korean_name": "려 (ryeo)",
+    "tibetan_name": "ལུའུ",
+    "hindi_name": "ल्यू"
   },
   {
     "id": 57,
@@ -909,7 +1133,11 @@
     },
     "jyutping_name": "seon3",
     "zhuyin_name": "ㄒㄩㄣˋ",
-    "taigi_name": "Sùn"
+    "taigi_name": "Sùn",
+    "japanese_name": "Son",
+    "korean_name": "손 (son)",
+    "tibetan_name": "ཤུན",
+    "hindi_name": "श्युन"
   },
   {
     "id": 58,
@@ -925,7 +1153,11 @@
     },
     "jyutping_name": "deoi3",
     "zhuyin_name": "ㄉㄨㄟˋ",
-    "taigi_name": "Tōe"
+    "taigi_name": "Tōe",
+    "japanese_name": "Da",
+    "korean_name": "태 (tae)",
+    "tibetan_name": "ཏུའེ",
+    "hindi_name": "तुई"
   },
   {
     "id": 59,
@@ -941,7 +1173,11 @@
     },
     "jyutping_name": "wun6",
     "zhuyin_name": "ㄏㄨㄢˋ",
-    "taigi_name": "Hoān"
+    "taigi_name": "Hoān",
+    "japanese_name": "Kan",
+    "korean_name": "환 (hwan)",
+    "tibetan_name": "ཧུཨན",
+    "hindi_name": "हुआन"
   },
   {
     "id": 60,
@@ -957,7 +1193,11 @@
     },
     "jyutping_name": "zit3",
     "zhuyin_name": "ㄐㄧㄝˊ",
-    "taigi_name": "Chiat"
+    "taigi_name": "Chiat",
+    "japanese_name": "Setsu",
+    "korean_name": "절 (jeol)",
+    "tibetan_name": "ཅཱ",
+    "hindi_name": "ज्ये"
   },
   {
     "id": 61,
@@ -973,7 +1213,11 @@
     },
     "jyutping_name": "zung1 fu4",
     "zhuyin_name": "ㄓㄨㄥ ㄈㄨˊ",
-    "taigi_name": "Tiong-hu"
+    "taigi_name": "Tiong-hu",
+    "japanese_name": "Chūfu",
+    "korean_name": "중부 (jungbu)",
+    "tibetan_name": "ཀྲུང་ཕུའུ",
+    "hindi_name": "जोङ फू"
   },
   {
     "id": 62,
@@ -989,7 +1233,11 @@
     },
     "jyutping_name": "siu2 gwo3",
     "zhuyin_name": "ㄒㄧㄠˇ ㄍㄨㄛˋ",
-    "taigi_name": "Sió-kòe"
+    "taigi_name": "Sió-kòe",
+    "japanese_name": "Shōka",
+    "korean_name": "소과 (sogwa)",
+    "tibetan_name": "ཤའོ་ཀོ",
+    "hindi_name": "श्याओ क्वो"
   },
   {
     "id": 63,
@@ -1005,7 +1253,11 @@
     },
     "jyutping_name": "gei3 zai3",
     "zhuyin_name": "ㄐㄧˋ ㄐㄧˋ",
-    "taigi_name": "Kì-chè"
+    "taigi_name": "Kì-chè",
+    "japanese_name": "Kisei",
+    "korean_name": "기제 (gije)",
+    "tibetan_name": "ཅི་ཅི",
+    "hindi_name": "जी जी"
   },
   {
     "id": 64,
@@ -1021,6 +1273,10 @@
     },
     "jyutping_name": "mei6 zai3",
     "zhuyin_name": "ㄨㄟˋ ㄐㄧˋ",
-    "taigi_name": "Bī-chè"
+    "taigi_name": "Bī-chè",
+    "japanese_name": "Misei",
+    "korean_name": "미제 (mije)",
+    "tibetan_name": "ཝེའེ་ཅི",
+    "hindi_name": "वे जी"
   }
 ]

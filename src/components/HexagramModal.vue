@@ -274,7 +274,16 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
             </span>
           </div>
           <div class="hexModalLinguistics">
-            Pronunciation: <PronunciationText :pinyin="selectedHexagram?.pinyinName ?? ''" :jyutping="selectedHexagram?.jyutpingName" :zhuyin="selectedHexagram?.zhuyinName" :taigi="selectedHexagram?.taigiName" />
+            Pronunciation: <PronunciationText
+              :pinyin="selectedHexagram?.pinyinName ?? ''"
+              :jyutping="selectedHexagram?.jyutpingName"
+              :zhuyin="selectedHexagram?.zhuyinName"
+              :taigi="selectedHexagram?.taigiName"
+              :japanese="selectedHexagram?.japaneseName"
+              :korean="selectedHexagram?.koreanName"
+              :tibetan="selectedHexagram?.tibetanName"
+              :hindi="selectedHexagram?.hindiName"
+            />
             <span v-if="selectedHexagram?.trigrams"> | {{ selectedHexagram.trigrams }}</span>
           </div>
         </div>

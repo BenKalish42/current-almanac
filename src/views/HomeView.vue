@@ -60,17 +60,39 @@ const store = useAppStore();
 const themeStore = useThemeStore();
 const hexSummaryMap = buildHexSummaryMap(seedHexagrams as SeedHexagram[]);
 
-/** Hex num → { english_name, pinyin_name, jyutping_name, zhuyin_name, taigi_name } for BaZi hexagram labels (Task 12.3/12.3b) */
-type HexLabel = { english_name: string; pinyin_name: string; jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
+/** Hex num → all per-language readings for BaZi hexagram labels (Tasks 12.3 / 12.4). */
+type HexLabel = {
+  english_name: string;
+  pinyin_name: string;
+  jyutping_name?: string;
+  zhuyin_name?: string;
+  taigi_name?: string;
+  japanese_name?: string;
+  korean_name?: string;
+  tibetan_name?: string;
+  hindi_name?: string;
+};
+type SeedHexagramExt = SeedHexagram & {
+  jyutping_name?: string;
+  zhuyin_name?: string;
+  taigi_name?: string;
+  japanese_name?: string;
+  korean_name?: string;
+  tibetan_name?: string;
+  hindi_name?: string;
+};
 const hexLabelMap: Record<number, HexLabel> = {};
-for (const h of seedHexagrams as SeedHexagram[]) {
-  const sh = h as SeedHexagram & { jyutping_name?: string; zhuyin_name?: string; taigi_name?: string };
+for (const h of seedHexagrams as SeedHexagramExt[]) {
   hexLabelMap[h.id] = {
     english_name: h.english_name ?? "",
     pinyin_name: h.pinyin_name ?? "",
-    jyutping_name: sh.jyutping_name,
-    zhuyin_name: sh.zhuyin_name,
-    taigi_name: sh.taigi_name,
+    jyutping_name: h.jyutping_name,
+    zhuyin_name: h.zhuyin_name,
+    taigi_name: h.taigi_name,
+    japanese_name: h.japanese_name,
+    korean_name: h.korean_name,
+    tibetan_name: h.tibetan_name,
+    hindi_name: h.hindi_name,
   };
 }
 
@@ -477,6 +499,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.birthTemporalHex.year.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.birthTemporalHex.year.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.birthTemporalHex.year.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.birthTemporalHex.year.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.birthTemporalHex.year.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.birthTemporalHex.year.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.birthTemporalHex.year.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -509,6 +535,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.birthTemporalHex.month.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.birthTemporalHex.month.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.birthTemporalHex.month.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.birthTemporalHex.month.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.birthTemporalHex.month.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.birthTemporalHex.month.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.birthTemporalHex.month.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -541,6 +571,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.birthTemporalHex.day.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.birthTemporalHex.day.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.birthTemporalHex.day.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.birthTemporalHex.day.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.birthTemporalHex.day.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.birthTemporalHex.day.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.birthTemporalHex.day.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -573,6 +607,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.birthTemporalHex.hour.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.birthTemporalHex.hour.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.birthTemporalHex.hour.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.birthTemporalHex.hour.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.birthTemporalHex.hour.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.birthTemporalHex.hour.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.birthTemporalHex.hour.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -638,6 +676,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.temporalHex.year.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.temporalHex.year.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.temporalHex.year.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.temporalHex.year.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.temporalHex.year.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.temporalHex.year.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.temporalHex.year.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -670,6 +712,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.temporalHex.month.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.temporalHex.month.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.temporalHex.month.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.temporalHex.month.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.temporalHex.month.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.temporalHex.month.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.temporalHex.month.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -702,6 +748,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.temporalHex.day.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.temporalHex.day.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.temporalHex.day.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.temporalHex.day.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.temporalHex.day.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.temporalHex.day.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.temporalHex.day.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
@@ -734,6 +784,10 @@ onUnmounted(() => {
                             :jyutping="hexLabel(store.temporalHex.hour.hex.num)?.jyutping_name"
                             :zhuyin="hexLabel(store.temporalHex.hour.hex.num)?.zhuyin_name"
                             :taigi="hexLabel(store.temporalHex.hour.hex.num)?.taigi_name"
+                            :japanese="hexLabel(store.temporalHex.hour.hex.num)?.japanese_name"
+                            :korean="hexLabel(store.temporalHex.hour.hex.num)?.korean_name"
+                            :tibetan="hexLabel(store.temporalHex.hour.hex.num)?.tibetan_name"
+                            :hindi="hexLabel(store.temporalHex.hour.hex.num)?.hindi_name"
                           />
                         </div>
                       </div>
