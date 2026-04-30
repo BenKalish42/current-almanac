@@ -190,14 +190,15 @@ const bobberClasses = computed(() => ({
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="fishermanSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="rgba(255,225,180,0.18)" />
-          <stop offset="100%" stop-color="rgba(70,110,150,0.04)" />
-        </linearGradient>
-        <linearGradient id="fishermanWater" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1d4a6a" />
-          <stop offset="100%" stop-color="#0c2436" />
-        </linearGradient>
+        <radialGradient id="fishermanWater" cx="50%" cy="65%" r="65%">
+          <stop offset="0%" stop-color="rgba(40,82,120,0.85)" />
+          <stop offset="70%" stop-color="rgba(20,46,72,0.55)" />
+          <stop offset="100%" stop-color="rgba(8,18,30,0)" />
+        </radialGradient>
+        <radialGradient id="fishermanMoonGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(180,210,240,0.3)" />
+          <stop offset="100%" stop-color="rgba(180,210,240,0)" />
+        </radialGradient>
         <linearGradient id="fishermanDock" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#7a4a26" />
           <stop offset="100%" stop-color="#3d2210" />
@@ -228,25 +229,28 @@ const bobberClasses = computed(() => ({
         </symbol>
       </defs>
 
-      <!-- Backdrop sky/water -->
-      <rect x="0" y="0" width="200" height="170" fill="url(#fishermanSky)" />
-      <rect x="0" y="170" width="200" height="90" fill="url(#fishermanWater)" />
+      <!-- Soft water vignette (no hard edges; fades into page bg) -->
+      <ellipse cx="100" cy="220" rx="120" ry="55" fill="url(#fishermanWater)" />
 
       <!-- Distant ripple lines -->
       <g class="fisherman-scene__ripple">
-        <path d="M 0 188 Q 50 184 100 188 T 200 188" stroke="rgba(255,255,255,0.16)" stroke-width="0.7" fill="none" />
-        <path d="M 0 200 Q 60 196 120 200 T 200 200" stroke="rgba(255,255,255,0.10)" stroke-width="0.6" fill="none" />
-        <path d="M 0 214 Q 70 210 140 214 T 200 214" stroke="rgba(255,255,255,0.07)" stroke-width="0.5" fill="none" />
+        <path d="M 20 200 Q 60 196 100 200 T 180 200" stroke="rgba(255,255,255,0.18)" stroke-width="0.7" fill="none" stroke-linecap="round" />
+        <path d="M 30 214 Q 70 210 110 214 T 175 214" stroke="rgba(255,255,255,0.12)" stroke-width="0.6" fill="none" stroke-linecap="round" />
+        <path d="M 40 226 Q 80 222 120 226 T 170 226" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" fill="none" stroke-linecap="round" />
       </g>
 
-      <!-- Dock (planks) -->
+      <!-- Soft moon glow above fisherman -->
+      <circle cx="48" cy="60" r="14" fill="url(#fishermanMoonGlow)" />
+      <circle cx="48" cy="60" r="5" fill="rgba(220,235,255,0.55)" />
+
+      <!-- Dock (planks) — only as wide as needed, not full bleed -->
       <g>
-        <rect x="0" y="172" width="200" height="14" fill="url(#fishermanDock)" />
-        <line x1="0" y1="178" x2="200" y2="178" stroke="rgba(0,0,0,0.45)" stroke-width="0.6" />
-        <line x1="0" y1="184" x2="200" y2="184" stroke="rgba(0,0,0,0.55)" stroke-width="0.6" />
+        <rect x="20" y="172" width="160" height="14" fill="url(#fishermanDock)" rx="1" />
+        <line x1="22" y1="178" x2="178" y2="178" stroke="rgba(0,0,0,0.45)" stroke-width="0.6" />
+        <line x1="22" y1="184" x2="178" y2="184" stroke="rgba(0,0,0,0.55)" stroke-width="0.6" />
         <!-- Dock posts -->
-        <rect x="14" y="184" width="6" height="50" fill="#3d2210" />
-        <rect x="178" y="184" width="6" height="50" fill="#3d2210" />
+        <rect x="34" y="184" width="6" height="40" fill="#3d2210" />
+        <rect x="158" y="184" width="6" height="40" fill="#3d2210" />
       </g>
 
       <!-- Fish pile (behind fisherman, on the dock) -->

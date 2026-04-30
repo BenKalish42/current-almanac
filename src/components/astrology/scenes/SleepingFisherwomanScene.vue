@@ -72,15 +72,16 @@ const breathStyle = computed(() => ({
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="sfSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#d8b9c8" />
-          <stop offset="60%" stop-color="#7a90b6" />
-          <stop offset="100%" stop-color="#3d5170" />
-        </linearGradient>
-        <linearGradient id="sfWater" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1f4d7a" />
-          <stop offset="100%" stop-color="#0e2236" />
-        </linearGradient>
+        <radialGradient id="sfSky" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="rgba(218,180,200,0.55)" />
+          <stop offset="80%" stop-color="rgba(120,140,180,0.18)" />
+          <stop offset="100%" stop-color="rgba(60,80,110,0)" />
+        </radialGradient>
+        <radialGradient id="sfWater" cx="50%" cy="60%" r="60%">
+          <stop offset="0%" stop-color="rgba(40,90,140,0.7)" />
+          <stop offset="80%" stop-color="rgba(20,55,90,0.4)" />
+          <stop offset="100%" stop-color="rgba(8,18,30,0)" />
+        </radialGradient>
         <linearGradient id="sfHull" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#3a2010" />
           <stop offset="100%" stop-color="#0e0700" />
@@ -103,31 +104,29 @@ const breathStyle = computed(() => ({
         </radialGradient>
       </defs>
 
-      <!-- Sky band -->
-      <rect x="0" y="0" width="240" height="110" fill="url(#sfSky)" />
-      <!-- Soft cloud wisp -->
-      <ellipse cx="60" cy="40" rx="42" ry="6" fill="rgba(255,255,255,0.18)" />
-      <ellipse cx="190" cy="32" rx="32" ry="5" fill="rgba(255,255,255,0.14)" />
+      <!-- Sky vignette (radial; fades to transparent) -->
+      <ellipse cx="120" cy="60" rx="160" ry="60" fill="url(#sfSky)" />
+      <!-- Soft cloud wisps -->
+      <ellipse cx="70" cy="45" rx="38" ry="5" fill="rgba(255,255,255,0.22)" />
+      <ellipse cx="180" cy="38" rx="28" ry="4" fill="rgba(255,255,255,0.16)" />
 
       <!-- Distant tree silhouette (right bank) -->
       <g opacity="0.7">
         <path
-          d="M 200 110 Q 196 90 200 75 Q 196 70 198 60 Q 202 55 206 60 Q 210 50 214 60 Q 220 55 222 65 Q 226 70 224 80 Q 228 90 220 100 L 218 110 Z"
+          d="M 200 120 Q 196 100 200 85 Q 196 80 198 70 Q 202 65 206 70 Q 210 60 214 70 Q 220 65 222 75 Q 226 80 224 90 Q 228 100 220 110 L 218 120 Z"
           fill="#0c2a18"
         />
-        <line x1="210" y1="95" x2="210" y2="110" stroke="#0c1a08" stroke-width="0.9" />
+        <line x1="210" y1="105" x2="210" y2="120" stroke="#0c1a08" stroke-width="0.9" />
       </g>
 
-      <!-- Reflection on water (faint) -->
-      <g opacity="0.32">
-        <path
-          d="M 200 110 Q 196 124 200 134 Q 196 140 198 150 L 218 150 Q 226 140 224 130 Q 228 122 220 116 Z"
-          fill="#0c2a18"
-        />
-      </g>
+      <!-- Water vignette (oval; no hard edges) -->
+      <ellipse cx="120" cy="160" rx="135" ry="42" fill="url(#sfWater)" />
 
-      <!-- Water -->
-      <rect x="0" y="110" width="240" height="90" fill="url(#sfWater)" />
+      <!-- Distant ripple lines -->
+      <g opacity="0.55">
+        <path d="M 28 142 Q 70 140 110 142 T 210 142" stroke="rgba(255,255,255,0.18)" stroke-width="0.6" fill="none" stroke-linecap="round" />
+        <path d="M 36 178 Q 80 176 124 178 T 204 178" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" fill="none" stroke-linecap="round" />
+      </g>
 
       <!-- Boat group -->
       <g class="sleeping-fisherwoman-scene__boat">
