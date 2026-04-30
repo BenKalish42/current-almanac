@@ -1,0 +1,90 @@
+name: Android Release
+
+on:
+  workflow_call:
+    inputs:
+      release-version:
+        required: true
+        type: string
+    secrets:
+      ANDROID_KEYSTORE_FILE:
+        required: false
+      KEYSTORE_KEY_ALIAS:
+        required: false
+      KEYSTORE_KEY_PASSWORD:
+        required: false
+      KEYSTORE_STORE_PASSWORD:
+        required: false
+      PLAY_CONFIG_JSON:
+        required: false
+      REVENUECAT_PUBLIC_API_KEY:
+        required: false
+      REVENUECAT_WEB_API_KEY:
+        required: false
+      SUPABASE_URL:
+        required: false
+      SUPABASE_ANON_KEY:
+        required: false
+      VITE_API_URL:
+        required: false
+
+jobs:
+  android-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and sync Android assets
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          VITE_REVENUECAT_PUBLIC_API_KEY: ${{ secrets.REVENUECAT_PUBLIC_API_KEY }}
+          VITE_REVENUECAT_WEB_API_KEY: ${{ secrets.REVENUECAT_WEB_API_KEY }}
+        run: npm run build:mobile && npm run cap:sync:android
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          working-directory: fastlane
+
+      - name: Fastlane Android internal
+        working-directory: /workspace
+        env:
+          RELEASE_VERSION: ${{ inputs.release-version }}
+          ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+        run: |
+          if [ -z "${PLAY_CONFIG_JSON}" ]; then
+            echo "PLAY_CONFIG_JSON not configured; skipping Play upload."
+            exit 0
+          fi
+          bundle exec fastlane android internal
+
+      - name: Upload Android bundle artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-bundle-${{ inputs.release-version }}
+          path: android/app/build/outputs/**/*.aab
+          if-no-files-found: ignore

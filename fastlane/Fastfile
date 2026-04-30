@@ -1,0 +1,121 @@
+default_platform(:ios)
+
+def ensure_env!(keys)
+  keys.each do |key|
+    value = ENV[key]
+    UI.user_error!("Missing required environment variable: #{key}") if value.to_s.strip.empty?
+  end
+end
+
+platform :ios do
+  desc "Build and upload iOS build to TestFlight"
+  lane :testflight do
+    ensure_env!(%w[
+      APP_STORE_CONNECT_TEAM_ID
+      BUNDLE_IDENTIFIER
+      APPLE_KEY_ID
+      APPLE_ISSUER_ID
+      APPLE_KEY_CONTENT
+    ])
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APPLE_KEY_ID"],
+      issuer_id: ENV["APPLE_ISSUER_ID"],
+      key_content: ENV["APPLE_KEY_CONTENT"],
+      is_key_content_base64: true,
+      duration: 1200,
+      in_house: false
+    )
+
+    build_app(
+      project: "ios/App/App.xcodeproj",
+      scheme: "App",
+      export_method: "app-store",
+      output_directory: "build/ios",
+      output_name: "CurrentAlmanac.ipa",
+      xcargs: "DEVELOPMENT_TEAM=#{ENV['APP_STORE_CONNECT_TEAM_ID']}",
+      export_xcargs: "-allowProvisioningUpdates"
+    )
+
+    pilot(
+      api_key: api_key,
+      ipa: "build/ios/CurrentAlmanac.ipa",
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Build and submit iOS build for App Store review"
+  lane :appstore do
+    testflight
+    deliver(
+      submit_for_review: true,
+      automatic_release: false,
+      skip_metadata: true,
+      skip_screenshots: true,
+      skip_app_version_update: true,
+      force: true
+    )
+  end
+end
+
+platform :android do
+  def decode_base64_to_file(env_key, destination)
+    File.write(destination, Base64.decode64(ENV.fetch(env_key)))
+  end
+
+  desc "Build and upload Android App Bundle to Play internal track"
+  lane :internal do
+    ensure_env!(%w[
+      PLAY_CONFIG_JSON
+      ANDROID_KEYSTORE_FILE
+      KEYSTORE_KEY_ALIAS
+      KEYSTORE_KEY_PASSWORD
+      KEYSTORE_STORE_PASSWORD
+      DEVELOPER_PACKAGE_NAME
+    ])
+
+    keystore_path = File.expand_path("build/android-keystore.jks")
+    play_json_path = File.expand_path("build/play-config.json")
+    decode_base64_to_file("ANDROID_KEYSTORE_FILE", keystore_path)
+    decode_base64_to_file("PLAY_CONFIG_JSON", play_json_path)
+
+    gradle(
+      task: "bundle",
+      build_type: "Release",
+      project_dir: "android/",
+      print_command: false,
+      properties: {
+        "android.injected.signing.store.file" => keystore_path,
+        "android.injected.signing.store.password" => ENV["KEYSTORE_STORE_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["KEYSTORE_KEY_ALIAS"],
+        "android.injected.signing.key.password" => ENV["KEYSTORE_KEY_PASSWORD"]
+      }
+    )
+
+    upload_to_play_store(
+      json_key: play_json_path,
+      package_name: ENV["DEVELOPER_PACKAGE_NAME"],
+      track: "internal",
+      aab: "android/app/build/outputs/bundle/release/app-release.aab",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true
+    )
+  end
+
+  desc "Promote Android build to production"
+  lane :production do
+    internal
+    upload_to_play_store(
+      json_key_data: Base64.decode64(ENV.fetch("PLAY_CONFIG_JSON")),
+      package_name: ENV["DEVELOPER_PACKAGE_NAME"],
+      track: "production",
+      aab: "android/app/build/outputs/bundle/release/app-release.aab",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true
+    )
+  end
+end

@@ -1,0 +1,76 @@
+name: iOS Release
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      release_version:
+        required: true
+        type: string
+
+jobs:
+  build-and-submit-ios:
+    runs-on: macos-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build web bundle
+        run: npm run build:web
+
+      - name: Sync Capacitor iOS
+        run: npx cap sync ios
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: fastlane
+
+      - name: Install Apple signing assets
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.IOS_BUILD_CERTIFICATE_BASE64 }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.IOS_BUILD_PROVISION_PROFILE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
+        run: |
+          CERTIFICATE_PATH="$RUNNER_TEMP/build_certificate.p12"
+          PROFILE_PATH="$RUNNER_TEMP/build_profile.mobileprovision"
+          KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o "$CERTIFICATE_PATH"
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o "$PROFILE_PATH"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security import "$CERTIFICATE_PATH" -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security list-keychain -d user -s "$KEYCHAIN_PATH"
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$PROFILE_PATH" "$HOME/Library/MobileDevice/Provisioning Profiles/"
+
+      - name: Run Fastlane iOS lane
+        working-directory: fastlane
+        env:
+          APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
+          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
+          APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
+          APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
+          APPLE_PROFILE_NAME: ${{ secrets.IOS_PROFILE_NAME }}
+          BUNDLE_IDENTIFIER: ${{ secrets.IOS_BUNDLE_IDENTIFIER }}
+          P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+          DEVELOPER_APP_IDENTIFIER: ${{ secrets.IOS_BUNDLE_IDENTIFIER }}
+          DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.DEVELOPER_PORTAL_TEAM_ID }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: bundle exec fastlane ios release

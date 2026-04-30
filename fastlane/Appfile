@@ -1,0 +1,4 @@
+app_identifier(ENV["BUNDLE_IDENTIFIER"] || "com.current.almanac")
+
+apple_id(ENV["APPLE_ID"] || "change-me@example.com")
+team_id(ENV["APP_STORE_CONNECT_TEAM_ID"] || "TEAMID1234")

@@ -1,0 +1,46 @@
+name: Capgo Release
+
+on:
+  workflow_call:
+    inputs:
+      channel:
+        required: false
+        type: string
+        default: production
+
+jobs:
+  deploy-capgo:
+    name: Upload OTA bundle to Capgo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build mobile web assets
+        run: npm run build:web
+
+      - name: Upload bundle to Capgo
+        env:
+          CAPGO_TOKEN: ${{ secrets.CAPGO_TOKEN }}
+          CAPGO_PRIVATE_KEY: ${{ secrets.CAPGO_PRIVATE_KEY }}
+          CAPGO_CHANNEL: ${{ inputs.channel }}
+        run: |
+          if [ -z "$CAPGO_TOKEN" ]; then
+            echo "CAPGO_TOKEN is not configured. Skipping Capgo upload."
+            exit 0
+          fi
+
+          if [ -n "$CAPGO_PRIVATE_KEY" ]; then
+            npx @capgo/cli@latest bundle upload --channel "$CAPGO_CHANNEL" --apikey "$CAPGO_TOKEN" --key-data-v2 "$CAPGO_PRIVATE_KEY"
+          else
+            npx @capgo/cli@latest bundle upload --channel "$CAPGO_CHANNEL" --apikey "$CAPGO_TOKEN"
+          fi
