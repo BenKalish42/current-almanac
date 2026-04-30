@@ -6,8 +6,16 @@ import ForumShell from "@/layouts/ForumShell.vue";
 import Classic90sShell from "@/layouts/Classic90sShell.vue";
 import AolShell from "@/layouts/AolShell.vue";
 import { useThemeStore, type ThemeLayoutKind } from "@/stores/themeStore";
+import { useAppStore } from "@/stores/appStore";
 
 const themeStore = useThemeStore();
+const appStore = useAppStore();
+
+// Task 12.5: Hydrate persisted user state (incl. preferredLanguage) on every
+// route, not just the home view — otherwise reloading on /alchemy or
+// /hexagrams loses the language selection because the watcher chain re-saves
+// the in-memory default before HomeView ever mounts.
+appStore.loadFromStorage();
 
 const layoutByKind: Record<ThemeLayoutKind, Component> = {
   default: DefaultShell,

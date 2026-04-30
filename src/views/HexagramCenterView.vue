@@ -6,11 +6,8 @@ import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
 import LocalizedScript from "@/components/ui/LocalizedScript.vue";
 import seedHexagrams from "@/data/seed_hexagrams.json";
-import { useAppStore } from "@/stores/appStore";
 import { localizedNumeral } from "@/i18n/numerals_localized";
 import type { LanguageCode } from "@/lib/languages";
-
-const appStore = useAppStore();
 
 function toRoman(num: number): string {
   const roman = [
@@ -96,15 +93,15 @@ const HEX_NAME_CN_SHORT: string[] = [
   "小过", "既济", "未济",
 ];
 
-/** Build a ScriptMap for the cell numeral so LocalizedScript shows it in
- *  the active language's numeral system. */
+import { LANGUAGES } from "@/lib/languages";
+
+/** Build a ScriptMap that contains every language's numeral form for `id`,
+ *  so LocalizedScript can swap reactively without re-running this function. */
 function numeralScripts(id: number): Partial<Record<LanguageCode, string>> {
   const out: Partial<Record<LanguageCode, string>> = {};
-  // Only populate the currently-selected language; LocalizedScript falls
-  // back to `hanzi` (the canonical Chinese numeral) for everything else.
-  const lang = appStore.preferredLanguage as LanguageCode;
-  if (lang !== "pinyin") {
-    out[lang] = localizedNumeral(id, lang);
+  for (const def of LANGUAGES) {
+    if (def.code === "pinyin") continue; // hanzi fallback handles default
+    out[def.code] = localizedNumeral(id, def.code);
   }
   return out;
 }
