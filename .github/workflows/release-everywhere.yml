@@ -1,0 +1,235 @@
+name: Release Everywhere
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version without the v prefix, for example 1.0.0"
+        required: true
+        type: string
+      deploy_web:
+        description: "Create the web build artifact for Netlify parity"
+        required: true
+        default: true
+        type: boolean
+      deploy_desktop:
+        description: "Publish desktop installers to GitHub Releases"
+        required: true
+        default: true
+        type: boolean
+      deploy_android:
+        description: "Upload Android bundle to Google Play"
+        required: true
+        default: true
+        type: boolean
+      deploy_ios:
+        description: "Upload iOS archive to TestFlight"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+env:
+  NODE_VERSION: "22"
+  JAVA_VERSION: "21"
+  RUBY_VERSION: "3.3"
+  RELEASE_TAG: v${{ inputs.version }}
+
+concurrency:
+  group: release-${{ github.ref }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify Vue build and tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --run
+
+      - name: Build web app
+        run: npm run build
+
+      - name: Upload web artifact
+        if: ${{ inputs.deploy_web }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist-${{ env.RELEASE_TAG }}
+          path: dist
+          retention-days: 30
+
+  desktop:
+    name: Build desktop (${{ matrix.os }})
+    needs: verify
+    if: ${{ inputs.deploy_desktop }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build desktop installers
+        run: npm run desktop:make
+
+      - name: Upload desktop artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.os }}-${{ env.RELEASE_TAG }}
+          path: out/make/**/*
+          retention-days: 30
+
+  desktop_release:
+    name: Publish desktop GitHub Release
+    needs: desktop
+    if: ${{ inputs.deploy_desktop }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download desktop artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: desktop-*-${{ env.RELEASE_TAG }}
+          path: desktop-release
+          merge-multiple: true
+
+      - name: Publish desktop release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Current Almanac ${{ env.RELEASE_TAG }}
+          draft: true
+          prerelease: true
+          files: desktop-release/**/*
+
+  android:
+    name: Publish Android
+    needs: verify
+    if: ${{ inputs.deploy_android }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: gradle
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and sync Capacitor Android
+        run: npm run build:mobile
+
+      - name: Build unsigned Android bundle artifact
+        run: cd android && ./gradlew bundleRelease
+
+      - name: Upload to Google Play
+        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' && secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_BASE64 != '' }}
+        run: bundle exec fastlane android internal
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
+          GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_BASE64: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_BASE64 }}
+          GOOGLE_PLAY_TRACK: ${{ vars.GOOGLE_PLAY_TRACK || 'internal' }}
+
+      - name: Upload Android release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-aab-${{ env.RELEASE_TAG }}
+          path: android/app/build/outputs/bundle/release/*.aab
+          retention-days: 30
+
+  ios:
+    name: Publish iOS
+    needs: verify
+    if: ${{ inputs.deploy_ios }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and sync Capacitor iOS
+        run: npm run build:embedded && npx cap sync ios
+
+      - name: Upload to TestFlight
+        if: ${{ secrets.APP_STORE_CONNECT_KEY_ID != '' && secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 != '' }}
+        run: bundle exec fastlane ios testflight
+        env:
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
+          APP_STORE_CONNECT_KEY_IS_BASE64: ${{ vars.APP_STORE_CONNECT_KEY_IS_BASE64 || 'false' }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APP_STORE_CONNECT_TEAM_ID: ${{ vars.APP_STORE_CONNECT_TEAM_ID }}
+          FASTLANE_APPLE_ID: ${{ vars.FASTLANE_APPLE_ID }}
+          IOS_BUNDLE_ID: ${{ vars.IOS_BUNDLE_ID }}
+          IOS_DISTRIBUTION_CERTIFICATE_BASE64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          IOS_DISTRIBUTION_CERTIFICATE_PASSWORD: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+          IOS_KEYCHAIN_PASSWORD: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
+          IOS_PROVISIONING_PROFILE_BASE64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+          IOS_PROVISIONING_PROFILE_NAME: ${{ vars.IOS_PROVISIONING_PROFILE_NAME }}
+
+      - name: Upload iOS release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa-${{ env.RELEASE_TAG }}
+          path: ios/App/build/*.ipa
+          retention-days: 30
