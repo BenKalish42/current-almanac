@@ -2,7 +2,7 @@
 
 **Domain:** Phase 3.0 — UI & Internationalization
 **Date:** 2026-04-30
-**Status:** Implemented
+**Status:** Superseded — see [Task 12.5 — Pan-Asian Language Engine](./Task12.5_LanguageEngineV2.md)
 **Supersedes:** [Task 12.3 — Dialect Wrapper Component & Hexagram Mapping](./Task12.3_DialectWrapper.md)
 
 ---
