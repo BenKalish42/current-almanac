@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import JingBattery from "@/components/alchemy/JingBattery.vue";
 import HerbInventoryManager from "@/components/alchemy/HerbInventoryManager.vue";
@@ -8,15 +9,48 @@ import MeridianVisualizer from "@/components/alchemy/MeridianVisualizer.vue";
 import FormulaLibrary from "@/components/alchemy/FormulaLibrary.vue";
 
 const alchemyStore = useAlchemyStore();
+const route = useRoute();
 
 // Dummy reactive state for JingBattery (placeholder until real cultivation metrics exist)
 const yinLevel = ref(70);
 const yangLevel = ref(45);
 const activeTab = ref<"cauldron" | "library">("cauldron");
+
+// Intelligence origin banner — shown when navigating from /ai with
+// ?source=intelligence. We intentionally do NOT persist any custom-formula
+// payload yet; future versions can read route.query.formulaId here.
+const intelligenceBannerDismissed = ref(false);
+const showIntelligenceBanner = computed(
+  () => !intelligenceBannerDismissed.value && route.query.source === "intelligence"
+);
 </script>
 
 <template>
   <div class="alchemy-view min-h-screen p-4 bg-daoist-bg">
+    <!-- Intelligence-origin banner (handoff from /ai workbench) -->
+    <div
+      v-if="showIntelligenceBanner"
+      class="mb-4 flex items-start gap-3 rounded-xl border border-daoist-jade/40 bg-daoist-jade/10 px-4 py-3"
+      data-testid="intelligence-origin-banner"
+    >
+      <span aria-hidden="true" class="text-daoist-jade text-lg">◇</span>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-sm font-semibold text-daoist-jade">Opened from Intelligence</h3>
+        <p class="text-xs text-daoist-muted mt-0.5">
+          Your alchemical context will land here. Custom-formula handoff from the Intelligence
+          workbench is coming soon — for now, build or tune your formula manually in the Cauldron.
+        </p>
+      </div>
+      <button
+        type="button"
+        class="text-daoist-muted hover:text-daoist-text text-xs px-2"
+        aria-label="Dismiss banner"
+        @click="intelligenceBannerDismissed = true"
+      >
+        ✕
+      </button>
+    </div>
+
     <div class="mb-4 flex flex-wrap items-center gap-2">
       <button
         type="button"

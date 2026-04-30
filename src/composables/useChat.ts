@@ -1,13 +1,22 @@
 /**
  * useChat composable - custom implementation for AI chatbot.
  * Uses fetch + SSE stream parsing, compatible with AI SDK UI Message Stream format.
+ *
+ * The Intelligence workbench passes optional ``intelligence`` options through
+ * to the backend so /api/chat can route to the selected family + ensemble.
  */
 import type { UIMessage } from "ai";
 import { generateId } from "ai";
 import { ref } from "vue";
+import type { IntelligenceOptions } from "@/services/intelligenceConfig";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 const CHAT_API = `${API_BASE}/api/chat`;
+
+export type SendMessageOptions = {
+  text: string;
+  intelligence?: IntelligenceOptions;
+};
 
 export function useChat() {
   const messages = ref<UIMessage[]>([]);
@@ -15,7 +24,7 @@ export function useChat() {
   const error = ref<Error | undefined>(undefined);
   let abortController: AbortController | null = null;
 
-  async function sendMessage(opts: { text: string }) {
+  async function sendMessage(opts: SendMessageOptions) {
     const text = opts.text?.trim();
     if (!text) return;
 
@@ -38,10 +47,16 @@ export function useChat() {
     abortController = new AbortController();
 
     try {
+      const body: {
+        messages: UIMessage[];
+        intelligence?: IntelligenceOptions;
+      } = { messages: messages.value.slice(0, -1) };
+      if (opts.intelligence) body.intelligence = opts.intelligence;
+
       const res = await fetch(CHAT_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: messages.value.slice(0, -1) }),
+        body: JSON.stringify(body),
         signal: abortController.signal,
       });
 
