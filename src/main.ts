@@ -5,17 +5,22 @@ import router from "./router";
 import "./style.css";
 import "./assets/themes/data-theme-tokens.css";
 import "./assets/themes/cosmic-crawl-extras.css";
+import { CapacitorUpdater } from "@capgo/capacitor-updater";
+import { registerAppServiceWorker } from "@/lib/pwa";
 
 const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 app.mount("#app");
+registerAppServiceWorker();
 
 // Capacitor native: Status Bar (dark style) + hide Splash Screen when mounted
 (async () => {
   try {
     const { Capacitor } = await import("@capacitor/core");
     if (Capacitor.isNativePlatform()) {
+      await CapacitorUpdater.notifyAppReady();
+
       const { StatusBar, Style } = await import("@capacitor/status-bar");
       await StatusBar.setStyle({ style: Style.Dark });
 

@@ -4,6 +4,7 @@ const config: CapacitorConfig = {
   appId: "com.current.almanac",
   appName: "Current Almanac",
   webDir: "dist",
+  bundledWebRuntime: false,
   server: {
     // For local dev: use live server URL when testing on device
     // url: "http://localhost:5173",
@@ -13,6 +14,13 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchShowDuration: 0,
       launchAutoHide: true,
+    },
+    CapacitorUpdater: {
+      autoUpdate: false,
+      defaultChannel: "production",
+      directUpdate: false,
+      appReadyTimeout: 15000,
+      resetWhenUpdate: true,
     },
   },
 };
