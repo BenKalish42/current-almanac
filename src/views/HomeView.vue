@@ -16,6 +16,7 @@ import {
   hexagramRomans,
 } from "@/i18n/localizedTerms";
 import { formatGanZhiScript, formatGanZhiRoman } from "@/i18n/ganzhi_localized";
+import { formatShichenScript } from "@/i18n/shichen_localized";
 import type { LanguageCode } from "@/lib/languages";
 import { parseGanZhi } from "@/core/ganzhi";
 import { hasLlmKey } from "@/services/llmService";
@@ -176,6 +177,14 @@ function onViewHexagram(id: number) {
 function closeHexModal() {
   isHexModalOpen.value = false;
 }
+
+/** Localized "子初一刻" → e.g. "자초일각" / "Tý sơ nhất khắc" / "เซิน ฉู ๑ เข่อ". */
+const localizedShichenLabel = computed(() => {
+  const d = store.presentShichenDetail;
+  if (!d) return "";
+  const lang = store.preferredLanguage as LanguageCode;
+  return formatShichenScript(d.branchCn, d.chuZheng, d.keInHalf, lang);
+});
 
 function formatGanZhiLines(gz: string | null) {
   const parsed = parseGanZhi(gz ?? "");
@@ -626,7 +635,7 @@ onUnmounted(() => {
                   <div class="secTitle">Present (Moment)</div>
                   <div class="organLine">Organ: <strong>{{ store.presentOrgan }}</strong></div>
                   <div class="organLine organSubLine">
-                    <span class="cjkText">{{ store.presentShichenDetail.fullLabel }}</span>
+                    <span class="cjkText">{{ localizedShichenLabel }}</span>
                     <span class="organKeEn">{{ store.presentShichenDetail.fullLabelEn }}</span>
                     <span class="organKeBounds">{{ store.presentShichenDetail.keBoundsDisplay }}</span>
                   </div>
