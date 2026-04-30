@@ -1,8 +1,8 @@
 # Task 12.3 — Dialect Wrapper Component & Hexagram Mapping
 
-**Domain:** Phase 3.0 — UI & Internationalization  
-**Date:** 2026-03-16  
-**Status:** Implemented
+**Domain:** Phase 3.0 — UI & Internationalization
+**Date:** 2026-03-16
+**Status:** Superseded — see [Task 12.4 — Language Engine](./Task12.4_LanguageEngine.md)
 
 ---
 
