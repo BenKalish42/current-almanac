@@ -485,10 +485,10 @@ const bobberClasses = computed(() => ({
 
 @keyframes fishermanSway {
   from {
-    transform: translateY(-0.5px) rotate(-0.6deg);
+    transform: translateY(-1.2px) rotate(-1.6deg);
   }
   to {
-    transform: translateY(0.7px) rotate(0.6deg);
+    transform: translateY(1.4px) rotate(1.6deg);
   }
 }
 

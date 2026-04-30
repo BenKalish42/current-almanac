@@ -154,29 +154,36 @@ const breathStyle = computed(() => ({
         <!-- Feet end (peeking out at right, far end of boat) -->
         <ellipse cx="178" cy="148" rx="6" ry="3" fill="url(#sfSkin)" stroke="#3a280f" stroke-width="0.4" />
 
-        <!-- Body covered by blanket -->
-        <g>
+        <!-- Body covered by blanket. Ribcage group breathes (scaleY pulse). -->
+        <g
+          class="sleeping-fisherwoman-scene__ribcage"
+          :style="breathStyle"
+        >
           <!-- Blanket main shape: from chest to feet -->
           <path
-            d="M 70 144 Q 80 138 100 138 Q 130 138 160 142 Q 178 146 176 152 Q 170 158 130 158 Q 90 158 78 154 Q 66 150 70 144 Z"
+            d="M 70 144 Q 80 136 100 136 Q 130 136 160 140 Q 180 144 178 152 Q 170 160 130 160 Q 88 160 76 156 Q 64 150 70 144 Z"
             fill="url(#sfBlanket)"
             stroke="#52120c"
             stroke-width="0.7"
+          />
+          <!-- Chest hump (ribcage mound) — emphasized by breath -->
+          <path
+            d="M 80 144 Q 100 132 122 144 Q 122 152 100 154 Q 80 152 80 144 Z"
+            fill="url(#sfBlanket)"
+            opacity="0.55"
           />
           <!-- Blanket folds -->
           <path d="M 90 144 Q 100 142 110 144" stroke="rgba(0,0,0,0.35)" stroke-width="0.5" fill="none" />
           <path d="M 120 145 Q 132 143 144 146" stroke="rgba(0,0,0,0.35)" stroke-width="0.5" fill="none" />
           <path d="M 150 148 Q 160 147 168 150" stroke="rgba(0,0,0,0.3)" stroke-width="0.5" fill="none" />
 
-          <!-- Highlight to suggest ribcage shape (animated for breath) -->
+          <!-- Highlight ribcage glow — pulses with breath -->
           <ellipse
-            class="sleeping-fisherwoman-scene__ribcage"
             cx="100"
-            cy="146"
-            rx="22"
-            ry="6"
+            cy="142"
+            rx="24"
+            ry="7"
             fill="url(#sfBlanketShine)"
-            :style="breathStyle"
           />
         </g>
 
@@ -243,7 +250,7 @@ const breathStyle = computed(() => ({
   }
   .sleeping-fisherwoman-scene__ribcage {
     transform-box: fill-box;
-    transform-origin: center;
+    transform-origin: 50% 100%;
     animation: sfBreath var(--sf-breath-period, 4s) ease-in-out infinite;
     animation-delay: var(--sf-breath-delay, 0s);
   }
@@ -288,10 +295,11 @@ const breathStyle = computed(() => ({
 @keyframes sfBreath {
   0%,
   100% {
-    transform: scaleY(1) translateY(0);
+    transform: scaleY(1);
   }
-  50% {
-    transform: scaleY(1.06) translateY(-0.6px);
+  45%,
+  55% {
+    transform: scaleY(1.1);
   }
 }
 
@@ -303,10 +311,10 @@ const breathStyle = computed(() => ({
 
 @keyframes sfBoatBob {
   from {
-    transform: translateY(-0.6px) rotate(-0.5deg);
+    transform: translateY(-1.4px) rotate(-1.4deg);
   }
   to {
-    transform: translateY(0.8px) rotate(0.5deg);
+    transform: translateY(1.6px) rotate(1.4deg);
   }
 }
 

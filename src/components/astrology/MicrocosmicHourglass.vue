@@ -48,12 +48,12 @@ const prefersReducedMotion = usePrefersReducedMotion();
 const dims = computed(() => {
   switch (props.size) {
     case "sm":
-      return { w: "2.4rem", h: "4.2rem" };
+      return { w: "3.6rem", h: "5.8rem" };
     case "lg":
-      return { w: "4.4rem", h: "7.2rem" };
+      return { w: "5.6rem", h: "9rem" };
     case "md":
     default:
-      return { w: "3.2rem", h: "5.6rem" };
+      return { w: "4.6rem", h: "7.4rem" };
   }
 });
 
@@ -98,13 +98,14 @@ const bottomPoolPoints = computed(() => {
 const streamOpacity = computed(() => {
   const p = clamped.value;
   if (p <= 0.02 || p >= 0.98) return 0;
-  return 0.55;
+  return 0.65;
 });
 
 /** Surface y of the bottom pool (used to position the splash). */
 const poolSurfaceY = computed(
   () => BOTTOM_Y1 - clamped.value * (BOTTOM_Y1 - BOTTOM_Y0)
 );
+const poolSurfaceWidth = computed(() => widthAtBottom(poolSurfaceY.value));
 
 /* ---------------- Vapor puffs (top chamber) ----------------------------- */
 
@@ -117,13 +118,13 @@ type Puff = {
   scale: number;
 };
 
-const VAPOR_COUNT = 9;
+const VAPOR_COUNT = 7;
 const vaporPuffs: Puff[] = Array.from({ length: VAPOR_COUNT }, (_, i) => {
-  const x = 30 + ((i * 37) % 41);
-  const startY = 64 + ((i * 7) % 12);
-  const duration = 4 + ((i * 1.3) % 3.2);
-  const delay = (i * 0.7) % 4;
-  const scale = 0.8 + ((i * 0.21) % 0.7);
+  const x = 32 + ((i * 41) % 36);
+  const startY = 60 + ((i * 11) % 14);
+  const duration = 3.4 + ((i * 1.9) % 2.6);
+  const delay = (i * 0.55) % 3.2;
+  const scale = 0.85 + ((i * 0.27) % 0.7);
   return { id: i, x, startY, delay, duration, scale };
 });
 
@@ -134,7 +135,6 @@ type Drop = {
   x: number;
   size: number;
   duration: number;
-  spawnedAt: number;
 };
 
 const drops = ref<Drop[]>([]);
@@ -144,11 +144,13 @@ let dropId = 0;
 
 const dropletIntervalMs = computed(() => {
   if (prefersReducedMotion.value) return 0;
-  // Want ~250 droplets per cycle in the smallest scale; scale up gracefully.
-  // 15 min cycle  → ~3.6 s gap, 2 h → ~28 s, 24 h → ~5.7 min.
-  // Cap at 4 s so the user always sees something fall during a long view.
-  const target = props.durationMs / 250;
-  return Math.max(280, Math.min(4000, target));
+  // We want droplets to feel rhythmic regardless of the underlying duration
+  // (they're a *visual* metaphor, not a literal time-vs-volume readout).
+  // 15 min cycle  → ~1.8 s gap (ample motion for the user)
+  // 2 h cycle     → ~2.4 s gap
+  // 24 h cycle    → ~2.8 s gap
+  const target = 1800 + Math.log10(Math.max(1, props.durationMs / 900_000)) * 800;
+  return Math.max(900, Math.min(3200, target));
 });
 
 function emitDrop() {
@@ -158,18 +160,13 @@ function emitDrop() {
   if (p <= 0.01 || p >= 0.99) return;
   dropId += 1;
   const x = CX + (Math.random() * 4 - 2);
-  const size = 1.6 + Math.random() * 0.9;
+  const size = 1.8 + Math.random() * 1.0;
   const duration = 0.85 + Math.random() * 0.55;
-  drops.value.push({
-    id: dropId,
-    x,
-    size,
-    duration,
-    spawnedAt: Date.now(),
-  });
+  const id = dropId;
+  drops.value.push({ id, x, size, duration });
   // Self-clean after animation length + slack.
   window.setTimeout(() => {
-    drops.value = drops.value.filter((d) => d.id !== dropId);
+    drops.value = drops.value.filter((d) => d.id !== id);
   }, duration * 1000 + 250);
 }
 
@@ -235,7 +232,7 @@ function onFlipEnd() {
       @animationend="onFlipEnd"
     >
       <svg
-        class="h-full w-full overflow-visible"
+        class="microcosmic-hourglass__svg"
         viewBox="0 0 100 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -249,30 +246,36 @@ function onFlipEnd() {
           </linearGradient>
 
           <radialGradient id="mhVapor" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#bee9ff" stop-opacity="0.85" />
-            <stop offset="60%" stop-color="#7fb6e8" stop-opacity="0.32" />
-            <stop offset="100%" stop-color="#5a89c8" stop-opacity="0" />
+            <stop offset="0%" stop-color="#d8efff" stop-opacity="0.95" />
+            <stop offset="55%" stop-color="#7fbef0" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#3f6db0" stop-opacity="0" />
           </radialGradient>
 
           <linearGradient id="mhVaporColumn" x1="50" y1="12" x2="50" y2="78" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#cfe9ff" stop-opacity="0.18" />
-            <stop offset="1" stop-color="#cfe9ff" stop-opacity="0.05" />
+            <stop stop-color="#cfe9ff" stop-opacity="0.35" />
+            <stop offset="1" stop-color="#9fc7ff" stop-opacity="0.15" />
           </linearGradient>
 
+          <!-- Pool gradient: bright across whole height so a small pool still glows. -->
           <linearGradient id="mhDew" x1="50" y1="78" x2="50" y2="142" gradientUnits="userSpaceOnUse">
             <stop stop-color="#fff7c8" stop-opacity="0.95" />
-            <stop offset="0.55" stop-color="#f5c773" stop-opacity="0.92" />
-            <stop offset="1" stop-color="#a06b1a" stop-opacity="0.95" />
+            <stop offset="0.5" stop-color="#fbcd6b" stop-opacity="0.95" />
+            <stop offset="1" stop-color="#d09030" stop-opacity="0.95" />
           </linearGradient>
 
           <radialGradient id="mhDewGlow" cx="50%" cy="0%" r="60%">
-            <stop offset="0%" stop-color="#fff5b0" stop-opacity="0.9" />
+            <stop offset="0%" stop-color="#fff5b0" stop-opacity="0.95" />
             <stop offset="100%" stop-color="#fff5b0" stop-opacity="0" />
           </radialGradient>
 
           <radialGradient id="mhCondense" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#fff3a8" stop-opacity="0.95" />
             <stop offset="100%" stop-color="#fff3a8" stop-opacity="0" />
+          </radialGradient>
+
+          <radialGradient id="mhDropFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffadb" stop-opacity="1" />
+            <stop offset="100%" stop-color="#f3a830" stop-opacity="0.95" />
           </radialGradient>
 
           <clipPath id="mhTopClip">
@@ -286,8 +289,8 @@ function onFlipEnd() {
         <!-- Glass outline -->
         <path
           d="M 17 12 L 83 12 L 50 78 L 83 142 L 17 142 L 50 78 Z"
-          stroke="rgba(255,255,255,0.45)"
-          stroke-width="2"
+          stroke="rgba(255,255,255,0.5)"
+          stroke-width="2.2"
           stroke-linejoin="round"
           fill="url(#mhGlass)"
         />
@@ -301,33 +304,28 @@ function onFlipEnd() {
 
         <!-- Top chamber: drifting vapor puffs (clipped to top triangle) -->
         <g clip-path="url(#mhTopClip)" class="microcosmic-hourglass__vapor">
-          <circle
+          <g
             v-for="puff in vaporPuffs"
             :key="puff.id"
-            class="microcosmic-hourglass__puff"
-            :cx="puff.x"
-            :cy="puff.startY"
-            r="6"
-            fill="url(#mhVapor)"
-            :style="{
-              animationDelay: `${puff.delay}s`,
-              animationDuration: `${puff.duration}s`,
-              transformBox: 'fill-box',
-              transformOrigin: 'center',
-              '--mh-puff-scale': puff.scale,
-            }"
-          />
+            :transform="`translate(${puff.x} ${puff.startY})`"
+          >
+            <circle
+              class="microcosmic-hourglass__puff"
+              r="9"
+              fill="url(#mhVapor)"
+              :style="{
+                animationDelay: `${puff.delay}s`,
+                animationDuration: `${puff.duration}s`,
+                '--mh-puff-scale': puff.scale,
+              }"
+            />
+          </g>
         </g>
 
         <!-- Condensation point at the waist -->
-        <circle
-          v-if="streamOpacity > 0"
-          cx="50"
-          cy="78"
-          r="4"
-          fill="url(#mhCondense)"
-          class="microcosmic-hourglass__condense"
-        />
+        <g v-if="streamOpacity > 0" :transform="`translate(${CX} 78)`">
+          <circle class="microcosmic-hourglass__condense" r="6" fill="url(#mhCondense)" />
+        </g>
 
         <!-- Falling stream (visual continuity between droplets) -->
         <line
@@ -336,40 +334,40 @@ function onFlipEnd() {
           x2="50"
           y2="86"
           stroke="url(#mhDew)"
-          stroke-width="1.6"
+          stroke-width="1.8"
           stroke-linecap="round"
           :opacity="streamOpacity"
         />
 
         <!-- Sweet-dew droplets falling through the neck -->
         <g clip-path="url(#mhBottomClip)">
-          <circle
+          <g
             v-for="drop in drops"
             :key="drop.id"
-            class="microcosmic-hourglass__drop"
-            :cx="drop.x"
-            cy="80"
-            :r="drop.size"
-            fill="url(#mhDew)"
-            :style="{
-              animationDuration: `${drop.duration}s`,
-            }"
-          />
+            :transform="`translate(${drop.x} 80)`"
+          >
+            <circle
+              class="microcosmic-hourglass__drop"
+              :r="drop.size"
+              fill="url(#mhDropFill)"
+              :style="{ animationDuration: `${drop.duration}s` }"
+            />
+          </g>
           <!-- Splash ring on impact at the pool surface -->
-          <circle
+          <g
             v-for="drop in drops"
             :key="`splash-${drop.id}`"
-            class="microcosmic-hourglass__splash"
-            :cx="drop.x"
-            :cy="poolSurfaceY"
-            r="0"
-            stroke="rgba(255, 230, 150, 0.7)"
-            stroke-width="0.6"
-            fill="none"
-            :style="{
-              animationDuration: `${drop.duration}s`,
-            }"
-          />
+            :transform="`translate(${drop.x} ${poolSurfaceY})`"
+          >
+            <circle
+              class="microcosmic-hourglass__splash"
+              r="1.5"
+              stroke="rgba(255, 232, 160, 0.85)"
+              stroke-width="0.8"
+              fill="none"
+              :style="{ animationDuration: `${drop.duration}s` }"
+            />
+          </g>
         </g>
 
         <!-- Bottom pool: glowing liquid with subtle surface swell -->
@@ -381,12 +379,12 @@ function onFlipEnd() {
         />
         <ellipse
           v-if="clamped > 0.04"
+          class="microcosmic-hourglass__sheen"
           :cx="CX"
           :cy="poolSurfaceY"
-          :rx="widthAtBottom(poolSurfaceY) / 2"
-          ry="1.4"
+          :rx="poolSurfaceWidth / 2"
+          ry="1.6"
           fill="url(#mhDewGlow)"
-          class="microcosmic-hourglass__sheen"
         />
       </svg>
     </div>
@@ -411,7 +409,14 @@ function onFlipEnd() {
   width: var(--mh-w);
   height: var(--mh-h);
   transform-origin: 50% 50%;
-  filter: drop-shadow(0 0 6px rgba(255, 232, 180, 0.18));
+  filter: drop-shadow(0 0 8px rgba(255, 232, 180, 0.22));
+}
+
+.microcosmic-hourglass__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
 }
 
 .microcosmic-hourglass__caption {
@@ -433,7 +438,15 @@ function onFlipEnd() {
 
 .microcosmic-hourglass__sublabel {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.microcosmic-hourglass__puff,
+.microcosmic-hourglass__condense,
+.microcosmic-hourglass__drop,
+.microcosmic-hourglass__splash {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -448,13 +461,12 @@ function onFlipEnd() {
   }
   .microcosmic-hourglass__condense {
     animation: mhCondensePulse 1.6s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
   }
   .microcosmic-hourglass__drop {
     animation-name: mhDropFall;
     animation-timing-function: cubic-bezier(0.55, 0, 0.7, 1);
     animation-fill-mode: forwards;
+    opacity: 0;
   }
   .microcosmic-hourglass__splash {
     animation-name: mhSplash;
@@ -464,8 +476,6 @@ function onFlipEnd() {
   }
   .microcosmic-hourglass__sheen {
     animation: mhSheen 2.6s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
   }
 }
 
@@ -474,38 +484,37 @@ function onFlipEnd() {
     animation: mhFlipReduced 0.35s ease-out;
   }
   .microcosmic-hourglass__puff {
-    opacity: 0.45;
+    opacity: 0.55;
   }
 }
 
+/* SVG <g> respects translate transforms; we layer keyframe transforms on top
+   using `additive` semantics by re-stating the base translate inside the
+   keyframe via translateX/Y deltas. The base transform attribute provides
+   position; CSS animations apply on top via the CSS transform property. */
 @keyframes mhFlip {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes mhFlipReduced {
-  from {
-    opacity: 0.7;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
 }
 
 @keyframes mhVaporRise {
   0% {
-    transform: translate(0, 6px) scale(calc(var(--mh-puff-scale) * 0.6));
+    transform: translate(0, 8px) scale(calc(var(--mh-puff-scale) * 0.55));
     opacity: 0;
   }
-  20% {
-    opacity: 0.85;
+  18% {
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.55;
   }
   100% {
-    transform: translate(0, -56px) scale(calc(var(--mh-puff-scale) * 1.3));
+    transform: translate(0, -62px) scale(calc(var(--mh-puff-scale) * 1.45));
     opacity: 0;
   }
 }
@@ -513,47 +522,34 @@ function onFlipEnd() {
 @keyframes mhCondensePulse {
   0%,
   100% {
-    transform: scale(0.8);
-    opacity: 0.55;
+    transform: scale(0.7);
+    opacity: 0.5;
   }
   50% {
-    transform: scale(1.4);
+    transform: scale(1.5);
     opacity: 1;
   }
 }
 
 @keyframes mhDropFall {
-  0% {
-    transform: translateY(0);
-    opacity: 0.0;
-  }
-  10% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(58px);
-    opacity: 0;
-  }
+  0%   { transform: translate(0, 0);   opacity: 0; }
+  10%  { transform: translate(0, 4px); opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translate(0, 60px); opacity: 0; }
 }
 
 @keyframes mhSplash {
-  0% {
+  0%,
+  88% {
     transform: scale(0);
     opacity: 0;
   }
-  85% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  90% {
+  92% {
     transform: scale(1);
-    opacity: 0.8;
+    opacity: 0.9;
   }
   100% {
-    transform: scale(2.6);
+    transform: scale(3.2);
     opacity: 0;
   }
 }
@@ -561,12 +557,10 @@ function onFlipEnd() {
 @keyframes mhSheen {
   0%,
   100% {
-    transform: scaleX(1);
     opacity: 0.6;
   }
   50% {
-    transform: scaleX(1.08);
-    opacity: 0.85;
+    opacity: 0.95;
   }
 }
 </style>
