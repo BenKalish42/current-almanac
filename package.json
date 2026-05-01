@@ -9,6 +9,8 @@
   "main": "electron/main.cjs",
   "scripts": {
     "test": "vitest",
+    "test:math": "vitest run tests/math",
+    "test:contracts": "vitest run tests/contracts",
     "test:llm": "node scripts/test_llm.mjs",
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
