@@ -1,18 +1,46 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useAlchemyStore } from "@/stores/alchemyStore";
+import { useAppStore } from "@/stores/appStore";
 import JingBattery from "@/components/alchemy/JingBattery.vue";
 import HerbInventoryManager from "@/components/alchemy/HerbInventoryManager.vue";
 import FormulaHierarchy from "@/components/alchemy/FormulaHierarchy.vue";
 import MeridianVisualizer from "@/components/alchemy/MeridianVisualizer.vue";
 import FormulaLibrary from "@/components/alchemy/FormulaLibrary.vue";
+import SymptomMatrix, { type BaGang } from "@/components/alchemy/SymptomMatrix.vue";
+import OntologyLens, { type OntologySystem } from "@/components/alchemy/OntologyLens.vue";
+import AlchemicalGraph from "@/components/alchemy/AlchemicalGraph.vue";
+import ApothecaryOracle from "@/components/alchemy/ApothecaryOracle.vue";
 
 const alchemyStore = useAlchemyStore();
+const appStore = useAppStore();
 
 // Dummy reactive state for JingBattery (placeholder until real cultivation metrics exist)
 const yinLevel = ref(70);
 const yangLevel = ref(45);
-const activeTab = ref<"cauldron" | "library">("cauldron");
+const activeTab = ref<"cauldron" | "earth" | "library">("cauldron");
+
+// Eight Principles state — drives ApothecaryOracle.
+const baGang = ref<BaGang>({
+  hot_cold: 0,
+  wet_dry: 0,
+  deficient_excess: 0,
+  interior_exterior: 0,
+});
+
+const ontologySystem = ref<OntologySystem>("TCM");
+
+const earthPayload = computed(() => ({
+  baGang: baGang.value,
+  activeMeridian: appStore.presentOrgan ?? null,
+  intent:
+    appStore.intentDomain || appStore.intentGoalConstraint
+      ? {
+          domain: appStore.intentDomain,
+          goal_constraint: appStore.intentGoalConstraint,
+        }
+      : undefined,
+}));
 </script>
 
 <template>
@@ -29,6 +57,18 @@ const activeTab = ref<"cauldron" | "library">("cauldron");
         @click="activeTab = 'cauldron'"
       >
         Cauldron
+      </button>
+      <button
+        type="button"
+        class="rounded-lg px-3 py-1.5 text-sm border transition-colors"
+        :class="
+          activeTab === 'earth'
+            ? 'border-daoist-jade/50 bg-daoist-jade/15 text-daoist-jade'
+            : 'border-white/10 bg-daoist-surface text-daoist-muted hover:text-daoist-text'
+        "
+        @click="activeTab = 'earth'"
+      >
+        Earth
       </button>
       <button
         type="button"
@@ -71,7 +111,19 @@ const activeTab = ref<"cauldron" | "library">("cauldron");
 
     <FormulaLibrary v-if="activeTab === 'library'" />
 
-    <!-- Main: Two-Column Grid -->
+    <!-- Pillar 2: Earth — Ba Gang sliders + Alchemical Graph + Ontology + Apothecary -->
+    <div v-else-if="activeTab === 'earth'" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="space-y-6">
+        <SymptomMatrix v-model:state="baGang" />
+        <OntologyLens v-model:system="ontologySystem" />
+        <ApothecaryOracle :payload="earthPayload" />
+      </div>
+      <div class="space-y-6">
+        <AlchemicalGraph />
+      </div>
+    </div>
+
+    <!-- Cauldron (existing): Two-Column Grid -->
     <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <!-- Left Column: The Builder -->
       <div class="space-y-6">
