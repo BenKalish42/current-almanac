@@ -1,10 +1,23 @@
 <script setup lang="ts">
 /**
- * Pillar 3 — Sovereign Courtyard (placeholder).
+ * Pillar 3 — Sovereign Courtyard.
  *
- * Tier A (Identity Forge + Courtyard shell) is wired in Stream 5b.
- * This file ships an empty-state surface so the route exists from RC1.
+ * Tier A (live):
+ *   - Identity Forge (local Ed25519, glyph talisman)
+ *   - Courtyard shell (lobby copy, lock-icon design system)
+ *
+ * Tier B/C (scaffolded; activate when VITE_MATRIX_HOMESERVER_URL is set
+ * and matrix-js-sdk is dynamically loaded — slated for v1.1).
  */
+
+import { computed } from "vue";
+import CryptographicIdentity from "@/components/intelligence/CryptographicIdentity.vue";
+
+const homeserverConfigured = computed(() => {
+  return Boolean(
+    (import.meta.env.VITE_MATRIX_HOMESERVER_URL as string | undefined)?.trim()
+  );
+});
 </script>
 
 <template>
@@ -16,29 +29,26 @@
       </p>
     </header>
 
-    <section class="rounded-lg border border-white/10 bg-white/[0.02] p-5">
-      <h2 class="text-sm font-medium uppercase tracking-wider text-slate-400">
-        Identity Forge
-      </h2>
-      <p class="mt-2 text-sm text-slate-300">
-        A local Ed25519 key pair anchors this device. Public key is shareable;
-        private key remains on-device.
-      </p>
-      <div class="mt-4 rounded border border-dashed border-white/10 p-4 text-sm text-slate-500">
-        Identity is not yet generated. Generation tooling is wired in the next iteration.
-      </div>
-    </section>
+    <CryptographicIdentity />
 
     <section class="mt-6 rounded-lg border border-white/10 bg-white/[0.02] p-5">
-      <h2 class="text-sm font-medium uppercase tracking-wider text-slate-400">
-        Courtyard
-      </h2>
-      <p class="mt-2 text-sm text-slate-300">
+      <header class="flex items-center gap-2">
+        <span aria-hidden="true" class="text-amber-400">🔒</span>
+        <h2 class="text-sm font-medium uppercase tracking-wider text-slate-400">
+          Courtyard
+        </h2>
+      </header>
+
+      <p v-if="homeserverConfigured" class="mt-2 text-sm text-slate-300">
+        Homeserver is configured. Direct exchange will activate once a peer is
+        discovered.
+      </p>
+      <p v-else class="mt-2 text-sm text-slate-300">
         Direct exchange between identified peers. No homeserver is configured.
       </p>
-      <p class="mt-2 text-xs text-slate-500">
-        Set <code class="rounded bg-black/40 px-1">VITE_MATRIX_HOMESERVER_URL</code> to enable
-        connection. Disabled by default.
+      <p v-if="!homeserverConfigured" class="mt-2 text-xs text-slate-500">
+        Set <code class="rounded bg-black/40 px-1">VITE_MATRIX_HOMESERVER_URL</code> in
+        your environment to enable connection. Disabled by default.
       </p>
     </section>
 
@@ -47,7 +57,8 @@
         Encrypted Payload · Composite Reading · Mesh
       </h2>
       <p class="mt-2 text-sm text-slate-400">
-        These surfaces are scaffolded; they activate when at least one peer is connected.
+        These surfaces are scaffolded; they activate once at least one peer is
+        connected.
       </p>
     </section>
   </div>
