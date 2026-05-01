@@ -1,27 +1,17 @@
 name: Deploy to Netlify (direct)
 
-# Direct Netlify deploy, bypassing the PersonalWebsite repo. Useful when:
-#   1. you want a separate Netlify site for current-almanac (e.g. a
-#      preview / staging site at *.netlify.app), or
-#   2. you don't want to manage a PAT for cross-repo pushes.
+# Direct Netlify deploy. Bypasses the PersonalWebsite repo entirely.
 #
-# Required secrets (configure in GitHub → Settings → Secrets → Actions):
-#   NETLIFY_AUTH_TOKEN — Netlify personal access token
-#                        (https://app.netlify.com/user/applications)
-#   NETLIFY_SITE_ID    — target site ID
-#                        (Netlify dashboard → Site → Settings → General → Site information)
+# Required secrets:
+#   NETLIFY_AUTH_TOKEN — https://app.netlify.com/user/applications
+#   NETLIFY_SITE_ID    — Netlify dashboard → Site → Settings → General
 #
-# Optional secrets (so live LLM features work — but read the warning below):
-#   VITE_API_URL          — backend URL (otherwise /api/* 404s)
-#   VITE_DEEPSEEK_API_KEY — bakes into bundle (CLIENT-VISIBLE — see WARNING)
-#   VITE_OPENAI_API_KEY   — same warning
-#   VITE_GEMINI_API_KEY   — same warning
+# Optional secrets (read the WARNING below before setting):
+#   VITE_API_URL, VITE_DEEPSEEK_API_KEY, VITE_OPENAI_API_KEY, VITE_GEMINI_API_KEY
 #
-# WARNING about VITE_*_API_KEY secrets: Vite bakes these into the public
-# JS bundle at build time. Anyone who downloads the JS can read the key.
-# This is fine for a dev/preview site behind the gatekeeper password
-# (`dao2026`). For a real public deployment, route LLM calls through
-# the FastAPI backend (set VITE_API_URL only, leave the others unset).
+# WARNING: VITE_*_API_KEY secrets bake into the public JS bundle. For a
+# real public deployment, route LLM calls through the FastAPI backend
+# (set VITE_API_URL only).
 
 on:
   push:
@@ -34,23 +24,38 @@ jobs:
     if: github.repository == 'BenKalish42/current-almanac'
     permissions:
       contents: read
+    env:
+      HAS_NETLIFY: ${{ secrets.NETLIFY_AUTH_TOKEN != '' && secrets.NETLIFY_SITE_ID != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Pre-flight — Netlify creds check
+        run: |
+          if [ "${HAS_NETLIFY}" != "true" ]; then
+            echo "::warning::NETLIFY_AUTH_TOKEN and/or NETLIFY_SITE_ID not configured — exiting early."
+            echo "  Get a token: https://app.netlify.com/user/applications"
+            echo "  Site id: Netlify dashboard → Site → Settings → General → Site information."
+          fi
+
+      - if: env.HAS_NETLIFY == 'true'
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-node@v4
+      - if: env.HAS_NETLIFY == 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install
+        if: env.HAS_NETLIFY == 'true'
         run: npm ci --no-audit --no-fund
 
       - name: Test (gate)
+        if: env.HAS_NETLIFY == 'true'
         run: npm test -- --run
 
       - name: Build
+        if: env.HAS_NETLIFY == 'true'
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_DEEPSEEK_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
@@ -64,20 +69,18 @@ jobs:
           npm run build
 
       - name: Verify dist/
+        if: env.HAS_NETLIFY == 'true'
         run: |
           test -f dist/index.html
           test -f dist/manifest.webmanifest
           ls -lh dist/
 
       - name: Deploy to Netlify
+        if: env.HAS_NETLIFY == 'true'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-            echo "::error::NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID are required."
-            exit 1
-          fi
           npx -y netlify@26 deploy \
             --dir=dist \
             --prod \
