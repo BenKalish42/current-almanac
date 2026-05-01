@@ -1,0 +1,99 @@
+name: Deploy to benkalish.com (PersonalWebsite)
+
+# Builds the production bundle and pushes it to BenKalish42/PersonalWebsite's
+# `static/Current/` directory. Netlify is hooked to PersonalWebsite, so the
+# push there triggers the live deploy.
+#
+# Required secrets (configure in GitHub → Settings → Secrets → Actions):
+#   PERSONAL_WEBSITE_TOKEN     — PAT with `repo` scope on BenKalish42/PersonalWebsite
+#   VITE_API_URL               — optional backend URL; LLM features 404 on live site if unset
+#   VITE_DEEPSEEK_API_KEY      — DeepSeek key for the Workbench / Oracle on live site
+#   VITE_OPENAI_API_KEY        — optional secondary provider
+#   VITE_GEMINI_API_KEY        — optional secondary provider
+#
+# Triggers: push to master + manual.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    if: github.repository == 'BenKalish42/current-almanac'
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout current-almanac
+        uses: actions/checkout@v4
+        with:
+          path: current-almanac
+          fetch-depth: 0
+
+      - name: Checkout PersonalWebsite
+        uses: actions/checkout@v4
+        with:
+          repository: BenKalish42/PersonalWebsite
+          token: ${{ secrets.PERSONAL_WEBSITE_TOKEN }}
+          path: PersonalWebsite
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: current-almanac/package-lock.json
+
+      - name: Install dependencies
+        working-directory: current-almanac
+        run: npm ci --no-audit --no-fund
+
+      - name: Run tests (gate the deploy)
+        working-directory: current-almanac
+        run: npm test -- --run
+
+      - name: Build production bundle
+        working-directory: current-almanac
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_DEEPSEEK_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
+          VITE_LLM_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
+          VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        run: |
+          # Sync AI-generated seed hexagrams into the bundle (parity with deploy_to_benkalish.sh).
+          if [ -f data/output/seed_hexagrams.json ]; then
+            cp data/output/seed_hexagrams.json src/data/seed_hexagrams.json
+          fi
+          npm run build
+
+      - name: Verify dist/ contents
+        working-directory: current-almanac
+        run: |
+          test -f dist/index.html
+          test -f dist/manifest.webmanifest
+          ls -lah dist/
+
+      - name: Sync dist/ → PersonalWebsite/static/Current/
+        run: |
+          mkdir -p PersonalWebsite/static/Current
+          rm -rf PersonalWebsite/static/Current/*
+          cp -R current-almanac/dist/* PersonalWebsite/static/Current/
+
+      - name: Commit and push to PersonalWebsite (if changed)
+        working-directory: PersonalWebsite
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git add static/Current/
+          if git diff --staged --quiet; then
+            echo "No changes in static/Current/. Skipping commit."
+            exit 0
+          fi
+          SHA=$(cd ../current-almanac && git rev-parse --short HEAD)
+          git commit -m "Deploy Current Almanac @ $SHA"
+          git push origin HEAD
