@@ -852,13 +852,12 @@ onUnmounted(() => {
           </div>
 
           <div class="sec">
-            <div class="secTitle">Future (Destiny)</div>
+            <div class="secTitle">Phase</div>
             <div class="secBody">
               <textarea
                 class="destinyBox"
-                placeholder="Destiny is yours to write."
-                v-model="store.generatedReading"
-                :readonly="store.isGenerating"
+                placeholder="Notes on the longer arc."
+                v-model="store.userPhaseNotes"
               ></textarea>
             </div>
           </div>

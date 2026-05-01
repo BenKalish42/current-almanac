@@ -115,36 +115,35 @@ export function buildSystemPrompt(
   return sections.join("\n");
 }
 
-import { fetchDeepSeekChat } from "@/services/llmService";
+import { fetchContractBoundChat } from "@/services/llmService";
 
 /**
- * Sends the synthesized prompt to the LLM (DeepSeek by default).
- * Task 12.2: Uses llmService for correct DeepSeek API URL and auth.
+ * Sends the synthesized context block to the LLM. Contract-bound — every
+ * call is wrapped with OUTPUT_CONTRACT_SYSTEM and audited on return.
  */
 export async function fetchDaoistReading(promptText: string): Promise<string> {
-  const systemPrompt =
-    "You are a Daoist almanac consultant. Synthesize the user's somatic state, astrological context, and alchemical formula into a grounded, descriptive reading. Be neutral and descriptive. No predictions, moralizing, or destiny language. Write in clear paragraphs.";
-
-  return fetchDeepSeekChat(
-    [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: promptText },
-    ],
-    { maxTokens: 1024, temperature: 0.7 }
-  );
+  const userPrompt = [
+    "Describe the configuration of conditions implied by the following context block.",
+    "Treat all data as canonical (do not recompute math). Identify dominant dynamics",
+    "and the interaction pattern. Use Flow / Resistance / Pressure / Timing / Phase /",
+    "Capacity vocabulary. If signal is weak, return only the non-action phrase.",
+    "",
+    promptText,
+  ].join("\n");
+  return fetchContractBoundChat([{ role: "user", content: userPrompt }], {
+    maxTokens: 1024,
+    temperature: 0.4,
+  });
 }
 
 /**
  * Analyze a combined multi-formula cauldron for vector direction, synergy, and collisions.
- * Task 12.2: Uses llmService for DeepSeek.
+ * Contract-bound — descriptive only.
  */
 export async function analyzeCauldronSynergy(
   activeFormula: CauldronHerbSnapshot[],
   herbDosages: Record<string, number>
 ): Promise<string> {
-  const systemPrompt =
-    "You are a Master Daoist Clinical Architect. The user has combined multiple classical formulas. Analyze the combined ingredient list and dosages. Output your analysis in strict Markdown with three sections: 1. OVERALL VECTOR (Is it lifting, sinking, warming, cooling?), 2. SYNERGIES & FLOWS (Where do the formulas support each other?), 3. TRAFFIC JAMS & COLLISIONS (Where do the vectors fight? e.g., heavy cloying Yin trapping ascending Yang).";
-
   const payload = activeFormula.map((herb) => ({
     herb_id: herb.id,
     name: herb.common_name || herb.pinyin_name,
@@ -157,19 +156,20 @@ export async function analyzeCauldronSynergy(
   }));
 
   const userPrompt = [
+    "Describe the combined cauldron's configuration in three short sections:",
+    "1. VECTOR — direction the combined herbs move (lifting / sinking / warming / cooling).",
+    "2. SUPPORT — where the formulas reinforce each other.",
+    "3. FRICTION — where vectors interfere.",
+    "Treat the JSON as canonical. Use neutral, descriptive language.",
+    "",
     "Combined Cauldron Payload:",
     "```json",
     JSON.stringify(payload, null, 2),
     "```",
-    "",
-    "Assess vector direction, support patterns, and conflict hotspots.",
   ].join("\n");
 
-  return fetchDeepSeekChat(
-    [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-    { maxTokens: 1200, temperature: 0.4 }
-  );
+  return fetchContractBoundChat([{ role: "user", content: userPrompt }], {
+    maxTokens: 1200,
+    temperature: 0.3,
+  });
 }

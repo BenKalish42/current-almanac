@@ -12,28 +12,34 @@ from typing import Any
 from openai import OpenAI
 
 # -----------------------------------------------------------------------------
-# System prompt: Master Daoist herbal alchemist persona (Zhuang)
-# CRITICAL: Educational tool only; never diagnose or treat.
+# System prompt: Output Contract — descriptive timing instrument.
+# Sourced from backend.contracts.output_contract; mirrors src/contracts.
+# Educational tool only; never diagnose, prescribe, or predict.
 # -----------------------------------------------------------------------------
-SYSTEM_PROMPT = """You are Zhuang (莊), a master Daoist herbal alchemist and astrologer. You bridge ancient clinical TCM safety with modern astronomical math. Your tone is grounded, poetic, and highly educational.
-CRITICAL RULES:
-1. You are an educational tool, not a doctor. Never diagnose, treat, or cure medical conditions.
-2. Use the 'Internal Weather' (Eight Parameters) to describe imbalances.
-3. Only recommend herbs and formulas provided in your context.
-4. Always append this disclaimer to any herbal suggestion: 'Current is an AI alchemical tool. Consult a licensed practitioner before beginning any herbal regimen.'"""
+from backend.contracts.output_contract import OUTPUT_CONTRACT_SYSTEM as _OUTPUT_CONTRACT_SYSTEM
 
-INTERPRET_INSTRUCTIONS = """Analyze the user's Daoist astrological data and return a JSON object with these exact keys (use null for any you omit):
-- current_summary: string — A 2–4 sentence synthesis of how birth BaZi meets the present moment.
-- shi: string | null — What to lean into (時).
-- shun: string | null — What to flow with (順).
-- ji: string | null — What to seize (機).
-- load_capacity: string | null — Load vs capacity balance.
-- misalignment_signals: string | null — Where friction may appear.
-- recommended_modes: string | null — Suggested approaches.
-- avoid: string | null — What to avoid.
-- self_check: string | null — A question for self-reflection.
+SYSTEM_PROMPT = (
+    _OUTPUT_CONTRACT_SYSTEM
+    + "\n\nADDITIONAL CONSTRAINT (Alchemy / Wei Dan)\n"
+    + "When TCM herbs or formulas appear in the context, describe their existing properties\n"
+    + "(temperature, flavor, meridians) only. Do not prescribe. Do not diagnose.\n"
+    + "If asked for a recommendation, refuse and describe instead.\n"
+)
 
-Respond with ONLY valid JSON, no markdown or extra text. Be concise (output_contract max_length_words: 260)."""
+INTERPRET_INSTRUCTIONS = """Describe the configuration in the following payload. Return a JSON object with these exact keys (use null for any without sufficient signal):
+- current_summary: string — 2–4 sentences describing how the natal configuration interacts with the present moment.
+- shi: string | null — Timing description (Shí: ripeness vs prematurity).
+- shun: string | null — Direction description (Shùn: alignment vs opposition to momentum).
+- ji: string | null — Inflection-point observation (Jī).
+- load_capacity: string | null — Load vs capacity description.
+- misalignment_signals: string | null — Where friction is likely to appear if force is applied.
+- recommended_modes: string | null — Modes that match the configuration (description, not prescription).
+- avoid: string | null — Modes that would increase friction (description, not prescription).
+- self_check: string | null — A neutral observation the user can verify.
+
+Treat the payload as canonical (do not recompute math). If the payload features are weak,
+return current_summary equal to the non-action phrase ("No dominant signal. Maintain course.")
+and null for the rest. Respond with ONLY valid JSON. Max ~260 words."""
 
 
 def has_deepseek_key() -> bool:
@@ -125,21 +131,22 @@ def chat_stream(
     *,
     model: str = "deepseek-chat",
     max_tokens: int = 1024,
-    temperature: float = 0.6,
+    temperature: float = 0.4,
 ):
     """
     Stream chat completions from DeepSeek.
     Yields SSE chunks in AI SDK format: start, text-start, text-delta, text-end, finish.
+
+    Always prepends OUTPUT_CONTRACT_SYSTEM. Callers may add their own
+    system message, but the contract is non-negotiable.
     """
     client = get_deepseek_client()
 
-    # Build messages with system context if not present
-    system_present = any(m.get("role") == "system" for m in messages)
-    if not system_present:
-        messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            *messages,
-        ]
+    # Always prepend the contract.
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        *messages,
+    ]
 
     stream = client.chat.completions.create(
         model=model,

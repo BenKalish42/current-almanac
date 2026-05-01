@@ -1,8 +1,21 @@
 /**
- * Phase 3 Task 12.2 — Oracle Engine: DeepSeek API bridge.
- * Explicit DeepSeek configuration to fix 404 errors.
+ * Oracle Engine: DeepSeek API bridge.
+ *
+ * Every call is wrapped by the Output Contract:
+ *   1. The system message is prepended with OUTPUT_CONTRACT_SYSTEM
+ *      via fetchContractBoundChat() (preferred entry).
+ *   2. The response is audited; on violation we attempt one revise,
+ *      then enforceCompliance() redacts as a last resort.
+ *
  * Uses https://api.deepseek.com/v1/chat/completions (OpenAI-compatible).
  */
+
+import {
+  OUTPUT_CONTRACT_SYSTEM,
+  auditCompliance,
+  enforceCompliance,
+  formatViolations,
+} from "@/contracts/outputContract";
 
 const DEEPSEEK_BASE = "https://api.deepseek.com";
 const DEEPSEEK_CHAT_URL = `${DEEPSEEK_BASE}/v1/chat/completions`;
@@ -16,6 +29,9 @@ export type ChatOptions = {
   temperature?: number;
   /** AbortSignal for timeout; e.g. AbortSignal.timeout(60000) for 60s */
   signal?: AbortSignal;
+  /** When true, skip contract wrapping (for back-of-house workbench calls
+   *  that compose the contract themselves). Default: false. */
+  skipContract?: boolean;
 };
 
 function getApiKey(): string {
@@ -100,4 +116,52 @@ export function hasLlmKey(): boolean {
     (import.meta.env.VITE_DEEPSEEK_API_KEY as string | undefined) ??
     (import.meta.env.VITE_LLM_API_KEY as string | undefined);
   return Boolean(key?.trim());
+}
+
+/**
+ * Contract-bound chat — the preferred entry point for any descriptive
+ * synthesis surface (Synthesize the Heavens, Synthesize the Earth,
+ * Past/Present summaries, Current Flow Analysis).
+ *
+ *   - Prepends OUTPUT_CONTRACT_SYSTEM to the messages.
+ *   - Audits the response. On violation: one revise attempt with the
+ *     explicit list of violations. If still failing, enforceCompliance()
+ *     redacts and we log a console.warn.
+ */
+export async function fetchContractBoundChat(
+  messages: ChatMessage[],
+  options: ChatOptions = {}
+): Promise<string> {
+  const wrapped: ChatMessage[] = [
+    { role: "system", content: OUTPUT_CONTRACT_SYSTEM },
+    ...messages,
+  ];
+  const first = await fetchDeepSeekChat(wrapped, options);
+  const audit = auditCompliance(first);
+  if (audit.ok) return first;
+
+  // One revise attempt — show the model exactly what to fix.
+  const revisePrompt: ChatMessage = {
+    role: "user",
+    content: [
+      "Your previous reply violated the Output Contract.",
+      `Violations: ${formatViolations(audit.violations)}.`,
+      "Return ONLY the revised description. Use Flow / Resistance / Pressure /",
+      "Timing / Phase / Capacity vocabulary. No instructions, predictions,",
+      "destiny language, moral framing, or mystical inflation.",
+    ].join(" "),
+  };
+  const second = await fetchDeepSeekChat(
+    [...wrapped, { role: "assistant", content: first }, revisePrompt],
+    options
+  );
+  const revisedAudit = auditCompliance(second);
+  if (revisedAudit.ok) return second;
+
+  // Final fallback: redact and warn.
+  console.warn(
+    "[outputContract] revise failed; redacting. violations=",
+    formatViolations(revisedAudit.violations)
+  );
+  return enforceCompliance(second);
 }
