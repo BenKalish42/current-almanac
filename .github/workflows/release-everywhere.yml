@@ -174,9 +174,11 @@ jobs:
         run: cd android && ./gradlew bundleRelease
 
       - name: Upload to Google Play
-        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' && secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_BASE64 != '' }}
+        # `secrets.*` isn't allowed in step-level `if:` — gate via step env instead.
+        if: ${{ env.HAS_PLAY_CREDS == 'true' }}
         run: bundle exec fastlane android internal
         env:
+          HAS_PLAY_CREDS: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' && secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON_BASE64 != '' }}
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
@@ -220,9 +222,10 @@ jobs:
         run: npm run build:ios:sync
 
       - name: Upload to TestFlight
-        if: ${{ secrets.APP_STORE_CONNECT_KEY_ID != '' && secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 != '' }}
+        if: ${{ env.HAS_TESTFLIGHT_CREDS == 'true' }}
         run: bundle exec fastlane ios testflight
         env:
+          HAS_TESTFLIGHT_CREDS: ${{ secrets.APP_STORE_CONNECT_KEY_ID != '' && secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 != '' }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
