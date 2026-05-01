@@ -1,0 +1,85 @@
+name: Deploy to Netlify (direct)
+
+# Direct Netlify deploy, bypassing the PersonalWebsite repo. Useful when:
+#   1. you want a separate Netlify site for current-almanac (e.g. a
+#      preview / staging site at *.netlify.app), or
+#   2. you don't want to manage a PAT for cross-repo pushes.
+#
+# Required secrets (configure in GitHub → Settings → Secrets → Actions):
+#   NETLIFY_AUTH_TOKEN — Netlify personal access token
+#                        (https://app.netlify.com/user/applications)
+#   NETLIFY_SITE_ID    — target site ID
+#                        (Netlify dashboard → Site → Settings → General → Site information)
+#
+# Optional secrets (so live LLM features work — but read the warning below):
+#   VITE_API_URL          — backend URL (otherwise /api/* 404s)
+#   VITE_DEEPSEEK_API_KEY — bakes into bundle (CLIENT-VISIBLE — see WARNING)
+#   VITE_OPENAI_API_KEY   — same warning
+#   VITE_GEMINI_API_KEY   — same warning
+#
+# WARNING about VITE_*_API_KEY secrets: Vite bakes these into the public
+# JS bundle at build time. Anyone who downloads the JS can read the key.
+# This is fine for a dev/preview site behind the gatekeeper password
+# (`dao2026`). For a real public deployment, route LLM calls through
+# the FastAPI backend (set VITE_API_URL only, leave the others unset).
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    if: github.repository == 'BenKalish42/current-almanac'
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Test (gate)
+        run: npm test -- --run
+
+      - name: Build
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_DEEPSEEK_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
+          VITE_LLM_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
+          VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        run: |
+          if [ -f data/output/seed_hexagrams.json ]; then
+            cp data/output/seed_hexagrams.json src/data/seed_hexagrams.json
+          fi
+          npm run build
+
+      - name: Verify dist/
+        run: |
+          test -f dist/index.html
+          test -f dist/manifest.webmanifest
+          ls -lh dist/
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID are required."
+            exit 1
+          fi
+          npx -y netlify@26 deploy \
+            --dir=dist \
+            --prod \
+            --site="$NETLIFY_SITE_ID" \
+            --message="current-almanac@${GITHUB_SHA::7}"

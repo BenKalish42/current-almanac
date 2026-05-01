@@ -25,6 +25,17 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Pre-flight — require PERSONAL_WEBSITE_TOKEN
+        run: |
+          if [ -z "${{ secrets.PERSONAL_WEBSITE_TOKEN }}" ]; then
+            echo "::warning::PERSONAL_WEBSITE_TOKEN is not configured — skipping deploy."
+            echo "  Add a PAT with contents:write on BenKalish42/PersonalWebsite"
+            echo "  in Settings → Secrets and variables → Actions."
+            echo "  Alternatively, configure NETLIFY_AUTH_TOKEN + NETLIFY_SITE_ID"
+            echo "  and use the deploy-to-netlify.yml workflow."
+            exit 0
+          fi
+
       - name: Checkout current-almanac
         uses: actions/checkout@v4
         with:
