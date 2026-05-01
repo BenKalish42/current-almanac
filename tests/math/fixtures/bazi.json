@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Mao Zedong (Shaoshan) 1893-12-26 07:30",
+    "input": { "year": 1893, "month": 12, "day": 26, "hour": 7, "minute": 30, "second": 0 },
+    "expect": {
+      "bazi": { "year": "癸巳", "month": "甲子", "day": "丁酉", "hour": "甲辰" },
+      "nineStar": { "year": "八", "month": "一" }
+    }
+  },
+  {
+    "label": "Albert Einstein (Ulm) 1879-03-14 11:30",
+    "input": { "year": 1879, "month": 3, "day": 14, "hour": 11, "minute": 30, "second": 0 },
+    "expect": {
+      "bazi": { "year": "己卯", "month": "丁卯", "day": "丙申", "hour": "甲午" },
+      "nineStar": { "year": "四", "month": "七" }
+    }
+  },
+  {
+    "label": "Anchor 2000-01-01 00:00",
+    "input": { "year": 2000, "month": 1, "day": 1, "hour": 0, "minute": 0, "second": 0 },
+    "expect": {
+      "bazi": { "year": "己卯", "month": "丙子", "day": "戊午", "hour": "壬子" },
+      "nineStar": { "year": "一", "month": "七" }
+    }
+  },
+  {
+    "label": "Anchor 2024-06-15 12:00",
+    "input": { "year": 2024, "month": 6, "day": 15, "hour": 12, "minute": 0, "second": 0 },
+    "expect": {
+      "bazi": { "year": "甲辰", "month": "庚午", "day": "庚戌", "hour": "壬午" },
+      "nineStar": { "year": "三", "month": "一" }
+    }
+  },
+  {
+    "label": "Anchor 1990-01-01 12:00",
+    "input": { "year": 1990, "month": 1, "day": 1, "hour": 12, "minute": 0, "second": 0 },
+    "expect": {
+      "bazi": { "year": "己巳", "month": "丙子", "day": "丙寅", "hour": "甲午" },
+      "nineStar": { "year": "二", "month": "一" }
+    }
+  },
+  {
+    "label": "Cusp Lichun-1 2000-02-04 02:00",
+    "input": { "year": 2000, "month": 2, "day": 4, "hour": 2, "minute": 0, "second": 0 },
+    "expect": {
+      "bazi": { "year": "己卯", "month": "丁丑", "day": "壬辰", "hour": "辛丑" },
+      "nineStar": { "year": "九", "month": "五" }
+    }
+  },
+  {
+    "label": "Cusp Lichun+1d 2000-02-05 02:00",
+    "input": { "year": 2000, "month": 2, "day": 5, "hour": 2, "minute": 0, "second": 0 },
+    "expect": {
+      "bazi": { "year": "庚辰", "month": "戊寅", "day": "癸巳", "hour": "癸丑" },
+      "nineStar": { "year": "九", "month": "五" }
+    }
+  }
+]

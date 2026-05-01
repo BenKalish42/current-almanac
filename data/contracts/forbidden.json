@@ -1,0 +1,86 @@
+{
+  "schema_version": "1",
+  "description": "Output Contract — phrases forbidden in user-facing UI strings, system prompts, and LLM outputs. Source: Current OG Spec (ChatGPT) §5 Output Contract + §9 Failure Modes.",
+  "categories": {
+    "instructions": {
+      "rationale": "Current describes; it does not instruct. The user remains the agent.",
+      "patterns": [
+        "\\byou should\\b",
+        "\\byou must\\b",
+        "\\byou need to\\b",
+        "\\byou ought to\\b",
+        "\\bis recommended that\\b",
+        "\\btry to\\b",
+        "\\bdo this\\b",
+        "\\bdon't do\\b"
+      ]
+    },
+    "predictions": {
+      "rationale": "Current is descriptive, not predictive.",
+      "patterns": [
+        "\\bwill happen\\b",
+        "\\bis going to\\b",
+        "\\bguaranteed\\b",
+        "\\bguarantee\\b",
+        "\\bthis will lead\\b",
+        "\\bdefinitely will\\b"
+      ]
+    },
+    "moral_framing": {
+      "rationale": "No good/bad days, no auspicious-as-luck. Auspiciousness = low friction.",
+      "patterns": [
+        "\\bgood day\\b",
+        "\\bbad day\\b",
+        "\\bauspicious to act\\b",
+        "\\binauspicious\\b",
+        "\\blucky\\b",
+        "\\bunlucky\\b",
+        "\\bblessed\\b",
+        "\\bcursed\\b"
+      ]
+    },
+    "destiny_agency": {
+      "rationale": "No personalization-as-fate; the system has no agency.",
+      "patterns": [
+        "\\bdestiny\\b",
+        "\\byour fate\\b",
+        "\\bthe universe wants\\b",
+        "\\bthe universe is\\b",
+        "\\bkarmic bonds\\b",
+        "\\bkarmic\\b",
+        "\\belemental clashes\\b",
+        "\\bcosmic plan\\b",
+        "\\bthe heavens decree\\b"
+      ]
+    },
+    "mystical_inflation": {
+      "rationale": "Neutral, precise, compressive language.",
+      "patterns": [
+        "\\bancient wisdom\\b",
+        "\\bancient chinese wisdom\\b",
+        "\\bbridge ancient\\b",
+        "\\bpoetic\\b",
+        "\\bmystical\\b",
+        "\\bspiritual journey\\b",
+        "\\bsacred\\b",
+        "\\bdivine\\b"
+      ]
+    }
+  },
+  "allowed_vocabulary": [
+    "Flow",
+    "Resistance",
+    "Pressure",
+    "Timing",
+    "Direction",
+    "Phase",
+    "Capacity",
+    "Load",
+    "Auspiciousness",
+    "Misalignment",
+    "Non-action",
+    "No dominant signal",
+    "Maintain course"
+  ],
+  "non_action_phrase": "No dominant signal. Maintain course."
+}

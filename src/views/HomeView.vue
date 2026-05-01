@@ -4,6 +4,9 @@ import AstrologyCrawlBackdrop from "@/components/AstrologyCrawlBackdrop.vue";
 import AppSettingsFields from "@/components/settings/AppSettingsFields.vue";
 import WaveBackgroundHost from "@/components/waves/WaveBackgroundHost.vue";
 import CosmicBoard from "@/components/CosmicBoard.vue";
+import NinePalacesMatrix from "@/components/astrology/NinePalacesMatrix.vue";
+import VedicChart from "@/components/astrology/VedicChart.vue";
+import { getVedicChart } from "@/utils/vedicMath";
 import HexagramLines from "@/components/HexagramLines.vue";
 import HexagramModal from "@/components/HexagramModal.vue";
 import OrganHourCard from "@/components/astrology/OrganHourCard.vue";
@@ -110,6 +113,28 @@ function hexLabel(num: number | null) {
 
 /** Show Current Flow block only when we have real analysis — never API key hints. */
 const advancedExpanded = ref(false);
+
+/** Pillar 1: Nine Palaces center star — derived from natal Year nine-star. */
+const ninePalacesCenter = computed(() => {
+  const ns = store.birthProfile?.nineStar?.year?.number;
+  // Convert "一"…"九" → 1..9; fall back to 5 (center / Yellow Earth).
+  const map: Record<string, number> = {
+    一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9,
+  };
+  return ns ? map[ns] ?? 5 : 5;
+});
+
+/** Pillar 1: Vedic chart snapshot — uses solar-adjusted moment + best-known coords. */
+const vedicSnapshot = computed(() => {
+  try {
+    const date = store.solarAdjustedSelectedDate;
+    const lat = store.geoCoords?.lat ?? 0;
+    const lon = store.geoCoords?.lon ?? store.birthLongitude ?? 0;
+    return getVedicChart(date, lat, lon);
+  } catch {
+    return null;
+  }
+});
 /** Birth reference date for PillarBounds. Solar-adjusted when useTrueSolarTime && birthLongitude. */
 const birthReferenceDate = computed(() => {
   const raw = store.birthDatetimeLocal;
@@ -846,19 +871,28 @@ onUnmounted(() => {
                     :qimen-chart-day="store.qimenChartDay"
                     :selected-date="store.selectedDate"
                   />
+
+                  <div class="ninePalacesWrap">
+                    <h3 class="advanced-section-title">Nine Palaces</h3>
+                    <NinePalacesMatrix :center-star="ninePalacesCenter" />
+                  </div>
+
+                  <div v-if="vedicSnapshot" class="vedicWrap">
+                    <h3 class="advanced-section-title">Vedic Chart (Lahiri sidereal)</h3>
+                    <VedicChart :chart="vedicSnapshot" />
+                  </div>
                 </div>
               </Transition>
             </div>
           </div>
 
           <div class="sec">
-            <div class="secTitle">Future (Destiny)</div>
+            <div class="secTitle">Phase</div>
             <div class="secBody">
               <textarea
                 class="destinyBox"
-                placeholder="Destiny is yours to write."
-                v-model="store.generatedReading"
-                :readonly="store.isGenerating"
+                placeholder="Notes on the longer arc."
+                v-model="store.userPhaseNotes"
               ></textarea>
             </div>
           </div>

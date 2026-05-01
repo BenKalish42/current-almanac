@@ -1,0 +1,21 @@
+{
+  "name": "Current Almanac",
+  "short_name": "Current",
+  "description": "A timing instrument. Describes conditions; never prescribes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0d10",
+  "theme_color": "#0c0d10",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["lifestyle", "education"],
+  "prefer_related_applications": false
+}

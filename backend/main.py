@@ -44,7 +44,15 @@ from .schemas import (
     Prescription,
 )
 from .services.alchemy_math import build_prescription, match_neidan_for_pattern, merge_formulas as he_fang_merge
-from .services.llm_service import chat_stream, has_deepseek_key, interpret_with_llm
+from .services.ensembles import run_ensemble
+from .services.llm_service import (
+    MODEL_CATALOG,
+    chat_stream,
+    family_key_configured,
+    has_deepseek_key,
+    interpret_with_llm,
+)
+from .services.rag_service import format_context, rag
 
 try:
     from openai import APIError, APIStatusError, APIConnectionError
@@ -79,10 +87,99 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
     )
 
 
+# -----------------------------------------------------------------------------
+# Intelligence workbench: model catalog + ensemble strategy metadata
+# -----------------------------------------------------------------------------
+
+ENSEMBLE_STRATEGIES = [
+    {
+        "id": "single",
+        "label": "Single",
+        "description": "Use only the selected model.",
+    },
+    {
+        "id": "fallback",
+        "label": "Fallback",
+        "description": "Try the selected model, then configured providers in priority order.",
+    },
+    {
+        "id": "parallel_judge",
+        "label": "Parallel Judge",
+        "description": "Each configured family drafts; the selected model synthesizes a final answer.",
+        "needsMultipleProviders": True,
+    },
+    {
+        "id": "specialist_committee",
+        "label": "Specialist Committee",
+        "description": "DeepSeek=Astrology · ChatGPT=Herbal Alchemy · Claude=Plain Language · Gemini=Synthesis.",
+        "needsMultipleProviders": True,
+    },
+    {
+        "id": "self_consistency",
+        "label": "Self-Consistency",
+        "description": "Three drafts from the selected model, then a consolidator pass.",
+    },
+    {
+        "id": "critic_reviser",
+        "label": "Critic / Reviser",
+        "description": "Draft, then critique, then revise — all on the selected model.",
+    },
+    {
+        "id": "confidence_escalation",
+        "label": "Confidence Escalation",
+        "description": "Cheap model first; escalate to the strongest model if uncertainty is detected.",
+    },
+    {
+        "id": "structured_verifier",
+        "label": "Structured Verifier",
+        "description": "Primary draft + verifier audit pass for safety, disclaimers, and herb grounding.",
+    },
+]
+
+
 @app.get("/health", response_model=HealthResponse)
 def health_check() -> HealthResponse:
     """Health check for load balancers and monitoring."""
     return HealthResponse(status="ok", version="current_v1")
+
+
+@app.get("/api/models")
+def list_models() -> dict[str, Any]:
+    """
+    Return Intelligence workbench metadata: model families/subtypes, ensemble
+    strategies, and KnowledgeRAG availability. Frontend uses this to render
+    provider cards and badges. No API keys are returned.
+    """
+    families = []
+    for fid, fam in MODEL_CATALOG.items():
+        families.append(
+            {
+                "id": fid,
+                "label": fam.get("label", fid),
+                "provider": fam.get("provider", ""),
+                "envKeys": list(fam.get("env", []) or []),
+                "keyConfigured": family_key_configured(fid),
+                "subtypes": [
+                    {
+                        "id": st["id"],
+                        "label": st["label"],
+                        "model": st["model"],
+                        "description": st.get("description", ""),
+                    }
+                    for st in fam.get("subtypes", [])
+                ],
+            }
+        )
+
+    rag_available = rag.is_available()
+    return {
+        "families": families,
+        "strategies": ENSEMBLE_STRATEGIES,
+        "rag": {
+            "available": rag_available,
+            "backend": "neo4j" if rag_available else "seed",
+        },
+    }
 
 
 @app.post("/api/interpret", response_model=InterpretationResponse)
@@ -200,53 +297,94 @@ def check_override(request: OverrideCheckRequest) -> OverrideCheckResponse:
 @app.post("/api/chat")
 async def chat_stream_endpoint(request: Request) -> StreamingResponse:
     """
-    Stream chat completions from DeepSeek (Zhuang).
-    AI SDK UI Message Stream format. Requires DEEPSEEK_API_KEY.
+    Stream chat completions for the Intelligence workbench.
+
+    Body shape (all ``intelligence`` fields optional, defaults applied):
+        {
+          "messages": [...],
+          "intelligence": {
+            "family": "claude"|"chatgpt"|"gemini"|"deepseek",
+            "model":  subtype id,
+            "strategy": one of ENSEMBLE_STRATEGIES.id,
+            "selectedModelsByFamily": {family_id: subtype_id},
+            "ragEnabled": bool
+          }
+        }
+
+    Streams the AI-SDK SSE envelope (``start``, ``text-start``, ``text-delta``,
+    ``text-end``, ``finish``) so the existing ``useChat`` composable continues
+    to render incremental output unchanged.
     """
     message_id = str(uuid.uuid4())
     text_id = "text-1"
 
     try:
         body = await request.json()
-        messages_raw = body.get("messages", [])
-        messages = [
-            {"role": m.get("role", "user"), "content": _message_text(m)}
-            for m in messages_raw
-        ]
+        messages_raw = body.get("messages", []) or []
+        intelligence = body.get("intelligence") or {}
     except Exception:
-        messages = []
+        messages_raw = []
+        intelligence = {}
+
+    messages: list[dict[str, Any]] = [
+        {"role": m.get("role", "user"), "content": _message_text(m)}
+        for m in messages_raw
+    ]
+
+    # Normalize intelligence options with defaults.
+    family = intelligence.get("family") or "deepseek"
+    subtype = intelligence.get("model") or "chat"
+    strategy = intelligence.get("strategy") or "single"
+    selected_by_family = intelligence.get("selectedModelsByFamily") or {}
+    rag_enabled = bool(intelligence.get("ragEnabled"))
+
+    opts = {
+        "family": family,
+        "model": subtype,
+        "strategy": strategy,
+        "selectedModelsByFamily": selected_by_family,
+        "ragEnabled": rag_enabled,
+    }
+
+    # Build optional KnowledgeRAG context block from the most recent user turn.
+    rag_context: str | None = None
+    if rag_enabled and messages:
+        last_user = next(
+            (m["content"] for m in reversed(messages) if m.get("role") == "user"),
+            "",
+        )
+        if last_user:
+            try:
+                snippets = rag.retrieve(last_user, k=5)
+                rag_context = format_context(snippets)
+            except Exception:
+                rag_context = None
 
     async def generate() -> AsyncGenerator[str, None]:
         yield f"data: {json.dumps({'type': 'start', 'messageId': message_id})}\n\n"
         yield f"data: {json.dumps({'type': 'text-start', 'id': text_id})}\n\n"
 
         if not messages:
-            fallback = "Send a message to chat with Zhuang about Daoist astrology or herbal alchemy."
+            fallback = "Send a message to chat with the Intelligence workbench."
             for ch in fallback:
                 yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': ch})}\n\n"
         else:
             try:
-                for chunk in chat_stream(messages):
-                    delta = chunk.get("delta", "")
-                    if delta:
-                        yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': delta})}\n\n"
-            except (ValueError, APIStatusError, APIConnectionError) as e:
-                err = str(e)
-                if isinstance(e, APIStatusError):
-                    sc = getattr(e, "status_code", None)
-                    if sc == 401:
-                        err = "Invalid DeepSeek API key. Check DEEPSEEK_API_KEY."
-                    elif sc == 429:
-                        err = "DeepSeek rate limit exceeded. Try again shortly."
-                    elif sc == 404:
-                        err = "DeepSeek API endpoint not found. Try DEEPSEEK_BASE_URL=https://api.deepseek.com/v1"
-                elif isinstance(e, APIConnectionError):
-                    err = "Cannot reach DeepSeek API. Check network."
-                for ch in err:
-                    yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': ch})}\n\n"
-            except Exception as e:
-                for ch in "AI service error. Try again or check backend logs.":
-                    yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': ch})}\n\n"
+                for delta in run_ensemble(strategy, messages, opts, rag_context):
+                    if not delta:
+                        continue
+                    yield (
+                        "data: "
+                        f"{json.dumps({'type': 'text-delta', 'id': text_id, 'delta': delta})}"
+                        "\n\n"
+                    )
+            except Exception as e:  # noqa: BLE001 — funnel into stream
+                err = (
+                    "Intelligence backend error: "
+                    f"{type(e).__name__}: {str(e)[:200]}. "
+                    "Check backend logs."
+                )
+                yield f"data: {json.dumps({'type': 'text-delta', 'id': text_id, 'delta': err})}\n\n"
 
         yield f"data: {json.dumps({'type': 'text-end', 'id': text_id})}\n\n"
         yield f"data: {json.dumps({'type': 'finish', 'finishReason': 'stop'})}\n\n"

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+out
 *.local
 .env
 
@@ -28,6 +29,13 @@ dist-ssr
 backend/.env
 backend/__pycache__
 *.pyc
+
+# Native app signing material
+*.jks
+*.keystore
+*.mobileprovision
+*.p12
+*.cer
 
 # Python virtualenv
 .venv/
