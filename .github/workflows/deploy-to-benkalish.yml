@@ -4,14 +4,12 @@ name: Deploy to benkalish.com (PersonalWebsite)
 # `static/Current/` directory. Netlify is hooked to PersonalWebsite, so the
 # push there triggers the live deploy.
 #
-# Required secrets (configure in GitHub → Settings → Secrets → Actions):
-#   PERSONAL_WEBSITE_TOKEN     — PAT with `repo` scope on BenKalish42/PersonalWebsite
-#   VITE_API_URL               — optional backend URL; LLM features 404 on live site if unset
-#   VITE_DEEPSEEK_API_KEY      — DeepSeek key for the Workbench / Oracle on live site
-#   VITE_OPENAI_API_KEY        — optional secondary provider
-#   VITE_GEMINI_API_KEY        — optional secondary provider
+# Required secrets:
+#   PERSONAL_WEBSITE_TOKEN — PAT with contents:write on BenKalish42/PersonalWebsite
 #
-# Triggers: push to master + manual.
+# Optional secrets (live LLM features — but VITE_*_API_KEY values bake into
+# the public bundle; prefer routing through VITE_API_URL):
+#   VITE_API_URL, VITE_DEEPSEEK_API_KEY, VITE_OPENAI_API_KEY, VITE_GEMINI_API_KEY
 
 on:
   push:
@@ -24,25 +22,27 @@ jobs:
     if: github.repository == 'BenKalish42/current-almanac'
     permissions:
       contents: read
+    env:
+      HAS_TOKEN: ${{ secrets.PERSONAL_WEBSITE_TOKEN != '' }}
     steps:
-      - name: Pre-flight — require PERSONAL_WEBSITE_TOKEN
+      - name: Pre-flight — PERSONAL_WEBSITE_TOKEN check
         run: |
-          if [ -z "${{ secrets.PERSONAL_WEBSITE_TOKEN }}" ]; then
-            echo "::warning::PERSONAL_WEBSITE_TOKEN is not configured — skipping deploy."
+          if [ "${HAS_TOKEN}" != "true" ]; then
+            echo "::warning::PERSONAL_WEBSITE_TOKEN not configured — exiting early."
             echo "  Add a PAT with contents:write on BenKalish42/PersonalWebsite"
             echo "  in Settings → Secrets and variables → Actions."
-            echo "  Alternatively, configure NETLIFY_AUTH_TOKEN + NETLIFY_SITE_ID"
-            echo "  and use the deploy-to-netlify.yml workflow."
-            exit 0
+            echo "  Alternatively use deploy-to-netlify.yml (NETLIFY_AUTH_TOKEN + NETLIFY_SITE_ID)."
           fi
 
       - name: Checkout current-almanac
+        if: env.HAS_TOKEN == 'true'
         uses: actions/checkout@v4
         with:
           path: current-almanac
           fetch-depth: 0
 
       - name: Checkout PersonalWebsite
+        if: env.HAS_TOKEN == 'true'
         uses: actions/checkout@v4
         with:
           repository: BenKalish42/PersonalWebsite
@@ -50,6 +50,7 @@ jobs:
           path: PersonalWebsite
 
       - name: Set up Node 20
+        if: env.HAS_TOKEN == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -57,14 +58,17 @@ jobs:
           cache-dependency-path: current-almanac/package-lock.json
 
       - name: Install dependencies
+        if: env.HAS_TOKEN == 'true'
         working-directory: current-almanac
         run: npm ci --no-audit --no-fund
 
-      - name: Run tests (gate the deploy)
+      - name: Run tests (gate)
+        if: env.HAS_TOKEN == 'true'
         working-directory: current-almanac
         run: npm test -- --run
 
       - name: Build production bundle
+        if: env.HAS_TOKEN == 'true'
         working-directory: current-almanac
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
@@ -73,13 +77,13 @@ jobs:
           VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
         run: |
-          # Sync AI-generated seed hexagrams into the bundle (parity with deploy_to_benkalish.sh).
           if [ -f data/output/seed_hexagrams.json ]; then
             cp data/output/seed_hexagrams.json src/data/seed_hexagrams.json
           fi
           npm run build
 
-      - name: Verify dist/ contents
+      - name: Verify dist/
+        if: env.HAS_TOKEN == 'true'
         working-directory: current-almanac
         run: |
           test -f dist/index.html
@@ -87,12 +91,14 @@ jobs:
           ls -lah dist/
 
       - name: Sync dist/ → PersonalWebsite/static/Current/
+        if: env.HAS_TOKEN == 'true'
         run: |
           mkdir -p PersonalWebsite/static/Current
           rm -rf PersonalWebsite/static/Current/*
           cp -R current-almanac/dist/* PersonalWebsite/static/Current/
 
       - name: Commit and push to PersonalWebsite (if changed)
+        if: env.HAS_TOKEN == 'true'
         working-directory: PersonalWebsite
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
