@@ -28,7 +28,9 @@
     "backend": "python3.12 -m uvicorn backend.main:app --reload --port 8000",
     "cap:sync": "npx cap sync",
     "cap:ios": "npx cap open ios",
-    "cap:android": "npx cap open android"
+    "cap:android": "npx cap open android",
+    "cap:doctor": "npx cap doctor",
+    "test:perf": "vitest run tests/perf"
   },
   "dependencies": {
     "@ai-sdk/vue": "^3.0.97",
