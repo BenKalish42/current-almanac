@@ -26,6 +26,8 @@ out
 *.sw?
 
 # Backend
+/.venv/
+/.venv*/
 backend/.env
 backend/__pycache__
 *.pyc
