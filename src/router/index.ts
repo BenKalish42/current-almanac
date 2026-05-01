@@ -23,14 +23,21 @@ const router = createRouter({
       component: () => import("@/views/AlchemyView.vue"),
     },
     {
+      // Legacy alias — redirect to the Workbench.
       path: "/ai",
-      name: "ai",
-      component: () => import("@/views/AIChatView.vue"),
+      redirect: "/workbench",
     },
     {
-      path: "/community",
-      name: "community",
-      component: () => import("@/views/CommunityView.vue"),
+      // Pillar 3 — Sovereign Courtyard (Matrix shell).
+      path: "/intelligence",
+      name: "intelligence",
+      component: () => import("@/views/IntelligenceView.vue"),
+    },
+    {
+      // Power-user Workbench — multi-family LLM + RAG.
+      path: "/workbench",
+      name: "workbench",
+      component: () => import("@/views/WorkbenchView.vue"),
     },
   ],
 });

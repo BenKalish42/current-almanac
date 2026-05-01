@@ -8,11 +8,11 @@ import ToolbarSettingsMenu from "@/components/toolbar/ToolbarSettingsMenu.vue";
     <nav class="app-nav" aria-label="Main navigation">
       <RouterLink to="/astrology" class="nav-link">Astrology</RouterLink>
       <RouterLink to="/alchemy" class="nav-link">Alchemy</RouterLink>
-      <RouterLink to="/ai" class="nav-link">Intelligence</RouterLink>
+      <RouterLink to="/intelligence" class="nav-link">Intelligence</RouterLink>
       <div style="flex: 1"></div>
       <ToolbarSettingsMenu trigger-class="nav-link" />
       <RouterLink to="/hexagrams" class="nav-link">Hexagrams</RouterLink>
-      <RouterLink to="/community" class="nav-link">Community</RouterLink>
+      <RouterLink to="/workbench" class="nav-link">Workbench</RouterLink>
     </nav>
     <RouterView />
   </div>
