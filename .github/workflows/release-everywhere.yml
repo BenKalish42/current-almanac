@@ -35,10 +35,15 @@ env:
   NODE_VERSION: "22"
   JAVA_VERSION: "21"
   RUBY_VERSION: "3.3"
-  RELEASE_TAG: v${{ inputs.version }}
+  # `inputs.version` is null on `push`. Default to "dev" so the workflow
+  # parses cleanly on every event; dispatch overrides with the real version.
+  RELEASE_TAG: v${{ inputs.version || 'dev' }}
 
+# `inputs.version` is null on push events (this workflow is dispatch-only,
+# but GitHub still validates it on push). Use a stable group name so the
+# expression is always valid.
 concurrency:
-  group: release-${{ github.ref }}-${{ inputs.version }}
+  group: release-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
