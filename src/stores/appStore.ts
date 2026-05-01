@@ -13,6 +13,7 @@ import {
 import { generateZWDSMatrix, type ZWDSGender } from "@/core/zwds";
 import { buildSystemPrompt, fetchDaoistReading } from "@/services/intelligenceService";
 import { fetchContractBoundChat, hasLlmKey } from "@/services/llmService";
+import { synthesizeHeavens } from "@/services/oracle";
 import { useAlchemyStore } from "@/stores/alchemyStore";
 import { Lunar, LunarMonth, Solar } from "lunar-typescript";
 import { getTrueSolarTime } from "@/utils/solarTime";
@@ -984,47 +985,26 @@ export const useAppStore = defineStore("app", () => {
         currentFlowAnalysis.value = "Enter a valid birth datetime and ensure the moment is set.";
         return;
       }
-      const userPrompt = [
-        "### Natal (Past) — canonical, do not recompute",
-        "```json",
-        JSON.stringify(
-          {
-            year: bHex.year.ganzhi,
-            month: bHex.month.ganzhi,
-            day: bHex.day.ganzhi,
-            hour: bHex.hour.ganzhi,
-          },
-          null,
-          2
-        ),
-        "```",
-        "",
-        "### Present (Moment) — canonical, do not recompute",
-        "```json",
-        JSON.stringify(
-          {
-            year: mHex.year.ganzhi,
-            month: mHex.month.ganzhi,
-            day: mHex.day.ganzhi,
-            hour: mHex.hour.ganzhi,
-            active_meridian: organ,
-          },
-          null,
-          2
-        ),
-        "```",
-        "",
-        "Describe the interaction between the natal configuration and the present moment.",
-        "Identify dominant dynamics (what is increasing / decreasing) and the interaction pattern",
-        "(what happens if force is applied here). Note the active meridian as context.",
-        "If the signal is weak or contradictory, return only the non-action phrase and stop.",
-      ].join("\n");
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const text = await fetchContractBoundChat(
-          [{ role: "user", content: userPrompt }],
-          { maxTokens: 1536, temperature: 0.4, signal: controller.signal }
+        const text = await synthesizeHeavens(
+          {
+            natal: {
+              year: bHex.year.ganzhi,
+              month: bHex.month.ganzhi,
+              day: bHex.day.ganzhi,
+              hour: bHex.hour.ganzhi,
+            },
+            present: {
+              year: mHex.year.ganzhi,
+              month: mHex.month.ganzhi,
+              day: mHex.day.ganzhi,
+              hour: mHex.hour.ganzhi,
+              active_meridian: organ,
+            },
+          },
+          { signal: controller.signal }
         );
         currentFlowAnalysis.value = text?.trim() || null;
         console.debug("[requestCurrentFlowAnalysis] Success");
